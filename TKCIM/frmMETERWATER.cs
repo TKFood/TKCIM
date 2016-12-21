@@ -48,15 +48,69 @@ namespace TKCIM
         string PROIDSOURCEPROTA002;
         string MATERWATERPROIDMTA001;
         string MATERWATERPROIDMTA002;
-        string LOTID;
+
+        string MATERWATERPROIDMDTARGETPROTA001;
+        string MATERWATERPROIDMDTARGETPROTA002;
+        string MATERWATERPROIDMDMB001;
+        string MATERWATERPROIDMDMB002;
+        string MATERWATERPROIDMDLOTID;
+
+        string DELTARGETPROTA001;
+        string DELTARGETPROTA002;
+        string DELMB001;
+        string DELLOTID;
+        string DELCANNO;
         Thread TD;
 
         public frmMETERWATER()
         {
             InitializeComponent();
+            comboBox4load();
+            comboBox5load();
         }
 
         #region FUNCTION
+        public void comboBox4load()
+        {
+            connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+            sqlConn = new SqlConnection(connectionString);
+            StringBuilder Sequel = new StringBuilder();
+            Sequel.AppendFormat(@"SELECT  [ID],[NAME] FROM [TKCIM].[dbo].[EMP] ");
+            SqlDataAdapter da = new SqlDataAdapter(Sequel.ToString(), sqlConn);
+            DataTable dt = new DataTable();
+            sqlConn.Open();
+
+            dt.Columns.Add("ID", typeof(string));
+            dt.Columns.Add("NAME", typeof(string));
+            da.Fill(dt);
+            comboBox4.DataSource = dt.DefaultView;
+            comboBox4.ValueMember = "NAME";
+            comboBox4.DisplayMember = "NAME";
+            sqlConn.Close();
+           
+
+        }
+        public void comboBox5load()
+        {
+            connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+            sqlConn = new SqlConnection(connectionString);
+            StringBuilder Sequel = new StringBuilder();
+            Sequel.AppendFormat(@"SELECT  [ID],[NAME] FROM [TKCIM].[dbo].[EMP] ");
+            SqlDataAdapter da = new SqlDataAdapter(Sequel.ToString(), sqlConn);
+            DataTable dt = new DataTable();
+            sqlConn.Open();
+
+            dt.Columns.Add("ID", typeof(string));
+            dt.Columns.Add("NAME", typeof(string));
+            da.Fill(dt);
+            comboBox5.DataSource = dt.DefaultView;
+            comboBox5.ValueMember = "NAME";
+            comboBox5.DisplayMember = "NAME";
+            sqlConn.Close();
+
+
+        }
+
         public void SERACHMOCTARGET()
         {
             try
@@ -632,12 +686,21 @@ namespace TKCIM
                 if (rowindex >= 0)
                 {
                     DataGridViewRow row = dataGridView6.Rows[rowindex];
-                    LOTID = row.Cells["批號"].Value.ToString();                    
+                    MATERWATERPROIDMDTARGETPROTA001 = row.Cells["單別"].Value.ToString();
+                    MATERWATERPROIDMDTARGETPROTA002 = row.Cells["單號"].Value.ToString();
+                    MATERWATERPROIDMDMB001 = row.Cells["品號"].Value.ToString();
+                    MATERWATERPROIDMDMB002 = row.Cells["品名"].Value.ToString();
+                    MATERWATERPROIDMDLOTID = row.Cells["批號"].Value.ToString();
+                 
 
                 }
                 else
                 {
-                    LOTID = null;
+                    MATERWATERPROIDMDTARGETPROTA001 = null;
+                    MATERWATERPROIDMDTARGETPROTA002 = null;
+                    MATERWATERPROIDMDMB001 = null;
+                    MATERWATERPROIDMDMB002 = null;
+                    MATERWATERPROIDMDLOTID = null;
                 }
             }
         }
@@ -655,7 +718,7 @@ namespace TKCIM
 
                 sbSql.Clear();
                 sbSql.AppendFormat(" DELETE  [TKCIM].[dbo].[MATERWATERPROIDM] "); 
-                sbSql.AppendFormat(" WHERE [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}'  AND [LOTID]='{2}'  ", MATERWATERPROIDMTA001, MATERWATERPROIDMTA002, LOTID);
+                sbSql.AppendFormat(" WHERE [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}'  AND [LOTID]='{2}'  ", MATERWATERPROIDMTA001, MATERWATERPROIDMTA002, MATERWATERPROIDMDLOTID);
 
                 cmd.Connection = sqlConn;
                 cmd.CommandTimeout = 60;
@@ -684,6 +747,175 @@ namespace TKCIM
                 sqlConn.Close();
             }
             SEARCHMATERWATERPROIDM();
+        }
+
+        public void SEARCHMATERWATERPROIDMD()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sbSql.Clear();
+                sbSqlQuery.Clear();
+                             
+                sbSql.AppendFormat(@"  SELECT [TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002]");
+                sbSql.AppendFormat(@"  ,[LOTID],[CANNO],[NUM],[OUTLOOK],[STIME],[ETIME]");
+                sbSql.AppendFormat(@"  ,[TEMP],[HUDI],[MOVEIN],[CHECKEMP]");
+                sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[MATERWATERPROIDMD]");
+                sbSql.AppendFormat(@"  WHERE [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}' ", MATERWATERPROIDMDTARGETPROTA001, MATERWATERPROIDMDTARGETPROTA002);
+                sbSql.AppendFormat(@"  ORDER BY [TARGETPROTA001],[TARGETPROTA002],[CANNO],[MB001]");
+                sbSql.AppendFormat(@"  ");
+
+
+
+                adapter = new SqlDataAdapter(@"" + sbSql, sqlConn);
+
+                sqlCmdBuilder = new SqlCommandBuilder(adapter);
+                sqlConn.Open();
+                ds7.Clear();
+                adapter.Fill(ds7, "TEMPds7");
+                sqlConn.Close();
+
+
+                if (ds7.Tables["TEMPds7"].Rows.Count == 0)
+                {
+
+                }
+                else
+                {
+                    if (ds7.Tables["TEMPds7"].Rows.Count >= 1)
+                    {
+                        //dataGridView1.Rows.Clear();
+                        dataGridView7.DataSource = ds7.Tables["TEMPds7"];
+                        dataGridView7.AutoResizeColumns();
+                        //dataGridView1.CurrentCell = dataGridView1[0, rownum];
+
+                    }
+                }
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+
+            }
+        }
+        public void ADDMATERWATERPROIDMD()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sqlConn.Close();
+                sqlConn.Open();
+                tran = sqlConn.BeginTransaction();
+
+                sbSql.Clear();
+                sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERPROIDMD]");
+                sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[LOTID],[CANNO],[NUM],[OUTLOOK],[STIME],[ETIME],[TEMP],[HUDI],[MOVEIN],[CHECKEMP])");
+                sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}') ", MATERWATERPROIDMDTARGETPROTA001, MATERWATERPROIDMDTARGETPROTA002, MATERWATERPROIDMDMB001, MATERWATERPROIDMDMB002, MATERWATERPROIDMDLOTID,numericUpDown1.Value.ToString(),textBox6.Text,comboBox3.Text.ToString(),dateTimePicker6.Value.ToString("HH:mm"), dateTimePicker7.Value.ToString("HH:mm"),textBox7.Text,textBox8.Text,comboBox4.Text.ToString(),comboBox5.Text.ToString());
+                sbSql.AppendFormat(" ");
+
+                cmd.Connection = sqlConn;
+                cmd.CommandTimeout = 60;
+                cmd.CommandText = sbSql.ToString();
+                cmd.Transaction = tran;
+                result = cmd.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    tran.Rollback();    //交易取消
+                }
+                else
+                {
+                    tran.Commit();      //執行交易  
+
+
+                }
+                SEARCHMATERWATERPROIDMD();
+            }
+            catch
+            {
+
+            }
+
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
+        private void dataGridView7_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView7.CurrentRow != null)
+            {
+                int rowindex = dataGridView7.CurrentRow.Index;
+                if (rowindex >= 0)
+                {
+                    DataGridViewRow row = dataGridView7.Rows[rowindex];
+                    DELTARGETPROTA001 = row.Cells["TARGETPROTA001"].Value.ToString();
+                    DELTARGETPROTA002 = row.Cells["TARGETPROTA002"].Value.ToString();
+                    DELMB001 = row.Cells["MB001"].Value.ToString();
+                    DELLOTID = row.Cells["LOTID"].Value.ToString();
+                    DELCANNO = row.Cells["CANNO"].Value.ToString();                   
+                }
+                else
+                {
+                    DELTARGETPROTA001 = null;
+                    DELTARGETPROTA002 = null;
+                    DELMB001 = null;
+                    DELLOTID = null;
+                    DELCANNO = null;
+                }
+            }
+        }
+        public void DELMATERWATERPROIDMD()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sqlConn.Close();
+                sqlConn.Open();
+                tran = sqlConn.BeginTransaction();
+
+                sbSql.Clear();
+                sbSql.AppendFormat(" DELETE  [TKCIM].[dbo].[MATERWATERPROIDMD] ");
+                sbSql.AppendFormat(" WHERE [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}'  AND [MB001]='{2}'  AND [LOTID]='{3}'  AND [CANNO]='{4}'  ", DELTARGETPROTA001,DELTARGETPROTA002, DELMB001, DELLOTID, DELCANNO);
+
+                cmd.Connection = sqlConn;
+                cmd.CommandTimeout = 60;
+                cmd.CommandText = sbSql.ToString();
+                cmd.Transaction = tran;
+                result = cmd.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    tran.Rollback();    //交易取消
+                }
+                else
+                {
+                    tran.Commit();      //執行交易  
+
+
+                }
+            }
+            catch
+            {
+
+            }
+
+            finally
+            {
+                sqlConn.Close();
+            }
+            SEARCHMATERWATERPROIDMD();
+
         }
         #endregion
 
@@ -722,11 +954,20 @@ namespace TKCIM
             DELMATERWATERPROIDM();
         }
 
+        private void button8_Click(object sender, EventArgs e)
+        {
+            ADDMATERWATERPROIDMD();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            DELMATERWATERPROIDMD();
+        }
 
 
 
         #endregion
 
-       
+
     }
 }
