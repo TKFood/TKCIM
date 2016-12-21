@@ -35,6 +35,7 @@ namespace TKCIM
         DataTable dt = new DataTable();
         string tablename = null;
         int result;
+        string CHECKYN = "N";
         Thread TD;
 
         public frmMETERWATER()
@@ -128,6 +129,16 @@ namespace TKCIM
                 adapter.Fill(ds2, "TEMPds2");
                 sqlConn.Close();
 
+                if (CHECKYN.Equals("N"))
+                {
+                    //建立一個DataGridView的Column物件及其內容
+                    DataGridViewColumn dgvc = new DataGridViewCheckBoxColumn();
+                    dgvc.Width = 40;
+                    dgvc.Name = "選取";
+
+                    this.dataGridView2.Columns.Insert(0, dgvc);
+                    CHECKYN = "Y";
+                }
 
                 if (ds2.Tables["TEMPds2"].Rows.Count == 0)
                 {
@@ -137,6 +148,7 @@ namespace TKCIM
                 {
                     if (ds2.Tables["TEMPds2"].Rows.Count >= 1)
                     {
+                       
                         //dataGridView1.Rows.Clear();
                         dataGridView2.DataSource = ds2.Tables["TEMPds2"];
                         dataGridView2.AutoResizeColumns();
