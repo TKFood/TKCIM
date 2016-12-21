@@ -36,6 +36,8 @@ namespace TKCIM
         string tablename = null;
         int result;
         string CHECKYN = "N";
+        string TARGETTA001;
+        string TARGETTA002;
         Thread TD;
 
         public frmMETERWATER()
@@ -117,7 +119,7 @@ namespace TKCIM
                 sbSql.AppendFormat(@"  AND TA006=MB2.MB001");
                 sbSql.AppendFormat(@"  AND MB1.MB002 LIKE '%水麵%' AND TB003 LIKE '3%'");
                 sbSql.AppendFormat(@"  AND TA003>='{0}' AND TA003<='{1}'", dateTimePicker2.Value.ToString("yyyyMMdd"), dateTimePicker3.Value.ToString("yyyyMMdd"));
-                sbSql.AppendFormat(@"  ORDER BY TA003,TA006     ");
+                sbSql.AppendFormat(@"  ORDER BY TA001,TA002,TA003,TA006     ");
                 sbSql.AppendFormat(@"  ");
 
 
@@ -168,14 +170,127 @@ namespace TKCIM
             }
         }
 
+        public void ADDMATERWATERPROID()
+        {
+            foreach (DataGridViewRow dr in this.dataGridView2.Rows)
+            {
+                if (dr.Cells[0].Value != null && (bool)dr.Cells[0].Value)
+                {
+                    try
+                    {
+                        connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                        sqlConn = new SqlConnection(connectionString);
+
+                        sqlConn.Close();
+                        sqlConn.Open();
+                        tran = sqlConn.BeginTransaction();
+
+                        sbSql.Clear();
+                        sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERPROID]");
+                        sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[SOURCEPROTA001],[SOURCEPROTA002])");
+                        sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}')",TARGETTA001,TARGETTA002, dr.Cells["單別"].Value.ToString(), dr.Cells["單號"].Value.ToString());
+
+                        cmd.Connection = sqlConn;
+                        cmd.CommandTimeout = 60;
+                        cmd.CommandText = sbSql.ToString();
+                        cmd.Transaction = tran;
+                        result = cmd.ExecuteNonQuery();
+
+                        if (result == 0)
+                        {
+                            tran.Rollback();    //交易取消
+                        }
+                        else
+                        {
+                            tran.Commit();      //執行交易  
+
+
+                        }
+                    }
+                    catch
+                    {
+
+                    }
+
+                    finally
+                    {
+                        sqlConn.Close();
+                    }
+                }
+            }
+
+            SEARCHMATERWATERPROID();
+        }
         public void SEARCHMATERWATERPROID()
         {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
 
+                sbSql.Clear();
+                sbSqlQuery.Clear();
+
+                sbSql.AppendFormat(@"  SELECT [TARGETPROTA001] AS '目標單別',[TARGETPROTA002] AS '目標單號',[SOURCEPROTA001] AS '來源單別',[SOURCEPROTA002] AS '來源單號'");
+                sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[MATERWATERPROID]");
+                sbSql.AppendFormat(@"  WHERE [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}' ",TARGETTA001,TARGETTA002);
+                sbSql.AppendFormat(@"  ");
+
+
+                adapter = new SqlDataAdapter(@"" + sbSql, sqlConn);
+
+                sqlCmdBuilder = new SqlCommandBuilder(adapter);
+                sqlConn.Open();
+                ds3.Clear();
+                adapter.Fill(ds3, "TEMPds3");
+                sqlConn.Close();
+
+
+                if (ds3.Tables["TEMPds3"].Rows.Count == 0)
+                {
+
+                }
+                else
+                {
+                    if (ds3.Tables["TEMPds3"].Rows.Count >= 1)
+                    {
+                        //dataGridView1.Rows.Clear();
+                        dataGridView3.DataSource = ds3.Tables["TEMPds3"];
+                        dataGridView3.AutoResizeColumns();
+                        //dataGridView1.CurrentCell = dataGridView1[0, rownum];
+
+                    }
+                }
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+
+            }
         }
 
         public void DELMATERWATERPROID()
         {
 
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow != null)
+            {
+                int rowindex = dataGridView1.CurrentRow.Index;
+                if (rowindex >= 0)
+                {
+                    DataGridViewRow row = dataGridView1.Rows[rowindex];
+                    TARGETTA001 = row.Cells["單別"].Value.ToString();
+                    TARGETTA002 = row.Cells["單號"].Value.ToString();
+                    SEARCHMATERWATERPROID();
+                }
+            }
         }
         #endregion
 
@@ -192,15 +307,16 @@ namespace TKCIM
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            ADDMATERWATERPROID();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
 
         }
+
         #endregion
 
-
+      
     }
 }
