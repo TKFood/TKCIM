@@ -38,6 +38,10 @@ namespace TKCIM
         string CHECKYN = "N";
         string TARGETTA001;
         string TARGETTA002;
+        string PROIDTARGETPROTA001;
+        string PROIDTARGETPROTA002;
+        string PROIDSOURCEPROTA001;
+        string PROIDSOURCEPROTA002;
         Thread TD;
 
         public frmMETERWATER()
@@ -275,7 +279,45 @@ namespace TKCIM
 
         public void DELMATERWATERPROID()
         {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
 
+                sqlConn.Close();
+                sqlConn.Open();
+                tran = sqlConn.BeginTransaction();
+
+                sbSql.Clear();
+                sbSql.AppendFormat(" DELETE  [TKCIM].[dbo].[MATERWATERPROID] WHERE [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}'  AND [SOURCEPROTA001]='{2}'  AND [SOURCEPROTA002]='{3}' ",PROIDTARGETPROTA001,PROIDTARGETPROTA002,PROIDSOURCEPROTA001,PROIDSOURCEPROTA002);
+             
+                cmd.Connection = sqlConn;
+                cmd.CommandTimeout = 60;
+                cmd.CommandText = sbSql.ToString();
+                cmd.Transaction = tran;
+                result = cmd.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    tran.Rollback();    //交易取消
+                }
+                else
+                {
+                    tran.Commit();      //執行交易  
+
+
+                }
+            }
+            catch
+            {
+
+            }
+
+            finally
+            {
+                sqlConn.Close();
+            }
+            SEARCHMATERWATERPROID();
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
@@ -289,6 +331,23 @@ namespace TKCIM
                     TARGETTA001 = row.Cells["單別"].Value.ToString();
                     TARGETTA002 = row.Cells["單號"].Value.ToString();
                     SEARCHMATERWATERPROID();
+                }
+            }
+        }
+
+        private void dataGridView3_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView3.CurrentRow != null)
+            {
+                int rowindex = dataGridView3.CurrentRow.Index;
+                if (rowindex >= 0)
+                {
+                    DataGridViewRow row = dataGridView3.Rows[rowindex];
+                    PROIDTARGETPROTA001 = row.Cells["目標單別"].Value.ToString();
+                    PROIDTARGETPROTA002 = row.Cells["目標單號"].Value.ToString();
+                    PROIDSOURCEPROTA001 = row.Cells["來源單別"].Value.ToString();
+                    PROIDSOURCEPROTA002 = row.Cells["來源單號"].Value.ToString();
+                    
                 }
             }
         }
@@ -312,11 +371,12 @@ namespace TKCIM
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            DELMATERWATERPROID();
         }
+
 
         #endregion
 
-      
+        
     }
 }
