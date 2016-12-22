@@ -552,9 +552,15 @@ namespace TKCIM
                 adapter.Fill(ds5, "TEMPds5");
                 sqlConn.Close();
 
-
+                int i = 1;
                 if (ds5.Tables["TEMPds5"].Rows.Count == 0)
                 {
+                    for (int j = 1; j <= 7; j++)
+                    {
+                        TextBox iTextBox = (TextBox)FindControl(this, "textBox" + j);
+                        iTextBox.Text =null;
+                        i++;
+                    }
 
                 }
                 else
@@ -565,7 +571,7 @@ namespace TKCIM
                         dataGridView5.DataSource = ds5.Tables["TEMPds5"];
                         dataGridView5.AutoResizeColumns();
                         //dataGridView1.CurrentCell = dataGridView1[0, rownum];
-                        int i = 1;
+                       
                         foreach (DataGridViewRow dr in this.dataGridView5.Rows)
                         {
                             if(i<=7)
@@ -693,7 +699,11 @@ namespace TKCIM
                     sbSql.AppendFormat(" ");
                 }
 
-
+                sbSql.AppendFormat(" UPDATE [TKCIM].[dbo].[MATERWATERPROIDM] SET [MATERWATERPROIDM].[MB001]=[INVMB].[MB001]");
+                sbSql.AppendFormat(" FROM [TK].[dbo].[INVMB]");
+                sbSql.AppendFormat(" WHERE [MATERWATERPROIDM].[MB002]=[INVMB].[MB002]");
+                sbSql.AppendFormat(" AND ISNULL([MATERWATERPROIDM].[MB001],'')=''");
+                sbSql.AppendFormat(" ");
 
 
                 cmd.Connection = sqlConn;
@@ -751,10 +761,18 @@ namespace TKCIM
                 adapter.Fill(ds6, "TEMPds6");
                 sqlConn.Close();
 
-
+               
                 if (ds6.Tables["TEMPds6"].Rows.Count == 0)
-                {
-
+                {                    
+                    for (int j=1; j<= 7; j++)
+                    {
+                        TextBox iTextBox = (TextBox)FindControl(this, "textBox3" + j);
+                        iTextBox.Text = null;
+                        TextBox iTextBox2 = (TextBox)FindControl(this, "textBox4" + j);
+                        iTextBox2.Text = null;
+                       
+                    }
+                   
                 }
                 else
                 {
@@ -764,7 +782,19 @@ namespace TKCIM
                         dataGridView6.DataSource = ds6.Tables["TEMPds6"];
                         dataGridView6.AutoResizeColumns();
                         //dataGridView1.CurrentCell = dataGridView1[0, rownum];
+                        int i = 1;
+                        foreach (DataGridViewRow dr in this.dataGridView6.Rows)
+                        {
+                            if (i <= 7)
+                            {
+                                TextBox iTextBox = (TextBox)FindControl(this, "textBox3" + i);
+                                iTextBox.Text = dr.Cells["批號"].Value.ToString();
+                                TextBox iTextBox2 = (TextBox)FindControl(this, "textBox4" + i);
+                                iTextBox2.Text = dr.Cells["品名"].Value.ToString();
+                                i++;
+                            }
 
+                        }
                     }
                 }
 
@@ -916,6 +946,10 @@ namespace TKCIM
                 tran = sqlConn.BeginTransaction();
 
                 sbSql.Clear();
+                if(!string.IsNullOrEmpty(textBox41.Text))
+                {
+
+                }
                 sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERPROIDMD]");
                 sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[LOTID],[CANNO],[NUM],[OUTLOOK],[STIME],[ETIME],[TEMP],[HUDI],[MOVEIN],[CHECKEMP])");
                 //sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}') ", MATERWATERPROIDMDTARGETPROTA001, MATERWATERPROIDMDTARGETPROTA002, MATERWATERPROIDMDMB001, MATERWATERPROIDMDMB002, MATERWATERPROIDMDLOTID,numericUpDown1.Value.ToString(),textBox6.Text,comboBox3.Text.ToString(),dateTimePicker6.Value.ToString("HH:mm"), dateTimePicker7.Value.ToString("HH:mm"),textBox7.Text,textBox8.Text,comboBox4.Text.ToString(),comboBox5.Text.ToString());
