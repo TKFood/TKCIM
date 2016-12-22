@@ -516,8 +516,9 @@ namespace TKCIM
                     MATERWATERPROIDMTA002 = row.Cells["單號"].Value.ToString();
                     SERACHMOCTARGETLOTUSED();
                     SEARCHMATERWATERPROIDM();
+                    SEARCHMATERWATERPROIDMD();
 
-                    
+
                 }
                 else
                 {
@@ -889,9 +890,9 @@ namespace TKCIM
                 sbSql.Clear();
                 sbSqlQuery.Clear();
                              
-                sbSql.AppendFormat(@"  SELECT [TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002]");
-                sbSql.AppendFormat(@"  ,[LOTID],[CANNO],[NUM],[OUTLOOK],[STIME],[ETIME]");
-                sbSql.AppendFormat(@"  ,[TEMP],[HUDI],[MOVEIN],[CHECKEMP]");
+                sbSql.AppendFormat(@"  SELECT [TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號',[MB001] AS '品號',[MB002] AS '品名'");
+                sbSql.AppendFormat(@"  ,[LOTID] AS '批號',[CANNO] AS '桶數',[NUM] AS '重量',[OUTLOOK] AS '外觀',[STIME] AS '起時間',[ETIME] AS '迄時間'");
+                sbSql.AppendFormat(@"  ,[TEMP] AS '溫度' ,[HUDI] AS '溼度',[MOVEIN] AS '投料人',[CHECKEMP] AS '抽檢人'");
                 sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[MATERWATERPROIDMD]");
                 sbSql.AppendFormat(@"  WHERE [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}' ", MATERWATERPROIDMDTARGETPROTA001, MATERWATERPROIDMDTARGETPROTA002);
                 sbSql.AppendFormat(@"  ORDER BY [TARGETPROTA001],[TARGETPROTA002],[CANNO],[MB001]");
@@ -946,14 +947,68 @@ namespace TKCIM
                 tran = sqlConn.BeginTransaction();
 
                 sbSql.Clear();
-                if(!string.IsNullOrEmpty(textBox41.Text))
+                if(!string.IsNullOrEmpty(textBox51.Text))
                 {
+                    sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERPROIDMD]");
+                    sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[LOTID],[CANNO],[NUM])");
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}') ", MATERWATERPROIDMDTARGETPROTA001, MATERWATERPROIDMDTARGETPROTA002, null, textBox41.Text, textBox31.Text, numericUpDown1.Value.ToString(), textBox51.Text);
+                    sbSql.AppendFormat(" ");
 
                 }
-                sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERPROIDMD]");
-                sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[LOTID],[CANNO],[NUM],[OUTLOOK],[STIME],[ETIME],[TEMP],[HUDI],[MOVEIN],[CHECKEMP])");
+                if (!string.IsNullOrEmpty(textBox52.Text))
+                {
+                    sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERPROIDMD]");
+                    sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[LOTID],[CANNO],[NUM])");
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}') ", MATERWATERPROIDMDTARGETPROTA001, MATERWATERPROIDMDTARGETPROTA002, null, textBox42.Text, textBox32.Text, numericUpDown1.Value.ToString(), textBox52.Text);
+                    sbSql.AppendFormat(" ");
+
+                }
+                if (!string.IsNullOrEmpty(textBox53.Text))
+                {
+                    sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERPROIDMD]");
+                    sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[LOTID],[CANNO],[NUM])");
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}') ", MATERWATERPROIDMDTARGETPROTA001, MATERWATERPROIDMDTARGETPROTA002, null, textBox43.Text, textBox33.Text, numericUpDown1.Value.ToString(), textBox53.Text);
+                    sbSql.AppendFormat(" ");
+
+                }
+                if (!string.IsNullOrEmpty(textBox54.Text))
+                {
+                    sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERPROIDMD]");
+                    sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[LOTID],[CANNO],[NUM])");
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}') ", MATERWATERPROIDMDTARGETPROTA001, MATERWATERPROIDMDTARGETPROTA002, null ,textBox44.Text, textBox34.Text, numericUpDown1.Value.ToString(), textBox54.Text);
+                    sbSql.AppendFormat(" ");
+
+                }
+                if (!string.IsNullOrEmpty(textBox55.Text))
+                {
+                    sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERPROIDMD]");
+                    sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[LOTID],[CANNO],[NUM])");
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}') ", MATERWATERPROIDMDTARGETPROTA001, MATERWATERPROIDMDTARGETPROTA002, null ,textBox45.Text, textBox35.Text, numericUpDown1.Value.ToString(), textBox55.Text);
+                    sbSql.AppendFormat(" ");
+
+                }
+                if (!string.IsNullOrEmpty(textBox56.Text))
+                {
+                    sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERPROIDMD]");
+                    sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[LOTID],[CANNO],[NUM])");
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}') ", MATERWATERPROIDMDTARGETPROTA001, MATERWATERPROIDMDTARGETPROTA002, null, textBox46.Text, textBox36.Text, numericUpDown1.Value.ToString(), textBox56.Text);
+                    sbSql.AppendFormat(" ");
+
+                }
+                if (!string.IsNullOrEmpty(textBox57.Text))
+                {
+                    sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERPROIDMD]");
+                    sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[LOTID],[CANNO],[NUM])");
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}') ", MATERWATERPROIDMDTARGETPROTA001, MATERWATERPROIDMDTARGETPROTA002, null, textBox47.Text, textBox37.Text, numericUpDown1.Value.ToString(), textBox57.Text);
+                    sbSql.AppendFormat(" ");
+
+                }
+                //sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERPROIDMD]");
+                //sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[LOTID],[CANNO],[NUM])");
+                //sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}') ", MATERWATERPROIDMDTARGETPROTA001, MATERWATERPROIDMDTARGETPROTA002, MATERWATERPROIDMDMB001, MATERWATERPROIDMDMB002, MATERWATERPROIDMDLOTID, numericUpDown1.Value.ToString(), textBox51.Text);
+                //sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[LOTID],[CANNO],[NUM],[OUTLOOK],[STIME],[ETIME],[TEMP],[HUDI],[MOVEIN],[CHECKEMP])");
                 //sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}') ", MATERWATERPROIDMDTARGETPROTA001, MATERWATERPROIDMDTARGETPROTA002, MATERWATERPROIDMDMB001, MATERWATERPROIDMDMB002, MATERWATERPROIDMDLOTID,numericUpDown1.Value.ToString(),textBox6.Text,comboBox3.Text.ToString(),dateTimePicker6.Value.ToString("HH:mm"), dateTimePicker7.Value.ToString("HH:mm"),textBox7.Text,textBox8.Text,comboBox4.Text.ToString(),comboBox5.Text.ToString());
-                sbSql.AppendFormat(" ");
+
 
                 cmd.Connection = sqlConn;
                 cmd.CommandTimeout = 60;
@@ -971,7 +1026,7 @@ namespace TKCIM
 
 
                 }
-                SEARCHMATERWATERPROIDMD();
+                
             }
             catch
             {
@@ -991,11 +1046,11 @@ namespace TKCIM
                 if (rowindex >= 0)
                 {
                     DataGridViewRow row = dataGridView7.Rows[rowindex];
-                    DELTARGETPROTA001 = row.Cells["TARGETPROTA001"].Value.ToString();
-                    DELTARGETPROTA002 = row.Cells["TARGETPROTA002"].Value.ToString();
-                    DELMB001 = row.Cells["MB001"].Value.ToString();
-                    DELLOTID = row.Cells["LOTID"].Value.ToString();
-                    DELCANNO = row.Cells["CANNO"].Value.ToString();                   
+                    DELTARGETPROTA001 = row.Cells["單別"].Value.ToString();
+                    DELTARGETPROTA002 = row.Cells["單號"].Value.ToString();
+                    DELMB001 = row.Cells["品號"].Value.ToString();
+                    DELLOTID = row.Cells["批號"].Value.ToString();
+                    DELCANNO = row.Cells["桶數"].Value.ToString();                   
                 }
                 else
                 {
@@ -1109,6 +1164,7 @@ namespace TKCIM
         private void button8_Click(object sender, EventArgs e)
         {
             ADDMATERWATERPROIDMD();
+            SEARCHMATERWATERPROIDMD();
         }
 
         private void button9_Click(object sender, EventArgs e)
