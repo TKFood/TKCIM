@@ -65,11 +65,32 @@ namespace TKCIM
         public frmMETERWATER()
         {
             InitializeComponent();
+            comboBox1load();
             comboBox4load();
             comboBox5load();
         }
 
         #region FUNCTION
+        public void comboBox1load()
+        {
+            connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+            sqlConn = new SqlConnection(connectionString);
+            StringBuilder Sequel = new StringBuilder();
+            Sequel.AppendFormat(@"SELECT MD001,MD002 FROM CMSMD   WHERE MD002 LIKE '新%'   ");
+            SqlDataAdapter da = new SqlDataAdapter(Sequel.ToString(), sqlConn);
+            DataTable dt = new DataTable();
+            sqlConn.Open();
+
+            dt.Columns.Add("MD001", typeof(string));
+            dt.Columns.Add("MD002", typeof(string));
+            da.Fill(dt);
+            comboBox1.DataSource = dt.DefaultView;
+            comboBox1.ValueMember = "MD002";
+            comboBox1.DisplayMember = "MD002";
+            sqlConn.Close();
+
+
+        }
         public void comboBox4load()
         {
             connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
@@ -437,10 +458,12 @@ namespace TKCIM
                 sbSqlQuery.Clear();
 
                 sbSql.AppendFormat(@"  SELECT TA001 AS '單別',TA002 AS '單號',TA003 AS '日期',TA006 AS '品號',MB002  AS '品名',TA015  AS '預計產量'    ");
-                sbSql.AppendFormat(@"  FROM MOCTA WITH (NOLOCK),INVMB WITH (NOLOCK)");
+                sbSql.AppendFormat(@"  ,MD002 AS '線別'");
+                sbSql.AppendFormat(@"  FROM MOCTA WITH (NOLOCK),INVMB WITH (NOLOCK),CMSMD WITH (NOLOCK)");
                 sbSql.AppendFormat(@"  WHERE TA006=MB001");
                 sbSql.AppendFormat(@"  AND MB002 LIKE '%水麵%' AND TA006 LIKE '3%'");
                 sbSql.AppendFormat(@"  AND TA003='{0}'", dateTimePicker4.Value.ToString("yyyyMMdd"));
+                sbSql.AppendFormat(@"  AND MD002='{0}'",comboBox1.Text.ToString());
                 sbSql.AppendFormat(@"  ORDER BY TA003,TA006");
                 sbSql.AppendFormat(@"  ");
 
@@ -494,8 +517,7 @@ namespace TKCIM
                     SERACHMOCTARGETLOTUSED();
                     SEARCHMATERWATERPROIDM();
 
-                    textBox1.Text = MATERWATERPROIDMTA001;
-                    textBox2.Text = MATERWATERPROIDMTA002;
+                    
                 }
                 else
                 {
@@ -591,7 +613,7 @@ namespace TKCIM
                 sbSql.Clear();
                 sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERPROIDM]");
                 sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MAIN],[MAINDATE],[MB001],[MB002],[LOTID])");
-                sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')",textBox1.Text,textBox2.Text,comboBox1.Text.ToString(),dateTimePicker5.Value.ToString("yyyyMMdd"),textBox4.Text,textBox3.Text,comboBox2.Text.ToString()+textBox5.Text);
+               // sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATERWATERPROIDMTA001, MATERWATERPROIDMTA0012, comboBox1.Text.ToString(),dateTimePicker5.Value.ToString("yyyyMMdd"),textBox4.Text,textBox3.Text,comboBox2.Text.ToString()+textBox5.Text);
                 sbSql.AppendFormat(" ");
 
 

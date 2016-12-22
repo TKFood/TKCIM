@@ -70,7 +70,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
@@ -90,7 +89,6 @@
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.label14 = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -108,11 +106,11 @@
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.splitContainer13 = new System.Windows.Forms.SplitContainer();
-            this.dataGridView7 = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.button9 = new System.Windows.Forms.Button();
+            this.dataGridView7 = new System.Windows.Forms.DataGridView();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -182,8 +180,8 @@
             this.splitContainer13.Panel1.SuspendLayout();
             this.splitContainer13.Panel2.SuspendLayout();
             this.splitContainer13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).BeginInit();
             this.tableLayoutPanel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -591,7 +589,7 @@
             // 
             this.splitContainer7.Panel2.Controls.Add(this.splitContainer10);
             this.splitContainer7.Size = new System.Drawing.Size(677, 701);
-            this.splitContainer7.SplitterDistance = 329;
+            this.splitContainer7.SplitterDistance = 284;
             this.splitContainer7.TabIndex = 0;
             // 
             // splitContainer8
@@ -608,7 +606,7 @@
             // splitContainer8.Panel2
             // 
             this.splitContainer8.Panel2.Controls.Add(this.splitContainer9);
-            this.splitContainer8.Size = new System.Drawing.Size(677, 329);
+            this.splitContainer8.Size = new System.Drawing.Size(677, 284);
             this.splitContainer8.SplitterDistance = 225;
             this.splitContainer8.TabIndex = 0;
             // 
@@ -627,8 +625,8 @@
             // splitContainer11.Panel2
             // 
             this.splitContainer11.Panel2.Controls.Add(this.dataGridView4);
-            this.splitContainer11.Size = new System.Drawing.Size(225, 329);
-            this.splitContainer11.SplitterDistance = 76;
+            this.splitContainer11.Size = new System.Drawing.Size(225, 284);
+            this.splitContainer11.SplitterDistance = 77;
             this.splitContainer11.TabIndex = 0;
             // 
             // tableLayoutPanel5
@@ -640,13 +638,14 @@
             this.tableLayoutPanel5.Controls.Add(this.label6, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.dateTimePicker4, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.button5, 1, 1);
+            this.tableLayoutPanel5.Controls.Add(this.comboBox1, 0, 1);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(221, 72);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(221, 73);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
             // label6
@@ -672,9 +671,9 @@
             // button5
             // 
             this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button5.Location = new System.Drawing.Point(113, 39);
+            this.button5.Location = new System.Drawing.Point(113, 41);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(105, 30);
+            this.button5.Size = new System.Drawing.Size(105, 27);
             this.button5.TabIndex = 4;
             this.button5.Text = "查詢";
             this.button5.UseVisualStyleBackColor = true;
@@ -690,7 +689,7 @@
             this.dataGridView4.MultiSelect = false;
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.RowTemplate.Height = 24;
-            this.dataGridView4.Size = new System.Drawing.Size(221, 245);
+            this.dataGridView4.Size = new System.Drawing.Size(221, 199);
             this.dataGridView4.TabIndex = 1;
             this.dataGridView4.SelectionChanged += new System.EventHandler(this.dataGridView4_SelectionChanged);
             // 
@@ -708,7 +707,7 @@
             // splitContainer9.Panel2
             // 
             this.splitContainer9.Panel2.Controls.Add(this.tableLayoutPanel4);
-            this.splitContainer9.Size = new System.Drawing.Size(448, 329);
+            this.splitContainer9.Size = new System.Drawing.Size(448, 284);
             this.splitContainer9.SplitterDistance = 176;
             this.splitContainer9.TabIndex = 0;
             // 
@@ -722,7 +721,7 @@
             this.dataGridView5.MultiSelect = false;
             this.dataGridView5.Name = "dataGridView5";
             this.dataGridView5.RowTemplate.Height = 24;
-            this.dataGridView5.Size = new System.Drawing.Size(172, 325);
+            this.dataGridView5.Size = new System.Drawing.Size(172, 280);
             this.dataGridView5.TabIndex = 1;
             this.dataGridView5.SelectionChanged += new System.EventHandler(this.dataGridView5_SelectionChanged);
             // 
@@ -738,7 +737,6 @@
             this.tableLayoutPanel4.Controls.Add(this.label12, 0, 6);
             this.tableLayoutPanel4.Controls.Add(this.label11, 0, 5);
             this.tableLayoutPanel4.Controls.Add(this.label8, 0, 4);
-            this.tableLayoutPanel4.Controls.Add(this.label9, 0, 3);
             this.tableLayoutPanel4.Controls.Add(this.label10, 0, 2);
             this.tableLayoutPanel4.Controls.Add(this.label7, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.button6, 1, 0);
@@ -746,7 +744,6 @@
             this.tableLayoutPanel4.Controls.Add(this.textBox2, 1, 2);
             this.tableLayoutPanel4.Controls.Add(this.textBox3, 1, 5);
             this.tableLayoutPanel4.Controls.Add(this.textBox4, 1, 6);
-            this.tableLayoutPanel4.Controls.Add(this.comboBox1, 1, 3);
             this.tableLayoutPanel4.Controls.Add(this.dateTimePicker5, 1, 4);
             this.tableLayoutPanel4.Controls.Add(this.textBox5, 2, 7);
             this.tableLayoutPanel4.Controls.Add(this.comboBox2, 1, 7);
@@ -762,14 +759,14 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(264, 325);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(264, 280);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // label13
             // 
             this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(3, 296);
+            this.label13.Location = new System.Drawing.Point(3, 294);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(74, 12);
             this.label13.TabIndex = 9;
@@ -804,16 +801,6 @@
             this.label8.Size = new System.Drawing.Size(74, 12);
             this.label8.TabIndex = 4;
             this.label8.Text = "生產日期";
-            // 
-            // label9
-            // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(3, 134);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(74, 12);
-            this.label9.TabIndex = 5;
-            this.label9.Text = "生產線別";
             // 
             // label10
             // 
@@ -885,9 +872,9 @@
             this.comboBox1.Items.AddRange(new object[] {
             "製一組",
             "製二組"});
-            this.comboBox1.Location = new System.Drawing.Point(83, 130);
+            this.comboBox1.Location = new System.Drawing.Point(3, 44);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(88, 20);
+            this.comboBox1.Size = new System.Drawing.Size(104, 20);
             this.comboBox1.TabIndex = 16;
             this.comboBox1.Text = "製一組";
             // 
@@ -904,7 +891,7 @@
             // textBox5
             // 
             this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox5.Location = new System.Drawing.Point(177, 291);
+            this.textBox5.Location = new System.Drawing.Point(177, 289);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(84, 22);
             this.textBox5.TabIndex = 15;
@@ -916,7 +903,7 @@
             this.comboBox2.Items.AddRange(new object[] {
             "A",
             "B"});
-            this.comboBox2.Location = new System.Drawing.Point(83, 292);
+            this.comboBox2.Location = new System.Drawing.Point(83, 290);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(88, 20);
             this.comboBox2.TabIndex = 18;
@@ -936,7 +923,7 @@
             // splitContainer10.Panel2
             // 
             this.splitContainer10.Panel2.Controls.Add(this.tableLayoutPanel6);
-            this.splitContainer10.Size = new System.Drawing.Size(677, 368);
+            this.splitContainer10.Size = new System.Drawing.Size(677, 413);
             this.splitContainer10.SplitterDistance = 317;
             this.splitContainer10.TabIndex = 0;
             // 
@@ -955,8 +942,8 @@
             // splitContainer12.Panel2
             // 
             this.splitContainer12.Panel2.Controls.Add(this.dataGridView6);
-            this.splitContainer12.Size = new System.Drawing.Size(317, 368);
-            this.splitContainer12.SplitterDistance = 41;
+            this.splitContainer12.Size = new System.Drawing.Size(317, 413);
+            this.splitContainer12.SplitterDistance = 47;
             this.splitContainer12.TabIndex = 0;
             // 
             // tableLayoutPanel7
@@ -971,14 +958,14 @@
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(313, 37);
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 51F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(313, 43);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
             // button7
             // 
             this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button7.Location = new System.Drawing.Point(3, 3);
+            this.button7.Location = new System.Drawing.Point(3, 6);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(150, 30);
             this.button7.TabIndex = 11;
@@ -996,7 +983,7 @@
             this.dataGridView6.MultiSelect = false;
             this.dataGridView6.Name = "dataGridView6";
             this.dataGridView6.RowTemplate.Height = 24;
-            this.dataGridView6.Size = new System.Drawing.Size(313, 319);
+            this.dataGridView6.Size = new System.Drawing.Size(313, 358);
             this.dataGridView6.TabIndex = 2;
             this.dataGridView6.SelectionChanged += new System.EventHandler(this.dataGridView6_SelectionChanged);
             // 
@@ -1012,7 +999,6 @@
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel6.Controls.Add(this.label14, 0, 1);
             this.tableLayoutPanel6.Controls.Add(this.button8, 1, 0);
-            this.tableLayoutPanel6.Controls.Add(this.label15, 0, 9);
             this.tableLayoutPanel6.Controls.Add(this.label16, 0, 2);
             this.tableLayoutPanel6.Controls.Add(this.label21, 2, 6);
             this.tableLayoutPanel6.Controls.Add(this.label22, 2, 5);
@@ -1044,7 +1030,7 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(352, 364);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(352, 409);
             this.tableLayoutPanel6.TabIndex = 1;
             // 
             // label14
@@ -1067,16 +1053,6 @@
             this.button8.Text = "新增";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // label15
-            // 
-            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(3, 374);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(74, 12);
-            this.label15.TabIndex = 12;
-            this.label15.Text = "品名";
             // 
             // label16
             // 
@@ -1262,15 +1238,6 @@
             this.comboBox5.TabIndex = 29;
             this.comboBox5.Text = "B";
             // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(976, 707);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "記錄桶用量";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
             // splitContainer13
             // 
             this.splitContainer13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -1290,6 +1257,33 @@
             this.splitContainer13.SplitterDistance = 48;
             this.splitContainer13.TabIndex = 0;
             // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.BackColor = System.Drawing.Color.LightGreen;
+            this.tableLayoutPanel8.ColumnCount = 2;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.Controls.Add(this.button9, 0, 0);
+            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 1;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(285, 44);
+            this.tableLayoutPanel8.TabIndex = 1;
+            // 
+            // button9
+            // 
+            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.button9.Location = new System.Drawing.Point(3, 7);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(136, 30);
+            this.button9.TabIndex = 11;
+            this.button9.Text = "刪除";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
             // dataGridView7
             // 
             this.dataGridView7.AllowUserToAddRows = false;
@@ -1304,32 +1298,14 @@
             this.dataGridView7.TabIndex = 2;
             this.dataGridView7.SelectionChanged += new System.EventHandler(this.dataGridView7_SelectionChanged);
             // 
-            // tableLayoutPanel8
+            // tabPage3
             // 
-            this.tableLayoutPanel8.BackColor = System.Drawing.Color.LightGreen;
-            this.tableLayoutPanel8.ColumnCount = 2;
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.Controls.Add(this.button9, 0, 0);
-            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
-            this.tableLayoutPanel8.RowCount = 1;
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(285, 44);
-            this.tableLayoutPanel8.TabIndex = 1;
-            // 
-            // button9
-            // 
-            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button9.Location = new System.Drawing.Point(3, 7);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(136, 30);
-            this.button9.TabIndex = 11;
-            this.button9.Text = "刪除";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(976, 707);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "記錄桶用量";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // frmMETERWATER
             // 
@@ -1413,8 +1389,8 @@
             this.splitContainer13.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer13)).EndInit();
             this.splitContainer13.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).EndInit();
             this.tableLayoutPanel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1466,7 +1442,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button6;
@@ -1484,7 +1459,6 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
