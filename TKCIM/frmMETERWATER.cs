@@ -1008,7 +1008,11 @@ namespace TKCIM
                 //sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}') ", MATERWATERPROIDMDTARGETPROTA001, MATERWATERPROIDMDTARGETPROTA002, MATERWATERPROIDMDMB001, MATERWATERPROIDMDMB002, MATERWATERPROIDMDLOTID, numericUpDown1.Value.ToString(), textBox51.Text);
                 //sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[LOTID],[CANNO],[NUM],[OUTLOOK],[STIME],[ETIME],[TEMP],[HUDI],[MOVEIN],[CHECKEMP])");
                 //sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}') ", MATERWATERPROIDMDTARGETPROTA001, MATERWATERPROIDMDTARGETPROTA002, MATERWATERPROIDMDMB001, MATERWATERPROIDMDMB002, MATERWATERPROIDMDLOTID,numericUpDown1.Value.ToString(),textBox6.Text,comboBox3.Text.ToString(),dateTimePicker6.Value.ToString("HH:mm"), dateTimePicker7.Value.ToString("HH:mm"),textBox7.Text,textBox8.Text,comboBox4.Text.ToString(),comboBox5.Text.ToString());
-
+                sbSql.AppendFormat(" UPDATE [TKCIM].[dbo].[MATERWATERPROIDMD] SET [MATERWATERPROIDMD].[MB001]=[INVMB].[MB001]");
+                sbSql.AppendFormat(" FROM [TK].dbo.[INVMB]");
+                sbSql.AppendFormat(" WHERE [MATERWATERPROIDMD].[MB002]=[INVMB].[MB002]");
+                sbSql.AppendFormat(" AND ISNULL([MATERWATERPROIDMD].[MB001],'')=''");
+                sbSql.AppendFormat(" ");
 
                 cmd.Connection = sqlConn;
                 cmd.CommandTimeout = 60;
@@ -1123,6 +1127,68 @@ namespace TKCIM
             textBox26.Text = null;
             textBox27.Text = null;
         }
+        public void SETMATERWATERPROIDMDCLEAR()
+        {
+            textBox51.Text = null;
+            textBox52.Text = null;
+            textBox53.Text = null;
+            textBox54.Text = null;
+            textBox55.Text = null;
+            textBox56.Text = null;
+            textBox57.Text = null;
+        }
+
+        public void UPDATEMATERWATERPROIDMD()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sqlConn.Close();
+                sqlConn.Open();
+                tran = sqlConn.BeginTransaction();
+
+                sbSql.Clear();
+                sbSql.AppendFormat(" UPDATE [TKCIM].[dbo].[MATERWATERPROIDMD] ");
+                sbSql.AppendFormat("   SET [MATERWATERPROIDMD].[OUTLOOK]='{0}' ",comboBox3.Text.ToString());
+                sbSql.AppendFormat("   ,[MATERWATERPROIDMD].[STIME]='{0}'",dateTimePicker6.Value.ToString("HH:mm"));
+                sbSql.AppendFormat("   ,[MATERWATERPROIDMD].[ETIME]='{0}'",dateTimePicker7.Value.ToString("HH:mm"));
+                sbSql.AppendFormat("   ,[MATERWATERPROIDMD].[TEMP]='{0}'",textBox91.Text);
+                sbSql.AppendFormat("   ,[MATERWATERPROIDMD].[HUDI]='{0}'", textBox92.Text);
+                sbSql.AppendFormat("   ,[MATERWATERPROIDMD].[MOVEIN]='{0}'", comboBox4.Text.ToString());
+                sbSql.AppendFormat("   ,[MATERWATERPROIDMD].[CHECKEMP]='{0}'", comboBox5.Text.ToString());
+                sbSql.AppendFormat("   WHERE [MATERWATERPROIDMD].[CANNO]='{0}'",numericUpDown1.Value.ToString());
+                sbSql.AppendFormat(" ");
+
+                cmd.Connection = sqlConn;
+                cmd.CommandTimeout = 60;
+                cmd.CommandText = sbSql.ToString();
+                cmd.Transaction = tran;
+                result = cmd.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    tran.Rollback();    //交易取消
+                }
+                else
+                {
+                    tran.Commit();      //執行交易  
+
+
+                }
+
+            }
+            catch
+            {
+
+            }
+
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
         #endregion
 
         #region BUTTON
@@ -1165,11 +1231,18 @@ namespace TKCIM
         {
             ADDMATERWATERPROIDMD();
             SEARCHMATERWATERPROIDMD();
+            SETMATERWATERPROIDMDCLEAR();
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
             DELMATERWATERPROIDMD();
+        }
+        private void button10_Click(object sender, EventArgs e)
+        {
+            UPDATEMATERWATERPROIDMD();
+            SEARCHMATERWATERPROIDMD();
+            numericUpDown1.Value = numericUpDown1.Value + 1;
         }
 
 

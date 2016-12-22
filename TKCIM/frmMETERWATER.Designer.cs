@@ -1068,7 +1068,7 @@
             // 
             this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(3, 214);
+            this.label22.Location = new System.Drawing.Point(3, 174);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(74, 12);
             this.label22.TabIndex = 19;
@@ -1078,7 +1078,7 @@
             // 
             this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(3, 174);
+            this.label23.Location = new System.Drawing.Point(3, 134);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(74, 12);
             this.label23.TabIndex = 20;
@@ -1088,7 +1088,7 @@
             // 
             this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(3, 54);
+            this.label17.Location = new System.Drawing.Point(3, 14);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(74, 12);
             this.label17.TabIndex = 14;
@@ -1098,7 +1098,7 @@
             // 
             this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(3, 94);
+            this.label18.Location = new System.Drawing.Point(3, 54);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(74, 12);
             this.label18.TabIndex = 15;
@@ -1108,7 +1108,7 @@
             // 
             this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(3, 134);
+            this.label19.Location = new System.Drawing.Point(3, 94);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(74, 12);
             this.label19.TabIndex = 16;
@@ -1154,7 +1154,7 @@
             this.comboBox3.Items.AddRange(new object[] {
             "可",
             "不可"});
-            this.comboBox3.Location = new System.Drawing.Point(83, 50);
+            this.comboBox3.Location = new System.Drawing.Point(83, 10);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(74, 20);
             this.comboBox3.TabIndex = 23;
@@ -1165,7 +1165,7 @@
             this.dateTimePicker6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePicker6.CustomFormat = "HH:dd";
             this.dateTimePicker6.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker6.Location = new System.Drawing.Point(83, 89);
+            this.dateTimePicker6.Location = new System.Drawing.Point(83, 49);
             this.dateTimePicker6.Name = "dateTimePicker6";
             this.dateTimePicker6.Size = new System.Drawing.Size(74, 22);
             this.dateTimePicker6.TabIndex = 24;
@@ -1175,7 +1175,7 @@
             this.dateTimePicker7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePicker7.CustomFormat = "HH:dd";
             this.dateTimePicker7.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker7.Location = new System.Drawing.Point(83, 129);
+            this.dateTimePicker7.Location = new System.Drawing.Point(83, 89);
             this.dateTimePicker7.Name = "dateTimePicker7";
             this.dateTimePicker7.Size = new System.Drawing.Size(74, 22);
             this.dateTimePicker7.TabIndex = 25;
@@ -1231,22 +1231,22 @@
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 74F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 86F));
-            this.tableLayoutPanel8.Controls.Add(this.label17, 0, 1);
-            this.tableLayoutPanel8.Controls.Add(this.label18, 0, 2);
-            this.tableLayoutPanel8.Controls.Add(this.label19, 0, 3);
-            this.tableLayoutPanel8.Controls.Add(this.comboBox3, 1, 1);
-            this.tableLayoutPanel8.Controls.Add(this.dateTimePicker6, 1, 2);
-            this.tableLayoutPanel8.Controls.Add(this.label23, 0, 4);
-            this.tableLayoutPanel8.Controls.Add(this.label22, 0, 5);
-            this.tableLayoutPanel8.Controls.Add(this.dateTimePicker7, 1, 3);
             this.tableLayoutPanel8.Controls.Add(this.label21, 2, 1);
             this.tableLayoutPanel8.Controls.Add(this.label20, 2, 2);
             this.tableLayoutPanel8.Controls.Add(this.comboBox4, 3, 1);
             this.tableLayoutPanel8.Controls.Add(this.comboBox5, 3, 2);
-            this.tableLayoutPanel8.Controls.Add(this.button9, 2, 0);
-            this.tableLayoutPanel8.Controls.Add(this.button10, 0, 0);
-            this.tableLayoutPanel8.Controls.Add(this.textBox91, 1, 4);
-            this.tableLayoutPanel8.Controls.Add(this.textBox92, 1, 5);
+            this.tableLayoutPanel8.Controls.Add(this.comboBox3, 1, 0);
+            this.tableLayoutPanel8.Controls.Add(this.label17, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.label18, 0, 1);
+            this.tableLayoutPanel8.Controls.Add(this.dateTimePicker6, 1, 1);
+            this.tableLayoutPanel8.Controls.Add(this.label19, 0, 2);
+            this.tableLayoutPanel8.Controls.Add(this.dateTimePicker7, 1, 2);
+            this.tableLayoutPanel8.Controls.Add(this.label23, 0, 3);
+            this.tableLayoutPanel8.Controls.Add(this.textBox91, 1, 3);
+            this.tableLayoutPanel8.Controls.Add(this.label22, 0, 4);
+            this.tableLayoutPanel8.Controls.Add(this.textBox92, 1, 4);
+            this.tableLayoutPanel8.Controls.Add(this.button9, 3, 4);
+            this.tableLayoutPanel8.Controls.Add(this.button10, 3, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
@@ -1263,9 +1263,9 @@
             // button9
             // 
             this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button9.Location = new System.Drawing.Point(163, 5);
+            this.button9.Location = new System.Drawing.Point(237, 165);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(68, 30);
+            this.button9.Size = new System.Drawing.Size(103, 30);
             this.button9.TabIndex = 11;
             this.button9.Text = "刪除";
             this.button9.UseVisualStyleBackColor = true;
@@ -1455,17 +1455,18 @@
             // button10
             // 
             this.button10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button10.Location = new System.Drawing.Point(3, 5);
+            this.button10.Location = new System.Drawing.Point(237, 5);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(74, 30);
+            this.button10.Size = new System.Drawing.Size(103, 30);
             this.button10.TabIndex = 12;
             this.button10.Text = "本桶結束";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // textBox91
             // 
             this.textBox91.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox91.Location = new System.Drawing.Point(83, 169);
+            this.textBox91.Location = new System.Drawing.Point(83, 129);
             this.textBox91.Name = "textBox91";
             this.textBox91.Size = new System.Drawing.Size(74, 22);
             this.textBox91.TabIndex = 34;
@@ -1473,7 +1474,7 @@
             // textBox92
             // 
             this.textBox92.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox92.Location = new System.Drawing.Point(83, 209);
+            this.textBox92.Location = new System.Drawing.Point(83, 169);
             this.textBox92.Name = "textBox92";
             this.textBox92.Size = new System.Drawing.Size(74, 22);
             this.textBox92.TabIndex = 35;
