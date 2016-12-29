@@ -461,6 +461,7 @@ namespace TKCIM
                 sbSql.AppendFormat(@"  ,MD002 AS '線別'");
                 sbSql.AppendFormat(@"  FROM MOCTA WITH (NOLOCK),INVMB WITH (NOLOCK),CMSMD WITH (NOLOCK)");
                 sbSql.AppendFormat(@"  WHERE TA006=MB001");
+                sbSql.AppendFormat(@"  AND TA021=  MD001 ");
                 sbSql.AppendFormat(@"  AND MB002 LIKE '%水麵%' AND TA006 LIKE '3%'");
                 sbSql.AppendFormat(@"  AND TA003='{0}'", dateTimePicker4.Value.ToString("yyyyMMdd"));
                 sbSql.AppendFormat(@"  AND MD002='{0}'",comboBox1.Text.ToString());
@@ -479,7 +480,7 @@ namespace TKCIM
 
                 if (ds4.Tables["TEMPds4"].Rows.Count == 0)
                 {
-
+                    dataGridView4.DataSource = null;
                 }
                 else
                 {
@@ -834,6 +835,14 @@ namespace TKCIM
                     MATERWATERPROIDMDLOTID = null;
                 }
             }
+            else
+            {
+                MATERWATERPROIDMDTARGETPROTA001 = null;
+                MATERWATERPROIDMDTARGETPROTA002 = null;
+                MATERWATERPROIDMDMB001 = null;
+                MATERWATERPROIDMDMB002 = null;
+                MATERWATERPROIDMDLOTID = null;
+            }
         }
 
         public void DELMATERWATERPROIDM()
@@ -884,6 +893,7 @@ namespace TKCIM
         {
             try
             {
+
                 connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
                 sqlConn = new SqlConnection(connectionString);
 
@@ -911,7 +921,7 @@ namespace TKCIM
 
                 if (ds7.Tables["TEMPds7"].Rows.Count == 0)
                 {
-
+                    
                 }
                 else
                 {
