@@ -66,10 +66,30 @@ namespace TKCIM
         {
             InitializeComponent();
             comboBox1load();
+            comboBox2load();
             comboBox4load();
             comboBox5load();
         }
+        public void comboBox2load()
+        {
+            connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+            sqlConn = new SqlConnection(connectionString);
+            StringBuilder Sequel = new StringBuilder();
+            Sequel.AppendFormat(@"SELECT MD001,MD002 FROM CMSMD   WHERE MD002 LIKE '新%'   ");
+            SqlDataAdapter da = new SqlDataAdapter(Sequel.ToString(), sqlConn);
+            DataTable dt = new DataTable();
+            sqlConn.Open();
 
+            dt.Columns.Add("MD001", typeof(string));
+            dt.Columns.Add("MD002", typeof(string));
+            da.Fill(dt);
+            comboBox2.DataSource = dt.DefaultView;
+            comboBox2.ValueMember = "MD002";
+            comboBox2.DisplayMember = "MD002";
+            sqlConn.Close();
+
+
+        }
         #region FUNCTION
         public void comboBox1load()
         {
@@ -142,11 +162,15 @@ namespace TKCIM
                 sbSql.Clear();
                 sbSqlQuery.Clear();
 
-                sbSql.AppendFormat(@"  SELECT TA001 AS '單別',TA002 AS '單號',TA003 AS '日期',TA006 AS '品號',MB002  AS '品名',TA015  AS '預計產量'    ");
-                sbSql.AppendFormat(@"  FROM MOCTA WITH (NOLOCK),INVMB WITH (NOLOCK)");
+             
+                sbSql.AppendFormat(@"  SELECT MB002  AS '品名',TA015  AS '預計產量',TA001 AS '單別',TA002 AS '單號',TA003 AS '日期',TA006 AS '品號'    ");
+                sbSql.AppendFormat(@"  ,MD002 AS '線別'");
+                sbSql.AppendFormat(@"  FROM MOCTA WITH (NOLOCK),INVMB WITH (NOLOCK),CMSMD WITH (NOLOCK)");
                 sbSql.AppendFormat(@"  WHERE TA006=MB001");
+                sbSql.AppendFormat(@"  AND TA021=  MD001 ");
                 sbSql.AppendFormat(@"  AND MB002 LIKE '%水麵%' AND TA006 LIKE '3%'");
-                sbSql.AppendFormat(@"  AND TA003='{0}'",dateTimePicker1.Value.ToString("yyyyMMdd"));
+                sbSql.AppendFormat(@"  AND TA003='{0}'", dateTimePicker1.Value.ToString("yyyyMMdd"));
+                sbSql.AppendFormat(@"  AND MD002='{0}'", comboBox2.Text.ToString());
                 sbSql.AppendFormat(@"  ORDER BY TA003,TA006");
                 sbSql.AppendFormat(@"  ");
 
@@ -186,6 +210,11 @@ namespace TKCIM
 
             }
         }
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            dateTimePicker2.Value = dateTimePicker1.Value;
+            dateTimePicker3.Value = dateTimePicker1.Value;
+        }
 
         public void SEARCHMOCSOURCE()
         {
@@ -198,13 +227,15 @@ namespace TKCIM
                 sbSqlQuery.Clear();
 
     
-                sbSql.AppendFormat(@"  SELECT TA001 AS '單別',TA002 AS '單號',TA003 AS '日期',TA006 AS '品號',MB2.MB002  AS '品名',TA015  AS '預計產量' ,TB003 AS '需用品號',MB1.MB002 AS '需用品名'");
-                sbSql.AppendFormat(@"  FROM MOCTA WITH (NOLOCK),MOCTB WITH (NOLOCK),INVMB MB1 WITH (NOLOCK),INVMB MB2 WITH (NOLOCK)");
+                sbSql.AppendFormat(@"  SELECT TA001 AS '單別',TA002 AS '單號',TA003 AS '日期',TA006 AS '品號',MB2.MB002  AS '品名',TA015  AS '預計產量' ,TB003 AS '需用品號',MB1.MB002 AS '需用品名',MD002 AS '線別'");
+                sbSql.AppendFormat(@"  FROM MOCTA WITH (NOLOCK),MOCTB WITH (NOLOCK),INVMB MB1 WITH (NOLOCK),INVMB MB2 WITH (NOLOCK) ,CMSMD WITH (NOLOCK) ");
                 sbSql.AppendFormat(@"  WHERE TA001=TB001 AND TA002=TB002");
+                sbSql.AppendFormat(@"  AND TA021=  MD001");
                 sbSql.AppendFormat(@"  AND TB003=MB1.MB001");
                 sbSql.AppendFormat(@"  AND TA006=MB2.MB001");
                 sbSql.AppendFormat(@"  AND MB1.MB002 LIKE '%水麵%' AND TB003 LIKE '3%'");
                 sbSql.AppendFormat(@"  AND TA003>='{0}' AND TA003<='{1}'", dateTimePicker2.Value.ToString("yyyyMMdd"), dateTimePicker3.Value.ToString("yyyyMMdd"));
+                sbSql.AppendFormat(@"  AND MD002='{0}' ", comboBox2.Text.ToString());
                 sbSql.AppendFormat(@"  ORDER BY TA001,TA002,TA003,TA006     ");
                 sbSql.AppendFormat(@"  ");
 
@@ -412,7 +443,9 @@ namespace TKCIM
                     DataGridViewRow row = dataGridView1.Rows[rowindex];
                     TARGETTA001 = row.Cells["單別"].Value.ToString();
                     TARGETTA002 = row.Cells["單號"].Value.ToString();
+                    SEARCHMOCSOURCE();
                     SEARCHMATERWATERPROID();
+
                 }
                 else
                 {
@@ -422,6 +455,8 @@ namespace TKCIM
                 }
             }
         }
+
+        
 
         private void dataGridView3_SelectionChanged(object sender, EventArgs e)
         {
@@ -1257,8 +1292,9 @@ namespace TKCIM
 
 
 
+
         #endregion
 
-
+       
     }
 }
