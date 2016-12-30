@@ -40,6 +40,7 @@ namespace TKCIM
         string tablename = null;
         int result;
         string CHECKYN = "N";
+        string TB003;
         string TARGETTA001;
         string TARGETTA002;
         string PROIDTARGETPROTA001;
@@ -236,6 +237,7 @@ namespace TKCIM
                 sbSql.AppendFormat(@"  AND MB1.MB002 LIKE '%水麵%' AND TB003 LIKE '3%'");
                 sbSql.AppendFormat(@"  AND TA003>='{0}' AND TA003<='{1}'", dateTimePicker2.Value.ToString("yyyyMMdd"), dateTimePicker3.Value.ToString("yyyyMMdd"));
                 sbSql.AppendFormat(@"  AND MD002='{0}' ", comboBox2.Text.ToString());
+                sbSql.AppendFormat(@"  AND (TA006 IN (   SELECT [TARGETID]  FROM [TKCIM].[dbo].[PRODUCTHALF] WHERE [SOURCEID]='{0}')  OR TB003 IN ('{0}'))", TB003);
                 sbSql.AppendFormat(@"  ORDER BY TA001,TA002,TA003,TA006     ");
                 sbSql.AppendFormat(@"  ");
 
@@ -443,6 +445,7 @@ namespace TKCIM
                     DataGridViewRow row = dataGridView1.Rows[rowindex];
                     TARGETTA001 = row.Cells["單別"].Value.ToString();
                     TARGETTA002 = row.Cells["單號"].Value.ToString();
+                    TB003= row.Cells["品號"].Value.ToString();
                     SEARCHMOCSOURCE();
                     SEARCHMATERWATERPROID();
 
@@ -451,6 +454,7 @@ namespace TKCIM
                 {
                     TARGETTA001 = null;
                     TARGETTA002 = null;
+                    TB003 = null;
 
                 }
             }
