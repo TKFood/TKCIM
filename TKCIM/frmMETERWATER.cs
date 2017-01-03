@@ -238,6 +238,7 @@ namespace TKCIM
                 sbSql.AppendFormat(@"  AND TA003>='{0}' AND TA003<='{1}'", dateTimePicker2.Value.ToString("yyyyMMdd"), dateTimePicker3.Value.ToString("yyyyMMdd"));
                 sbSql.AppendFormat(@"  AND MD002='{0}' ", comboBox2.Text.ToString());
                 sbSql.AppendFormat(@"  AND (TA006 IN (   SELECT [TARGETID]  FROM [TKCIM].[dbo].[PRODUCTHALF] WHERE [SOURCEID]='{0}')  OR TB003 IN ('{0}'))", TB003);
+                sbSql.AppendFormat(@"  AND NOT EXISTS (SELECT [TARGETPROTA001],[TARGETPROTA002] FROM [TKCIM].[dbo].[MATERWATERPROID] WHERE [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}' AND [SOURCEPROTA001]=TA001 AND [SOURCEPROTA002]=TA002)", TARGETTA001, TARGETTA002);
                 sbSql.AppendFormat(@"  ORDER BY TA001,TA002,TA003,TA006     ");
                 sbSql.AppendFormat(@"  ");
 
@@ -293,49 +294,51 @@ namespace TKCIM
         {
             foreach (DataGridViewRow dr in this.dataGridView2.Rows)
             {
-                if (dr.Cells[0].Value != null && (bool)dr.Cells[0].Value)
+                try
                 {
-                    try
+                    connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                    sqlConn = new SqlConnection(connectionString);
+
+                    sqlConn.Close();
+                    sqlConn.Open();
+                    tran = sqlConn.BeginTransaction();
+
+                    sbSql.Clear();
+                    sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERPROID]");
+                    sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[SOURCEPROTA001],[SOURCEPROTA002])");
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}')", TARGETTA001, TARGETTA002, dr.Cells["單別"].Value.ToString(), dr.Cells["單號"].Value.ToString());
+
+                    cmd.Connection = sqlConn;
+                    cmd.CommandTimeout = 60;
+                    cmd.CommandText = sbSql.ToString();
+                    cmd.Transaction = tran;
+                    result = cmd.ExecuteNonQuery();
+
+                    if (result == 0)
                     {
-                        connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
-                        sqlConn = new SqlConnection(connectionString);
-
-                        sqlConn.Close();
-                        sqlConn.Open();
-                        tran = sqlConn.BeginTransaction();
-
-                        sbSql.Clear();
-                        sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERPROID]");
-                        sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[SOURCEPROTA001],[SOURCEPROTA002])");
-                        sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}')",TARGETTA001,TARGETTA002, dr.Cells["單別"].Value.ToString(), dr.Cells["單號"].Value.ToString());
-
-                        cmd.Connection = sqlConn;
-                        cmd.CommandTimeout = 60;
-                        cmd.CommandText = sbSql.ToString();
-                        cmd.Transaction = tran;
-                        result = cmd.ExecuteNonQuery();
-
-                        if (result == 0)
-                        {
-                            tran.Rollback();    //交易取消
-                        }
-                        else
-                        {
-                            tran.Commit();      //執行交易  
-
-
-                        }
+                        tran.Rollback();    //交易取消
                     }
-                    catch
+                    else
                     {
+                        tran.Commit();      //執行交易  
 
-                    }
 
-                    finally
-                    {
-                        sqlConn.Close();
                     }
                 }
+                catch
+                {
+
+                }
+
+                finally
+                {
+                    sqlConn.Close();
+                }
+
+                //if (dr.Cells[0].Value != null && (bool)dr.Cells[0].Value)
+                //{
+                //    
+                //}
             }
 
             SEARCHMATERWATERPROID();
@@ -1254,11 +1257,13 @@ namespace TKCIM
         private void button3_Click(object sender, EventArgs e)
         {
             ADDMATERWATERPROID();
+            SEARCHMOCSOURCE();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             DELMATERWATERPROID();
+            button1.PerformClick();
         }
 
         private void button5_Click(object sender, EventArgs e)
