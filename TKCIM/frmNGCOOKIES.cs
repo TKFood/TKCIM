@@ -49,6 +49,7 @@ namespace TKCIM
         public frmNGCOOKIES()
         {
             InitializeComponent();
+            comboBox1load();
             comboBox2load();
 
             timer1.Enabled = true;
@@ -73,6 +74,26 @@ namespace TKCIM
             comboBox2.DataSource = dt.DefaultView;
             comboBox2.ValueMember = "MD002";
             comboBox2.DisplayMember = "MD002";
+            sqlConn.Close();
+
+
+        }
+        public void comboBox1load()
+        {
+            connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+            sqlConn = new SqlConnection(connectionString);
+            StringBuilder Sequel = new StringBuilder();
+            Sequel.AppendFormat(@"SELECT MD001,MD002 FROM CMSMD   WHERE MD002 LIKE '新%'   ");
+            SqlDataAdapter da = new SqlDataAdapter(Sequel.ToString(), sqlConn);
+            DataTable dt = new DataTable();
+            sqlConn.Open();
+
+            dt.Columns.Add("MD001", typeof(string));
+            dt.Columns.Add("MD002", typeof(string));
+            da.Fill(dt);
+            comboBox1.DataSource = dt.DefaultView;
+            comboBox1.ValueMember = "MD002";
+            comboBox1.DisplayMember = "MD002";
             sqlConn.Close();
 
 
@@ -222,6 +243,7 @@ namespace TKCIM
                 sbSql.AppendFormat(@" SELECT  [MAINTIME] AS '時間',[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號',[MB002] AS '品名',[NUM] AS '回收量',[MAIN] AS '線別',[MAINDATE] AS '日期',[MB001] AS '品號',[ID] ");
                 sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[NGCOOKIESMD]");
                 sbSql.AppendFormat(@"  WHERE CONVERT(varchar(100),[MAINDATE],112)='{0}'  ",dateTimePicker1.Value.ToString("yyyyMMdd"));
+                sbSql.AppendFormat(@"  AND [MAIN]='{0}'", comboBox2.Text.ToString());
                 sbSql.AppendFormat(@"  ORDER BY  [MAINDATE],[MAINTIME]");
                 sbSql.AppendFormat(@"  ");
 
@@ -325,12 +347,86 @@ namespace TKCIM
         {
             textBox5.Text = null;
         }
+
+        public void SERACHMOCTARGET2()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sbSql.Clear();
+                sbSqlQuery.Clear();
+
+
+                sbSql.AppendFormat(@"  SELECT MB002  AS '品名',TA015  AS '預計產量',TA001 AS '單別',TA002 AS '單號',TA003 AS '日期',TA006 AS '品號'    ");
+                sbSql.AppendFormat(@"  ,MD002 AS '線別'");
+                sbSql.AppendFormat(@"  FROM MOCTA WITH (NOLOCK),INVMB WITH (NOLOCK),CMSMD WITH (NOLOCK)");
+                sbSql.AppendFormat(@"  WHERE TA006=MB001");
+                sbSql.AppendFormat(@"  AND TA021=  MD001 ");
+                sbSql.AppendFormat(@"  AND MB002 NOT LIKE '%水麵%' AND TA006 LIKE '3%'");
+                sbSql.AppendFormat(@"  AND TA003='{0}'", dateTimePicker3.Value.ToString("yyyyMMdd"));
+                sbSql.AppendFormat(@"  AND MD002='{0}'", comboBox1.Text.ToString());
+                sbSql.AppendFormat(@"  ORDER BY TA003,TA006");
+                sbSql.AppendFormat(@"  ");
+
+
+                adapter = new SqlDataAdapter(@"" + sbSql, sqlConn);
+
+                sqlCmdBuilder = new SqlCommandBuilder(adapter);
+                sqlConn.Open();
+                ds3.Clear();
+                adapter.Fill(ds3, "TEMPds3");
+                sqlConn.Close();
+
+
+                if (ds3.Tables["TEMPds3"].Rows.Count == 0)
+                {
+
+                }
+                else
+                {
+                    if (ds3.Tables["TEMPds3"].Rows.Count >= 1)
+                    {
+                        //dataGridView1.Rows.Clear();
+                        dataGridView3.DataSource = ds3.Tables["TEMPds3"];
+                        dataGridView3.AutoResizeColumns();
+                        //dataGridView1.CurrentCell = dataGridView1[0, rownum];
+
+                    }
+                }
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+
+            }
+        }
+        private void dataGridView3_SelectionChanged(object sender, EventArgs e)
+        {
+             if (dataGridView3.CurrentRow != null)
+            {
+                int rowindex = dataGridView3.CurrentRow.Index;
+                if (rowindex >= 0)
+                {
+                    DataGridViewRow row = dataGridView3.Rows[rowindex];
+                    textBox20.Text = row.Cells["品號"].Value.ToString();
+                    textBox21.Text = row.Cells["品名"].Value.ToString();
+                }
+                else
+                {
+                    textBox20.Text = null;
+                    textBox21.Text = null;
+                }
+            }
+        }
         #endregion
 
         #region BUTTON
-
-        #endregion
-
         private void button1_Click(object sender, EventArgs e)
         {
             SERACHMOCTARGET();
@@ -345,7 +441,7 @@ namespace TKCIM
         }
 
         private void button3_Click(object sender, EventArgs e)
-        {          
+        {
             DialogResult dialogResult = MessageBox.Show("要刪除了?", "要刪除了?", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
@@ -359,6 +455,13 @@ namespace TKCIM
 
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            SERACHMOCTARGET2();
+        }
 
+        #endregion
+
+     
     }
 }
