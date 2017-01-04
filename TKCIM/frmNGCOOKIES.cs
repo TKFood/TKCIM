@@ -43,7 +43,8 @@ namespace TKCIM
         
 
         string ID;
-       
+        string NGCOOKIESMID;
+
         Thread TD;
 
         public frmNGCOOKIES()
@@ -423,6 +424,172 @@ namespace TKCIM
                     textBox21.Text = null;
                 }
             }
+            SETNULLTAB2();
+        }
+
+        public void ADDNGCOOKIESM()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sqlConn.Close();
+                sqlConn.Open();
+                tran = sqlConn.BeginTransaction();
+
+                sbSql.Clear();
+                sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[NGCOOKIESM]");
+                sbSql.AppendFormat(" ([ID],[MAIN],[MAINDATE],[MB001],[MB002],[BEFORE],[NG],[REUSED],[AFTER])");
+                sbSql.AppendFormat(" VALUES({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')","NEWID()",comboBox1.Text,dateTimePicker2.Value.ToString("yyyyMMdd"),textBox20.Text, textBox21.Text, textBox22.Text, textBox23.Text, textBox24.Text, textBox25.Text);
+                sbSql.AppendFormat(" ");
+
+
+                cmd.Connection = sqlConn;
+                cmd.CommandTimeout = 60;
+                cmd.CommandText = sbSql.ToString();
+                cmd.Transaction = tran;
+                result = cmd.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    tran.Rollback();    //交易取消
+                }
+                else
+                {
+                    tran.Commit();      //執行交易  
+                }
+
+            }
+            catch
+            {
+
+            }
+
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
+
+        public void SEARCHNGCOOKIESM()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sbSql.Clear();
+                sbSqlQuery.Clear();
+                              
+                sbSql.AppendFormat(@"  SELECT  CONVERT(varchar(100),[MAINDATE],112) AS '日期',[MB001] AS '品號',[MB002] AS '品名',[BEFORE] AS '可回收餅麩初存量',[NG] AS '回收餅麩',[REUSED] AS '今日餅麩回收再用',[AFTER] AS '回收餅麩未存量',[MAIN] AS '線別',[ID]");
+                sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[NGCOOKIESM]");
+                sbSql.AppendFormat(@"  WHERE CONVERT(varchar(100),[MAINDATE],112)='{0}'  ", dateTimePicker3.Value.ToString("yyyyMMdd"));
+                sbSql.AppendFormat(@"  ORDER BY [MAIN],[MAINDATE]");              
+                sbSql.AppendFormat(@"  ");
+
+
+                adapter = new SqlDataAdapter(@"" + sbSql, sqlConn);
+
+                sqlCmdBuilder = new SqlCommandBuilder(adapter);
+                sqlConn.Open();
+                ds4.Clear();
+                adapter.Fill(ds4, "TEMPds4");
+                sqlConn.Close();
+
+
+                if (ds4.Tables["TEMPds4"].Rows.Count == 0)
+                {
+
+                }
+                else
+                {
+                    if (ds4.Tables["TEMPds4"].Rows.Count >= 1)
+                    {
+                        //dataGridView1.Rows.Clear();
+                        dataGridView4.DataSource = ds4.Tables["TEMPds4"];
+                        dataGridView4.AutoResizeColumns();
+                        //dataGridView1.CurrentCell = dataGridView1[0, rownum];
+
+                    }
+                }
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+
+            }
+        }
+        private void dataGridView4_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView4.CurrentRow != null)
+            {
+                int rowindex = dataGridView4.CurrentRow.Index;
+                if (rowindex >= 0)
+                {
+                    DataGridViewRow row = dataGridView4.Rows[rowindex];
+                    NGCOOKIESMID = row.Cells["ID"].Value.ToString();                    
+                }
+                else
+                {
+                    NGCOOKIESMID = null;                   
+                }
+            }
+            
+        }
+
+        public void DELNGCOOKIESM()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sqlConn.Close();
+                sqlConn.Open();
+                tran = sqlConn.BeginTransaction();
+
+                sbSql.Clear();
+                sbSql.AppendFormat(" DELETE [TKCIM].[dbo].[NGCOOKIESM] ");
+                sbSql.AppendFormat(" WHERE ID='{0}'",NGCOOKIESMID);
+                sbSql.AppendFormat(" ");
+
+                cmd.Connection = sqlConn;
+                cmd.CommandTimeout = 60;
+                cmd.CommandText = sbSql.ToString();
+                cmd.Transaction = tran;
+                result = cmd.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    tran.Rollback();    //交易取消
+                }
+                else
+                {
+                    tran.Commit();      //執行交易  
+                }
+
+            }
+            catch
+            {
+
+            }
+
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
+        public void SETNULLTAB2()
+        {
+            textBox22.Text = null;
+            textBox23.Text = null;
+            textBox24.Text = null;
+            textBox25.Text = null;
         }
         #endregion
 
@@ -458,10 +625,33 @@ namespace TKCIM
         private void button4_Click(object sender, EventArgs e)
         {
             SERACHMOCTARGET2();
+            SEARCHNGCOOKIESM();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            ADDNGCOOKIESM();
+            SEARCHNGCOOKIESM();
+            SETNULLTAB2();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("要刪除了?", "要刪除了?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                DELNGCOOKIESM();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }        
+            
+            SEARCHNGCOOKIESM();
         }
 
         #endregion
 
-     
+        
     }
 }
