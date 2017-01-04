@@ -69,6 +69,12 @@
     <Compile Include="FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMETEROIL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMETEROIL.Designer.cs">
+      <DependentUpon>frmMETEROIL.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMETERWATER.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMETEROIL.resx">
+      <DependentUpon>frmMETEROIL.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMETERWATER.resx">
       <DependentUpon>frmMETERWATER.cs</DependentUpon>

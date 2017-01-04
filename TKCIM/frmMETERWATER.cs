@@ -71,26 +71,7 @@ namespace TKCIM
             comboBox4load();
             comboBox5load();
         }
-        public void comboBox2load()
-        {
-            connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
-            sqlConn = new SqlConnection(connectionString);
-            StringBuilder Sequel = new StringBuilder();
-            Sequel.AppendFormat(@"SELECT MD001,MD002 FROM CMSMD   WHERE MD002 LIKE '新%'   ");
-            SqlDataAdapter da = new SqlDataAdapter(Sequel.ToString(), sqlConn);
-            DataTable dt = new DataTable();
-            sqlConn.Open();
-
-            dt.Columns.Add("MD001", typeof(string));
-            dt.Columns.Add("MD002", typeof(string));
-            da.Fill(dt);
-            comboBox2.DataSource = dt.DefaultView;
-            comboBox2.ValueMember = "MD002";
-            comboBox2.DisplayMember = "MD002";
-            sqlConn.Close();
-
-
-        }
+      
         #region FUNCTION
         public void comboBox1load()
         {
@@ -108,6 +89,26 @@ namespace TKCIM
             comboBox1.DataSource = dt.DefaultView;
             comboBox1.ValueMember = "MD002";
             comboBox1.DisplayMember = "MD002";
+            sqlConn.Close();
+
+
+        }
+        public void comboBox2load()
+        {
+            connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+            sqlConn = new SqlConnection(connectionString);
+            StringBuilder Sequel = new StringBuilder();
+            Sequel.AppendFormat(@"SELECT MD001,MD002 FROM CMSMD   WHERE MD002 LIKE '新%'   ");
+            SqlDataAdapter da = new SqlDataAdapter(Sequel.ToString(), sqlConn);
+            DataTable dt = new DataTable();
+            sqlConn.Open();
+
+            dt.Columns.Add("MD001", typeof(string));
+            dt.Columns.Add("MD002", typeof(string));
+            da.Fill(dt);
+            comboBox2.DataSource = dt.DefaultView;
+            comboBox2.ValueMember = "MD002";
+            comboBox2.DisplayMember = "MD002";
             sqlConn.Close();
 
 
