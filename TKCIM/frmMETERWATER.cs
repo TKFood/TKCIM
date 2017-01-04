@@ -901,7 +901,7 @@ namespace TKCIM
 
                 sbSql.Clear();
                 sbSql.AppendFormat(" DELETE  [TKCIM].[dbo].[MATERWATERPROIDM] "); 
-                sbSql.AppendFormat(" WHERE [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}'  AND [LOTID]='{2}'  ", MATERWATERPROIDMTA001, MATERWATERPROIDMTA002, MATERWATERPROIDMDLOTID);
+                sbSql.AppendFormat(" WHERE [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}'  AND [MB001]='{2}' AND [LOTID]='{3}'  ", MATERWATERPROIDMTA001, MATERWATERPROIDMTA002, MATERWATERPROIDMDMB001,MATERWATERPROIDMDLOTID);
 
                 cmd.Connection = sqlConn;
                 cmd.CommandTimeout = 60;
