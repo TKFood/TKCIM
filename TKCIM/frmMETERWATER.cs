@@ -36,6 +36,8 @@ namespace TKCIM
         DataSet ds5 = new DataSet();
         DataSet ds6 = new DataSet();
         DataSet ds7 = new DataSet();
+        DataSet ds8 = new DataSet();
+        DataSet ds9 = new DataSet();
         DataTable dt = new DataTable();
         string tablename = null;
         int result;
@@ -49,6 +51,8 @@ namespace TKCIM
         string PROIDSOURCEPROTA002;
         string MATERWATERPROIDMTA001;
         string MATERWATERPROIDMTA002;
+        string MATERWATERPROIDMTA001B;
+        string MATERWATERPROIDMTA002B;
 
         string MATERWATERPROIDMDTARGETPROTA001;
         string MATERWATERPROIDMDTARGETPROTA002;
@@ -70,6 +74,7 @@ namespace TKCIM
             comboBox2load();
             comboBox4load();
             comboBox5load();
+            comboBox6load();
         }
       
         #region FUNCTION
@@ -149,6 +154,26 @@ namespace TKCIM
             comboBox5.DataSource = dt.DefaultView;
             comboBox5.ValueMember = "NAME";
             comboBox5.DisplayMember = "NAME";
+            sqlConn.Close();
+
+
+        }
+        public void comboBox6load()
+        {
+            connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+            sqlConn = new SqlConnection(connectionString);
+            StringBuilder Sequel = new StringBuilder();
+            Sequel.AppendFormat(@"SELECT MD001,MD002 FROM CMSMD   WHERE MD002 LIKE '新%'   ");
+            SqlDataAdapter da = new SqlDataAdapter(Sequel.ToString(), sqlConn);
+            DataTable dt = new DataTable();
+            sqlConn.Open();
+
+            dt.Columns.Add("MD001", typeof(string));
+            dt.Columns.Add("MD002", typeof(string));
+            da.Fill(dt);
+            comboBox6.DataSource = dt.DefaultView;
+            comboBox6.ValueMember = "MD002";
+            comboBox6.DisplayMember = "MD002";
             sqlConn.Close();
 
 
@@ -809,14 +834,7 @@ namespace TKCIM
                
                 if (ds6.Tables["TEMPds6"].Rows.Count == 0)
                 {                    
-                    for (int j=1; j<= 7; j++)
-                    {
-                        TextBox iTextBox = (TextBox)FindControl(this, "textBox3" + j);
-                        iTextBox.Text = null;
-                        TextBox iTextBox2 = (TextBox)FindControl(this, "textBox4" + j);
-                        iTextBox2.Text = null;
-                       
-                    }
+                    
                    
                 }
                 else
@@ -827,19 +845,7 @@ namespace TKCIM
                         dataGridView6.DataSource = ds6.Tables["TEMPds6"];
                         dataGridView6.AutoResizeColumns();
                         //dataGridView1.CurrentCell = dataGridView1[0, rownum];
-                        int i = 1;
-                        foreach (DataGridViewRow dr in this.dataGridView6.Rows)
-                        {
-                            if (i <= 7)
-                            {
-                                TextBox iTextBox = (TextBox)FindControl(this, "textBox3" + i);
-                                iTextBox.Text = dr.Cells["批號"].Value.ToString();
-                                TextBox iTextBox2 = (TextBox)FindControl(this, "textBox4" + i);
-                                iTextBox2.Text = dr.Cells["品名"].Value.ToString();
-                                i++;
-                            }
-
-                        }
+                       
                     }
                 }
 
@@ -1103,21 +1109,38 @@ namespace TKCIM
                 if (rowindex >= 0)
                 {
                     DataGridViewRow row = dataGridView7.Rows[rowindex];
-                    DELTARGETPROTA001 = row.Cells["單別"].Value.ToString();
-                    DELTARGETPROTA002 = row.Cells["單號"].Value.ToString();
-                    DELMB001 = row.Cells["品號"].Value.ToString();
-                    DELLOTID = row.Cells["批號"].Value.ToString();
-                    DELCANNO = row.Cells["桶數"].Value.ToString();                   
+                    MATERWATERPROIDMTA001B = row.Cells["單別"].Value.ToString();
+                    MATERWATERPROIDMTA002B = row.Cells["單號"].Value.ToString();
+            
                 }
                 else
                 {
                     DELTARGETPROTA001 = null;
                     DELTARGETPROTA002 = null;
-                    DELMB001 = null;
-                    DELLOTID = null;
-                    DELCANNO = null;
+
                 }
             }
+            //if (dataGridView7.CurrentRow != null)
+            //{
+            //    int rowindex = dataGridView7.CurrentRow.Index;
+            //    if (rowindex >= 0)
+            //    {
+            //        DataGridViewRow row = dataGridView7.Rows[rowindex];
+            //        DELTARGETPROTA001 = row.Cells["單別"].Value.ToString();
+            //        DELTARGETPROTA002 = row.Cells["單號"].Value.ToString();
+            //        DELMB001 = row.Cells["品號"].Value.ToString();
+            //        DELLOTID = row.Cells["批號"].Value.ToString();
+            //        DELCANNO = row.Cells["桶數"].Value.ToString();                   
+            //    }
+            //    else
+            //    {
+            //        DELTARGETPROTA001 = null;
+            //        DELTARGETPROTA002 = null;
+            //        DELMB001 = null;
+            //        DELLOTID = null;
+            //        DELCANNO = null;
+            //    }
+            //}
         }
         public void DELMATERWATERPROIDMD()
         {
@@ -1242,6 +1265,144 @@ namespace TKCIM
                 sqlConn.Close();
             }
         }
+
+
+        public void SERACHMOCTARGETLOT2()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sbSql.Clear();
+                sbSqlQuery.Clear();
+
+                sbSql.AppendFormat(@"  SELECT MB002  AS '品名',TA015  AS '預計產量',TA001 AS '單別',TA002 AS '單號',TA003 AS '日期',TA006 AS '品號'    ");
+                sbSql.AppendFormat(@"  ,MD002 AS '線別'");
+                sbSql.AppendFormat(@"  FROM MOCTA WITH (NOLOCK),INVMB WITH (NOLOCK),CMSMD WITH (NOLOCK)");
+                sbSql.AppendFormat(@"  WHERE TA006=MB001");
+                sbSql.AppendFormat(@"  AND TA021=  MD001 ");
+                sbSql.AppendFormat(@"  AND MB002 LIKE '%水麵%' AND TA006 LIKE '3%'");
+                sbSql.AppendFormat(@"  AND TA003='{0}'", dateTimePicker5.Value.ToString("yyyyMMdd"));
+                sbSql.AppendFormat(@"  AND MD002='{0}'", comboBox6.Text.ToString());
+                sbSql.AppendFormat(@"  ORDER BY TA003,TA006");
+                sbSql.AppendFormat(@"  ");
+
+
+                adapter = new SqlDataAdapter(@"" + sbSql, sqlConn);
+
+                sqlCmdBuilder = new SqlCommandBuilder(adapter);
+                sqlConn.Open();
+                ds7.Clear();
+                adapter.Fill(ds7, "TEMPds7");
+                sqlConn.Close();
+
+
+                if (ds7.Tables["TEMPds7"].Rows.Count == 0)
+                {
+                    dataGridView7.DataSource = null;
+                    
+                }
+                else
+                {
+                    if (ds7.Tables["TEMPds7"].Rows.Count >= 1)
+                    {
+                        //dataGridView1.Rows.Clear();
+                        dataGridView7.DataSource = ds7.Tables["TEMPds7"];
+                        dataGridView7.AutoResizeColumns();
+                        //dataGridView1.CurrentCell = dataGridView1[0, rownum];
+
+                      
+
+                    }
+                }
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+
+            }
+            SEARCHMATERWATERPROIDM2();
+        }
+
+        public void SEARCHMATERWATERPROIDM2()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sbSql.Clear();
+                sbSqlQuery.Clear();
+
+
+                sbSql.AppendFormat(@"  SELECT [MB002] AS '品名',[LOTID] AS '批號' ,[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號',[MAIN] AS '生產線別',[MAINDATE] AS '日期',[MB001] AS '品號'");
+                sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[MATERWATERPROIDM]");
+                sbSql.AppendFormat(@"  WHERE [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}'", MATERWATERPROIDMTA001B, MATERWATERPROIDMTA002B);
+
+                sbSql.AppendFormat(@"  ");
+
+
+                adapter = new SqlDataAdapter(@"" + sbSql, sqlConn);
+
+                sqlCmdBuilder = new SqlCommandBuilder(adapter);
+                sqlConn.Open();
+                ds8.Clear();
+                adapter.Fill(ds8, "TEMPds8");
+                sqlConn.Close();
+
+
+                if (ds8.Tables["TEMPds8"].Rows.Count == 0)
+                {
+                    for (int j = 1; j <= 7; j++)
+                    {
+                        TextBox iTextBox = (TextBox)FindControl(this, "textBox3" + j);
+                        iTextBox.Text = null;
+                        TextBox iTextBox2 = (TextBox)FindControl(this, "textBox4" + j);
+                        iTextBox2.Text = null;
+
+                    }
+
+                }
+                else
+                {
+                    if (ds8.Tables["TEMPds8"].Rows.Count >= 1)
+                    {
+                        //dataGridView1.Rows.Clear();
+                        dataGridView8.DataSource = ds8.Tables["TEMPds8"];
+                        dataGridView8.AutoResizeColumns();
+                        //dataGridView1.CurrentCell = dataGridView1[0, rownum];
+
+                        int i = 1;
+                        foreach (DataGridViewRow dr in this.dataGridView8.Rows)
+                        {
+                            if (i <= 7)
+                            {
+                                TextBox iTextBox = (TextBox)FindControl(this, "textBox3" + i);
+                                iTextBox.Text = dr.Cells["批號"].Value.ToString();
+                                TextBox iTextBox2 = (TextBox)FindControl(this, "textBox4" + i);
+                                iTextBox2.Text = dr.Cells["品名"].Value.ToString();
+                                i++;
+                            }
+
+                        }
+                    }
+                }
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+
+            }
+        }
         #endregion
 
         #region BUTTON
@@ -1302,9 +1463,12 @@ namespace TKCIM
 
 
 
+        private void button11_Click(object sender, EventArgs e)
+        {
+            SERACHMOCTARGETLOT2();
+        }
+
 
         #endregion
-
-       
     }
 }
