@@ -75,6 +75,10 @@ namespace TKCIM
             comboBox4load();
             comboBox5load();
             comboBox6load();
+
+            timer1.Enabled = true;
+            timer1.Interval = 1000 * 60;
+            timer1.Start();
         }
       
         #region FUNCTION
@@ -861,37 +865,7 @@ namespace TKCIM
         }
         private void dataGridView6_SelectionChanged(object sender, EventArgs e)
         {
-            if (dataGridView6.CurrentRow != null)
-            {
-                int rowindex = dataGridView6.CurrentRow.Index;
-                if (rowindex >= 0)
-                {
-                    DataGridViewRow row = dataGridView6.Rows[rowindex];
-                    MATERWATERPROIDMDTARGETPROTA001 = row.Cells["單別"].Value.ToString();
-                    MATERWATERPROIDMDTARGETPROTA002 = row.Cells["單號"].Value.ToString();
-                    MATERWATERPROIDMDMB001 = row.Cells["品號"].Value.ToString();
-                    MATERWATERPROIDMDMB002 = row.Cells["品名"].Value.ToString();
-                    MATERWATERPROIDMDLOTID = row.Cells["批號"].Value.ToString();
-                 
-
-                }
-                else
-                {
-                    MATERWATERPROIDMDTARGETPROTA001 = null;
-                    MATERWATERPROIDMDTARGETPROTA002 = null;
-                    MATERWATERPROIDMDMB001 = null;
-                    MATERWATERPROIDMDMB002 = null;
-                    MATERWATERPROIDMDLOTID = null;
-                }
-            }
-            else
-            {
-                MATERWATERPROIDMDTARGETPROTA001 = null;
-                MATERWATERPROIDMDTARGETPROTA002 = null;
-                MATERWATERPROIDMDMB001 = null;
-                MATERWATERPROIDMDMB002 = null;
-                MATERWATERPROIDMDLOTID = null;
-            }
+           
         }
 
         public void DELMATERWATERPROIDM()
@@ -949,8 +923,8 @@ namespace TKCIM
                 sbSql.Clear();
                 sbSqlQuery.Clear();
                              
-                sbSql.AppendFormat(@"  SELECT [TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號',[MB001] AS '品號',[MB002] AS '品名'");
-                sbSql.AppendFormat(@"  ,[LOTID] AS '批號',[CANNO] AS '桶數',[NUM] AS '重量',[OUTLOOK] AS '外觀',[STIME] AS '起時間',[ETIME] AS '迄時間'");
+                sbSql.AppendFormat(@"  SELECT [MB002] AS '品名'  ,[LOTID] AS '批號',[CANNO] AS '桶數',[NUM] AS '重量'");
+                sbSql.AppendFormat(@"  ,[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號',[MB001] AS '品號',[OUTLOOK] AS '外觀',[STIME] AS '起時間',[ETIME] AS '迄時間'");
                 sbSql.AppendFormat(@"  ,[TEMP] AS '溫度' ,[HUDI] AS '溼度',[MOVEIN] AS '投料人',[CHECKEMP] AS '抽檢人'");
                 sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[MATERWATERPROIDMD]");
                 sbSql.AppendFormat(@"  WHERE [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}' ", MATERWATERPROIDMDTARGETPROTA001, MATERWATERPROIDMDTARGETPROTA002);
@@ -963,22 +937,22 @@ namespace TKCIM
 
                 sqlCmdBuilder = new SqlCommandBuilder(adapter);
                 sqlConn.Open();
-                ds7.Clear();
-                adapter.Fill(ds7, "TEMPds7");
+                ds9.Clear();
+                adapter.Fill(ds9, "TEMPds9");
                 sqlConn.Close();
 
 
-                if (ds7.Tables["TEMPds7"].Rows.Count == 0)
+                if (ds9.Tables["TEMPds9"].Rows.Count == 0)
                 {
                     
                 }
                 else
                 {
-                    if (ds7.Tables["TEMPds7"].Rows.Count >= 1)
+                    if (ds9.Tables["TEMPds9"].Rows.Count >= 1)
                     {
                         //dataGridView1.Rows.Clear();
-                        dataGridView7.DataSource = ds7.Tables["TEMPds7"];
-                        dataGridView7.AutoResizeColumns();
+                        dataGridView9.DataSource = ds9.Tables["TEMPds9"];
+                        dataGridView9.AutoResizeColumns();
                         //dataGridView1.CurrentCell = dataGridView1[0, rownum];
 
                     }
@@ -1059,6 +1033,22 @@ namespace TKCIM
                     sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERPROIDMD]");
                     sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[LOTID],[CANNO],[NUM])");
                     sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}') ", MATERWATERPROIDMDTARGETPROTA001, MATERWATERPROIDMDTARGETPROTA002, null, textBox47.Text, textBox37.Text, numericUpDown1.Value.ToString(), textBox57.Text);
+                    sbSql.AppendFormat(" ");
+
+                }
+                if (!string.IsNullOrEmpty(textBox58.Text))
+                {
+                    sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERPROIDMD]");
+                    sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[LOTID],[CANNO],[NUM])");
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}') ", MATERWATERPROIDMDTARGETPROTA001, MATERWATERPROIDMDTARGETPROTA002, null, textBox48.Text, textBox38.Text, numericUpDown1.Value.ToString(), textBox58.Text);
+                    sbSql.AppendFormat(" ");
+
+                }
+                if (!string.IsNullOrEmpty(textBox59.Text))
+                {
+                    sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERPROIDMD]");
+                    sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[LOTID],[CANNO],[NUM])");
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}') ", MATERWATERPROIDMDTARGETPROTA001, MATERWATERPROIDMDTARGETPROTA002, null, textBox49.Text, textBox39.Text, numericUpDown1.Value.ToString(), textBox59.Text);
                     sbSql.AppendFormat(" ");
 
                 }
@@ -1212,6 +1202,9 @@ namespace TKCIM
             textBox55.Text = null;
             textBox56.Text = null;
             textBox57.Text = null;
+            textBox58.Text = null;
+            textBox59.Text = null;
+            
         }
 
         public void UPDATEMATERWATERPROIDMD()
@@ -1358,7 +1351,7 @@ namespace TKCIM
 
                 if (ds8.Tables["TEMPds8"].Rows.Count == 0)
                 {
-                    for (int j = 1; j <= 7; j++)
+                    for (int j = 1; j <= 10; j++)
                     {
                         TextBox iTextBox = (TextBox)FindControl(this, "textBox3" + j);
                         iTextBox.Text = null;
@@ -1380,7 +1373,7 @@ namespace TKCIM
                         int i = 1;
                         foreach (DataGridViewRow dr in this.dataGridView8.Rows)
                         {
-                            if (i <= 7)
+                            if (i <= 10)
                             {
                                 TextBox iTextBox = (TextBox)FindControl(this, "textBox3" + i);
                                 iTextBox.Text = dr.Cells["批號"].Value.ToString();
@@ -1403,6 +1396,48 @@ namespace TKCIM
 
             }
         }
+        private void dataGridView8_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView8.CurrentRow != null)
+            {
+                int rowindex = dataGridView8.CurrentRow.Index;
+                if (rowindex >= 0)
+                {
+                    DataGridViewRow row = dataGridView8.Rows[rowindex];
+                    MATERWATERPROIDMDTARGETPROTA001 = row.Cells["單別"].Value.ToString();
+                    MATERWATERPROIDMDTARGETPROTA002 = row.Cells["單號"].Value.ToString();
+                    MATERWATERPROIDMDMB001 = row.Cells["品號"].Value.ToString();
+                    MATERWATERPROIDMDMB002 = row.Cells["品名"].Value.ToString();
+                    MATERWATERPROIDMDLOTID = row.Cells["批號"].Value.ToString();
+
+
+                }
+                else
+                {
+                    MATERWATERPROIDMDTARGETPROTA001 = null;
+                    MATERWATERPROIDMDTARGETPROTA002 = null;
+                    MATERWATERPROIDMDMB001 = null;
+                    MATERWATERPROIDMDMB002 = null;
+                    MATERWATERPROIDMDLOTID = null;
+                }
+            }
+            else
+            {
+                MATERWATERPROIDMDTARGETPROTA001 = null;
+                MATERWATERPROIDMDTARGETPROTA002 = null;
+                MATERWATERPROIDMDMB001 = null;
+                MATERWATERPROIDMDMB002 = null;
+                MATERWATERPROIDMDLOTID = null;
+            }
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            dateTimePicker6.Value = DateTime.Now;
+            dateTimePicker7.Value = DateTime.Now;
+
+        }
+
+
         #endregion
 
         #region BUTTON
@@ -1466,9 +1501,13 @@ namespace TKCIM
         private void button11_Click(object sender, EventArgs e)
         {
             SERACHMOCTARGETLOT2();
+            SEARCHMATERWATERPROIDMD();
         }
 
 
+
         #endregion
+
+     
     }
 }
