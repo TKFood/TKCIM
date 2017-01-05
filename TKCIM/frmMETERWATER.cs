@@ -1110,27 +1110,7 @@ namespace TKCIM
 
                 }
             }
-            //if (dataGridView7.CurrentRow != null)
-            //{
-            //    int rowindex = dataGridView7.CurrentRow.Index;
-            //    if (rowindex >= 0)
-            //    {
-            //        DataGridViewRow row = dataGridView7.Rows[rowindex];
-            //        DELTARGETPROTA001 = row.Cells["單別"].Value.ToString();
-            //        DELTARGETPROTA002 = row.Cells["單號"].Value.ToString();
-            //        DELMB001 = row.Cells["品號"].Value.ToString();
-            //        DELLOTID = row.Cells["批號"].Value.ToString();
-            //        DELCANNO = row.Cells["桶數"].Value.ToString();                   
-            //    }
-            //    else
-            //    {
-            //        DELTARGETPROTA001 = null;
-            //        DELTARGETPROTA002 = null;
-            //        DELMB001 = null;
-            //        DELLOTID = null;
-            //        DELCANNO = null;
-            //    }
-            //}
+           
         }
         public void DELMATERWATERPROIDMD()
         {
@@ -1436,7 +1416,30 @@ namespace TKCIM
             dateTimePicker7.Value = DateTime.Now;
 
         }
-
+        private void dataGridView9_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView9.CurrentRow != null)
+            {
+                int rowindex = dataGridView9.CurrentRow.Index;
+                if (rowindex >= 0)
+                {
+                    DataGridViewRow row = dataGridView9.Rows[rowindex];
+                    DELTARGETPROTA001 = row.Cells["單別"].Value.ToString();
+                    DELTARGETPROTA002 = row.Cells["單號"].Value.ToString();
+                    DELMB001 = row.Cells["品號"].Value.ToString();
+                    DELLOTID = row.Cells["批號"].Value.ToString();
+                    DELCANNO = row.Cells["桶數"].Value.ToString();
+                }
+                else
+                {
+                    DELTARGETPROTA001 = null;
+                    DELTARGETPROTA002 = null;
+                    DELMB001 = null;
+                    DELLOTID = null;
+                    DELCANNO = null;
+                }
+            }
+        }
 
         #endregion
 
@@ -1506,8 +1509,9 @@ namespace TKCIM
 
 
 
+
         #endregion
 
-     
+       
     }
 }

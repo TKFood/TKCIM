@@ -1855,6 +1855,7 @@
             this.dataGridView9.RowTemplate.Height = 24;
             this.dataGridView9.Size = new System.Drawing.Size(348, 445);
             this.dataGridView9.TabIndex = 4;
+            this.dataGridView9.SelectionChanged += new System.EventHandler(this.dataGridView9_SelectionChanged);
             // 
             // tabPage4
             // 

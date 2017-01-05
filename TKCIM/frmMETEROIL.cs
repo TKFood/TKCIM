@@ -41,26 +41,8 @@ namespace TKCIM
         int result;
         string CHECKYN = "N";
         string TB003;
-        string TARGETTA001;
-        string TARGETTA002;
-        string PROIDTARGETPROTA001;
-        string PROIDTARGETPROTA002;
-        string PROIDSOURCEPROTA001;
-        string PROIDSOURCEPROTA002;
-        string MATEROILPROIDMTA001;
-        string MATEROILPROIDMTA002;
-
-        string MATEROILPROIDMDTARGETPROTA001;
-        string MATEROILPROIDMDTARGETPROTA002;
-        string MATEROILPROIDMDMB001;
-        string MATEROILPROIDMDMB002;
-        string MATEROILPROIDMDLOTID;
-
-        string DELTARGETPROTA001;
-        string DELTARGETPROTA002;
-        string DELMB001;
-        string DELLOTID;
-        string DELCANNO;
+        string MATEROILRPROIDMTA001;
+        string MATEROILRPROIDMTA002;
         Thread TD;
 
         public frmMETEROIL()
@@ -86,9 +68,9 @@ namespace TKCIM
             dt.Columns.Add("MD001", typeof(string));
             dt.Columns.Add("MD002", typeof(string));
             da.Fill(dt);
-            //comboBox1.DataSource = dt.DefaultView;
-            //comboBox1.ValueMember = "MD002";
-            //comboBox1.DisplayMember = "MD002";
+            comboBox1.DataSource = dt.DefaultView;
+            comboBox1.ValueMember = "MD002";
+            comboBox1.DisplayMember = "MD002";
             sqlConn.Close();
 
 
@@ -170,9 +152,9 @@ namespace TKCIM
                 sbSql.AppendFormat(@"  FROM MOCTA WITH (NOLOCK),INVMB WITH (NOLOCK),CMSMD WITH (NOLOCK)");
                 sbSql.AppendFormat(@"  WHERE TA006=MB001");
                 sbSql.AppendFormat(@"  AND TA021=  MD001 ");
-                sbSql.AppendFormat(@"  AND MB002 LIKE '%油酥%' AND TA006 LIKE '3%'");
+                sbSql.AppendFormat(@"  AND( ( TA006 LIKE '3%') OR (TA006 IN (SELECT MB001 FROM [TK].dbo.INVMB WITH (NOLOCK) WHERE MB118='Y'))) ");
                 sbSql.AppendFormat(@"  AND TA003='{0}'", dateTimePicker1.Value.ToString("yyyyMMdd"));
-                sbSql.AppendFormat(@"  AND MD002='{0}'", comboBox2.Text.ToString());
+                sbSql.AppendFormat(@"  AND MD002='{0}'", comboBox1.Text.ToString());
                 sbSql.AppendFormat(@"  ORDER BY TA003,TA006");
                 sbSql.AppendFormat(@"  ");
 
@@ -212,7 +194,29 @@ namespace TKCIM
 
             }
         }
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow != null)
+            {
+                int rowindex = dataGridView1.CurrentRow.Index;
+                if (rowindex >= 0)
+                {
+                    DataGridViewRow row = dataGridView1.Rows[rowindex];
+                    MATEROILRPROIDMTA001 = row.Cells["單別"].Value.ToString();
+                    MATEROILRPROIDMTA002 = row.Cells["單號"].Value.ToString();
+                    //SERACHMOCTARGETLOTUSED();
+                    //SEARCHMATERWATERPROIDM();
+                    //SEARCHMATERWATERPROIDMD();
 
+
+                }
+                else
+                {
+                    MATEROILRPROIDMTA001 = null;
+                    MATEROILRPROIDMTA002 = null;
+                }
+            }
+        }
         #endregion
 
         #region BUTTON
@@ -224,5 +228,7 @@ namespace TKCIM
         {
             SERACHMOCTARGET();
         }
+
+        
     }
 }
