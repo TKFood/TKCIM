@@ -43,6 +43,13 @@ namespace TKCIM
         string TB003;
         string MATEROILRPROIDMTA001;
         string MATEROILRPROIDMTA002;
+        string MATEROILRPROIDMTA001B;
+        string MATEROILRPROIDMTA002B;
+        string MATEROILPROIDMDTARGETPROTA001;
+        string MATEROILPROIDMDTARGETPROTA002;
+        string MATEROILPROIDMDMB001;
+        string MATEROILPROIDMDMB002;
+        string MATEROILPROIDMDLOTID;
         Thread TD;
 
         public frmMETEROIL()
@@ -249,7 +256,7 @@ namespace TKCIM
                 int i = 1;
                 SETLOTNULL();
                 if (ds2.Tables["TEMPds2"].Rows.Count == 0)
-                {                   
+                {
                     for (int j = 1; j <= 12; j++)
                     {
                         TextBox iTextBox = (TextBox)FindControl(this, "textBox" + j);
@@ -330,7 +337,7 @@ namespace TKCIM
             textBox12.Text = null;
         }
 
-        public void  ADDMETEROILPROIDM()
+        public void ADDMETEROILPROIDM()
         {
             try
             {
@@ -426,7 +433,7 @@ namespace TKCIM
                     sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), DateTime.Now.ToString("yyyyMMdd"), null, textBox12.Text, comboBox22.Text.ToString() + textBox32.Text);
                     sbSql.AppendFormat(" ");
                 }
-               
+
 
 
 
@@ -520,6 +527,312 @@ namespace TKCIM
 
             }
         }
+        public void SERACHMOCTARGET2()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sbSql.Clear();
+                sbSqlQuery.Clear();
+
+
+                sbSql.AppendFormat(@"  SELECT MB002  AS '品名',TA015  AS '預計產量',TA001 AS '單別',TA002 AS '單號',TA003 AS '日期',TA006 AS '品號'    ");
+                sbSql.AppendFormat(@"  ,MD002 AS '線別'");
+                sbSql.AppendFormat(@"  FROM MOCTA WITH (NOLOCK),INVMB WITH (NOLOCK),CMSMD WITH (NOLOCK)");
+                sbSql.AppendFormat(@"  WHERE TA006=MB001");
+                sbSql.AppendFormat(@"  AND TA021=  MD001 ");
+                sbSql.AppendFormat(@"  AND( ( TA006 LIKE '3%') OR (TA006 IN (SELECT MB001 FROM [TK].dbo.INVMB WITH (NOLOCK) WHERE MB118='Y'))) ");
+                sbSql.AppendFormat(@"  AND TA003='{0}'", dateTimePicker1.Value.ToString("yyyyMMdd"));
+                sbSql.AppendFormat(@"  AND MD002='{0}'", comboBox1.Text.ToString());
+                sbSql.AppendFormat(@"  ORDER BY TA003,TA006");
+                sbSql.AppendFormat(@"  ");
+
+
+                adapter = new SqlDataAdapter(@"" + sbSql, sqlConn);
+
+                sqlCmdBuilder = new SqlCommandBuilder(adapter);
+                sqlConn.Open();
+                ds4.Clear();
+                adapter.Fill(ds4, "TEMPds4");
+                sqlConn.Close();
+
+
+                if (ds4.Tables["TEMPds4"].Rows.Count == 0)
+                {
+                    dataGridView4.DataSource = null;
+                }
+                else
+                {
+                    if (ds4.Tables["TEMPds4"].Rows.Count >= 1)
+                    {
+                        //dataGridView1.Rows.Clear();
+                        dataGridView4.DataSource = ds4.Tables["TEMPds4"];
+                        dataGridView4.AutoResizeColumns();
+                        //dataGridView1.CurrentCell = dataGridView1[0, rownum];
+
+                    }
+                }
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+
+            }
+        }
+
+        private void dataGridView4_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView4.CurrentRow != null)
+            {
+                int rowindex = dataGridView4.CurrentRow.Index;
+                if (rowindex >= 0)
+                {
+                    DataGridViewRow row = dataGridView4.Rows[rowindex];
+                    MATEROILRPROIDMTA001B = row.Cells["單別"].Value.ToString();
+                    MATEROILRPROIDMTA002B = row.Cells["單號"].Value.ToString();
+
+
+                }
+                else
+                {
+                    MATEROILRPROIDMTA001B = null;
+                    MATEROILRPROIDMTA002B = null;
+                }
+            }
+            SEARCHMETEROILPROIDM2();
+        }
+        public void SEARCHMETEROILPROIDM2()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sbSql.Clear();
+                sbSqlQuery.Clear();
+
+
+                sbSql.AppendFormat(@"  SELECT [MB002] AS '品名',[LOTID] AS '批號' ,[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號',[MAIN] AS '生產線別',[MAINDATE] AS '日期',[MB001] AS '品號'");
+                sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[METEROILPROIDM]");
+                sbSql.AppendFormat(@"  WHERE [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}'", MATEROILRPROIDMTA001B, MATEROILRPROIDMTA002B);
+                sbSql.AppendFormat(@"  ORDER BY [MB001]  ");
+                sbSql.AppendFormat(@"  ");
+
+
+                adapter = new SqlDataAdapter(@"" + sbSql, sqlConn);
+
+                sqlCmdBuilder = new SqlCommandBuilder(adapter);
+                sqlConn.Open();
+                ds5.Clear();
+                adapter.Fill(ds5, "TEMPds5");
+                sqlConn.Close();
+
+
+                if (ds5.Tables["TEMPds5"].Rows.Count == 0)
+                {
+                    dataGridView5.DataSource = null;
+                    for (int j =1; j <= 12; j++)
+                    {
+                        TextBox iTextBox = (TextBox)FindControl(this, "textBox" + Convert.ToInt32(Convert.ToInt32(j)+ Convert.ToInt32(50)));
+                        iTextBox.Text = null;
+                        TextBox iTextBox2 = (TextBox)FindControl(this, "textBox" + Convert.ToInt32(Convert.ToInt32(j) + Convert.ToInt32(70)));
+                        iTextBox2.Text = null;
+
+                    }
+
+                }
+                else
+                {
+                    if (ds5.Tables["TEMPds5"].Rows.Count >= 1)
+                    {
+                        //dataGridView1.Rows.Clear();
+                        dataGridView5.DataSource = ds5.Tables["TEMPds5"];
+                        dataGridView5.AutoResizeColumns();
+                        //dataGridView1.CurrentCell = dataGridView1[0, rownum];
+                        int i = 1;
+                        foreach (DataGridViewRow dr in this.dataGridView5.Rows)
+                        {
+                            if (i <= 12)
+                            {
+                                TextBox iTextBox = (TextBox)FindControl(this, "textBox" + Convert.ToInt32(Convert.ToInt32(i) + Convert.ToInt32(50)));
+                                iTextBox.Text = dr.Cells["批號"].Value.ToString();
+                                TextBox iTextBox2 = (TextBox)FindControl(this, "textBox" + Convert.ToInt32(Convert.ToInt32(i) + Convert.ToInt32(70)));
+                                iTextBox2.Text = dr.Cells["品名"].Value.ToString();
+                                i++;
+                            }
+
+                        }
+                    }
+                }
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+
+            }
+        }
+        private void dataGridView5_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView5.CurrentRow != null)
+            {
+                int rowindex = dataGridView5.CurrentRow.Index;
+                if (rowindex >= 0)
+                {
+                    DataGridViewRow row = dataGridView5.Rows[rowindex];
+                    MATEROILPROIDMDTARGETPROTA001 = row.Cells["單別"].Value.ToString();
+                    MATEROILPROIDMDTARGETPROTA002 = row.Cells["單號"].Value.ToString();
+                    MATEROILPROIDMDMB001 = row.Cells["品號"].Value.ToString();
+                    MATEROILPROIDMDMB002 = row.Cells["品名"].Value.ToString();
+                    MATEROILPROIDMDLOTID = row.Cells["批號"].Value.ToString();
+
+                }
+                else
+                {
+                    MATEROILPROIDMDTARGETPROTA001 = null;
+                    MATEROILPROIDMDTARGETPROTA002 = null;
+                    MATEROILPROIDMDMB001 = null;
+                    MATEROILPROIDMDMB002 = null;
+                    MATEROILPROIDMDLOTID = null;
+                }
+            }
+            else
+            {
+                MATEROILPROIDMDTARGETPROTA001 = null;
+                MATEROILPROIDMDTARGETPROTA002 = null;
+                MATEROILPROIDMDMB001 = null;
+                MATEROILPROIDMDMB002 = null;
+                MATEROILPROIDMDLOTID = null;
+            }
+
+            SERACHMETEROILPROIDMD();
+        }
+
+        public void ADDMETEROILPROIDMD()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sqlConn.Close();
+                sqlConn.Open();
+                tran = sqlConn.BeginTransaction();
+
+                sbSql.Clear();
+                if (!string.IsNullOrEmpty(textBox51.Text))
+                {
+                    sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[METEROILPROIDMD]");
+                    sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[LOTID],[CANNO],[NUM])");
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}') ", MATEROILPROIDMDTARGETPROTA001, MATEROILPROIDMDTARGETPROTA002, null, textBox51.Text, textBox71.Text, numericUpDown1.Value.ToString(), textBox91.Text);
+                    sbSql.AppendFormat(" ");
+
+                }
+
+                //sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERPROIDMD]");
+                //sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[LOTID],[CANNO],[NUM])");
+                //sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}') ", MATERWATERPROIDMDTARGETPROTA001, MATERWATERPROIDMDTARGETPROTA002, MATERWATERPROIDMDMB001, MATERWATERPROIDMDMB002, MATERWATERPROIDMDLOTID, numericUpDown1.Value.ToString(), textBox51.Text);
+                //sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[LOTID],[CANNO],[NUM],[OUTLOOK],[STIME],[ETIME],[TEMP],[HUDI],[MOVEIN],[CHECKEMP])");
+                //sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}') ", MATERWATERPROIDMDTARGETPROTA001, MATERWATERPROIDMDTARGETPROTA002, MATERWATERPROIDMDMB001, MATERWATERPROIDMDMB002, MATERWATERPROIDMDLOTID,numericUpDown1.Value.ToString(),textBox6.Text,comboBox3.Text.ToString(),dateTimePicker6.Value.ToString("HH:mm"), dateTimePicker7.Value.ToString("HH:mm"),textBox7.Text,textBox8.Text,comboBox4.Text.ToString(),comboBox5.Text.ToString());
+                sbSql.AppendFormat(" UPDATE [TKCIM].[dbo].[METEROILPROIDMD] SET [METEROILPROIDMD].[MB001]=[INVMB].[MB001]");
+                sbSql.AppendFormat(" FROM [TK].dbo.[INVMB]");
+                sbSql.AppendFormat(" WHERE [METEROILPROIDMD].[MB002]=[INVMB].[MB002]");
+                sbSql.AppendFormat(" AND ISNULL([METEROILPROIDMD].[MB001],'')=''");
+                sbSql.AppendFormat(" ");
+
+                cmd.Connection = sqlConn;
+                cmd.CommandTimeout = 60;
+                cmd.CommandText = sbSql.ToString();
+                cmd.Transaction = tran;
+                result = cmd.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    tran.Rollback();    //交易取消
+                }
+                else
+                {
+                    tran.Commit();      //執行交易  
+
+
+                }
+
+            }
+            catch
+            {
+
+            }
+
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
+        public void SERACHMETEROILPROIDMD()
+        {
+            try
+            {
+
+                connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sbSql.Clear();
+                sbSqlQuery.Clear();
+
+                sbSql.AppendFormat(@"  SELECT [MB002] AS '品名'  ,[LOTID] AS '批號',[CANNO] AS '桶數',[NUM] AS '重量'");
+                sbSql.AppendFormat(@"  ,[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號',[MB001] AS '品號',[OUTLOOK] AS '外觀',[STIME] AS '起時間',[ETIME] AS '迄時間'");
+                sbSql.AppendFormat(@"  ,[TEMP] AS '溫度' ,[HUDI] AS '溼度',[MOVEIN] AS '投料人',[CHECKEMP] AS '抽檢人'");
+                sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[METEROILPROIDMD]");
+                sbSql.AppendFormat(@"  WHERE [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}' ", MATEROILPROIDMDTARGETPROTA001, MATEROILPROIDMDTARGETPROTA002);
+                sbSql.AppendFormat(@"  ORDER BY [TARGETPROTA001],[TARGETPROTA002],[CANNO],[MB001]");
+                sbSql.AppendFormat(@"  ");
+
+
+
+                adapter = new SqlDataAdapter(@"" + sbSql, sqlConn);
+
+                sqlCmdBuilder = new SqlCommandBuilder(adapter);
+                sqlConn.Open();
+                ds6.Clear();
+                adapter.Fill(ds6, "TEMPds6");
+                sqlConn.Close();
+
+
+                if (ds6.Tables["TEMPds6"].Rows.Count == 0)
+                {
+
+                }
+                else
+                {
+                    if (ds6.Tables["TEMPds6"].Rows.Count >= 1)
+                    {
+                        //dataGridView1.Rows.Clear();
+                        dataGridView6.DataSource = ds6.Tables["TEMPds6"];
+                        dataGridView6.AutoResizeColumns();
+                        //dataGridView1.CurrentCell = dataGridView1[0, rownum];
+
+                    }
+                }
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+
+            }
+        }
         #endregion
 
         #region BUTTON
@@ -527,15 +840,25 @@ namespace TKCIM
         private void button1_Click(object sender, EventArgs e)
         {
             SERACHMOCTARGET();
-            
+
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             ADDMETEROILPROIDM();
         }
+        private void button11_Click(object sender, EventArgs e)
+        {
+            SERACHMOCTARGET2();
+        }
+        private void button8_Click(object sender, EventArgs e)
+        {
+            ADDMETEROILPROIDMD();
+            SERACHMETEROILPROIDMD();
+        }
+    }
+
         #endregion
 
-
-    }
+       
 }

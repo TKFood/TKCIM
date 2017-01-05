@@ -589,7 +589,7 @@ namespace TKCIM
                     MATERWATERPROIDMTA002 = row.Cells["單號"].Value.ToString();
                     SERACHMOCTARGETLOTUSED();
                     SEARCHMATERWATERPROIDM();
-                    SEARCHMATERWATERPROIDMD();
+                    //SEARCHMATERWATERPROIDMD();
 
 
                 }
