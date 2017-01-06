@@ -185,6 +185,13 @@ namespace TKCIM
                     textBox4.Text = null;
                 }
             }
+            else
+            {
+                textBox1.Text = null;
+                textBox2.Text = null;
+                textBox3.Text = null;
+                textBox4.Text = null;
+            }
         }
 
         public void ADDNGCOOKIESMD()
