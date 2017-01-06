@@ -865,7 +865,28 @@ namespace TKCIM
         }
         private void dataGridView6_SelectionChanged(object sender, EventArgs e)
         {
-           
+            if (dataGridView6.CurrentRow != null)
+            {
+                int rowindex = dataGridView6.CurrentRow.Index;
+                if (rowindex >= 0)
+                {
+                    DataGridViewRow row = dataGridView6.Rows[rowindex];
+                    MATERWATERPROIDMTA001 = row.Cells["單別"].Value.ToString();
+                    MATERWATERPROIDMTA002 = row.Cells["單號"].Value.ToString();
+                    MATERWATERPROIDMDMB001 = row.Cells["品號"].Value.ToString();
+                    MATERWATERPROIDMDLOTID = row.Cells["批號"].Value.ToString();
+
+
+                }
+                else
+                {
+                    MATERWATERPROIDMTA001 = null;
+                    MATERWATERPROIDMTA002 = null;
+                    MATERWATERPROIDMDMB001 = null;
+                    MATERWATERPROIDMDLOTID = null;
+
+                }
+            }
         }
 
         public void DELMATERWATERPROIDM()
@@ -1477,8 +1498,17 @@ namespace TKCIM
         }
 
         private void button7_Click(object sender, EventArgs e)
-        {
-            DELMATERWATERPROIDM();
+        {            
+            DialogResult dialogResult = MessageBox.Show("要刪除了?", "要刪除了?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                DELMATERWATERPROIDM();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
+
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -1490,7 +1520,16 @@ namespace TKCIM
 
         private void button9_Click(object sender, EventArgs e)
         {
-            DELMATERWATERPROIDMD();
+            
+            DialogResult dialogResult = MessageBox.Show("要刪除了?", "要刪除了?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                DELMATERWATERPROIDMD();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
         }
         private void button10_Click(object sender, EventArgs e)
         {

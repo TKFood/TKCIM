@@ -336,18 +336,18 @@ namespace TKCIM
 
         public void SETLOTNULL()
         {
-            textBox1.Text = null;
-            textBox2.Text = null;
-            textBox3.Text = null;
-            textBox4.Text = null;
-            textBox5.Text = null;
-            textBox6.Text = null;
-            textBox7.Text = null;
-            textBox8.Text = null;
-            textBox9.Text = null;
-            textBox10.Text = null;
-            textBox11.Text = null;
-            textBox12.Text = null;
+            textBox21.Text = null;
+            textBox22.Text = null;
+            textBox23.Text = null;
+            textBox24.Text = null;
+            textBox25.Text = null;
+            textBox26.Text = null;
+            textBox27.Text = null;
+            textBox28.Text = null;
+            textBox29.Text = null;
+            textBox30.Text = null;
+            textBox31.Text = null;
+            textBox32.Text = null;
         }
 
         public void ADDMETEROILPROIDM()
@@ -1172,7 +1172,7 @@ namespace TKCIM
         private void button6_Click(object sender, EventArgs e)
         {
             ADDMETEROILPROIDM();
-            SETNEWLOTNULL();
+            SETLOTNULL();
             SEARCHMETEROILPROIDM();
         }
         private void button11_Click(object sender, EventArgs e)
