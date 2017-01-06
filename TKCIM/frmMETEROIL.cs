@@ -163,9 +163,10 @@ namespace TKCIM
                 connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
                 sqlConn = new SqlConnection(connectionString);
 
+                StringBuilder sbSql = new StringBuilder();
                 sbSql.Clear();
                 sbSqlQuery.Clear();
-
+                ds1.Clear();
 
                 sbSql.AppendFormat(@"  SELECT MB002  AS '品名',TA015  AS '預計產量',TA001 AS '單別',TA002 AS '單號',TA003 AS '日期',TA006 AS '品號'    ");
                 sbSql.AppendFormat(@"  ,MD002 AS '線別'");
@@ -190,7 +191,7 @@ namespace TKCIM
 
                 if (ds1.Tables["TEMPds1"].Rows.Count == 0)
                 {
-
+                    dataGridView1.DataSource = null;
                 }
                 else
                 {
@@ -211,7 +212,7 @@ namespace TKCIM
             }
             finally
             {
-
+                sqlConn.Close();
             }
         }
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
@@ -282,10 +283,10 @@ namespace TKCIM
                 {
                     if (ds2.Tables["TEMPds2"].Rows.Count >= 1)
                     {
-                        //dataGridView1.Rows.Clear();
+                        
                         dataGridView2.DataSource = ds2.Tables["TEMPds2"];
                         dataGridView2.AutoResizeColumns();
-                        //dataGridView1.CurrentCell = dataGridView1[0, rownum];
+                       
 
                         foreach (DataGridViewRow dr in this.dataGridView2.Rows)
                         {
@@ -309,7 +310,7 @@ namespace TKCIM
             }
             finally
             {
-
+                sqlConn.Close();
             }
         }
 
@@ -537,10 +538,10 @@ namespace TKCIM
                 {
                     if (ds3.Tables["TEMPds3"].Rows.Count >= 1)
                     {
-                        //dataGridView1.Rows.Clear();
+                       
                         dataGridView3.DataSource = ds3.Tables["TEMPds3"];
                         dataGridView3.AutoResizeColumns();
-                        //dataGridView1.CurrentCell = dataGridView1[0, rownum];
+                       
 
                     }
                 }
@@ -552,6 +553,7 @@ namespace TKCIM
             }
             finally
             {
+                sqlConn.Close();
 
             }
         }
@@ -562,9 +564,10 @@ namespace TKCIM
                 connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
                 sqlConn = new SqlConnection(connectionString);
 
+                StringBuilder sbSql = new StringBuilder();
                 sbSql.Clear();
                 sbSqlQuery.Clear();
-
+                ds4.Clear();
 
                 sbSql.AppendFormat(@"  SELECT MB002  AS '品名',TA015  AS '預計產量',TA001 AS '單別',TA002 AS '單號',TA003 AS '日期',TA006 AS '品號'    ");
                 sbSql.AppendFormat(@"  ,MD002 AS '線別'");
@@ -572,8 +575,8 @@ namespace TKCIM
                 sbSql.AppendFormat(@"  WHERE TA006=MB001");
                 sbSql.AppendFormat(@"  AND TA021=  MD001 ");
                 sbSql.AppendFormat(@"  AND( ( TA006 LIKE '3%') OR (TA006 IN (SELECT MB001 FROM [TK].dbo.INVMB WITH (NOLOCK) WHERE MB118='Y'))) ");
-                sbSql.AppendFormat(@"  AND TA003='{0}'", dateTimePicker1.Value.ToString("yyyyMMdd"));
-                sbSql.AppendFormat(@"  AND MD002='{0}'", comboBox1.Text.ToString());
+                sbSql.AppendFormat(@"  AND TA003='{0}'", dateTimePicker5.Value.ToString("yyyyMMdd"));
+                sbSql.AppendFormat(@"  AND MD002='{0}'", comboBox2.Text.ToString());
                 sbSql.AppendFormat(@"  ORDER BY TA003,TA006");
                 sbSql.AppendFormat(@"  ");
 
@@ -610,7 +613,7 @@ namespace TKCIM
             }
             finally
             {
-
+                sqlConn.Close();
             }
         }
 
@@ -679,10 +682,10 @@ namespace TKCIM
                 {
                     if (ds5.Tables["TEMPds5"].Rows.Count >= 1)
                     {
-                        //dataGridView1.Rows.Clear();
+                      
                         dataGridView5.DataSource = ds5.Tables["TEMPds5"];
                         dataGridView5.AutoResizeColumns();
-                        //dataGridView1.CurrentCell = dataGridView1[0, rownum];
+                       
                         int i = 1;
                         foreach (DataGridViewRow dr in this.dataGridView5.Rows)
                         {
@@ -706,7 +709,7 @@ namespace TKCIM
             }
             finally
             {
-
+                sqlConn.Close();
             }
         }
         private void dataGridView5_SelectionChanged(object sender, EventArgs e)
@@ -926,10 +929,10 @@ namespace TKCIM
                 {
                     if (ds6.Tables["TEMPds6"].Rows.Count >= 1)
                     {
-                        //dataGridView1.Rows.Clear();
+                       
                         dataGridView6.DataSource = ds6.Tables["TEMPds6"];
                         dataGridView6.AutoResizeColumns();
-                        //dataGridView1.CurrentCell = dataGridView1[0, rownum];
+                       
 
                     }
                 }
@@ -941,7 +944,7 @@ namespace TKCIM
             }
             finally
             {
-
+                sqlConn.Close();
             }
         }
         public void SETNEWLOTNULL()
