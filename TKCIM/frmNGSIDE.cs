@@ -663,8 +663,9 @@ namespace TKCIM
             SEARCHNGSIDEM();
         }
 
+
         #endregion
 
-
+    
     }
 }
