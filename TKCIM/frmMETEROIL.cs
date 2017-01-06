@@ -336,6 +336,22 @@ namespace TKCIM
 
         public void SETLOTNULL()
         {
+            textBox1.Text = null;
+            textBox2.Text = null;
+            textBox3.Text = null;
+            textBox4.Text = null;
+            textBox5.Text = null;
+            textBox6.Text = null;
+            textBox7.Text = null;
+            textBox8.Text = null;
+            textBox9.Text = null;
+            textBox10.Text = null;
+            textBox11.Text = null;
+            textBox12.Text = null;
+
+        }
+        public void SETLOTNULL2()
+        {
             textBox21.Text = null;
             textBox22.Text = null;
             textBox23.Text = null;
@@ -349,7 +365,6 @@ namespace TKCIM
             textBox31.Text = null;
             textBox32.Text = null;
         }
-
         public void ADDMETEROILPROIDM()
         {
             try
@@ -1159,6 +1174,10 @@ namespace TKCIM
                 sqlConn.Close();
             }
         }
+        private void dataGridView2_SelectionChanged(object sender, EventArgs e)
+        {
+
+        }
         #endregion
 
         #region BUTTON
@@ -1172,7 +1191,7 @@ namespace TKCIM
         private void button6_Click(object sender, EventArgs e)
         {
             ADDMETEROILPROIDM();
-            SETLOTNULL();
+            SETLOTNULL2();
             SEARCHMETEROILPROIDM();
         }
         private void button11_Click(object sender, EventArgs e)
@@ -1189,8 +1208,17 @@ namespace TKCIM
 
         private void button7_Click(object sender, EventArgs e)
         {
-            DELMETEROILPROIDM();
-            SEARCHMETEROILPROIDM();
+            
+            DialogResult dialogResult = MessageBox.Show("要刪除了?", "要刪除了?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                DELMETEROILPROIDM();
+                SEARCHMETEROILPROIDM();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
         }
         private void button10_Click(object sender, EventArgs e)
         {
@@ -1199,10 +1227,19 @@ namespace TKCIM
             numericUpDown1.Value = numericUpDown1.Value + 1;
         }
         private void button9_Click(object sender, EventArgs e)
-        {
-            DELMETEROILPROIDMD();
-            SERACHMETEROILPROIDMD();
+        {            
+            DialogResult dialogResult = MessageBox.Show("要刪除了?", "要刪除了?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                DELMETEROILPROIDMD();
+                SERACHMETEROILPROIDMD();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
         }
+
 
 
 
