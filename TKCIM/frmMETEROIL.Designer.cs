@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.splitContainer6 = new System.Windows.Forms.SplitContainer();
@@ -160,6 +161,7 @@
             this.button10 = new System.Windows.Forms.Button();
             this.dataGridView6 = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer6)).BeginInit();
@@ -1731,6 +1733,7 @@
             this.button9.TabIndex = 11;
             this.button9.Text = "刪除";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button10
             // 
@@ -1741,6 +1744,7 @@
             this.button10.TabIndex = 12;
             this.button10.Text = "本桶結束";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // dataGridView6
             // 
@@ -1754,6 +1758,7 @@
             this.dataGridView6.RowTemplate.Height = 24;
             this.dataGridView6.Size = new System.Drawing.Size(348, 445);
             this.dataGridView6.TabIndex = 4;
+            this.dataGridView6.SelectionChanged += new System.EventHandler(this.dataGridView6_SelectionChanged);
             // 
             // tabPage3
             // 
@@ -1763,6 +1768,10 @@
             this.tabPage3.TabIndex = 3;
             this.tabPage3.Text = "產生領退料單";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // frmMETEROIL
             // 
@@ -1971,5 +1980,6 @@
         private System.Windows.Forms.TextBox textBox99;
         private System.Windows.Forms.TextBox textBox100;
         private System.Windows.Forms.TextBox textBox101;
+        private System.Windows.Forms.Timer timer1;
     }
 }

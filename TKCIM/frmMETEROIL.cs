@@ -54,6 +54,11 @@ namespace TKCIM
         string DELTARGETPROTA002;
         string DELMB002;
         string DELLOTID;
+        string DELMETEROILPROIDMDTARGETPROTA001;
+        string DELMETEROILPROIDMDTARGETPROTA002;
+        string DELMETEROILPROIDMDMB001;
+        string DELMETEROILPROIDMDLOTID;
+        string DELMETEROILPROIDMDCANNO;
         Thread TD;
 
         public frmMETEROIL()
@@ -63,6 +68,10 @@ namespace TKCIM
             comboBox2load();
             comboBox4load();
             comboBox5load();
+
+            timer1.Enabled = true;
+            timer1.Interval = 1000 * 60;
+            timer1.Start();
         }
 
         #region FUNCTION
@@ -111,7 +120,7 @@ namespace TKCIM
             connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
             sqlConn = new SqlConnection(connectionString);
             StringBuilder Sequel = new StringBuilder();
-            Sequel.AppendFormat(@"SELECT  [ID],[NAME] FROM [TKCIM].[dbo].[EMP] ");
+            Sequel.AppendFormat(@"SELECT  [ID] ,[NAME] FROM [TKMOC].[dbo].[MANUEMPLOYEE] WHERE   [ID] IN (SELECT [ID] FROM [TKMOC].[dbo].[MANUEMPLOYEELIMIT])");
             SqlDataAdapter da = new SqlDataAdapter(Sequel.ToString(), sqlConn);
             DataTable dt = new DataTable();
             sqlConn.Open();
@@ -119,9 +128,9 @@ namespace TKCIM
             dt.Columns.Add("ID", typeof(string));
             dt.Columns.Add("NAME", typeof(string));
             da.Fill(dt);
-            //comboBox4.DataSource = dt.DefaultView;
-            //comboBox4.ValueMember = "NAME";
-            //comboBox4.DisplayMember = "NAME";
+            comboBox4.DataSource = dt.DefaultView;
+            comboBox4.ValueMember = "NAME";
+            comboBox4.DisplayMember = "NAME";
             sqlConn.Close();
 
 
@@ -131,7 +140,7 @@ namespace TKCIM
             connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
             sqlConn = new SqlConnection(connectionString);
             StringBuilder Sequel = new StringBuilder();
-            Sequel.AppendFormat(@"SELECT  [ID],[NAME] FROM [TKCIM].[dbo].[EMP] ");
+            Sequel.AppendFormat(@"SELECT  [ID] ,[NAME] FROM [TKMOC].[dbo].[MANUEMPLOYEE] WHERE   [ID] IN (SELECT [ID] FROM [TKMOC].[dbo].[MANUEMPLOYEELIMIT])");
             SqlDataAdapter da = new SqlDataAdapter(Sequel.ToString(), sqlConn);
             DataTable dt = new DataTable();
             sqlConn.Open();
@@ -139,9 +148,9 @@ namespace TKCIM
             dt.Columns.Add("ID", typeof(string));
             dt.Columns.Add("NAME", typeof(string));
             da.Fill(dt);
-            //comboBox5.DataSource = dt.DefaultView;
-            //comboBox5.ValueMember = "NAME";
-            //comboBox5.DisplayMember = "NAME";
+            comboBox5.DataSource = dt.DefaultView;
+            comboBox5.ValueMember = "NAME";
+            comboBox5.DisplayMember = "NAME";
             sqlConn.Close();
 
 
@@ -1013,6 +1022,143 @@ namespace TKCIM
                 sqlConn.Close();
             }
         }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            dateTimePicker6.Value = DateTime.Now;
+            dateTimePicker7.Value = DateTime.Now;
+        }
+
+        public void UPDATEMATEROILPROIDMD()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sqlConn.Close();
+                sqlConn.Open();
+                tran = sqlConn.BeginTransaction();
+
+                sbSql.Clear();
+                sbSql.AppendFormat(" UPDATE [TKCIM].[dbo].[METEROILPROIDMD] ");
+                sbSql.AppendFormat("   SET [METEROILPROIDMD].[OUTLOOK]='{0}' ", comboBox3.Text.ToString());
+                sbSql.AppendFormat("   ,[METEROILPROIDMD].[STIME]='{0}'", dateTimePicker6.Value.ToString("HH:mm"));
+                sbSql.AppendFormat("   ,[METEROILPROIDMD].[ETIME]='{0}'", dateTimePicker7.Value.ToString("HH:mm"));
+                sbSql.AppendFormat("   ,[METEROILPROIDMD].[TEMP]='{0}'", textBox201.Text);
+                sbSql.AppendFormat("   ,[METEROILPROIDMD].[HUDI]='{0}'", textBox202.Text);
+                sbSql.AppendFormat("   ,[METEROILPROIDMD].[MOVEIN]='{0}'", comboBox4.Text.ToString());
+                sbSql.AppendFormat("   ,[METEROILPROIDMD].[CHECKEMP]='{0}'", comboBox5.Text.ToString());
+                sbSql.AppendFormat("   WHERE [METEROILPROIDMD].[CANNO]='{0}'", numericUpDown1.Value.ToString());
+                sbSql.AppendFormat(" ");
+
+                cmd.Connection = sqlConn;
+                cmd.CommandTimeout = 60;
+                cmd.CommandText = sbSql.ToString();
+                cmd.Transaction = tran;
+                result = cmd.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    tran.Rollback();    //交易取消
+                }
+                else
+                {
+                    tran.Commit();      //執行交易  
+
+
+                }
+
+            }
+            catch
+            {
+
+            }
+
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
+        private void dataGridView6_SelectionChanged(object sender, EventArgs e)
+        {
+          
+            if (dataGridView6.CurrentRow != null)
+            {
+                int rowindex = dataGridView6.CurrentRow.Index;
+                if (rowindex >= 0)
+                {
+                    DataGridViewRow row = dataGridView6.Rows[rowindex];
+                    DELMETEROILPROIDMDTARGETPROTA001 = row.Cells["單別"].Value.ToString();
+                    DELMETEROILPROIDMDTARGETPROTA002 = row.Cells["單號"].Value.ToString();
+                    DELMETEROILPROIDMDMB001 = row.Cells["品號"].Value.ToString();
+                    DELMETEROILPROIDMDLOTID = row.Cells["批號"].Value.ToString();
+                    DELMETEROILPROIDMDCANNO = row.Cells["桶數"].Value.ToString();
+
+                }
+                else
+                {
+                    DELMETEROILPROIDMDTARGETPROTA001 = null;
+                    DELMETEROILPROIDMDTARGETPROTA002 = null;
+                    DELMETEROILPROIDMDMB001 = null;
+                    DELMETEROILPROIDMDLOTID = null;
+                    DELMETEROILPROIDMDCANNO = null;
+
+                }
+            }
+            else
+            {
+                DELMETEROILPROIDMDTARGETPROTA001 = null;
+                DELMETEROILPROIDMDTARGETPROTA002 = null;
+                DELMETEROILPROIDMDMB001 = null;
+                DELMETEROILPROIDMDLOTID = null;
+                DELMETEROILPROIDMDCANNO = null;
+            }
+        }
+
+        public void DELMETEROILPROIDMD()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sqlConn.Close();
+                sqlConn.Open();
+                tran = sqlConn.BeginTransaction();
+
+                sbSql.Clear();
+                sbSql.AppendFormat("   DELETE [TKCIM].[dbo].[METEROILPROIDMD]");
+                sbSql.AppendFormat(" WHERE [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}' AND [MB001]='{2}' AND [LOTID]='{3}' AND [CANNO]='{4}' ", DELMETEROILPROIDMDTARGETPROTA001, DELMETEROILPROIDMDTARGETPROTA002, DELMETEROILPROIDMDMB001, DELMETEROILPROIDMDLOTID, DELMETEROILPROIDMDCANNO);
+                sbSql.AppendFormat(" ");
+
+                cmd.Connection = sqlConn;
+                cmd.CommandTimeout = 60;
+                cmd.CommandText = sbSql.ToString();
+                cmd.Transaction = tran;
+                result = cmd.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    tran.Rollback();    //交易取消
+                }
+                else
+                {
+                    tran.Commit();      //執行交易  
+
+
+                }
+
+            }
+            catch
+            {
+
+            }
+
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
         #endregion
 
         #region BUTTON
@@ -1046,11 +1192,24 @@ namespace TKCIM
             DELMETEROILPROIDM();
             SEARCHMETEROILPROIDM();
         }
+        private void button10_Click(object sender, EventArgs e)
+        {
+            UPDATEMATEROILPROIDMD();
+            SERACHMETEROILPROIDMD();
+            numericUpDown1.Value = numericUpDown1.Value + 1;
+        }
+        private void button9_Click(object sender, EventArgs e)
+        {
+            DELMETEROILPROIDMD();
+            SERACHMETEROILPROIDMD();
+        }
+
+
 
 
         #endregion
 
-       
+
     }
 
 
