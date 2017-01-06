@@ -431,6 +431,11 @@ namespace TKCIM
                     textBox21.Text = null;
                 }
             }
+            else
+            {
+                textBox20.Text = null;
+                textBox21.Text = null;
+            }
             SETNULLTAB2();
         }
 
@@ -528,7 +533,7 @@ namespace TKCIM
             }
             finally
             {
-
+                sqlConn.Close();
             }
         }
         private void dataGridView4_SelectionChanged(object sender, EventArgs e)
@@ -546,7 +551,11 @@ namespace TKCIM
                     NGCOOKIESMID = null;                   
                 }
             }
-            
+            else
+            {
+                NGCOOKIESMID = null;
+            }
+
         }
 
         public void DELNGCOOKIESM()

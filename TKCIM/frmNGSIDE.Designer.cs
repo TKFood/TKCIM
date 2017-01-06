@@ -597,6 +597,7 @@
             this.button4.TabIndex = 3;
             this.button4.Text = "查詢";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // comboBox1
             // 
@@ -622,6 +623,7 @@
             this.dataGridView3.RowTemplate.Height = 24;
             this.dataGridView3.Size = new System.Drawing.Size(406, 586);
             this.dataGridView3.TabIndex = 2;
+            this.dataGridView3.SelectionChanged += new System.EventHandler(this.dataGridView3_SelectionChanged);
             // 
             // splitContainer6
             // 
@@ -689,6 +691,7 @@
             this.button5.TabIndex = 18;
             this.button5.Text = "新增";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -699,6 +702,7 @@
             this.button6.TabIndex = 19;
             this.button6.Text = "刪除";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // textBox21
             // 
@@ -822,6 +826,7 @@
             this.dataGridView4.RowTemplate.Height = 24;
             this.dataGridView4.Size = new System.Drawing.Size(552, 479);
             this.dataGridView4.TabIndex = 2;
+            this.dataGridView4.SelectionChanged += new System.EventHandler(this.dataGridView4_SelectionChanged);
             // 
             // label17
             // 
