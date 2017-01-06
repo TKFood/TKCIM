@@ -645,9 +645,10 @@ namespace TKCIM
                 connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
                 sqlConn = new SqlConnection(connectionString);
 
+                StringBuilder sbSql = new StringBuilder();
                 sbSql.Clear();
                 sbSqlQuery.Clear();
-
+                ds5.Clear();
 
                 sbSql.AppendFormat(@"  SELECT [MB002] AS '品名',[LOTID] AS '批號' ,[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號',[MAIN] AS '生產線別',[MAINDATE] AS '日期',[MB001] AS '品號'");
                 sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[METEROILPROIDM]");
