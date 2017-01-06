@@ -50,6 +50,10 @@ namespace TKCIM
         string MATEROILPROIDMDMB001;
         string MATEROILPROIDMDMB002;
         string MATEROILPROIDMDLOTID;
+        string DELTARGETPROTA001;
+        string DELTARGETPROTA002;
+        string DELMB002;
+        string DELLOTID;
         Thread TD;
 
         public frmMETEROIL()
@@ -833,6 +837,99 @@ namespace TKCIM
 
             }
         }
+        public void SETNEWLOTNULL()
+        {
+            textBox21.Text = null;
+            textBox22.Text = null;
+            textBox23.Text = null;
+            textBox24.Text = null;
+            textBox25.Text = null;
+            textBox26.Text = null;
+            textBox27.Text = null;
+            textBox28.Text = null;
+            textBox29.Text = null;
+            textBox30.Text = null;
+            textBox31.Text = null;
+            textBox32.Text = null;
+
+        }
+        private void dataGridView3_SelectionChanged(object sender, EventArgs e)
+        {
+           
+            if (dataGridView3.CurrentRow != null)
+            {
+                int rowindex = dataGridView3.CurrentRow.Index;
+                if (rowindex >= 0)
+                {
+                    DataGridViewRow row = dataGridView3.Rows[rowindex];
+                    DELTARGETPROTA001 = row.Cells["單別"].Value.ToString();
+                    DELTARGETPROTA002 = row.Cells["單號"].Value.ToString();                    
+                    DELMB002 = row.Cells["品名"].Value.ToString();
+                    DELLOTID = row.Cells["批號"].Value.ToString();
+
+                }
+                else
+                {
+                    DELTARGETPROTA001 = null;
+                    DELTARGETPROTA002 = null;
+                    DELMB002 = null;
+                    DELLOTID = null;
+                  
+                }
+            }
+            else
+            {
+                DELTARGETPROTA001 = null;
+                DELTARGETPROTA002 = null;
+                DELMB002 = null;
+                DELLOTID = null;
+            }
+
+        }
+        public void DELMETEROILPROIDM()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sqlConn.Close();
+                sqlConn.Open();
+                tran = sqlConn.BeginTransaction();
+
+                sbSql.Clear();
+                sbSql.AppendFormat("   DELETE [TKCIM].[dbo].[METEROILPROIDM]");
+                sbSql.AppendFormat(" WHERE [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}' AND [MB002]='{2}' AND [LOTID]='{3}' ", DELTARGETPROTA001, DELTARGETPROTA002, DELMB002, DELLOTID);
+                sbSql.AppendFormat(" ");
+
+                cmd.Connection = sqlConn;
+                cmd.CommandTimeout = 60;
+                cmd.CommandText = sbSql.ToString();
+                cmd.Transaction = tran;
+                result = cmd.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    tran.Rollback();    //交易取消
+                }
+                else
+                {
+                    tran.Commit();      //執行交易  
+
+
+                }
+
+            }
+            catch
+            {
+
+            }
+
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
         #endregion
 
         #region BUTTON
@@ -846,6 +943,8 @@ namespace TKCIM
         private void button6_Click(object sender, EventArgs e)
         {
             ADDMETEROILPROIDM();
+            SETNEWLOTNULL();
+            SEARCHMETEROILPROIDM();
         }
         private void button11_Click(object sender, EventArgs e)
         {
@@ -855,10 +954,22 @@ namespace TKCIM
         {
             ADDMETEROILPROIDMD();
             SERACHMETEROILPROIDMD();
+            SETNEWLOTNULL();
         }
-    }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            DELMETEROILPROIDM();
+            SEARCHMETEROILPROIDM();
+        }
+
 
         #endregion
 
        
+    }
+
+
+
+
 }
