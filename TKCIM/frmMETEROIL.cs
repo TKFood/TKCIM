@@ -904,7 +904,7 @@ namespace TKCIM
                 sbSqlQuery.Clear();
 
                 sbSql.AppendFormat(@"  SELECT [MB002] AS '品名'  ,[LOTID] AS '批號',[CANNO] AS '桶數',[NUM] AS '重量'");
-                sbSql.AppendFormat(@"  ,[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號',[MB001] AS '品號',[OUTLOOK] AS '外觀',[STIME] AS '起時間',[ETIME] AS '迄時間'");
+                sbSql.AppendFormat(@"  ,[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號',[MB001] AS '品號',[OUTLOOK] AS '外觀',CONVERT(varchar(100),[STIME],8) AS '起時間',CONVERT(varchar(100),[ETIME],8) AS '迄時間'");
                 sbSql.AppendFormat(@"  ,[TEMP] AS '溫度' ,[HUDI] AS '溼度',[MOVEIN] AS '投料人',[CHECKEMP] AS '抽檢人'");
                 sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[METEROILPROIDMD]");
                 sbSql.AppendFormat(@"  WHERE [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}' ", MATEROILPROIDMDTARGETPROTA001, MATEROILPROIDMDTARGETPROTA002);
@@ -1229,6 +1229,7 @@ namespace TKCIM
             UPDATEMATEROILPROIDMD();
             SERACHMETEROILPROIDMD();
             numericUpDown1.Value = numericUpDown1.Value + 1;
+            MessageBox.Show("本桶結束了喔!");
         }
         private void button9_Click(object sender, EventArgs e)
         {            
