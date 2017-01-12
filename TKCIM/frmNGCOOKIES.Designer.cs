@@ -259,7 +259,7 @@
             this.comboBox2.Items.AddRange(new object[] {
             "製一組",
             "製二組"});
-            this.comboBox2.Location = new System.Drawing.Point(195, 48);
+            this.comboBox2.Location = new System.Drawing.Point(195, 50);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(102, 24);
             this.comboBox2.TabIndex = 17;
@@ -627,7 +627,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "製一組",
             "製二組"});
-            this.comboBox1.Location = new System.Drawing.Point(206, 48);
+            this.comboBox1.Location = new System.Drawing.Point(206, 50);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(97, 24);
             this.comboBox1.TabIndex = 17;
@@ -879,7 +879,7 @@
             this.ClientSize = new System.Drawing.Size(984, 733);
             this.Controls.Add(this.tabControl1);
             this.Name = "frmNGCOOKIES";
-            this.Text = "frmNGCOOKIES";
+            this.Text = "不良餅麩";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
