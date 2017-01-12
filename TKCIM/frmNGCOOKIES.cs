@@ -248,7 +248,7 @@ namespace TKCIM
                 sbSql.Clear();
                 sbSqlQuery.Clear();
 
-                sbSql.AppendFormat(@" SELECT  [MAINTIME] AS '時間',[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號',[MB002] AS '品名',[NUM] AS '回收量',[MAIN] AS '線別',[MAINDATE] AS '日期',[MB001] AS '品號',[ID] ");
+                sbSql.AppendFormat(@" SELECT  [MAINTIME] AS '時間',[MB002] AS '品名',[NUM] AS '回收量',[MAIN] AS '線別',[MAINDATE] AS '日期',[MB001] AS '品號',[ID],[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號' ");
                 sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[NGCOOKIESMD]");
                 sbSql.AppendFormat(@"  WHERE CONVERT(varchar(100),[MAINDATE],112)='{0}'  ",dateTimePicker1.Value.ToString("yyyyMMdd"));
                 sbSql.AppendFormat(@"  AND [MAIN]='{0}'", comboBox2.Text.ToString());
