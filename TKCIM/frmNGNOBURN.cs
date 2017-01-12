@@ -153,7 +153,7 @@ namespace TKCIM
                 sbSql.Clear();
                 sbSqlQuery.Clear();
 
-                sbSql.AppendFormat(@" SELECT  [MAINTIME] AS '時間',[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號',[MB002] AS '品名',[NUM] AS '未熟餅',[COOKTIME] AS '烤培時間',[NGNUM] AS '不良品',[MAIN] AS '線別',[MAINDATE] AS '日期',[MB001] AS '品號',[ID] ");
+                sbSql.AppendFormat(@" SELECT  CONVERT(varchar(100),[MAINTIME],8) AS '時間',[MB002] AS '品名',[NUM] AS '未熟餅',[COOKTIME] AS '烤培時間',[NGNUM] AS '不良品',[MAIN] AS '線別',[MAINDATE] AS '日期',[MB001] AS '品號',[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號',[ID] ");
                 sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[NGNOBURNMD]");
                 sbSql.AppendFormat(@"  WHERE CONVERT(varchar(100),[MAINDATE],112)='{0}'  ", dateTimePicker1.Value.ToString("yyyyMMdd"));
                 sbSql.AppendFormat(@"  AND [MAIN]='{0}'", comboBox2.Text.ToString());
