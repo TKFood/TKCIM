@@ -1361,6 +1361,7 @@ namespace TKCIM
                 METEROILDIFFTB002 = null;
             }
             SEARCHMETEROILDIFF();
+            SEARCHMETEROILDIFFRESULT();
 
 
         }
@@ -1596,6 +1597,61 @@ namespace TKCIM
                 sqlConn.Close();
             }
         }
+
+        public void SEARCHMETEROILDIFFRESULT()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                StringBuilder sbSql = new StringBuilder();
+                sbSql.Clear();
+                sbSqlQuery.Clear();
+                ds10.Clear();
+
+                sbSql.AppendFormat(@"  SELECT [TB001] AS '製令',[TB002] AS '製令單號',[TC001] AS '領退料單',[TC002] AS '領退料單號'");
+                sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[METEROILDIFFRESULT]");
+                sbSql.AppendFormat(@"  WHERE [TB001]='{0}' AND [TB002]='{1}'", METEROILDIFFTB001, METEROILDIFFTB002);
+                sbSql.AppendFormat(@"  ");
+
+                adapter = new SqlDataAdapter(@"" + sbSql, sqlConn);
+
+                sqlCmdBuilder = new SqlCommandBuilder(adapter);
+                sqlConn.Open();
+                ds10.Clear();
+                adapter.Fill(ds10, "TEMPds10");
+                sqlConn.Close();
+
+
+                if (ds10.Tables["TEMPds10"].Rows.Count == 0)
+                {
+                    dataGridView9.DataSource = null;
+                }
+                else
+                {
+                    if (ds10.Tables["TEMPds10"].Rows.Count >= 1)
+                    {
+                        //dataGridView1.Rows.Clear();
+                        dataGridView9.DataSource = ds10.Tables["TEMPds10"];
+                        dataGridView9.AutoResizeColumns();
+                        //dataGridView1.CurrentCell = dataGridView1[0, rownum];
+
+                    }
+                }
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
+
+
         #endregion
 
         #region BUTTON
@@ -1670,7 +1726,8 @@ namespace TKCIM
         }
         private void button4_Click(object sender, EventArgs e)
         {
-            SEACRHMOCTE();
+            SEARCHMETEROILDIFFRESULT();
+            //SEACRHMOCTE();
         }
 
 
