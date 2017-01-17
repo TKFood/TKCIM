@@ -1492,7 +1492,7 @@ namespace TKCIM
                 sbSql.AppendFormat(@"  SELECT TOP 1 TD001,TD002");
                 sbSql.AppendFormat(@"  FROM TK.dbo.MOCTD ");
                 sbSql.AppendFormat(@"  WHERE TD001=TE001 AND TD002=TE002");
-                sbSql.AppendFormat(@"  AND TD003='A510' AND TD004='20170117016' )");
+                sbSql.AppendFormat(@"  AND TD003='{0}' AND TD004='{1}' )", METEROILDIFFTB001, METEROILDIFFTB002);
                 sbSql.AppendFormat(@"  ");
                 sbSql.AppendFormat(@"  ");
 
@@ -1727,7 +1727,7 @@ namespace TKCIM
         private void button4_Click(object sender, EventArgs e)
         {
             SEARCHMETEROILDIFFRESULT();
-            //SEACRHMOCTE();
+            SEACRHMOCTE();
         }
 
 
