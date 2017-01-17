@@ -39,6 +39,7 @@ namespace TKCIM
         DataSet ds8 = new DataSet();
         DataSet ds9 = new DataSet();
         DataSet ds10 = new DataSet();
+        DataSet dsMOCTE = new DataSet();
         DataTable dt = new DataTable();
         string tablename = null;
         int result;
@@ -66,6 +67,74 @@ namespace TKCIM
         string METEROILDIFFTB002;
         Thread TD;
 
+        public class MOCTE
+        {
+            public string COMPANY;
+            public string CREATOR;
+            public string USR_GROUP;
+            public string CREATE_DATE;
+            public string MODIFIER;
+            public string MODI_DATE;
+            public string FLAG,CREATE_TIME;
+            public string MODI_TIME;
+            public string TRANS_TYPE;
+            public string TRANS_NAME;
+            public string sync_date;
+            public string sync_time;
+            public string sync_mark;
+            public string sync_count;
+            public string DataUser;
+            public string DataGroup;
+            public string TE001;
+            public string TE002;
+            public string TE003;
+            public string TE004;
+            public string TE005;
+            public string TE006;
+            public string TE007;
+            public string TE008;
+            public string TE009;
+            public string TE010;
+            public string TE011;
+            public string TE012;
+            public string TE013;
+            public string TE014;
+            public string TE015;
+            public string TE016;
+            public string TE017;
+            public string TE018;
+            public string TE019;
+            public string TE020;
+            public string TE021;
+            public string TE022;
+            public string TE023;
+            public string TE024;
+            public string TE025;
+            public string TE026;
+            public string TE027;
+            public string TE028;
+            public string TE029;
+            public string TE030;
+            public string TE031;
+            public string TE032;
+            public string TE033;
+            public string TE034;
+            public string TE035;
+            public string TE036;
+            public string TE037;
+            public string TE038;
+            public string TE039;
+            public string TE040;
+            public string TE500;
+            public string TE501;
+            public string TE502;
+            public string TE503;
+            public string TE504;
+            public string TE505;
+            public string TE506;
+            public string TE507;
+            public string TE508;
+        }
         public frmMETEROIL()
         {
             InitializeComponent();
@@ -1404,7 +1473,129 @@ namespace TKCIM
             }
         }
 
+        public void SEACRHMOCTE()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
 
+                StringBuilder sbSql = new StringBuilder();
+                sbSql.Clear();
+                sbSqlQuery.Clear();
+                dsMOCTE.Clear();
+
+                sbSql.AppendFormat(@"  SELECT TOP 1 COMPANY,CREATOR,USR_GROUP,CREATE_DATE,MODIFIER,MODI_DATE,FLAG,CREATE_TIME,MODI_TIME,TRANS_TYPE,TRANS_NAME,sync_date,sync_time,sync_mark,sync_count,DataUser,DataGroup,TE001,TE002,TE003,TE004,TE005,TE006,TE007,TE008,TE009,TE010,TE011,TE012,TE013,TE014,TE015,TE016,TE017,TE018,TE019,TE020,TE021,TE022,TE023,TE024,TE025,TE026,TE027,TE028,TE029,TE030,TE031,TE032,TE033,TE034,TE035,TE036,TE037,TE038,TE039,TE040,TE500,TE501,TE502,TE503,TE504,TE505,TE506,TE507,TE508");
+                sbSql.AppendFormat(@"  FROM TK.dbo.MOCTE");
+                sbSql.AppendFormat(@"  WHERE EXISTS (");
+                sbSql.AppendFormat(@"  SELECT TOP 1 TD001,TD002");
+                sbSql.AppendFormat(@"  FROM TK.dbo.MOCTD ");
+                sbSql.AppendFormat(@"  WHERE TD001=TE001 AND TD002=TE002");
+                sbSql.AppendFormat(@"  AND TD003='A510' AND TD004='20170117016' )");
+                sbSql.AppendFormat(@"  ");
+                sbSql.AppendFormat(@"  ");
+
+                adapter = new SqlDataAdapter(@"" + sbSql, sqlConn);
+
+                sqlCmdBuilder = new SqlCommandBuilder(adapter);
+                sqlConn.Open();
+                dsMOCTE.Clear();
+                adapter.Fill(dsMOCTE, "TEMPdsMOCTE");
+                sqlConn.Close();
+
+
+                if (dsMOCTE.Tables["TEMPdsMOCTE"].Rows.Count == 0)
+                {
+
+                }
+                else
+                {
+                    if (dsMOCTE.Tables["TEMPdsMOCTE"].Rows.Count >= 1)
+                    {
+                        MOCTE eMOCTE = new MOCTE();
+                        eMOCTE.COMPANY = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["COMPANY"].ToString();
+                        eMOCTE.CREATOR = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["CREATOR"].ToString();
+                        eMOCTE.USR_GROUP = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["USR_GROUP"].ToString();
+                        eMOCTE.CREATE_DATE = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["CREATE_DATE"].ToString();
+                        eMOCTE.MODIFIER = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["MODIFIER"].ToString();
+                        eMOCTE.MODI_DATE = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["MODI_DATE"].ToString();
+                        eMOCTE.FLAG = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["FLAG"].ToString();
+                        eMOCTE.CREATE_TIME = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["CREATE_TIME"].ToString();
+                        eMOCTE.MODI_TIME = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["MODI_TIME"].ToString();
+                        eMOCTE.TRANS_TYPE = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TRANS_TYPE"].ToString();
+                        eMOCTE.TRANS_NAME = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TRANS_NAME"].ToString();
+                        eMOCTE.sync_date = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["sync_date"].ToString();
+                        eMOCTE.sync_time = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["sync_time"].ToString();
+                        eMOCTE.sync_mark = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["sync_mark"].ToString();
+                        eMOCTE.sync_count = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["sync_count"].ToString();
+                        eMOCTE.DataUser = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["DataUser"].ToString();
+                        eMOCTE.DataGroup = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["DataGroup"].ToString();
+                        eMOCTE.TE001 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE001"].ToString();
+                        eMOCTE.TE002 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE002"].ToString();
+                        eMOCTE.TE003 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE003"].ToString();
+                        eMOCTE.TE004 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE004"].ToString();
+                        eMOCTE.TE005 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE005"].ToString();
+                        eMOCTE.TE006 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE006"].ToString();
+                        eMOCTE.TE007 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE007"].ToString();
+                        eMOCTE.TE008 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE008"].ToString();
+                        eMOCTE.TE009 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE009"].ToString();
+                        eMOCTE.TE010 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE010"].ToString();
+                        eMOCTE.TE011 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE011"].ToString();
+                        eMOCTE.TE012 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE012"].ToString();
+                        eMOCTE.TE013 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE013"].ToString();
+                        eMOCTE.TE014 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE014"].ToString();
+                        eMOCTE.TE015 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE015"].ToString();
+                        eMOCTE.TE016 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE016"].ToString();
+                        eMOCTE.TE017 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE017"].ToString();
+                        eMOCTE.TE018 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE018"].ToString();
+                        eMOCTE.TE019 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE019"].ToString();
+                        eMOCTE.TE020 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE020"].ToString();
+                        eMOCTE.TE021 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE021"].ToString();
+                        eMOCTE.TE022 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE022"].ToString();
+                        eMOCTE.TE023 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE023"].ToString();
+                        eMOCTE.TE024 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE024"].ToString();
+                        eMOCTE.TE025 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE025"].ToString();
+                        eMOCTE.TE026 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE026"].ToString();
+                        eMOCTE.TE027 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE027"].ToString();
+                        eMOCTE.TE028 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE028"].ToString();
+                        eMOCTE.TE029 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE029"].ToString();
+                        eMOCTE.TE030 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE030"].ToString();
+                        eMOCTE.TE031 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE031"].ToString();
+                        eMOCTE.TE032 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE032"].ToString();
+                        eMOCTE.TE033 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE033"].ToString();
+                        eMOCTE.TE034 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE034"].ToString();
+                        eMOCTE.TE035 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE035"].ToString();
+                        eMOCTE.TE036 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE036"].ToString();
+                        eMOCTE.TE037 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE037"].ToString();
+                        eMOCTE.TE038 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE038"].ToString();
+                        eMOCTE.TE039 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE039"].ToString();
+                        eMOCTE.TE040 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE040"].ToString();
+                        eMOCTE.TE500 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE500"].ToString();
+                        eMOCTE.TE501 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE501"].ToString();
+                        eMOCTE.TE502 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE502"].ToString();
+                        eMOCTE.TE503 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE503"].ToString();
+                        eMOCTE.TE504 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE504"].ToString();
+                        eMOCTE.TE505 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE505"].ToString();
+                        eMOCTE.TE506 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE506"].ToString();
+                        eMOCTE.TE507 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE507"].ToString();
+                        eMOCTE.TE508 = dsMOCTE.Tables["TEMPdsMOCTE"].Rows[0]["TE508"].ToString();
+
+
+
+
+                    }
+                }
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
         #endregion
 
         #region BUTTON
@@ -1477,6 +1668,10 @@ namespace TKCIM
             ADDMETEROILDIFF();
             SEARCHMETEROILDIFF();
         }
+        private void button4_Click(object sender, EventArgs e)
+        {
+            SEACRHMOCTE();
+        }
 
 
 
@@ -1484,7 +1679,7 @@ namespace TKCIM
 
         #endregion
 
-        
+
     }
 
 
