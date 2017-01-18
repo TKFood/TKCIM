@@ -1651,7 +1651,10 @@ namespace TKCIM
             }
         }
 
+        public void ADDMOCTE()
+        {
 
+        }
         #endregion
 
         #region BUTTON
@@ -1726,8 +1729,9 @@ namespace TKCIM
         }
         private void button4_Click(object sender, EventArgs e)
         {
+            ADDMOCTE();
             SEARCHMETEROILDIFFRESULT();
-            SEACRHMOCTE();
+            //SEACRHMOCTE();
         }
 
 
