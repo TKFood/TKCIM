@@ -39,6 +39,9 @@ namespace TKCIM
         DataSet ds8 = new DataSet();
         DataSet ds9 = new DataSet();
         DataSet ds10 = new DataSet();
+        DataSet ds11 = new DataSet();
+        DataSet ds12 = new DataSet();
+        DataSet ds13 = new DataSet();
         DataSet dsMOCTE = new DataSet();
         DataTable dt = new DataTable();
         string tablename = null;
@@ -1653,7 +1656,197 @@ namespace TKCIM
 
         public void ADDMOCTE()
         {
+            CHECKPICK();
+            CHECKRETURN();
+        }
 
+        public void CHECKPICK()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                StringBuilder sbSql = new StringBuilder();
+                sbSql.Clear();
+                sbSqlQuery.Clear();
+                ds11.Clear();
+
+                sbSql.AppendFormat(@"  SELECT [MB002] AS '品名',[NUM] AS '預計用量',[ACT] AS '實際用量',[DIFF] AS '差異量',[TB001] AS '單別',[TB002] AS '單號',[TB003] AS '品號' ");
+                sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[METEROILDIFF]");
+                sbSql.AppendFormat(@"  WHERE  [TB001]='{0}' AND [TB002]='{1}'", METEROILDIFFTB001, METEROILDIFFTB002);
+                sbSql.AppendFormat(@"  AND [DIFF]<0");
+                sbSql.AppendFormat(@"  ");
+
+                adapter = new SqlDataAdapter(@"" + sbSql, sqlConn);
+
+                sqlCmdBuilder = new SqlCommandBuilder(adapter);
+                sqlConn.Open();
+                ds11.Clear();
+                adapter.Fill(ds11, "TEMPds11");
+                sqlConn.Close();
+
+
+                if (ds11.Tables["TEMPds11"].Rows.Count == 0)
+                {
+                   
+                }
+                else
+                {
+                    if (ds11.Tables["TEMPds11"].Rows.Count >= 1)
+                    {
+                        ADDPICK();
+                    }
+                }
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                sqlConn.Close();
+            }
+            
+        }
+
+        public void CHECKRETURN()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                StringBuilder sbSql = new StringBuilder();
+                sbSql.Clear();
+                sbSqlQuery.Clear();
+                ds12.Clear();
+
+                sbSql.AppendFormat(@"  SELECT [MB002] AS '品名',[NUM] AS '預計用量',[ACT] AS '實際用量',[DIFF] AS '差異量',[TB001] AS '單別',[TB002] AS '單號',[TB003] AS '品號' ");
+                sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[METEROILDIFF]");
+                sbSql.AppendFormat(@"  WHERE  [TB001]='{0}' AND [TB002]='{1}'", METEROILDIFFTB001, METEROILDIFFTB002);
+                sbSql.AppendFormat(@"  AND [DIFF]>0");
+                sbSql.AppendFormat(@"  ");
+
+                adapter = new SqlDataAdapter(@"" + sbSql, sqlConn);
+
+                sqlCmdBuilder = new SqlCommandBuilder(adapter);
+                sqlConn.Open();
+                ds12.Clear();
+                adapter.Fill(ds11, "TEMPds12");
+                sqlConn.Close();
+
+
+                if (ds12.Tables["TEMPds12"].Rows.Count == 0)
+                {
+
+                }
+                else
+                {
+                    if (ds12.Tables["TEMPds12"].Rows.Count >= 1)
+                    {
+                        ADDRETURN();
+                    }
+                }
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
+
+        public void ADDPICK()
+        {
+            string TE001 = "A542";
+            string TE002;
+
+            TE002 = GETMAXTE002(TE001);
+        }
+
+        public void ADDRETURN()
+        {
+            string TE001 = "A561";
+            string TE002;
+
+            TE002 = GETMAXTE002(TE001);
+        }
+
+        public string GETMAXTE002(string TE001)
+        {
+            string TE002;
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                StringBuilder sbSql = new StringBuilder();
+                sbSql.Clear();
+                sbSqlQuery.Clear();
+                ds13.Clear();
+
+                sbSql.AppendFormat(@"  SELECT ISNULL(MAX(TC002),'00000000000') AS TC002");
+                sbSql.AppendFormat(@"  FROM [TK].[dbo].[MOCTC] ");
+                sbSql.AppendFormat(@"  WHERE  TC001='{0}' AND TC003='{1}'", "A542","20170119");
+                //sbSql.AppendFormat(@"  WHERE  TC001='{0}' AND TC003='{1}'",TE001,DateTime.Now.ToString("yyyyMMdd"));
+                sbSql.AppendFormat(@"  ");
+                sbSql.AppendFormat(@"  ");
+
+                adapter = new SqlDataAdapter(@"" + sbSql, sqlConn);
+
+                sqlCmdBuilder = new SqlCommandBuilder(adapter);
+                sqlConn.Open();
+                ds13.Clear();
+                adapter.Fill(ds13, "TEMPds13");
+                sqlConn.Close();
+
+
+                if (ds13.Tables["TEMPds13"].Rows.Count == 0)
+                {
+                    return null;
+                }
+                else
+                {
+                    if (ds13.Tables["TEMPds13"].Rows.Count >= 1)
+                    {
+                        TE002= SETTE002(ds13.Tables["TEMPds13"].Rows[0]["TC002"].ToString());
+                        return TE002;
+
+                    }
+                    return null;
+                }
+
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                sqlConn.Close();
+            }
+            
+        }
+        public string SETTE002(string TE002)
+        {
+            if (TE002.Equals("00000000000"))
+            {
+                return DateTime.Now.ToString("yyyyMMdd") + "001";
+            }
+
+            else
+            {
+                int serno = Convert.ToInt16(TE002.Substring(8, 3));
+                serno = serno + 1;
+                string temp = serno.ToString();
+                temp = temp.PadLeft(3, '0');
+                return DateTime.Now.ToString("yyyyMMdd") + temp.ToString();
+            }
         }
         #endregion
 
@@ -1729,6 +1922,7 @@ namespace TKCIM
         }
         private void button4_Click(object sender, EventArgs e)
         {
+            GETMAXTE002("GETMAXTE002");
             ADDMOCTE();
             SEARCHMETEROILDIFFRESULT();
             //SEACRHMOCTE();
