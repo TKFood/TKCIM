@@ -43,6 +43,7 @@ namespace TKCIM
         DataSet ds12 = new DataSet();
         DataSet ds13 = new DataSet();
         DataSet ds14 = new DataSet();
+        DataSet ds15 = new DataSet();
         DataTable dt = new DataTable();
         string tablename = null;
         int result;
@@ -1575,7 +1576,7 @@ namespace TKCIM
             SEARCHMATERWATERPRODIFF();
             SEARCHMATERWATERPRODIFFRESULT();
         }
-        public void ADDMETEROILDIFF()
+        public void ADDMATERWATERPRODIFF()
         {
             try
             {
@@ -1686,7 +1687,55 @@ namespace TKCIM
 
         public void SEARCHMATERWATERPRODIFFRESULT()
         {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
 
+                StringBuilder sbSql = new StringBuilder();
+                sbSql.Clear();
+                sbSqlQuery.Clear();
+                ds15.Clear();
+
+                sbSql.AppendFormat(@"  SELECT [TB001] AS '製令',[TB002] AS '製令單號',[TC001] AS '領退料單',[TC002] AS '領退料單號'");
+                sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[MATERWATERPRODIFFRESULT]");
+                sbSql.AppendFormat(@"  WHERE [TB001]='{0}' AND [TB002]='{1}'", METERWATERDIFFTB001, METERWATERDIFFTB002);
+                sbSql.AppendFormat(@"  ");
+
+                adapter = new SqlDataAdapter(@"" + sbSql, sqlConn);
+
+                sqlCmdBuilder = new SqlCommandBuilder(adapter);
+                sqlConn.Open();
+                ds15.Clear();
+                adapter.Fill(ds15, "TEMPds15");
+                sqlConn.Close();
+
+
+                if (ds15.Tables["TEMPds15"].Rows.Count == 0)
+                {
+                    dataGridView12.DataSource = null;
+                }
+                else
+                {
+                    if (ds15.Tables["TEMPds15"].Rows.Count >= 1)
+                    {
+                        //dataGridView1.Rows.Clear();
+                        dataGridView12.DataSource = ds15.Tables["TEMPds15"];
+                        dataGridView12.AutoResizeColumns();
+                        //dataGridView1.CurrentCell = dataGridView1[0, rownum];
+
+                    }
+                }
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                sqlConn.Close();
+            }
         }
 
         public void ADDMOCTE()
@@ -1760,7 +1809,7 @@ namespace TKCIM
                 ds14.Clear();
 
                 sbSql.AppendFormat(@"  SELECT [MB002] AS '品名',[NUM] AS '預計用量',[ACT] AS '實際用量',[DIFF] AS '差異量',[TB001] AS '單別',[TB002] AS '單號',[TB003] AS '品號' ");
-                sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[METEROILDIFF]");
+                sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[MATERWATERPRODIFF]");
                 sbSql.AppendFormat(@"  WHERE  [TB001]='{0}' AND [TB002]='{1}'", METERWATERDIFFTB001, METERWATERDIFFTB002);
                 sbSql.AppendFormat(@"  AND [DIFF]>0");
                 sbSql.AppendFormat(@"  ");
@@ -1982,14 +2031,14 @@ namespace TKCIM
                 sbSql.AppendFormat(" ,[TE014],[TE015],[TE016],[TE017],[TE018]");
                 sbSql.AppendFormat(" ,'N' AS [TE019]");
                 sbSql.AppendFormat(" ,[TE020],[TE021],[TE022],[TE023],[TE024],[TE025],[TE026],[TE027],[TE028],[TE029],[TE030],[TE031],[TE032],[TE033],[TE034],[TE035],[TE036],[TE037],[TE038],[TE039],[TE040],[TE500],[TE501],[TE502],[TE503],[TE504],[TE505],[TE506],[TE507],[TE508] ");
-                sbSql.AppendFormat(" FROM [TK].dbo.[MOCTE],[TKCIM].[dbo].[METEROILDIFF]");
+                sbSql.AppendFormat(" FROM [TK].dbo.[MOCTE],[TKCIM].[dbo].[MATERWATERPRODIFF]");
                 sbSql.AppendFormat(" WHERE EXISTS");
                 sbSql.AppendFormat(" (SELECT TOP 1 TE.TE001,TE.TE002");
                 sbSql.AppendFormat(" FROM [TK].dbo.MOCTE TE");
                 sbSql.AppendFormat(" WHERE TE.TE011='{0}' AND TE.TE012='{1}'", TB001, TB002);
                 sbSql.AppendFormat(" AND MOCTE.TE001=TE.TE001 AND MOCTE.TE002=TE.TE002");
                 sbSql.AppendFormat(" ORDER BY TE.TE002)");
-                sbSql.AppendFormat(" AND [MOCTE].[TE011]=[METEROILDIFF].[TB001] AND [MOCTE].[TE012]=[METEROILDIFF].[TB002] AND [MOCTE].[TE004]=[METEROILDIFF].[TB003]");
+                sbSql.AppendFormat(" AND [MOCTE].[TE011]=[MATERWATERPRODIFF].[TB001] AND [MOCTE].[TE012]=[MATERWATERPRODIFF].[TB002] AND [MOCTE].[TE004]=[MATERWATERPRODIFF].[TB003]");
                 sbSql.AppendFormat(" AND [DIFF]<0");
                 sbSql.AppendFormat(" ");
                 sbSql.AppendFormat(" ");
@@ -2088,14 +2137,14 @@ namespace TKCIM
                 sbSql.AppendFormat(" ,[TE014],[TE015],[TE016],[TE017],[TE018]");
                 sbSql.AppendFormat(" ,'N' AS [TE019]");
                 sbSql.AppendFormat(" ,[TE020],[TE021],[TE022],[TE023],[TE024],[TE025],[TE026],[TE027],[TE028],[TE029],[TE030],[TE031],[TE032],[TE033],[TE034],[TE035],[TE036],[TE037],[TE038],[TE039],[TE040],[TE500],[TE501],[TE502],[TE503],[TE504],[TE505],[TE506],[TE507],[TE508] ");
-                sbSql.AppendFormat(" FROM [TK].dbo.[MOCTE],[TKCIM].[dbo].[METEROILDIFF]");
+                sbSql.AppendFormat(" FROM [TK].dbo.[MOCTE],[TKCIM].[dbo].[MATERWATERPRODIFF]");
                 sbSql.AppendFormat(" WHERE EXISTS");
                 sbSql.AppendFormat(" (SELECT TOP 1 TE.TE001,TE.TE002");
                 sbSql.AppendFormat(" FROM [TK].dbo.MOCTE TE");
                 sbSql.AppendFormat(" WHERE TE.TE011='{0}' AND TE.TE012='{1}'", TB001, TB002);
                 sbSql.AppendFormat(" AND MOCTE.TE001=TE.TE001 AND MOCTE.TE002=TE.TE002");
                 sbSql.AppendFormat(" ORDER BY TE.TE002)");
-                sbSql.AppendFormat(" AND [MOCTE].[TE011]=[METEROILDIFF].[TB001] AND [MOCTE].[TE012]=[METEROILDIFF].[TB002] AND [MOCTE].[TE004]=[METEROILDIFF].[TB003]");
+                sbSql.AppendFormat(" AND [MOCTE].[TE011]=[MATERWATERPRODIFF].[TB001] AND [MOCTE].[TE012]=[MATERWATERPRODIFF].[TB002] AND [MOCTE].[TE004]=[MATERWATERPRODIFF].[TB003]");
                 sbSql.AppendFormat(" AND [DIFF]>0");
                 sbSql.AppendFormat(" ");
                 sbSql.AppendFormat(" ");
@@ -2223,7 +2272,7 @@ namespace TKCIM
 
         private void button13_Click(object sender, EventArgs e)
         {
-            ADDMETEROILDIFF();
+            ADDMATERWATERPRODIFF();
             SEARCHMATERWATERPRODIFF();
         }
 
