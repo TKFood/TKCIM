@@ -47,6 +47,7 @@ namespace TKCIM
         DataSet ds16 = new DataSet();
         DataSet ds17 = new DataSet();
         DataSet ds18 = new DataSet();
+        DataSet ds19 = new DataSet();
         DataTable dt = new DataTable();
         string tablename = null;
         int result;
@@ -2342,7 +2343,116 @@ namespace TKCIM
                 sqlConn.Close();
             }
         }
+        public void ADDSUMMOCTE()
+        {
+            CHECKSUMPICK();           
+            MessageBox.Show("已完成");
+        }
+        public void CHECKSUMPICK()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
 
+                StringBuilder sbSql = new StringBuilder();
+                sbSql.Clear();
+                sbSqlQuery.Clear();
+                ds19.Clear();
+
+                sbSql.AppendFormat(@"  SELECT [TARGETPROTA001] AS '目的單別',[TARGETPROTA002] AS '目的單號',[SOURCEPROTA001] AS '來源單別',[SOURCEPROTA002] AS '來源單號',[TE004] AS '品號',[TE005] AS '預計用量',[TOTAL] AS '總用量',[ACT] AS '實際用量',[DIFF] AS '差異量',[COUNTDIFF] AS '單差異量'");
+                sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[MATERWATERSUMDIFF]");
+                sbSql.AppendFormat(@"  WHERE [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}'", METERWATERDIFFTB001, METERWATERDIFFTB002);
+                sbSql.AppendFormat(@"  AND [COUNTDIFF]>0");
+                sbSql.AppendFormat(@"  ");
+
+                adapter = new SqlDataAdapter(@"" + sbSql, sqlConn);
+
+                sqlCmdBuilder = new SqlCommandBuilder(adapter);
+                sqlConn.Open();
+                ds19.Clear();
+                adapter.Fill(ds19, "TEMPds19");
+                sqlConn.Close();
+
+
+                if (ds19.Tables["TEMPds19"].Rows.Count == 0)
+                {
+
+                }
+                else
+                {
+                    if (ds19.Tables["TEMPds19"].Rows.Count >= 1)
+                    {
+                        ADDSUMPICK();
+                    }
+                }
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
+        public void ADDSUMPICK()
+        {
+            string TE001 = "A542";
+            string TE002;
+
+            TE002 = GETMAXTE002(TE001);
+            ADDMATERWATERSUMRESULT(METERWATERDIFFTB001, METERWATERDIFFTB002, TE001, TE002);
+            //ADDPICKDETAIL(METERWATERDIFFTB001, METERWATERDIFFTB002, TE001, TE002);
+        }
+        public void ADDMATERWATERSUMRESULT(string TB001, string TB002, string TC001, string TC002)
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sqlConn.Close();
+                sqlConn.Open();
+                tran = sqlConn.BeginTransaction();
+
+                sbSql.Clear();
+                sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERSUMRESULT]");
+                sbSql.AppendFormat(" ([TB001],[TB002],[TC001],[TC002])");
+                sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}')", TB001, TB002, TC001, TC002);
+                sbSql.AppendFormat(" ");
+                sbSql.AppendFormat(" ");
+                sbSql.AppendFormat(" ");
+
+                cmd.Connection = sqlConn;
+                cmd.CommandTimeout = 60;
+                cmd.CommandText = sbSql.ToString();
+                cmd.Transaction = tran;
+                result = cmd.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    tran.Rollback();    //交易取消
+                }
+                else
+                {
+                    tran.Commit();      //執行交易  
+
+
+                }
+
+            }
+            catch
+            {
+
+            }
+
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
         #endregion
 
         #region BUTTON
@@ -2443,7 +2553,7 @@ namespace TKCIM
 
         private void button14_Click(object sender, EventArgs e)
         {
-            //ADDMOCTE();
+            ADDMOCTE();
             SEARCHMATERWATERPRODIFFRESULT();
         }
         private void button15_Click(object sender, EventArgs e)
@@ -2454,7 +2564,8 @@ namespace TKCIM
 
         private void button16_Click(object sender, EventArgs e)
         {
-
+            ADDSUMMOCTE();
+            SEARCHMATERWATERSUMRESULT();
         }
         #endregion
 
