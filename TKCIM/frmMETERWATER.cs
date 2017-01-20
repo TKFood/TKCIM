@@ -44,6 +44,7 @@ namespace TKCIM
         DataSet ds13 = new DataSet();
         DataSet ds14 = new DataSet();
         DataSet ds15 = new DataSet();
+        DataSet ds16 = new DataSet();
         DataTable dt = new DataTable();
         string tablename = null;
         int result;
@@ -1161,6 +1162,8 @@ namespace TKCIM
 
                 }
             }
+            SEARCHMATERWATERPROIDM2();
+            SEARCHMATERWATERPROIDMD();
 
         }
         public void DELMATERWATERPROIDMD()
@@ -1293,6 +1296,7 @@ namespace TKCIM
 
         public void SERACHMOCTARGETLOT2()
         {
+            dataGridView7.DataSource = null;
             try
             {
                 connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
@@ -2279,7 +2283,7 @@ namespace TKCIM
 
         private void button14_Click(object sender, EventArgs e)
         {
-            ADDMOCTE();
+            //ADDMOCTE();
             SEARCHMATERWATERPRODIFFRESULT();
         }
         #endregion
