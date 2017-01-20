@@ -2285,6 +2285,64 @@ namespace TKCIM
             }
         }
 
+        public void ADDMATERWATERSUMDIFF()
+        {
+            string date = DateTime.Now.ToString("yyyyMMdd");
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sqlConn.Close();
+                sqlConn.Open();
+                tran = sqlConn.BeginTransaction();
+
+                sbSql.Clear();
+                //ADD MATERWATERSUMDIFF
+
+                sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERSUMDIFF]");
+                sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[SOURCEPROTA001],[SOURCEPROTA002],[TE004],[TE005],[TOTAL],[ACT],[DIFF],[COUNTDIFF])");
+                sbSql.AppendFormat(" SELECT  [TARGETPROTA001],[TARGETPROTA002],[SOURCEPROTA001],[SOURCEPROTA002],TE004,TE005");
+                sbSql.AppendFormat(" ,(SELECT SUM(TE005) FROM [TK].[dbo].[MOCTE] TE WHERE EXISTS (SELECT [SOURCEPROTA001],[SOURCEPROTA002] FROM [TKCIM].[dbo].[MATERWATERPROID] MID WHERE MID.[TARGETPROTA001]=[MATERWATERPROID].[TARGETPROTA001] AND MID.[TARGETPROTA002]=[MATERWATERPROID].[TARGETPROTA002] AND MID.[SOURCEPROTA001]=TE.TE011 AND MID.[SOURCEPROTA002]=TE.TE012 AND TE.TE004 LIKE '30100001%')) AS'TOTAL'");
+                sbSql.AppendFormat(" ,ISNULL((SELECT SUM([NUM]) FROM [TKCIM].[dbo].[MATERWATERPROIDMD] MD  WHERE MD.[TARGETPROTA001]=[MATERWATERPROID].[TARGETPROTA001] AND MD.[TARGETPROTA002]=[MATERWATERPROID].[TARGETPROTA002]),0) AS 'ACT'");
+                sbSql.AppendFormat(" ,((ISNULL((SELECT SUM([NUM]) FROM [TKCIM].[dbo].[MATERWATERPROIDMD] MD  WHERE MD.[TARGETPROTA001]=[MATERWATERPROID].[TARGETPROTA001] AND MD.[TARGETPROTA002]=[MATERWATERPROID].[TARGETPROTA002]),0)) -(SELECT SUM(TE005) FROM [TK].[dbo].[MOCTE] TE WHERE EXISTS (SELECT [SOURCEPROTA001],[SOURCEPROTA002] FROM [TKCIM].[dbo].[MATERWATERPROID] MID WHERE MID.[TARGETPROTA001]=[MATERWATERPROID].[TARGETPROTA001] AND MID.[TARGETPROTA002]=[MATERWATERPROID].[TARGETPROTA002] AND MID.[SOURCEPROTA001]=TE.TE011 AND MID.[SOURCEPROTA002]=TE.TE012 AND TE.TE004 LIKE '30100001%'))) AS 'DIFF'");
+                sbSql.AppendFormat(" ,ROUND((((ISNULL((SELECT SUM([NUM]) FROM [TKCIM].[dbo].[MATERWATERPROIDMD] MD  WHERE MD.[TARGETPROTA001]=[MATERWATERPROID].[TARGETPROTA001] AND MD.[TARGETPROTA002]=[MATERWATERPROID].[TARGETPROTA002]),0)) -(SELECT SUM(TE005) FROM [TK].[dbo].[MOCTE] TE WHERE EXISTS (SELECT [SOURCEPROTA001],[SOURCEPROTA002] FROM [TKCIM].[dbo].[MATERWATERPROID] MID WHERE MID.[TARGETPROTA001]=[MATERWATERPROID].[TARGETPROTA001] AND MID.[TARGETPROTA002]=[MATERWATERPROID].[TARGETPROTA002] AND MID.[SOURCEPROTA001]=TE.TE011 AND MID.[SOURCEPROTA002]=TE.TE012 AND TE.TE004 LIKE '30100001%')))*TE005/(SELECT SUM(TE005) FROM [TK].[dbo].[MOCTE] TE WHERE EXISTS (SELECT [SOURCEPROTA001],[SOURCEPROTA002] FROM [TKCIM].[dbo].[MATERWATERPROID] MID WHERE MID.[TARGETPROTA001]=[MATERWATERPROID].[TARGETPROTA001] AND MID.[TARGETPROTA002]=[MATERWATERPROID].[TARGETPROTA002] AND MID.[SOURCEPROTA001]=TE.TE011 AND MID.[SOURCEPROTA002]=TE.TE012 AND TE.TE004 LIKE '30100001%'))),2) AS 'COUNTDIFF' ");
+                sbSql.AppendFormat(" FROM [TKCIM].[dbo].[MATERWATERPROID],[TK].[dbo].[MOCTE]");
+                sbSql.AppendFormat(" WHERE [MOCTE].TE011=[SOURCEPROTA001] AND [MOCTE].TE012=[SOURCEPROTA002]");
+                sbSql.AppendFormat(" AND [MOCTE].TE004 LIKE '30100001%'");
+                sbSql.AppendFormat(" AND [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}'", METERWATERDIFFTB001, METERWATERDIFFTB002);
+                sbSql.AppendFormat(" ");
+                sbSql.AppendFormat(" ");
+
+                cmd.Connection = sqlConn;
+                cmd.CommandTimeout = 60;
+                cmd.CommandText = sbSql.ToString();
+                cmd.Transaction = tran;
+                result = cmd.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    tran.Rollback();    //交易取消
+                }
+                else
+                {
+                    tran.Commit();      //執行交易  
+
+
+                }
+
+            }
+            catch
+            {
+
+            }
+
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
+
         #endregion
 
         #region BUTTON
@@ -2390,7 +2448,8 @@ namespace TKCIM
         }
         private void button15_Click(object sender, EventArgs e)
         {
-
+            ADDMATERWATERSUMDIFF();
+            SEARCHMATERWATERSUMDIFF();
         }
 
         private void button16_Click(object sender, EventArgs e)
