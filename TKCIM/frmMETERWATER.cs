@@ -40,6 +40,9 @@ namespace TKCIM
         DataSet ds9 = new DataSet();
         DataSet ds10 = new DataSet();
         DataSet ds11 = new DataSet();
+        DataSet ds12 = new DataSet();
+        DataSet ds13 = new DataSet();
+        DataSet ds14 = new DataSet();
         DataTable dt = new DataTable();
         string tablename = null;
         int result;
@@ -85,7 +88,7 @@ namespace TKCIM
             timer1.Interval = 1000 * 60;
             timer1.Start();
         }
-      
+
         #region FUNCTION
         public void comboBox1load()
         {
@@ -144,7 +147,7 @@ namespace TKCIM
             comboBox4.ValueMember = "NAME";
             comboBox4.DisplayMember = "NAME";
             sqlConn.Close();
-           
+
 
         }
         public void comboBox5load()
@@ -219,7 +222,7 @@ namespace TKCIM
                 sbSql.Clear();
                 sbSqlQuery.Clear();
 
-             
+
                 sbSql.AppendFormat(@"  SELECT MB002  AS '品名',TA015  AS '預計產量',TA001 AS '單別',TA002 AS '單號',TA003 AS '日期',TA006 AS '品號'    ");
                 sbSql.AppendFormat(@"  ,MD002 AS '線別'");
                 sbSql.AppendFormat(@"  FROM MOCTA WITH (NOLOCK),INVMB WITH (NOLOCK),CMSMD WITH (NOLOCK)");
@@ -283,7 +286,7 @@ namespace TKCIM
                 sbSql.Clear();
                 sbSqlQuery.Clear();
 
-    
+
                 sbSql.AppendFormat(@"  SELECT TA001 AS '單別',TA002 AS '單號',TA003 AS '日期',TA006 AS '品號',MB2.MB002  AS '品名',TA015  AS '預計產量' ,TB003 AS '需用品號',MB1.MB002 AS '需用品名',MD002 AS '線別'");
                 sbSql.AppendFormat(@"  FROM MOCTA WITH (NOLOCK),MOCTB WITH (NOLOCK),INVMB MB1 WITH (NOLOCK),INVMB MB2 WITH (NOLOCK) ,CMSMD WITH (NOLOCK) ");
                 sbSql.AppendFormat(@"  WHERE TA001=TB001 AND TA002=TB002");
@@ -326,7 +329,7 @@ namespace TKCIM
                 {
                     if (ds2.Tables["TEMPds2"].Rows.Count >= 1)
                     {
-                       
+
                         //dataGridView1.Rows.Clear();
                         dataGridView2.DataSource = ds2.Tables["TEMPds2"];
                         dataGridView2.AutoResizeColumns();
@@ -411,7 +414,7 @@ namespace TKCIM
 
                 sbSql.AppendFormat(@"  SELECT [TARGETPROTA001] AS '目標單別',[TARGETPROTA002] AS '目標單號',[SOURCEPROTA001] AS '來源單別',[SOURCEPROTA002] AS '來源單號'");
                 sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[MATERWATERPROID]");
-                sbSql.AppendFormat(@"  WHERE [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}' ",TARGETTA001,TARGETTA002);
+                sbSql.AppendFormat(@"  WHERE [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}' ", TARGETTA001, TARGETTA002);
                 sbSql.AppendFormat(@"  ");
 
 
@@ -463,8 +466,8 @@ namespace TKCIM
                 tran = sqlConn.BeginTransaction();
 
                 sbSql.Clear();
-                sbSql.AppendFormat(" DELETE  [TKCIM].[dbo].[MATERWATERPROID] WHERE [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}'  AND [SOURCEPROTA001]='{2}'  AND [SOURCEPROTA002]='{3}' ",PROIDTARGETPROTA001,PROIDTARGETPROTA002,PROIDSOURCEPROTA001,PROIDSOURCEPROTA002);
-             
+                sbSql.AppendFormat(" DELETE  [TKCIM].[dbo].[MATERWATERPROID] WHERE [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}'  AND [SOURCEPROTA001]='{2}'  AND [SOURCEPROTA002]='{3}' ", PROIDTARGETPROTA001, PROIDTARGETPROTA002, PROIDSOURCEPROTA001, PROIDSOURCEPROTA002);
+
                 cmd.Connection = sqlConn;
                 cmd.CommandTimeout = 60;
                 cmd.CommandText = sbSql.ToString();
@@ -504,7 +507,7 @@ namespace TKCIM
                     DataGridViewRow row = dataGridView1.Rows[rowindex];
                     TARGETTA001 = row.Cells["單別"].Value.ToString();
                     TARGETTA002 = row.Cells["單號"].Value.ToString();
-                    TB003= row.Cells["品號"].Value.ToString();
+                    TB003 = row.Cells["品號"].Value.ToString();
                     SEARCHMOCSOURCE();
                     SEARCHMATERWATERPROID();
 
@@ -519,7 +522,7 @@ namespace TKCIM
             }
         }
 
-        
+
 
         private void dataGridView3_SelectionChanged(object sender, EventArgs e)
         {
@@ -533,7 +536,7 @@ namespace TKCIM
                     PROIDTARGETPROTA002 = row.Cells["目標單號"].Value.ToString();
                     PROIDSOURCEPROTA001 = row.Cells["來源單別"].Value.ToString();
                     PROIDSOURCEPROTA002 = row.Cells["來源單號"].Value.ToString();
-                    
+
                 }
                 else
                 {
@@ -562,7 +565,7 @@ namespace TKCIM
                 sbSql.AppendFormat(@"  AND TA021=  MD001 ");
                 sbSql.AppendFormat(@"  AND MB002 LIKE '%水麵%' AND TA006 LIKE '3%'");
                 sbSql.AppendFormat(@"  AND TA003='{0}'", dateTimePicker4.Value.ToString("yyyyMMdd"));
-                sbSql.AppendFormat(@"  AND MD002='{0}'",comboBox1.Text.ToString());
+                sbSql.AppendFormat(@"  AND MD002='{0}'", comboBox1.Text.ToString());
                 sbSql.AppendFormat(@"  ORDER BY TA003,TA006");
                 sbSql.AppendFormat(@"  ");
 
@@ -636,7 +639,7 @@ namespace TKCIM
                 sbSql.Clear();
                 sbSqlQuery.Clear();
 
-   
+
                 sbSql.AppendFormat(@"  SELECT MB002,TB003 ");
                 sbSql.AppendFormat(@"  FROM MOCTB WITH (NOLOCK),INVMB WITH (NOLOCK)");
                 sbSql.AppendFormat(@"  WHERE TB003=MB001");
@@ -658,7 +661,7 @@ namespace TKCIM
                     for (int j = 1; j <= 7; j++)
                     {
                         TextBox iTextBox = (TextBox)FindControl(this, "textBox" + j);
-                        iTextBox.Text =null;
+                        iTextBox.Text = null;
                         i++;
                     }
 
@@ -671,16 +674,16 @@ namespace TKCIM
                         dataGridView5.DataSource = ds5.Tables["TEMPds5"];
                         dataGridView5.AutoResizeColumns();
                         //dataGridView1.CurrentCell = dataGridView1[0, rownum];
-                       
+
                         foreach (DataGridViewRow dr in this.dataGridView5.Rows)
                         {
-                            if(i<=7)
+                            if (i <= 7)
                             {
-                                TextBox iTextBox = (TextBox)FindControl(this, "textBox" +i);                                
+                                TextBox iTextBox = (TextBox)FindControl(this, "textBox" + i);
                                 iTextBox.Text = dr.Cells["MB002"].Value.ToString();
                                 i++;
                             }
-                           
+
                         }
 
 
@@ -727,7 +730,7 @@ namespace TKCIM
             //        DataGridViewRow row = dataGridView5.Rows[rowindex];
             //        textBox3.Text = row.Cells["MB002"].Value.ToString();
             //        textBox4.Text = row.Cells["TB003"].Value.ToString();
-                
+
             //    }
             //    else
             //    {
@@ -749,7 +752,7 @@ namespace TKCIM
                 tran = sqlConn.BeginTransaction();
 
                 sbSql.Clear();
-                if(!string.IsNullOrEmpty(textBox21.Text))
+                if (!string.IsNullOrEmpty(textBox21.Text))
                 {
                     sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERPROIDM]");
                     sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MAIN],[MAINDATE],[MB001],[MB002],[LOTID])");
@@ -849,7 +852,7 @@ namespace TKCIM
                 sbSql.AppendFormat(@"  SELECT [MB002] AS '品名',[LOTID] AS '批號' ,[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號',[MAIN] AS '生產線別',[MAINDATE] AS '日期',[MB001] AS '品號'");
                 sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[MATERWATERPROIDM]");
                 sbSql.AppendFormat(@"  WHERE [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}'", MATERWATERPROIDMTA001, MATERWATERPROIDMTA002);
-                
+
                 sbSql.AppendFormat(@"  ");
 
 
@@ -861,11 +864,11 @@ namespace TKCIM
                 adapter.Fill(ds6, "TEMPds6");
                 sqlConn.Close();
 
-               
+
                 if (ds6.Tables["TEMPds6"].Rows.Count == 0)
-                {                    
-                    
-                   
+                {
+
+
                 }
                 else
                 {
@@ -875,7 +878,7 @@ namespace TKCIM
                         dataGridView6.DataSource = ds6.Tables["TEMPds6"];
                         dataGridView6.AutoResizeColumns();
                         //dataGridView1.CurrentCell = dataGridView1[0, rownum];
-                       
+
                     }
                 }
 
@@ -927,8 +930,8 @@ namespace TKCIM
                 tran = sqlConn.BeginTransaction();
 
                 sbSql.Clear();
-                sbSql.AppendFormat(" DELETE  [TKCIM].[dbo].[MATERWATERPROIDM] "); 
-                sbSql.AppendFormat(" WHERE [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}'  AND [MB001]='{2}' AND [LOTID]='{3}'  ", MATERWATERPROIDMTA001, MATERWATERPROIDMTA002, MATERWATERPROIDMDMB001,MATERWATERPROIDMDLOTID);
+                sbSql.AppendFormat(" DELETE  [TKCIM].[dbo].[MATERWATERPROIDM] ");
+                sbSql.AppendFormat(" WHERE [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}'  AND [MB001]='{2}' AND [LOTID]='{3}'  ", MATERWATERPROIDMTA001, MATERWATERPROIDMTA002, MATERWATERPROIDMDMB001, MATERWATERPROIDMDLOTID);
 
                 cmd.Connection = sqlConn;
                 cmd.CommandTimeout = 60;
@@ -969,7 +972,7 @@ namespace TKCIM
 
                 sbSql.Clear();
                 sbSqlQuery.Clear();
-                             
+
                 sbSql.AppendFormat(@"  SELECT [MB002] AS '品名'  ,[LOTID] AS '批號',[CANNO] AS '桶數',[NUM] AS '重量'");
                 sbSql.AppendFormat(@"  ,[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號',[MB001] AS '品號',[OUTLOOK] AS '外觀',CONVERT(varchar(100),[STIME],8) AS '起時間',CONVERT(varchar(100),[ETIME],8) AS '迄時間'");
                 sbSql.AppendFormat(@"  ,[TEMP] AS '溫度' ,[HUDI] AS '溼度',[MOVEIN] AS '投料人',[CHECKEMP] AS '抽檢人'");
@@ -991,7 +994,7 @@ namespace TKCIM
 
                 if (ds9.Tables["TEMPds9"].Rows.Count == 0)
                 {
-                    
+
                 }
                 else
                 {
@@ -1027,7 +1030,7 @@ namespace TKCIM
                 tran = sqlConn.BeginTransaction();
 
                 sbSql.Clear();
-                if(!string.IsNullOrEmpty(textBox51.Text))
+                if (!string.IsNullOrEmpty(textBox51.Text))
                 {
                     sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERPROIDMD]");
                     sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[LOTID],[CANNO],[NUM])");
@@ -1055,7 +1058,7 @@ namespace TKCIM
                 {
                     sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERPROIDMD]");
                     sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[LOTID],[CANNO],[NUM])");
-                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}') ", MATERWATERPROIDMDTARGETPROTA001, MATERWATERPROIDMDTARGETPROTA002, null ,textBox44.Text, textBox34.Text, numericUpDown1.Value.ToString(), textBox54.Text);
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}') ", MATERWATERPROIDMDTARGETPROTA001, MATERWATERPROIDMDTARGETPROTA002, null, textBox44.Text, textBox34.Text, numericUpDown1.Value.ToString(), textBox54.Text);
                     sbSql.AppendFormat(" ");
 
                 }
@@ -1063,7 +1066,7 @@ namespace TKCIM
                 {
                     sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERPROIDMD]");
                     sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[LOTID],[CANNO],[NUM])");
-                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}') ", MATERWATERPROIDMDTARGETPROTA001, MATERWATERPROIDMDTARGETPROTA002, null ,textBox45.Text, textBox35.Text, numericUpDown1.Value.ToString(), textBox55.Text);
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}') ", MATERWATERPROIDMDTARGETPROTA001, MATERWATERPROIDMDTARGETPROTA002, null, textBox45.Text, textBox35.Text, numericUpDown1.Value.ToString(), textBox55.Text);
                     sbSql.AppendFormat(" ");
 
                 }
@@ -1126,7 +1129,7 @@ namespace TKCIM
 
 
                 }
-                
+
             }
             catch
             {
@@ -1148,7 +1151,7 @@ namespace TKCIM
                     DataGridViewRow row = dataGridView7.Rows[rowindex];
                     MATERWATERPROIDMTA001B = row.Cells["單別"].Value.ToString();
                     MATERWATERPROIDMTA002B = row.Cells["單號"].Value.ToString();
-            
+
                 }
                 else
                 {
@@ -1157,7 +1160,7 @@ namespace TKCIM
 
                 }
             }
-           
+
         }
         public void DELMATERWATERPROIDMD()
         {
@@ -1172,7 +1175,7 @@ namespace TKCIM
 
                 sbSql.Clear();
                 sbSql.AppendFormat(" DELETE  [TKCIM].[dbo].[MATERWATERPROIDMD] ");
-                sbSql.AppendFormat(" WHERE [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}'  AND [MB001]='{2}'  AND [LOTID]='{3}'  AND [CANNO]='{4}'  ", DELTARGETPROTA001,DELTARGETPROTA002, DELMB001, DELLOTID, DELCANNO);
+                sbSql.AppendFormat(" WHERE [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}'  AND [MB001]='{2}'  AND [LOTID]='{3}'  AND [CANNO]='{4}'  ", DELTARGETPROTA001, DELTARGETPROTA002, DELMB001, DELLOTID, DELCANNO);
 
                 cmd.Connection = sqlConn;
                 cmd.CommandTimeout = 60;
@@ -1231,7 +1234,7 @@ namespace TKCIM
             textBox57.Text = null;
             textBox58.Text = null;
             textBox59.Text = null;
-            
+
         }
 
         public void UPDATEMATERWATERPROIDMD()
@@ -1247,14 +1250,14 @@ namespace TKCIM
 
                 sbSql.Clear();
                 sbSql.AppendFormat(" UPDATE [TKCIM].[dbo].[MATERWATERPROIDMD] ");
-                sbSql.AppendFormat("   SET [MATERWATERPROIDMD].[OUTLOOK]='{0}' ",comboBox3.Text.ToString());
-                sbSql.AppendFormat("   ,[MATERWATERPROIDMD].[STIME]='{0}'",dateTimePicker6.Value.ToString("HH:mm"));
-                sbSql.AppendFormat("   ,[MATERWATERPROIDMD].[ETIME]='{0}'",dateTimePicker7.Value.ToString("HH:mm"));
-                sbSql.AppendFormat("   ,[MATERWATERPROIDMD].[TEMP]='{0}'",textBox91.Text);
+                sbSql.AppendFormat("   SET [MATERWATERPROIDMD].[OUTLOOK]='{0}' ", comboBox3.Text.ToString());
+                sbSql.AppendFormat("   ,[MATERWATERPROIDMD].[STIME]='{0}'", dateTimePicker6.Value.ToString("HH:mm"));
+                sbSql.AppendFormat("   ,[MATERWATERPROIDMD].[ETIME]='{0}'", dateTimePicker7.Value.ToString("HH:mm"));
+                sbSql.AppendFormat("   ,[MATERWATERPROIDMD].[TEMP]='{0}'", textBox91.Text);
                 sbSql.AppendFormat("   ,[MATERWATERPROIDMD].[HUDI]='{0}'", textBox92.Text);
                 sbSql.AppendFormat("   ,[MATERWATERPROIDMD].[MOVEIN]='{0}'", comboBox4.Text.ToString());
                 sbSql.AppendFormat("   ,[MATERWATERPROIDMD].[CHECKEMP]='{0}'", comboBox5.Text.ToString());
-                sbSql.AppendFormat("   WHERE [MATERWATERPROIDMD].[CANNO]='{0}'",numericUpDown1.Value.ToString());
+                sbSql.AppendFormat("   WHERE [MATERWATERPROIDMD].[CANNO]='{0}'", numericUpDown1.Value.ToString());
                 sbSql.AppendFormat(" ");
 
                 cmd.Connection = sqlConn;
@@ -1321,7 +1324,7 @@ namespace TKCIM
                 if (ds7.Tables["TEMPds7"].Rows.Count == 0)
                 {
                     dataGridView7.DataSource = null;
-                    
+
                 }
                 else
                 {
@@ -1332,7 +1335,7 @@ namespace TKCIM
                         dataGridView7.AutoResizeColumns();
                         //dataGridView1.CurrentCell = dataGridView1[0, rownum];
 
-                      
+
 
                     }
                 }
@@ -1685,9 +1688,451 @@ namespace TKCIM
         {
 
         }
+
+        public void ADDMOCTE()
+        {
+            CHECKPICK();
+            CHECKRETURN();
+            MessageBox.Show("已完成");
+        }
+
+        public void CHECKPICK()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                StringBuilder sbSql = new StringBuilder();
+                sbSql.Clear();
+                sbSqlQuery.Clear();
+                ds12.Clear();
+
+                sbSql.AppendFormat(@"  SELECT [MB002] AS '品名',[NUM] AS '預計用量',[ACT] AS '實際用量',[DIFF] AS '差異量',[TB001] AS '單別',[TB002] AS '單號',[TB003] AS '品號' ");
+                sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[MATERWATERPRODIFF]");
+                sbSql.AppendFormat(@"  WHERE  [TB001]='{0}' AND [TB002]='{1}'", METERWATERDIFFTB001, METERWATERDIFFTB002);
+                sbSql.AppendFormat(@"  AND [DIFF]<0");
+                sbSql.AppendFormat(@"  ");
+
+                adapter = new SqlDataAdapter(@"" + sbSql, sqlConn);
+
+                sqlCmdBuilder = new SqlCommandBuilder(adapter);
+                sqlConn.Open();
+                ds12.Clear();
+                adapter.Fill(ds12, "TEMPds12");
+                sqlConn.Close();
+
+
+                if (ds12.Tables["TEMPds12"].Rows.Count == 0)
+                {
+
+                }
+                else
+                {
+                    if (ds12.Tables["TEMPds12"].Rows.Count >= 1)
+                    {
+                        ADDPICK();
+                    }
+                }
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                sqlConn.Close();
+            }
+
+        }
+
+        public void CHECKRETURN()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                StringBuilder sbSql = new StringBuilder();
+                sbSql.Clear();
+                sbSqlQuery.Clear();
+                ds14.Clear();
+
+                sbSql.AppendFormat(@"  SELECT [MB002] AS '品名',[NUM] AS '預計用量',[ACT] AS '實際用量',[DIFF] AS '差異量',[TB001] AS '單別',[TB002] AS '單號',[TB003] AS '品號' ");
+                sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[METEROILDIFF]");
+                sbSql.AppendFormat(@"  WHERE  [TB001]='{0}' AND [TB002]='{1}'", METERWATERDIFFTB001, METERWATERDIFFTB002);
+                sbSql.AppendFormat(@"  AND [DIFF]>0");
+                sbSql.AppendFormat(@"  ");
+
+                adapter = new SqlDataAdapter(@"" + sbSql, sqlConn);
+
+                sqlCmdBuilder = new SqlCommandBuilder(adapter);
+                sqlConn.Open();
+                ds14.Clear();
+                adapter.Fill(ds14, "TEMPds14");
+                sqlConn.Close();
+
+
+                if (ds14.Tables["TEMPds14"].Rows.Count == 0)
+                {
+
+                }
+                else
+                {
+                    if (ds14.Tables["TEMPds14"].Rows.Count >= 1)
+                    {
+                        ADDRETURN();
+                    }
+                }
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
+
+        public void ADDPICK()
+        {
+            string TE001 = "A542";
+            string TE002;
+
+            TE002 = GETMAXTE002(TE001);
+            ADDMATERWATERPRODIFFRESULT(METERWATERDIFFTB001, METERWATERDIFFTB002, TE001, TE002);
+            ADDPICKDETAIL(METERWATERDIFFTB001, METERWATERDIFFTB002, TE001, TE002);
+        }
+
+        public string GETMAXTE002(string TE001)
+        {
+            string TE002;
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                StringBuilder sbSql = new StringBuilder();
+                sbSql.Clear();
+                sbSqlQuery.Clear();
+                ds13.Clear();
+
+                sbSql.AppendFormat(@"  SELECT ISNULL(MAX(TC002),'00000000000') AS TC002");
+                sbSql.AppendFormat(@"  FROM [TK].[dbo].[MOCTC] ");
+                //sbSql.AppendFormat(@"  WHERE  TC001='{0}' AND TC003='{1}'", "A542","20170119");
+                sbSql.AppendFormat(@"  WHERE  TC001='{0}' AND TC003='{1}'", TE001, DateTime.Now.ToString("yyyyMMdd"));
+                sbSql.AppendFormat(@"  ");
+                sbSql.AppendFormat(@"  ");
+
+                adapter = new SqlDataAdapter(@"" + sbSql, sqlConn);
+
+                sqlCmdBuilder = new SqlCommandBuilder(adapter);
+                sqlConn.Open();
+                ds13.Clear();
+                adapter.Fill(ds13, "TEMPds13");
+                sqlConn.Close();
+
+
+                if (ds13.Tables["TEMPds13"].Rows.Count == 0)
+                {
+                    return null;
+                }
+                else
+                {
+                    if (ds13.Tables["TEMPds13"].Rows.Count >= 1)
+                    {
+                        TE002 = SETTE002(ds13.Tables["TEMPds13"].Rows[0]["TC002"].ToString());
+                        return TE002;
+
+                    }
+                    return null;
+                }
+
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                sqlConn.Close();
+            }
+
+        }
+        public string SETTE002(string TE002)
+        {
+            if (TE002.Equals("00000000000"))
+            {
+                return DateTime.Now.ToString("yyyyMMdd") + "001";
+            }
+
+            else
+            {
+                int serno = Convert.ToInt16(TE002.Substring(8, 3));
+                serno = serno + 1;
+                string temp = serno.ToString();
+                temp = temp.PadLeft(3, '0');
+                return DateTime.Now.ToString("yyyyMMdd") + temp.ToString();
+            }
+        }
+
+
+        public void ADDMATERWATERPRODIFFRESULT(string TB001, string TB002, string TC001, string TC002)
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sqlConn.Close();
+                sqlConn.Open();
+                tran = sqlConn.BeginTransaction();
+
+                sbSql.Clear();
+                sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERPRODIFFRESULT]");
+                sbSql.AppendFormat(" ([TB001],[TB002],[TC001],[TC002])");
+                sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}')", TB001, TB002, TC001, TC002);
+                sbSql.AppendFormat(" ");
+                sbSql.AppendFormat(" ");
+                sbSql.AppendFormat(" ");
+
+                cmd.Connection = sqlConn;
+                cmd.CommandTimeout = 60;
+                cmd.CommandText = sbSql.ToString();
+                cmd.Transaction = tran;
+                result = cmd.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    tran.Rollback();    //交易取消
+                }
+                else
+                {
+                    tran.Commit();      //執行交易  
+
+
+                }
+
+            }
+            catch
+            {
+
+            }
+
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
+
+        public void ADDPICKDETAIL(string TB001, string TB002, string TC001, string TC002)
+        {
+            string date = DateTime.Now.ToString("yyyyMMdd");
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sqlConn.Close();
+                sqlConn.Open();
+                tran = sqlConn.BeginTransaction();
+
+                sbSql.Clear();
+                //ADD MOCTC
+                sbSql.AppendFormat(" INSERT INTO  [TK].[dbo].[MOCTC]");
+                sbSql.AppendFormat(" ([COMPANY],[CREATOR],[USR_GROUP],[CREATE_DATE],[MODIFIER],[MODI_DATE],[FLAG],[CREATE_TIME],[MODI_TIME],[TRANS_TYPE],[TRANS_NAME],[sync_date],[sync_time],[sync_mark],[sync_count],[DataUser],[DataGroup],[TC001],[TC002],[TC003],[TC004],[TC005],[TC006],[TC007],[TC008],[TC009],[TC010],[TC011],[TC012],[TC013],[TC014],[TC015],[TC016],[TC017],[TC018],[TC019],[TC020],[TC021],[TC022],[TC023],[TC024],[TC025],[TC026],[TC027],[TC028],[TC029],[TC030],[TC031],[TC032])");
+                sbSql.AppendFormat(" SELECT TOP 1 [COMPANY],[CREATOR],[USR_GROUP],[CREATE_DATE],[MODIFIER],[MODI_DATE],[FLAG],[CREATE_TIME],[MODI_TIME],[TRANS_TYPE],[TRANS_NAME],[sync_date],[sync_time],[sync_mark],[sync_count],'jj' AS [DataUser],[DataGroup]");
+                sbSql.AppendFormat(" ,'{0}' AS [TC001],'{1}' AS [TC002],'{2}' AS [TC003]", TC001, TC002, date);
+                sbSql.AppendFormat(" ,[TC004],[TC005],[TC006],[TC007],[TC008]");
+                sbSql.AppendFormat(" ,'N' AS [TC009]");
+                sbSql.AppendFormat(" ,[TC010],[TC011],[TC012],[TC013]");
+                sbSql.AppendFormat(" ,'{0}' AS [TC014],'{1}' AS [TC015]", date, date);
+                sbSql.AppendFormat(" ,[TC016],[TC017],[TC018],[TC019],[TC020],[TC021],[TC022],[TC023],[TC024],[TC025],[TC026],[TC027],[TC028],[TC029],[TC030],[TC031],[TC032]");
+                sbSql.AppendFormat(" FROM [TK].[dbo].MOCTC");
+                sbSql.AppendFormat(" WHERE EXISTS (");
+                sbSql.AppendFormat(" SELECT TOP 1 TD001,TD002");
+                sbSql.AppendFormat(" FROM [TK].[dbo].MOCTD ");
+                sbSql.AppendFormat(" WHERE TC001=TD001 AND TC002=TD002");
+                sbSql.AppendFormat(" AND TD003='{0}' AND TD004='{1}' )", TB001, TB002);
+                sbSql.AppendFormat(" ");
+                sbSql.AppendFormat(" ");
+                //ADD MOCTD
+                sbSql.AppendFormat(" INSERT INTO [TK].[dbo].[MOCTD]");
+                sbSql.AppendFormat(" ([COMPANY],[CREATOR],[USR_GROUP],[CREATE_DATE],[MODIFIER],[MODI_DATE],[FLAG],[CREATE_TIME],[MODI_TIME],[TRANS_TYPE],[TRANS_NAME],[sync_date],[sync_time],[sync_mark],[sync_count],[DataUser],[DataGroup],[TD001],[TD002],[TD003],[TD004],[TD005],[TD006],[TD007],[TD008],[TD009],[TD010],[TD011],[TD012],[TD013],[TD014],[TD015],[TD016],[TD017],[TD018],[TD019],[TD020],[TD021],[TD022],[TD023],[TD024],[TD025],[TD026],[TD027],[TD028],[TD500],[TD501],[TD502],[TD503],[TD504],[TD505],[TD506])");
+                sbSql.AppendFormat(" SELECT TOP 1 [COMPANY],[CREATOR],[USR_GROUP],[CREATE_DATE],[MODIFIER],[MODI_DATE],[FLAG],[CREATE_TIME],[MODI_TIME],[TRANS_TYPE],[TRANS_NAME],[sync_date],[sync_time],[sync_mark],[sync_count],'jj' AS [DataUser],[DataGroup]");
+                sbSql.AppendFormat(" ,'{0}' AS [TD001],'{1}' AS [TD002]", TC001, TC002);
+                sbSql.AppendFormat(" ,[TD003],[TD004],[TD005]");
+                sbSql.AppendFormat(" ,'0' AS [TD006]");
+                sbSql.AppendFormat(" ,[TD007],[TD008],[TD009],[TD010],[TD011],[TD012],[TD013],[TD014],[TD015],[TD016],[TD017],[TD018],[TD019],[TD020],[TD021],[TD022],[TD023],[TD024],[TD025],[TD026],[TD027],[TD028],[TD500],[TD501],[TD502],[TD503],[TD504],[TD505],[TD506]");
+                sbSql.AppendFormat(" FROM [TK].[dbo].MOCTD ");
+                sbSql.AppendFormat(" WHERE TD003='{0}' AND TD004='{1}'", TB001, TB002);
+                sbSql.AppendFormat(" ");
+                //ADD MOCTE
+                sbSql.AppendFormat(" INSERT INTO [TK].[dbo].[MOCTE]");
+                sbSql.AppendFormat(" ([COMPANY],[CREATOR],[USR_GROUP],[CREATE_DATE],[MODIFIER],[MODI_DATE],[FLAG],[CREATE_TIME],[MODI_TIME],[TRANS_TYPE],[TRANS_NAME],[sync_date],[sync_time],[sync_mark],[sync_count],[DataUser],[DataGroup],[TE001],[TE002],[TE003],[TE004],[TE005],[TE006],[TE007],[TE008],[TE009],[TE010],[TE011],[TE012],[TE013],[TE014],[TE015],[TE016],[TE017],[TE018],[TE019],[TE020],[TE021],[TE022],[TE023],[TE024],[TE025],[TE026],[TE027],[TE028],[TE029],[TE030],[TE031],[TE032],[TE033],[TE034],[TE035],[TE036],[TE037],[TE038],[TE039],[TE040],[TE500],[TE501],[TE502],[TE503],[TE504],[TE505],[TE506],[TE507],[TE508])");
+                sbSql.AppendFormat(" SELECT [COMPANY],[CREATOR],[USR_GROUP],[CREATE_DATE],[MODIFIER],[MODI_DATE],[FLAG],[CREATE_TIME],[MODI_TIME],[TRANS_TYPE],[TRANS_NAME],[sync_date],[sync_time],[sync_mark],[sync_count],'jj' AS [DataUser],[DataGroup]");
+                sbSql.AppendFormat(" ,'{0}' AS [TE001],'{1}' AS [TE002]", TC001, TC002);
+                sbSql.AppendFormat(" ,[TE003],[TE004]");
+                sbSql.AppendFormat(" ,[DIFF]*-1 AS [TE005]");
+                sbSql.AppendFormat(" ,[TE006],[TE007],[TE008],[TE009],[TE010],[TE011],[TE012]");
+                sbSql.AppendFormat(" ,'' AS [TE013]");
+                sbSql.AppendFormat(" ,[TE014],[TE015],[TE016],[TE017],[TE018]");
+                sbSql.AppendFormat(" ,'N' AS [TE019]");
+                sbSql.AppendFormat(" ,[TE020],[TE021],[TE022],[TE023],[TE024],[TE025],[TE026],[TE027],[TE028],[TE029],[TE030],[TE031],[TE032],[TE033],[TE034],[TE035],[TE036],[TE037],[TE038],[TE039],[TE040],[TE500],[TE501],[TE502],[TE503],[TE504],[TE505],[TE506],[TE507],[TE508] ");
+                sbSql.AppendFormat(" FROM [TK].dbo.[MOCTE],[TKCIM].[dbo].[METEROILDIFF]");
+                sbSql.AppendFormat(" WHERE EXISTS");
+                sbSql.AppendFormat(" (SELECT TOP 1 TE.TE001,TE.TE002");
+                sbSql.AppendFormat(" FROM [TK].dbo.MOCTE TE");
+                sbSql.AppendFormat(" WHERE TE.TE011='{0}' AND TE.TE012='{1}'", TB001, TB002);
+                sbSql.AppendFormat(" AND MOCTE.TE001=TE.TE001 AND MOCTE.TE002=TE.TE002");
+                sbSql.AppendFormat(" ORDER BY TE.TE002)");
+                sbSql.AppendFormat(" AND [MOCTE].[TE011]=[METEROILDIFF].[TB001] AND [MOCTE].[TE012]=[METEROILDIFF].[TB002] AND [MOCTE].[TE004]=[METEROILDIFF].[TB003]");
+                sbSql.AppendFormat(" AND [DIFF]<0");
+                sbSql.AppendFormat(" ");
+                sbSql.AppendFormat(" ");
+                sbSql.AppendFormat(" ");
+
+                cmd.Connection = sqlConn;
+                cmd.CommandTimeout = 60;
+                cmd.CommandText = sbSql.ToString();
+                cmd.Transaction = tran;
+                result = cmd.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    tran.Rollback();    //交易取消
+                }
+                else
+                {
+                    tran.Commit();      //執行交易  
+
+
+                }
+
+            }
+            catch
+            {
+
+            }
+
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
+
+        public void ADDRETURN()
+        {
+            string TE001 = "A561";
+            string TE002;
+
+            TE002 = GETMAXTE002(TE001);
+            ADDMATERWATERPRODIFFRESULT(METERWATERDIFFTB001, METERWATERDIFFTB002, TE001, TE002);
+            ADDRETURNDETAIL(METERWATERDIFFTB001, METERWATERDIFFTB002, TE001, TE002);
+        }
+
+        public void ADDRETURNDETAIL(string TB001, string TB002, string TC001, string TC002)
+        {
+            string date = DateTime.Now.ToString("yyyyMMdd");
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sqlConn.Close();
+                sqlConn.Open();
+                tran = sqlConn.BeginTransaction();
+
+                sbSql.Clear();
+                //ADD MOCTC
+                sbSql.AppendFormat(" INSERT INTO  [TK].[dbo].[MOCTC]");
+                sbSql.AppendFormat(" ([COMPANY],[CREATOR],[USR_GROUP],[CREATE_DATE],[MODIFIER],[MODI_DATE],[FLAG],[CREATE_TIME],[MODI_TIME],[TRANS_TYPE],[TRANS_NAME],[sync_date],[sync_time],[sync_mark],[sync_count],[DataUser],[DataGroup],[TC001],[TC002],[TC003],[TC004],[TC005],[TC006],[TC007],[TC008],[TC009],[TC010],[TC011],[TC012],[TC013],[TC014],[TC015],[TC016],[TC017],[TC018],[TC019],[TC020],[TC021],[TC022],[TC023],[TC024],[TC025],[TC026],[TC027],[TC028],[TC029],[TC030],[TC031],[TC032])");
+                sbSql.AppendFormat(" SELECT TOP 1 [COMPANY],[CREATOR],[USR_GROUP],[CREATE_DATE],[MODIFIER],[MODI_DATE],[FLAG],[CREATE_TIME],[MODI_TIME],[TRANS_TYPE],[TRANS_NAME],[sync_date],[sync_time],[sync_mark],[sync_count],'jj' AS [DataUser],[DataGroup]");
+                sbSql.AppendFormat(" ,'{0}' AS [TC001],'{1}' AS [TC002],'{2}' AS [TC003]", TC001, TC002, date);
+                sbSql.AppendFormat(" ,[TC004],[TC005],[TC006],[TC007],[TC008]");
+                sbSql.AppendFormat(" ,'N' AS [TC009]");
+                sbSql.AppendFormat(" ,[TC010],[TC011],[TC012],[TC013]");
+                sbSql.AppendFormat(" ,'{0}' AS [TC014],'{1}' AS [TC015]", date, date);
+                sbSql.AppendFormat(" ,[TC016],[TC017],[TC018],[TC019],[TC020],[TC021],[TC022],[TC023],[TC024],[TC025],[TC026],[TC027],[TC028],[TC029],[TC030],[TC031],[TC032]");
+                sbSql.AppendFormat(" FROM [TK].[dbo].MOCTC");
+                sbSql.AppendFormat(" WHERE EXISTS (");
+                sbSql.AppendFormat(" SELECT TOP 1 TD001,TD002");
+                sbSql.AppendFormat(" FROM [TK].[dbo].MOCTD ");
+                sbSql.AppendFormat(" WHERE TC001=TD001 AND TC002=TD002");
+                sbSql.AppendFormat(" AND TD003='{0}' AND TD004='{1}' )", TB001, TB002);
+                sbSql.AppendFormat(" ");
+                sbSql.AppendFormat(" ");
+                //ADD MOCTD
+                sbSql.AppendFormat(" INSERT INTO [TK].[dbo].[MOCTD]");
+                sbSql.AppendFormat(" ([COMPANY],[CREATOR],[USR_GROUP],[CREATE_DATE],[MODIFIER],[MODI_DATE],[FLAG],[CREATE_TIME],[MODI_TIME],[TRANS_TYPE],[TRANS_NAME],[sync_date],[sync_time],[sync_mark],[sync_count],[DataUser],[DataGroup],[TD001],[TD002],[TD003],[TD004],[TD005],[TD006],[TD007],[TD008],[TD009],[TD010],[TD011],[TD012],[TD013],[TD014],[TD015],[TD016],[TD017],[TD018],[TD019],[TD020],[TD021],[TD022],[TD023],[TD024],[TD025],[TD026],[TD027],[TD028],[TD500],[TD501],[TD502],[TD503],[TD504],[TD505],[TD506])");
+                sbSql.AppendFormat(" SELECT TOP 1 [COMPANY],[CREATOR],[USR_GROUP],[CREATE_DATE],[MODIFIER],[MODI_DATE],[FLAG],[CREATE_TIME],[MODI_TIME],[TRANS_TYPE],[TRANS_NAME],[sync_date],[sync_time],[sync_mark],[sync_count],'jj' AS [DataUser],[DataGroup]");
+                sbSql.AppendFormat(" ,'{0}' AS [TD001],'{1}' AS [TD002]", TC001, TC002);
+                sbSql.AppendFormat(" ,[TD003],[TD004],[TD005]");
+                sbSql.AppendFormat(" ,'0' AS [TD006]");
+                sbSql.AppendFormat(" ,[TD007],[TD008],[TD009],[TD010],[TD011],[TD012],[TD013],[TD014],[TD015],[TD016],[TD017],[TD018],[TD019],[TD020],[TD021],[TD022],[TD023],[TD024],[TD025],[TD026],[TD027],[TD028],[TD500],[TD501],[TD502],[TD503],[TD504],[TD505],[TD506]");
+                sbSql.AppendFormat(" FROM [TK].[dbo].MOCTD ");
+                sbSql.AppendFormat(" WHERE TD003='{0}' AND TD004='{1}'", TB001, TB002);
+                sbSql.AppendFormat(" ");
+                //ADD MOCTE
+                sbSql.AppendFormat(" INSERT INTO [TK].[dbo].[MOCTE]");
+                sbSql.AppendFormat(" ([COMPANY],[CREATOR],[USR_GROUP],[CREATE_DATE],[MODIFIER],[MODI_DATE],[FLAG],[CREATE_TIME],[MODI_TIME],[TRANS_TYPE],[TRANS_NAME],[sync_date],[sync_time],[sync_mark],[sync_count],[DataUser],[DataGroup],[TE001],[TE002],[TE003],[TE004],[TE005],[TE006],[TE007],[TE008],[TE009],[TE010],[TE011],[TE012],[TE013],[TE014],[TE015],[TE016],[TE017],[TE018],[TE019],[TE020],[TE021],[TE022],[TE023],[TE024],[TE025],[TE026],[TE027],[TE028],[TE029],[TE030],[TE031],[TE032],[TE033],[TE034],[TE035],[TE036],[TE037],[TE038],[TE039],[TE040],[TE500],[TE501],[TE502],[TE503],[TE504],[TE505],[TE506],[TE507],[TE508])");
+                sbSql.AppendFormat(" SELECT [COMPANY],[CREATOR],[USR_GROUP],[CREATE_DATE],[MODIFIER],[MODI_DATE],[FLAG],[CREATE_TIME],[MODI_TIME],[TRANS_TYPE],[TRANS_NAME],[sync_date],[sync_time],[sync_mark],[sync_count],'jj' AS [DataUser],[DataGroup]");
+                sbSql.AppendFormat(" ,'{0}' AS [TE001],'{1}' AS [TE002]", TC001, TC002);
+                sbSql.AppendFormat(" ,[TE003],[TE004]");
+                sbSql.AppendFormat(" ,[DIFF] AS [TE005]");
+                sbSql.AppendFormat(" ,[TE006],[TE007],[TE008],[TE009],[TE010],[TE011],[TE012]");
+                sbSql.AppendFormat(" ,'' AS [TE013]");
+                sbSql.AppendFormat(" ,[TE014],[TE015],[TE016],[TE017],[TE018]");
+                sbSql.AppendFormat(" ,'N' AS [TE019]");
+                sbSql.AppendFormat(" ,[TE020],[TE021],[TE022],[TE023],[TE024],[TE025],[TE026],[TE027],[TE028],[TE029],[TE030],[TE031],[TE032],[TE033],[TE034],[TE035],[TE036],[TE037],[TE038],[TE039],[TE040],[TE500],[TE501],[TE502],[TE503],[TE504],[TE505],[TE506],[TE507],[TE508] ");
+                sbSql.AppendFormat(" FROM [TK].dbo.[MOCTE],[TKCIM].[dbo].[METEROILDIFF]");
+                sbSql.AppendFormat(" WHERE EXISTS");
+                sbSql.AppendFormat(" (SELECT TOP 1 TE.TE001,TE.TE002");
+                sbSql.AppendFormat(" FROM [TK].dbo.MOCTE TE");
+                sbSql.AppendFormat(" WHERE TE.TE011='{0}' AND TE.TE012='{1}'", TB001, TB002);
+                sbSql.AppendFormat(" AND MOCTE.TE001=TE.TE001 AND MOCTE.TE002=TE.TE002");
+                sbSql.AppendFormat(" ORDER BY TE.TE002)");
+                sbSql.AppendFormat(" AND [MOCTE].[TE011]=[METEROILDIFF].[TB001] AND [MOCTE].[TE012]=[METEROILDIFF].[TB002] AND [MOCTE].[TE004]=[METEROILDIFF].[TB003]");
+                sbSql.AppendFormat(" AND [DIFF]>0");
+                sbSql.AppendFormat(" ");
+                sbSql.AppendFormat(" ");
+                sbSql.AppendFormat(" ");
+
+                cmd.Connection = sqlConn;
+                cmd.CommandTimeout = 60;
+                cmd.CommandText = sbSql.ToString();
+                cmd.Transaction = tran;
+                result = cmd.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    tran.Rollback();    //交易取消
+                }
+                else
+                {
+                    tran.Commit();      //執行交易  
+
+
+                }
+
+            }
+            catch
+            {
+
+            }
+
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
+
         #endregion
 
-        #region BUTTON
+            #region BUTTON
         private void button1_Click(object sender, EventArgs e)
         {
             SERACHMOCTARGET();
@@ -1783,8 +2228,13 @@ namespace TKCIM
         }
 
 
+        private void button14_Click(object sender, EventArgs e)
+        {
+            ADDMOCTE();
+            SEARCHMATERWATERPRODIFFRESULT();
+        }
         #endregion
 
-       
+
     }
 }
