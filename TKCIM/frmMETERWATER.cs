@@ -2405,9 +2405,9 @@ namespace TKCIM
             {
                 TE002 = GETMAXTE002(TE001);
                 ADDMATERWATERSUMRESULT(od["來源單別"].ToString(), od["來源單號"].ToString(), TE001, TE002);
-
+                ADDPICKSUMDETAIL(od["來源單別"].ToString(), od["來源單號"].ToString(), TE001, TE002);
             }
-            //ADDPICKDETAIL(METERWATERDIFFTB001, METERWATERDIFFTB002, TE001, TE002);
+            
         }
         public void ADDMATERWATERSUMRESULT(string TB001, string TB002, string TC001, string TC002)
         {
@@ -2424,6 +2424,102 @@ namespace TKCIM
                 sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERSUMRESULT]");
                 sbSql.AppendFormat(" ([TB001],[TB002],[TC001],[TC002])");
                 sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}')", TB001, TB002, TC001, TC002);
+                sbSql.AppendFormat(" ");
+                sbSql.AppendFormat(" ");
+                sbSql.AppendFormat(" ");
+
+                cmd.Connection = sqlConn;
+                cmd.CommandTimeout = 60;
+                cmd.CommandText = sbSql.ToString();
+                cmd.Transaction = tran;
+                result = cmd.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    tran.Rollback();    //交易取消
+                }
+                else
+                {
+                    tran.Commit();      //執行交易  
+
+
+                }
+
+            }
+            catch
+            {
+
+            }
+
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
+        public void ADDPICKSUMDETAIL(string TB001, string TB002, string TC001, string TC002)
+        {
+            string date = DateTime.Now.ToString("yyyyMMdd");
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sqlConn.Close();
+                sqlConn.Open();
+                tran = sqlConn.BeginTransaction();
+
+                sbSql.Clear();
+                //ADD MOCTC
+                //sbSql.AppendFormat(" INSERT INTO  [TK].[dbo].[MOCTC]");
+                //sbSql.AppendFormat(" ([COMPANY],[CREATOR],[USR_GROUP],[CREATE_DATE],[MODIFIER],[MODI_DATE],[FLAG],[CREATE_TIME],[MODI_TIME],[TRANS_TYPE],[TRANS_NAME],[sync_date],[sync_time],[sync_mark],[sync_count],[DataUser],[DataGroup],[TC001],[TC002],[TC003],[TC004],[TC005],[TC006],[TC007],[TC008],[TC009],[TC010],[TC011],[TC012],[TC013],[TC014],[TC015],[TC016],[TC017],[TC018],[TC019],[TC020],[TC021],[TC022],[TC023],[TC024],[TC025],[TC026],[TC027],[TC028],[TC029],[TC030],[TC031],[TC032])");
+                sbSql.AppendFormat(" SELECT TOP 1 [COMPANY],[CREATOR],[USR_GROUP],[CREATE_DATE],[MODIFIER],[MODI_DATE],[FLAG],[CREATE_TIME],[MODI_TIME],[TRANS_TYPE],[TRANS_NAME],[sync_date],[sync_time],[sync_mark],[sync_count],'jj' AS [DataUser],[DataGroup]");
+                sbSql.AppendFormat(" ,'{0}' AS [TC001],'{1}' AS [TC002],'{2}' AS [TC003]", TC001, TC002, date);
+                sbSql.AppendFormat(" ,[TC004],[TC005],[TC006],[TC007],[TC008]");
+                sbSql.AppendFormat(" ,'N' AS [TC009]");
+                sbSql.AppendFormat(" ,[TC010],[TC011],[TC012],[TC013]");
+                sbSql.AppendFormat(" ,'{0}' AS [TC014],'{1}' AS [TC015]", date, date);
+                sbSql.AppendFormat(" ,[TC016],[TC017],[TC018],[TC019],[TC020],[TC021],[TC022],[TC023],[TC024],[TC025],[TC026],[TC027],[TC028],[TC029],[TC030],[TC031],[TC032]");
+                sbSql.AppendFormat(" FROM [TK].[dbo].MOCTC");
+                sbSql.AppendFormat(" WHERE EXISTS (");
+                sbSql.AppendFormat(" SELECT TOP 1 TD001,TD002");
+                sbSql.AppendFormat(" FROM [TK].[dbo].MOCTD ");
+                sbSql.AppendFormat(" WHERE TC001=TD001 AND TC002=TD002");
+                sbSql.AppendFormat(" AND TD003='{0}' AND TD004='{1}' )", TB001, TB002);
+                sbSql.AppendFormat(" ");
+                sbSql.AppendFormat(" ");
+                //ADD MOCTD
+                //sbSql.AppendFormat(" INSERT INTO [TK].[dbo].[MOCTD]");
+                //sbSql.AppendFormat(" ([COMPANY],[CREATOR],[USR_GROUP],[CREATE_DATE],[MODIFIER],[MODI_DATE],[FLAG],[CREATE_TIME],[MODI_TIME],[TRANS_TYPE],[TRANS_NAME],[sync_date],[sync_time],[sync_mark],[sync_count],[DataUser],[DataGroup],[TD001],[TD002],[TD003],[TD004],[TD005],[TD006],[TD007],[TD008],[TD009],[TD010],[TD011],[TD012],[TD013],[TD014],[TD015],[TD016],[TD017],[TD018],[TD019],[TD020],[TD021],[TD022],[TD023],[TD024],[TD025],[TD026],[TD027],[TD028],[TD500],[TD501],[TD502],[TD503],[TD504],[TD505],[TD506])");
+                sbSql.AppendFormat(" SELECT TOP 1 [COMPANY],[CREATOR],[USR_GROUP],[CREATE_DATE],[MODIFIER],[MODI_DATE],[FLAG],[CREATE_TIME],[MODI_TIME],[TRANS_TYPE],[TRANS_NAME],[sync_date],[sync_time],[sync_mark],[sync_count],'jj' AS [DataUser],[DataGroup]");
+                sbSql.AppendFormat(" ,'{0}' AS [TD001],'{1}' AS [TD002]", TC001, TC002);
+                sbSql.AppendFormat(" ,[TD003],[TD004],[TD005]");
+                sbSql.AppendFormat(" ,'0' AS [TD006]");
+                sbSql.AppendFormat(" ,[TD007],[TD008],[TD009],[TD010],[TD011],[TD012],[TD013],[TD014],[TD015],[TD016],[TD017],[TD018],[TD019],[TD020],[TD021],[TD022],[TD023],[TD024],[TD025],[TD026],[TD027],[TD028],[TD500],[TD501],[TD502],[TD503],[TD504],[TD505],[TD506]");
+                sbSql.AppendFormat(" FROM [TK].[dbo].MOCTD ");
+                sbSql.AppendFormat(" WHERE TD003='{0}' AND TD004='{1}'", TB001, TB002);
+                sbSql.AppendFormat(" ");
+                //ADD MOCTE
+                //sbSql.AppendFormat(" INSERT INTO [TK].[dbo].[MOCTE]");
+                //sbSql.AppendFormat(" ([COMPANY],[CREATOR],[USR_GROUP],[CREATE_DATE],[MODIFIER],[MODI_DATE],[FLAG],[CREATE_TIME],[MODI_TIME],[TRANS_TYPE],[TRANS_NAME],[sync_date],[sync_time],[sync_mark],[sync_count],[DataUser],[DataGroup],[TE001],[TE002],[TE003],[TE004],[TE005],[TE006],[TE007],[TE008],[TE009],[TE010],[TE011],[TE012],[TE013],[TE014],[TE015],[TE016],[TE017],[TE018],[TE019],[TE020],[TE021],[TE022],[TE023],[TE024],[TE025],[TE026],[TE027],[TE028],[TE029],[TE030],[TE031],[TE032],[TE033],[TE034],[TE035],[TE036],[TE037],[TE038],[TE039],[TE040],[TE500],[TE501],[TE502],[TE503],[TE504],[TE505],[TE506],[TE507],[TE508])");
+                sbSql.AppendFormat(" SELECT TOP 1 [COMPANY],[CREATOR],[USR_GROUP],[CREATE_DATE],[MODIFIER],[MODI_DATE],[FLAG],[CREATE_TIME],[MODI_TIME],[TRANS_TYPE],[TRANS_NAME],[sync_date],[sync_time],[sync_mark],[sync_count],'jj' AS [DataUser],[DataGroup]");
+                sbSql.AppendFormat(" ,'{0}' AS [TE001],'{1}' AS [TE002]", TC001, TC002);
+                sbSql.AppendFormat(" ,[TE003]");
+                sbSql.AppendFormat(" ,[MOCTE].[TE004]");
+                sbSql.AppendFormat(" ,[COUNTDIFF] AS [TE005]");
+                sbSql.AppendFormat(" ,[TE006],[TE007],[TE008],[TE009],[TE010],[TE011],[TE012]");
+                sbSql.AppendFormat(" ,'' AS [TE013]");
+                sbSql.AppendFormat(" ,[TE014],[TE015],[TE016],[TE017],[TE018]");
+                sbSql.AppendFormat(" ,'N' AS [TE019]");
+                sbSql.AppendFormat(" ,[TE020],[TE021],[TE022],[TE023],[TE024],[TE025],[TE026],[TE027],[TE028],[TE029],[TE030],[TE031],[TE032],[TE033],[TE034],[TE035],[TE036],[TE037],[TE038],[TE039],[TE040],[TE500],[TE501],[TE502],[TE503],[TE504],[TE505],[TE506],[TE507],[TE508] ");
+                sbSql.AppendFormat(" FROM [TK].dbo.[MOCTE],[TKCIM].[dbo].[MATERWATERSUMDIFF]");
+                sbSql.AppendFormat(" WHERE EXISTS");
+                sbSql.AppendFormat(" (SELECT TOP 1 TE.TE001,TE.TE002");
+                sbSql.AppendFormat(" FROM [TK].dbo.MOCTE TE");
+                sbSql.AppendFormat(" WHERE TE.TE011='{0}' AND TE.TE012='{1}'", TB001, TB002);
+                sbSql.AppendFormat(" AND MOCTE.TE001=TE.TE001 AND MOCTE.TE002=TE.TE002");
+                sbSql.AppendFormat(" ORDER BY TE.TE002)");
+                sbSql.AppendFormat(" AND [MOCTE].[TE011]=[MATERWATERSUMDIFF].[SOURCEPROTA001] AND [MOCTE].[TE012]=[MATERWATERSUMDIFF].[SOURCEPROTA002] AND [MOCTE].[TE004]=[MATERWATERSUMDIFF].[TE004]");
+                sbSql.AppendFormat(" AND [COUNTDIFF]>0 ");
                 sbSql.AppendFormat(" ");
                 sbSql.AppendFormat(" ");
                 sbSql.AppendFormat(" ");
