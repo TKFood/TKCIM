@@ -38,6 +38,8 @@ namespace TKCIM
         DataSet ds7 = new DataSet();
         DataSet ds8 = new DataSet();
         DataSet ds9 = new DataSet();
+        DataSet ds10 = new DataSet();
+        DataSet ds11 = new DataSet();
         DataTable dt = new DataTable();
         string tablename = null;
         int result;
@@ -65,6 +67,8 @@ namespace TKCIM
         string DELMB001;
         string DELLOTID;
         string DELCANNO;
+        string METERWATERDIFFTB001;
+        string METERWATERDIFFTB002;
         Thread TD;
 
         public frmMETERWATER()
@@ -75,6 +79,7 @@ namespace TKCIM
             comboBox4load();
             comboBox5load();
             comboBox6load();
+            comboBox7load();
 
             timer1.Enabled = true;
             timer1.Interval = 1000 * 60;
@@ -178,6 +183,27 @@ namespace TKCIM
             comboBox6.DataSource = dt.DefaultView;
             comboBox6.ValueMember = "MD002";
             comboBox6.DisplayMember = "MD002";
+            sqlConn.Close();
+
+
+        }
+
+        public void comboBox7load()
+        {
+            connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+            sqlConn = new SqlConnection(connectionString);
+            StringBuilder Sequel = new StringBuilder();
+            Sequel.AppendFormat(@"SELECT MD001,MD002 FROM CMSMD   WHERE MD002 LIKE '新%'   ");
+            SqlDataAdapter da = new SqlDataAdapter(Sequel.ToString(), sqlConn);
+            DataTable dt = new DataTable();
+            sqlConn.Open();
+
+            dt.Columns.Add("MD001", typeof(string));
+            dt.Columns.Add("MD002", typeof(string));
+            da.Fill(dt);
+            comboBox7.DataSource = dt.DefaultView;
+            comboBox7.ValueMember = "MD002";
+            comboBox7.DisplayMember = "MD002";
             sqlConn.Close();
 
 
@@ -1462,6 +1488,203 @@ namespace TKCIM
             }
         }
 
+        public void SERACHMOCTARGET3()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sbSql.Clear();
+                sbSqlQuery.Clear();
+
+
+                sbSql.AppendFormat(@"  SELECT MB002  AS '品名',TA015  AS '預計產量',TA001 AS '單別',TA002 AS '單號',TA003 AS '日期',TA006 AS '品號'    ");
+                sbSql.AppendFormat(@"  ,MD002 AS '線別'");
+                sbSql.AppendFormat(@"  FROM MOCTA WITH (NOLOCK),INVMB WITH (NOLOCK),CMSMD WITH (NOLOCK)");
+                sbSql.AppendFormat(@"  WHERE TA006=MB001");
+                sbSql.AppendFormat(@"  AND TA021=  MD001 ");
+                sbSql.AppendFormat(@"  AND MB002 LIKE '%水麵%' AND TA006 LIKE '3%'");
+                sbSql.AppendFormat(@"  AND TA003='{0}'", dateTimePicker8.Value.ToString("yyyyMMdd"));
+                sbSql.AppendFormat(@"  AND MD002='{0}'", comboBox7.Text.ToString());
+                sbSql.AppendFormat(@"  ORDER BY TA003,TA006");
+                sbSql.AppendFormat(@"  ");
+
+
+                adapter = new SqlDataAdapter(@"" + sbSql, sqlConn);
+
+                sqlCmdBuilder = new SqlCommandBuilder(adapter);
+                sqlConn.Open();
+                ds10.Clear();
+                adapter.Fill(ds10, "TEMPds10");
+                sqlConn.Close();
+
+
+                if (ds10.Tables["TEMPds10"].Rows.Count == 0)
+                {
+                    dataGridView10.DataSource = null;
+                }
+                else
+                {
+                    if (ds10.Tables["TEMPds10"].Rows.Count >= 1)
+                    {
+                        //dataGridView1.Rows.Clear();
+                        dataGridView10.DataSource = ds10.Tables["TEMPds10"];
+                        dataGridView10.AutoResizeColumns();
+                        //dataGridView1.CurrentCell = dataGridView1[0, rownum];
+
+                    }
+                }
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+
+            }
+        }
+        private void dataGridView10_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView10.CurrentRow != null)
+            {
+                int rowindex = dataGridView10.CurrentRow.Index;
+                if (rowindex >= 0)
+                {
+                    DataGridViewRow row = dataGridView10.Rows[rowindex];
+                    METERWATERDIFFTB001 = row.Cells["單別"].Value.ToString();
+                    METERWATERDIFFTB002 = row.Cells["單號"].Value.ToString();
+                }
+                else
+                {
+                    METERWATERDIFFTB001 = null;
+                    METERWATERDIFFTB002 = null;
+
+                }
+            }
+            else
+            {
+                METERWATERDIFFTB001 = null;
+                METERWATERDIFFTB002 = null;
+            }
+            SEARCHMATERWATERPRODIFF();
+            SEARCHMATERWATERPRODIFFRESULT();
+        }
+        public void ADDMETEROILDIFF()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sqlConn.Close();
+                sqlConn.Open();
+                tran = sqlConn.BeginTransaction();
+
+                sbSql.Clear();
+                sbSql.AppendFormat(" DELETE [TKCIM].[dbo].[MATERWATERPRODIFF] WHERE TB001='{0}' AND TB002='{1}'", METERWATERDIFFTB001, METERWATERDIFFTB002);
+                sbSql.AppendFormat(" ");
+                sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERPRODIFF]");
+                sbSql.AppendFormat(" ([TB001],[TB002],[TB003],[MB002],[NUM],[ACT],[DIFF])");
+                sbSql.AppendFormat(" (SELECT  TB001,TB002,TB003,MB002,SUM(TB004) AS 'NUM'");
+                sbSql.AppendFormat(" ,ISNULL((SELECT SUM([NUM]) FROM [TKCIM].[dbo].[MATERWATERPROIDMD] WHERE  [TARGETPROTA001]=TB001 AND  [TARGETPROTA002]=TB002 AND TB003=MB001),0) AS 'ACT'");
+                sbSql.AppendFormat(" ,(SUM(TB004)-ISNULL((SELECT SUM([NUM]) FROM [TKCIM].[dbo].[MATERWATERPROIDMD] WHERE  [TARGETPROTA001]=TB001 AND  [TARGETPROTA002]=TB002 AND TB003=MB001),0)) AS 'DIFF'");
+                sbSql.AppendFormat(" FROM [TK].dbo.MOCTB");
+                sbSql.AppendFormat(" LEFT JOIN [TK].dbo.[INVMB] ON MB001=TB003");
+                sbSql.AppendFormat(" WHERE TB001='{0}' AND TB002='{1}'", METERWATERDIFFTB001, METERWATERDIFFTB002);
+                sbSql.AppendFormat(" AND SUBSTRING(TB003,1,1) IN ('1','3')");
+                sbSql.AppendFormat(" GROUP BY TB001,TB002,TB003,MB002)");
+                sbSql.AppendFormat(" ");
+                sbSql.AppendFormat(" ");
+
+                cmd.Connection = sqlConn;
+                cmd.CommandTimeout = 60;
+                cmd.CommandText = sbSql.ToString();
+                cmd.Transaction = tran;
+                result = cmd.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    tran.Rollback();    //交易取消
+                }
+                else
+                {
+                    tran.Commit();      //執行交易  
+
+
+                }
+
+            }
+            catch
+            {
+
+            }
+
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
+
+        public void SEARCHMATERWATERPRODIFF()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                StringBuilder sbSql = new StringBuilder();
+                sbSql.Clear();
+                sbSqlQuery.Clear();
+                ds9.Clear();
+
+                sbSql.AppendFormat(@"  SELECT [MB002] AS '品名',[NUM] AS '預計用量',[ACT] AS '實際用量',[DIFF] AS '差異量',[TB001] AS '單別',[TB002] AS '單號',[TB003] AS '品號' ");
+                sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[MATERWATERPRODIFF]");
+                sbSql.AppendFormat(@"  WHERE  [TB001]='{0}' AND [TB002]='{1}'", METERWATERDIFFTB001, METERWATERDIFFTB002);
+                sbSql.AppendFormat(@"  ");
+
+                adapter = new SqlDataAdapter(@"" + sbSql, sqlConn);
+
+                sqlCmdBuilder = new SqlCommandBuilder(adapter);
+                sqlConn.Open();
+                ds11.Clear();
+                adapter.Fill(ds11, "TEMPds11");
+                sqlConn.Close();
+
+
+                if (ds11.Tables["TEMPds11"].Rows.Count == 0)
+                {
+                    dataGridView11.DataSource = null;
+                }
+                else
+                {
+                    if (ds11.Tables["TEMPds11"].Rows.Count >= 1)
+                    {
+                        //dataGridView1.Rows.Clear();
+                        dataGridView11.DataSource = ds11.Tables["TEMPds11"];
+                        dataGridView11.AutoResizeColumns();
+                        //dataGridView1.CurrentCell = dataGridView1[0, rownum];
+
+                    }
+                }
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
+
+        public void SEARCHMATERWATERPRODIFFRESULT()
+        {
+
+        }
         #endregion
 
         #region BUTTON
@@ -1548,6 +1771,16 @@ namespace TKCIM
         }
 
 
+        private void button12_Click(object sender, EventArgs e)
+        {
+            SERACHMOCTARGET3();
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            ADDMETEROILDIFF();
+            SEARCHMATERWATERPRODIFF();
+        }
 
 
         #endregion
