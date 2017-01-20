@@ -2250,7 +2250,7 @@ namespace TKCIM
                 ds18.Clear();
                 sbSql.AppendFormat(@"  SELECT [TB001] AS '目的單別',[TB002] AS '目的單號',[TC001] AS '領退料單別',[TC002] AS '領退料單號'");
                 sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[MATERWATERSUMRESULT]");
-                sbSql.AppendFormat(@"  WHERE [TB001]='{0}' AND [TB002]='{1}'", METERWATERDIFFTB001, METERWATERDIFFTB002);
+                sbSql.AppendFormat(@"  WHERE EXISTS (SELECT [SOURCEPROTA001],[SOURCEPROTA002] FROM [TKCIM].[dbo].[MATERWATERPROID] WHERE  TB001=[SOURCEPROTA001] AND TB002=[SOURCEPROTA002] AND [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}' )", METERWATERDIFFTB001, METERWATERDIFFTB002);
                 sbSql.AppendFormat(@"  ");
 
                 adapter = new SqlDataAdapter(@"" + sbSql, sqlConn);
@@ -2401,9 +2401,12 @@ namespace TKCIM
         {
             string TE001 = "A542";
             string TE002;
+            foreach(DataRow od in ds19.Tables["TEMPds19"].Rows)
+            {
+                TE002 = GETMAXTE002(TE001);
+                ADDMATERWATERSUMRESULT(od["來源單別"].ToString(), od["來源單號"].ToString(), TE001, TE002);
 
-            TE002 = GETMAXTE002(TE001);
-            ADDMATERWATERSUMRESULT(METERWATERDIFFTB001, METERWATERDIFFTB002, TE001, TE002);
+            }
             //ADDPICKDETAIL(METERWATERDIFFTB001, METERWATERDIFFTB002, TE001, TE002);
         }
         public void ADDMATERWATERSUMRESULT(string TB001, string TB002, string TC001, string TC002)
