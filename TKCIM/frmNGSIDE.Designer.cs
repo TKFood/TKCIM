@@ -91,6 +91,7 @@
             this.textBox25 = new System.Windows.Forms.TextBox();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
@@ -730,6 +731,7 @@
             this.tableLayoutPanel4.Controls.Add(this.textBox25, 3, 2);
             this.tableLayoutPanel4.Controls.Add(this.button6, 0, 3);
             this.tableLayoutPanel4.Controls.Add(this.button5, 3, 3);
+            this.tableLayoutPanel4.Controls.Add(this.button7, 2, 3);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
@@ -801,6 +803,8 @@
             this.textBox22.Name = "textBox22";
             this.textBox22.Size = new System.Drawing.Size(115, 27);
             this.textBox22.TabIndex = 31;
+            this.textBox22.Text = "0";
+            this.textBox22.TextChanged += new System.EventHandler(this.textBox22_TextChanged);
             // 
             // label11
             // 
@@ -839,6 +843,8 @@
             this.textBox23.Name = "textBox23";
             this.textBox23.Size = new System.Drawing.Size(123, 27);
             this.textBox23.TabIndex = 35;
+            this.textBox23.Text = "0";
+            this.textBox23.TextChanged += new System.EventHandler(this.textBox23_TextChanged);
             // 
             // textBox24
             // 
@@ -847,6 +853,8 @@
             this.textBox24.Name = "textBox24";
             this.textBox24.Size = new System.Drawing.Size(115, 27);
             this.textBox24.TabIndex = 36;
+            this.textBox24.Text = "0";
+            this.textBox24.TextChanged += new System.EventHandler(this.textBox24_TextChanged);
             // 
             // textBox25
             // 
@@ -855,6 +863,7 @@
             this.textBox25.Name = "textBox25";
             this.textBox25.Size = new System.Drawing.Size(123, 27);
             this.textBox25.TabIndex = 37;
+            this.textBox25.Text = "0";
             // 
             // button6
             // 
@@ -877,6 +886,17 @@
             this.button5.Text = "新增";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button7
+            // 
+            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.button7.Location = new System.Drawing.Point(267, 124);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(123, 32);
+            this.button7.TabIndex = 39;
+            this.button7.Text = "帶入目前庫存";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // dataGridView4
             // 
@@ -1024,5 +1044,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Button button7;
     }
 }
