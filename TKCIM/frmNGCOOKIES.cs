@@ -101,7 +101,7 @@ namespace TKCIM
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
-            dateTimePicker2.Value = DateTime.Now;
+            //dateTimePicker2.Value = DateTime.Now;
         }
         public void SERACHMOCTARGET()
         {

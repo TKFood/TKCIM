@@ -1470,8 +1470,8 @@ namespace TKCIM
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
-            dateTimePicker6.Value = DateTime.Now;
-            dateTimePicker7.Value = DateTime.Now;
+            //dateTimePicker6.Value = DateTime.Now;
+            //dateTimePicker7.Value = DateTime.Now;
 
         }
         private void dataGridView9_SelectionChanged(object sender, EventArgs e)
