@@ -36,6 +36,7 @@ namespace TKCIM
         DataSet ds5 = new DataSet();
         DataSet ds6 = new DataSet();
         DataSet ds7 = new DataSet();
+        DataSet ds8 = new DataSet();
         DataTable dt = new DataTable();
         string tablename = null;
         int result;
@@ -602,10 +603,82 @@ namespace TKCIM
         }
         public void SETNULLTAB2()
         {
-            textBox22.Text = null;
-            textBox23.Text = null;
-            textBox24.Text = null;
-            textBox25.Text = null;
+            textBox22.Text = "0";
+            textBox23.Text = "0";
+            textBox24.Text = "0";
+            textBox25.Text = "0";
+        }
+
+
+        public void SETINVLA()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sbSql.Clear();
+                sbSqlQuery.Clear();
+
+                sbSql.AppendFormat(@"  SELECT SUM(LA005*LA011) AS NUM FROM [TK].dbo.INVLA WITH(NOLOCK)");
+                sbSql.AppendFormat(@"  WHERE LA009='20005'");
+                sbSql.AppendFormat(@"  AND LA001='{0}'",textBox20.Text.ToString());
+                sbSql.AppendFormat(@"  GROUP BY LA009");
+                sbSql.AppendFormat(@"  ");
+
+
+                adapter = new SqlDataAdapter(@"" + sbSql, sqlConn);
+
+                sqlCmdBuilder = new SqlCommandBuilder(adapter);
+                sqlConn.Open();
+                ds8.Clear();
+                adapter.Fill(ds8, "TEMPds8");
+                sqlConn.Close();
+
+
+                if (ds8.Tables["TEMPds8"].Rows.Count == 0)
+                {
+
+                }
+                else
+                {
+                    if (ds8.Tables["TEMPds8"].Rows.Count >= 1)
+                    {
+                        textBox22 .Text= ds8.Tables["TEMPds8"].Rows[0]["NUM"].ToString();
+
+                    }
+                }
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
+        private void textBox22_TextChanged(object sender, EventArgs e)
+        {
+            CALNGCOOKIES();
+        }
+        private void textBox23_TextChanged(object sender, EventArgs e)
+        {
+            CALNGCOOKIES();
+        }
+
+        private void textBox24_TextChanged(object sender, EventArgs e)
+        {
+            CALNGCOOKIES();
+        }
+        public void CALNGCOOKIES()
+        {
+            if (Convert.ToDecimal(textBox22.Text.ToString()) > 0 && Convert.ToDecimal(textBox23.Text.ToString()) > 0 && Convert.ToDecimal(textBox24.Text.ToString()) > 0)
+            {
+                textBox25.Text = (Convert.ToDecimal(textBox22.Text.ToString()) + Convert.ToDecimal(textBox23.Text.ToString()) - Convert.ToDecimal(textBox24.Text.ToString())).ToString();
+
+            }
         }
         #endregion
 
@@ -666,8 +739,14 @@ namespace TKCIM
             SEARCHNGCOOKIESM();
         }
 
+        private void button7_Click(object sender, EventArgs e)
+        {
+            SETINVLA();
+        }
+
+
         #endregion
 
-        
+       
     }
 }
