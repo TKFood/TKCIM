@@ -352,6 +352,7 @@ namespace TKCIM
                 sbSql.AppendFormat(@"  FROM MOCTB WITH (NOLOCK),INVMB WITH (NOLOCK)");
                 sbSql.AppendFormat(@"  WHERE TB003=MB001");
                 sbSql.AppendFormat(@"  AND TB001='{0}' AND TB002='{1}'", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002);
+                sbSql.AppendFormat(@"  AND TB003 NOT IN ('3010000204')");
                 sbSql.AppendFormat(@"  ORDER BY  TB003");
                 sbSql.AppendFormat(@"  ");
 
