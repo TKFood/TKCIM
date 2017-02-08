@@ -271,9 +271,11 @@ namespace TKCIM
                 sbSql.AppendFormat(@"  WHERE TA006=MB001");
                 sbSql.AppendFormat(@"  AND TA021=  MD001 ");
                 sbSql.AppendFormat(@"  AND( ( TA006 LIKE '3%') OR (TA006 IN (SELECT MB001 FROM [TK].dbo.INVMB WITH (NOLOCK) WHERE MB118='Y'))) ");
+       
                 sbSql.AppendFormat(@"  AND TA003='{0}'", dateTimePicker1.Value.ToString("yyyyMMdd"));
                 sbSql.AppendFormat(@"  AND MD002='{0}'", comboBox1.Text.ToString());
                 sbSql.AppendFormat(@"  ORDER BY TA003,TA006");
+                
                 sbSql.AppendFormat(@"  ");
 
 
@@ -352,7 +354,7 @@ namespace TKCIM
                 sbSql.AppendFormat(@"  FROM MOCTB WITH (NOLOCK),INVMB WITH (NOLOCK)");
                 sbSql.AppendFormat(@"  WHERE TB003=MB001");
                 sbSql.AppendFormat(@"  AND TB001='{0}' AND TB002='{1}'", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002);
-                sbSql.AppendFormat(@"  AND TB003 NOT IN ('3010000204')");
+                sbSql.AppendFormat(@"  AND MB002 NOT LIKE '%水麵%'");
                 sbSql.AppendFormat(@"  ORDER BY  TB003");
                 sbSql.AppendFormat(@"  ");
 
