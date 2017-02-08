@@ -1009,7 +1009,7 @@ namespace TKCIM
                 sbSql.AppendFormat(@"  ,[MB001] AS '品號',[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號'");
                 sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[METEROILPROIDMD]");
                 sbSql.AppendFormat(@"  WHERE [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}' ", MATEROILPROIDMDTARGETPROTA001, MATEROILPROIDMDTARGETPROTA002);
-                sbSql.AppendFormat(@"  ORDER BY [TARGETPROTA001],[TARGETPROTA002],[CANNO],[MB001]");
+                sbSql.AppendFormat(@"  ORDER BY CONVERT(INT,[CANNO]),[TARGETPROTA001],[TARGETPROTA002],[MB001]  ");
                 sbSql.AppendFormat(@"  ");
 
 

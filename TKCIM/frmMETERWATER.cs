@@ -983,7 +983,7 @@ namespace TKCIM
                 sbSql.AppendFormat(@"  ,[TEMP] AS '溫度' ,[HUDI] AS '溼度',[MOVEIN] AS '投料人',[CHECKEMP] AS '抽檢人'");
                 sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[MATERWATERPROIDMD]");
                 sbSql.AppendFormat(@"  WHERE [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}' ", MATERWATERPROIDMDTARGETPROTA001, MATERWATERPROIDMDTARGETPROTA002);
-                sbSql.AppendFormat(@"  ORDER BY [TARGETPROTA001],[TARGETPROTA002],[CANNO],[MB001]");
+                sbSql.AppendFormat(@"  ORDER BY CONVERT(INT,[CANNO]), [TARGETPROTA001],[TARGETPROTA002],[MB001]");
                 sbSql.AppendFormat(@"  ");
 
 
