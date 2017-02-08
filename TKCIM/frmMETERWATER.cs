@@ -1602,7 +1602,7 @@ namespace TKCIM
                 sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERPRODIFF]");
                 sbSql.AppendFormat(" ([TB001],[TB002],[TB003],[MB002],[NUM],[ACT],[DIFF])");
                 sbSql.AppendFormat(" (SELECT  TB001,TB002,TB003,MB002,SUM(TB004) AS 'NUM'");
-                sbSql.AppendFormat(" ,ISNULL((SELECT SUM([NUM]) FROM [TKCIM].[dbo].[MATERWATERPROIDMD] WHERE  [TARGETPROTA001]=TB001 AND  [TARGETPROTA002]=TB002 AND TB003=MB001),0) AS 'ACT'");
+                sbSql.AppendFormat(" ,ISNULL((SELECT SUM([NUM]) FROM [TKCIM].[dbo].[MATERWATERPROIDMD] WHERE  [TARGETPROTA001]=TB001 AND  [TARGETPROTA002]=TB002  AND MB002=[INVMB].MB002),0) AS 'ACT'");
                 sbSql.AppendFormat(" ,(SUM(TB004)-ISNULL((SELECT SUM([NUM]) FROM [TKCIM].[dbo].[MATERWATERPROIDMD] WHERE  [TARGETPROTA001]=TB001 AND  [TARGETPROTA002]=TB002 AND TB003=MB001),0)) AS 'DIFF'");
                 sbSql.AppendFormat(" FROM [TK].dbo.MOCTB");
                 sbSql.AppendFormat(" LEFT JOIN [TK].dbo.[INVMB] ON MB001=TB003");
