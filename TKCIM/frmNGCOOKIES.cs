@@ -208,8 +208,8 @@ namespace TKCIM
 
                 sbSql.Clear();               
                 sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[NGCOOKIESMD]");
-                sbSql.AppendFormat("  ([ID],[MAIN],[MAINDATE],[MAINTIME],[TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[NUM])");
-                sbSql.AppendFormat("   VALUES({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')","NEWID()", comboBox2.Text,dateTimePicker1.Value.ToString("yyyyMMdd"), dateTimePicker2.Value.ToString("yyyyMMdd HH:mm"),textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text);
+                sbSql.AppendFormat("  ([ID],[MAIN],[MAINDATE],[MAINTIME],[TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[NUM],[NGNUM])");
+                sbSql.AppendFormat("   VALUES({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}')", "NEWID()", comboBox2.Text,dateTimePicker1.Value.ToString("yyyyMMdd"), dateTimePicker2.Value.ToString("yyyyMMdd HH:mm"),textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text);
                 sbSql.AppendFormat(" ");
 
                 cmd.Connection = sqlConn;
@@ -249,7 +249,7 @@ namespace TKCIM
                 sbSql.Clear();
                 sbSqlQuery.Clear();
 
-                sbSql.AppendFormat(@" SELECT CONVERT(varchar(100),[MAINTIME],8)  AS '時間',[MB002] AS '品名',[NUM] AS '回收量',[MAIN] AS '線別',[MAINDATE] AS '日期',[MB001] AS '品號',[ID],[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號' ");
+                sbSql.AppendFormat(@" SELECT CONVERT(varchar(100),[MAINTIME],8)  AS '時間',[MB002] AS '品名',[NUM] AS '回收量',[NGNUM] AS '不良品報廢' ,[MAIN] AS '線別',[MAINDATE] AS '日期',[MB001] AS '品號',[ID],[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號' ");
                 sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[NGCOOKIESMD]");
                 sbSql.AppendFormat(@"  WHERE CONVERT(varchar(100),[MAINDATE],112)='{0}'  ",dateTimePicker1.Value.ToString("yyyyMMdd"));
                 sbSql.AppendFormat(@"  AND [MAIN]='{0}'", comboBox2.Text.ToString());
@@ -355,6 +355,7 @@ namespace TKCIM
         public void SETNULL()
         {
             textBox5.Text = null;
+            textBox6.Text = null;
         }
 
         public void SERACHMOCTARGET2()
