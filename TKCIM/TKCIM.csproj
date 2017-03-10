@@ -93,6 +93,12 @@
     <Compile Include="frmNGNOBURN.Designer.cs">
       <DependentUpon>frmNGNOBURN.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmNGSCRAPPEDM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNGSCRAPPEDM.Designer.cs">
+      <DependentUpon>frmNGSCRAPPEDM.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNGSIDE.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmNGNOBURN.resx">
       <DependentUpon>frmNGNOBURN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNGSCRAPPEDM.resx">
+      <DependentUpon>frmNGSCRAPPEDM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNGSIDE.resx">
       <DependentUpon>frmNGSIDE.cs</DependentUpon>
