@@ -1600,11 +1600,12 @@ namespace TKCIM
                 sbSql.AppendFormat(" DELETE [TKCIM].[dbo].[MATERWATERPRODIFF] WHERE TB001='{0}' AND TB002='{1}'", METERWATERDIFFTB001, METERWATERDIFFTB002);
                 sbSql.AppendFormat(" ");
                 sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERPRODIFF]");
-                sbSql.AppendFormat(" ([TB001],[TB002],[TB003],[MB002],[NUM],[ACT],[DIFF])");
+                sbSql.AppendFormat(" ([TB001],[TB002],[TB003],[MB002],[NUM],[INVNUM],[ACT],[DIFF])");
                 sbSql.AppendFormat(" (SELECT [TARGETPROTA001],[TARGETPROTA002],[MATERWATERPROIDMD].MB001,[MATERWATERPROIDMD].MB002");
                 sbSql.AppendFormat(" ,ISNULL((SELECT SUM(TB004) FROM [TK].dbo.MOCTB WHERE [TARGETPROTA001]=TB001 AND  [TARGETPROTA002]=TB002 AND [MATERWATERPROIDMD].MB002=TB012 ),0)   AS 'NUM' ");
+                sbSql.AppendFormat("  ,ISNULL((SELECT SUM(TE005) FROM [TK].dbo.MOCTE  WHERE [TARGETPROTA001]=TE011 AND  [TARGETPROTA002]=TE012  AND [MATERWATERPROIDMD].MB002=TE017 ),0)   AS 'INVNUM' ");
                 sbSql.AppendFormat(" ,SUM(NUM) AS ACT");
-                sbSql.AppendFormat(" ,(ISNULL((SELECT SUM(TB004) FROM [TK].dbo.MOCTB WHERE [TARGETPROTA001]=TB001 AND  [TARGETPROTA002]=TB002 AND [MATERWATERPROIDMD].MB002=TB012 ),0)-SUM(NUM)  ) AS 'DIFF' ");
+                sbSql.AppendFormat(" ,(ISNULL((SELECT SUM(TE005) FROM [TK].dbo.MOCTE  WHERE [TARGETPROTA001]=TE011 AND  [TARGETPROTA002]=TE012  AND [MATERWATERPROIDMD].MB002=TE017 ),0)-SUM(NUM)  ) AS 'DIFF'   ");
                 sbSql.AppendFormat(" FROM [TKCIM].[dbo].[MATERWATERPROIDMD] LEFT JOIN [TK].dbo.[INVMB] ON [MATERWATERPROIDMD].MB001=[INVMB].MB001 ");
                 sbSql.AppendFormat(" WHERE  [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}' ", METERWATERDIFFTB001, METERWATERDIFFTB002);
                 sbSql.AppendFormat(" GROUP BY [TARGETPROTA001],[TARGETPROTA002],[MATERWATERPROIDMD].MB001,[MATERWATERPROIDMD].MB002)");
@@ -1651,7 +1652,7 @@ namespace TKCIM
                 sbSqlQuery.Clear();
                 ds9.Clear();
 
-                sbSql.AppendFormat(@"  SELECT [MB002] AS '品名',[NUM] AS '預計用量',[ACT] AS '實際用量',[DIFF] AS '差異量',[TB001] AS '單別',[TB002] AS '單號',[TB003] AS '品號' ");
+                sbSql.AppendFormat(@"  SELECT [MB002] AS '品名',[NUM] AS '預計用量',[INVNUM] AS '實際領用',[ACT] AS '實際用量',[DIFF] AS '差異量',[TB001] AS '單別',[TB002] AS '單號',[TB003] AS '品號' ");
                 sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[MATERWATERPRODIFF]");
                 sbSql.AppendFormat(@"  WHERE  [TB001]='{0}' AND [TB002]='{1}'", METERWATERDIFFTB001, METERWATERDIFFTB002);
                 sbSql.AppendFormat(@"  ");
