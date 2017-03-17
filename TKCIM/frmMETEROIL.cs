@@ -1386,9 +1386,10 @@ namespace TKCIM
                 sbSql.AppendFormat(" DELETE [TKCIM].[dbo].[METEROILDIFF] WHERE TB001='{0}' AND TB002='{1}'", METEROILDIFFTB001, METEROILDIFFTB002);
                 sbSql.AppendFormat(" ");
                 sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[METEROILDIFF]");
-                sbSql.AppendFormat(" ([TB001],[TB002],[TB003],[MB002],[NUM],[ACT],[DIFF])");
+                sbSql.AppendFormat(" ([TB001],[TB002],[TB003],[MB002],[NUM],[INVNUM],[ACT],[DIFF])");
                 sbSql.AppendFormat(" (SELECT [TARGETPROTA001],[TARGETPROTA002],[METEROILPROIDMD].MB001,[METEROILPROIDMD].MB002");
                 sbSql.AppendFormat(" ,ISNULL((SELECT SUM(TB004) FROM [TK].dbo.MOCTB WHERE [TARGETPROTA001]=TB001 AND  [TARGETPROTA002]=TB002 AND [METEROILPROIDMD].MB002=TB012 ),0)   AS 'NUM'");
+                sbSql.AppendFormat("  ,ISNULL((SELECT SUM(TE005) FROM [TK].dbo.MOCTE  WHERE [TARGETPROTA001]=TE011 AND  [TARGETPROTA002]=TE012  AND [METEROILPROIDMD].MB002=TE017 ),0)   AS 'INVNUM' ");
                 sbSql.AppendFormat("  ,SUM(NUM) AS 'ACT'");
                 sbSql.AppendFormat(" ,(ISNULL((SELECT SUM(TB004) FROM [TK].dbo.MOCTB WHERE [TARGETPROTA001]=TB001 AND  [TARGETPROTA002]=TB002 AND [METEROILPROIDMD].MB002=TB012 ),0)-SUM(NUM)) AS 'DIFF'");
                 sbSql.AppendFormat("  FROM [TKCIM].[dbo].[METEROILPROIDMD] ");
@@ -1450,7 +1451,7 @@ namespace TKCIM
                 sbSqlQuery.Clear();
                 ds9.Clear();
              
-                sbSql.AppendFormat(@"  SELECT [MB002] AS '品名',[NUM] AS '預計用量',[ACT] AS '實際用量',[DIFF] AS '差異量',[TB001] AS '單別',[TB002] AS '單號',[TB003] AS '品號' ");
+                sbSql.AppendFormat(@"  SELECT [MB002] AS '品名',[NUM] AS '預計用量',[INVNUM] AS '實際領用',[ACT] AS '實際用量',[DIFF] AS '差異量',[TB001] AS '單別',[TB002] AS '單號',[TB003] AS '品號' ");
                 sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[METEROILDIFF]");
                 sbSql.AppendFormat(@"  WHERE  [TB001]='{0}' AND [TB002]='{1}'", METEROILDIFFTB001, METEROILDIFFTB002);
                 sbSql.AppendFormat(@"  ");
