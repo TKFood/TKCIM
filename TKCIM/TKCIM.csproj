@@ -119,7 +119,13 @@
     <EmbeddedResource Include="frmMETEROIL.resx">
       <DependentUpon>frmMETEROIL.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMETERWATER.en-US.resx">
+      <DependentUpon>frmMETERWATER.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMETERWATER.resx">
+      <DependentUpon>frmMETERWATER.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMETERWATER.zh-Hant.resx">
       <DependentUpon>frmMETERWATER.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNGCOOKIES.resx">

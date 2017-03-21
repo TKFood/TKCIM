@@ -15,11 +15,13 @@ using NPOI.XSSF.UserModel;
 using NPOI.SS.Util;
 using System.Reflection;
 using System.Threading;
+using System.Globalization;
 
 namespace TKCIM
 {
     public partial class frmMETERWATER : Form
     {
+        private ComponentResourceManager _ResourceManager = new ComponentResourceManager();
         SqlConnection sqlConn = new SqlConnection();
         SqlCommand sqlComm = new SqlCommand();
         string connectionString;
@@ -2551,6 +2553,27 @@ namespace TKCIM
                 sqlConn.Close();
             }
         }
+
+        public void CreateResourceManager(Control Control, string Language)
+        {
+            CultureInfo info = new System.Globalization.CultureInfo(Language);
+            Thread.CurrentThread.CurrentUICulture = info;//變更文化特性
+            this._ResourceManager = new ComponentResourceManager(Control.GetType());
+            this._ResourceManager.ApplyResources(Control, "$this");
+            this.ApplyForm(Control);
+        }
+
+        public void ApplyForm(Control control)
+        {
+            foreach (Control ctrl in control.Controls)
+            {
+                this._ResourceManager.ApplyResources(ctrl, ctrl.Name);
+                if (ctrl.HasChildren)
+                {
+                    ApplyForm(ctrl);
+                }
+            }
+        }
         #endregion
 
         #region BUTTON
@@ -2664,6 +2687,16 @@ namespace TKCIM
         {
             ADDSUMMOCTE();
             SEARCHMATERWATERSUMRESULT();
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            CreateResourceManager(this, "zh-Hant");
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            CreateResourceManager(this, "en-US");
         }
         #endregion
 
