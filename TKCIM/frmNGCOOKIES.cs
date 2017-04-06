@@ -117,7 +117,7 @@ namespace TKCIM
 
                 sbSql.AppendFormat(@"  SELECT MB002  AS '品名',TA015  AS '預計產量',TA001 AS '單別',TA002 AS '單號',TA003 AS '日期',TA006 AS '品號'    ");
                 sbSql.AppendFormat(@"  ,MD002 AS '線別'");
-                sbSql.AppendFormat(@"  FROM MOCTA WITH (NOLOCK),INVMB WITH (NOLOCK),CMSMD WITH (NOLOCK)");
+                sbSql.AppendFormat(@"  FROM [TK].dbo.MOCTA WITH (NOLOCK),[TK].dbo.INVMB WITH (NOLOCK),[TK].dbo.CMSMD WITH (NOLOCK)");
                 sbSql.AppendFormat(@"  WHERE TA006=MB001");
                 sbSql.AppendFormat(@"  AND TA021=  MD001 ");
                 sbSql.AppendFormat(@"  AND MB002 NOT LIKE '%水麵%' AND TA006 LIKE '3%'");
@@ -371,7 +371,7 @@ namespace TKCIM
 
                 sbSql.AppendFormat(@"  SELECT MB002  AS '品名',TA015  AS '預計產量',TA001 AS '單別',TA002 AS '單號',TA003 AS '日期',TA006 AS '品號'    ");
                 sbSql.AppendFormat(@"  ,MD002 AS '線別'");
-                sbSql.AppendFormat(@"  FROM MOCTA WITH (NOLOCK),INVMB WITH (NOLOCK),CMSMD WITH (NOLOCK)");
+                sbSql.AppendFormat(@"  FROM [TK].dbo.MOCTA WITH (NOLOCK),[TK].dbo.INVMB WITH (NOLOCK),[TK].dbo.CMSMD WITH (NOLOCK)");
                 sbSql.AppendFormat(@"  WHERE TA006=MB001");
                 sbSql.AppendFormat(@"  AND TA021=  MD001 ");
                 sbSql.AppendFormat(@"  AND MB002 NOT LIKE '%水麵%' AND TA006 LIKE '3%'");
@@ -455,7 +455,7 @@ namespace TKCIM
                 sbSql.Clear();
                 sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[NGCOOKIESM]");
                 sbSql.AppendFormat(" ([ID],[MAIN],[MAINDATE],[MB001],[MB002],[BEFORE],[NG],[REUSED],[AFTER])");
-                sbSql.AppendFormat(" VALUES({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')","NEWID()",comboBox1.Text,dateTimePicker2.Value.ToString("yyyyMMdd"),textBox20.Text, textBox21.Text, textBox22.Text, textBox23.Text, textBox24.Text, textBox25.Text);
+                sbSql.AppendFormat(" VALUES({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')","NEWID()",comboBox1.Text, dateTimePicker3.Value.ToString("yyyyMMdd"),textBox20.Text, textBox21.Text, textBox22.Text, textBox23.Text, textBox24.Text, textBox25.Text);
                 sbSql.AppendFormat(" ");
 
 
@@ -498,7 +498,7 @@ namespace TKCIM
                               
                 sbSql.AppendFormat(@"  SELECT  CONVERT(varchar(100),[MAINDATE],112) AS '日期',[MB001] AS '品號',[MB002] AS '品名',[BEFORE] AS '可回收餅麩初存量',[NG] AS '回收餅麩',[REUSED] AS '今日餅麩回收再用',[AFTER] AS '回收餅麩未存量',[MAIN] AS '線別',[ID]");
                 sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[NGCOOKIESM]");
-                sbSql.AppendFormat(@"  WHERE CONVERT(varchar(100),[MAINDATE],112)='{0}'  ", dateTimePicker3.Value.ToString("yyyyMMdd"));
+                sbSql.AppendFormat(@"  WHERE CONVERT(varchar(100),[MAINDATE],112)='{0}' AND MAIN='{1}' ", dateTimePicker3.Value.ToString("yyyyMMdd"), comboBox1.Text);
                 sbSql.AppendFormat(@"  ORDER BY [MAIN],[MAINDATE]");              
                 sbSql.AppendFormat(@"  ");
 
