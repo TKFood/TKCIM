@@ -211,7 +211,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "製一組",
             "製二組"});
-            this.comboBox1.Location = new System.Drawing.Point(195, 48);
+            this.comboBox1.Location = new System.Drawing.Point(195, 50);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(102, 24);
             this.comboBox1.TabIndex = 17;
@@ -438,7 +438,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(976, 699);
+            this.tabPage2.Size = new System.Drawing.Size(976, 612);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "加總";
             this.tabPage2.UseVisualStyleBackColor = true;
