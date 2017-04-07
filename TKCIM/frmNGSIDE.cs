@@ -156,7 +156,7 @@ namespace TKCIM
                 sbSql.AppendFormat(@"  WHERE TA006=MB001");
                 sbSql.AppendFormat(@"  AND TA021=  MD001 ");
                 //sbSql.AppendFormat(@"  AND MB002 NOT LIKE '%水麵%' ");
-                sbSql.AppendFormat(@"  AND TA006 LIKE '3%'");
+                //sbSql.AppendFormat(@"  AND TA006 LIKE '3%'");
                 sbSql.AppendFormat(@"  AND TA003='{0}'", dateTimePicker1.Value.ToString("yyyyMMdd"));
                 sbSql.AppendFormat(@"  AND MD002='{0}'", comboBox2.Text.ToString());
                 sbSql.AppendFormat(@"  ORDER BY TA003,TA006");
@@ -378,7 +378,7 @@ namespace TKCIM
                 sbSql.AppendFormat(@"  WHERE TA006=MB001");
                 sbSql.AppendFormat(@"  AND TA021=  MD001 ");
                 //sbSql.AppendFormat(@"  AND MB002 NOT LIKE '%水麵%' ");
-                sbSql.AppendFormat(@"  AND TA006 LIKE '3%'");
+                //sbSql.AppendFormat(@"  AND TA006 LIKE '3%'");
                 sbSql.AppendFormat(@"  AND TA003='{0}'", dateTimePicker2.Value.ToString("yyyyMMdd"));
                 sbSql.AppendFormat(@"  AND MD002='{0}'", comboBox1.Text.ToString());
                 sbSql.AppendFormat(@"  ORDER BY TA003,TA006");
