@@ -175,13 +175,14 @@ namespace TKCIM
                 textBox5.Text = null;
                 textBox6.Text = null;
             }
+            SETNULL();
         }
 
         public void SETNULL()
         {
-            textBox3.Text = null;
-            textBox4.Text = null;
-            textBox5.Text = null;
+            textBox7.Text = null;
+            textBox8.Text = null;
+            textBox9.Text = null;
         }
 
         public void SEARCHNGSCRAPPEDMD()
@@ -194,11 +195,11 @@ namespace TKCIM
                 sbSql.Clear();
                 sbSqlQuery.Clear();
 
-                sbSql.AppendFormat(@"  SELECT [DAMAGEDCOOKIES] AS '破損餅乾(kg)',[LANDCOOKIES] AS '落地餅乾(kg)',[SCRAPCOOKIES]  AS '餅乾屑(kg)',[MAIN] AS '線別',[MAINDATE] AS '日期',[ID] ");
+                sbSql.AppendFormat(@" SELECT [MAIN] AS '線別',[MB002] AS '品名',[DAMAGEDCOOKIES] AS '破損餅乾(kg)',[LANDCOOKIES]AS '落地餅乾(kg)',[SCRAPCOOKIES]  AS '餅乾屑(kg)',CONVERT(varchar(100),[MAINDATE],112) AS '日期',[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號',[MB001] AS '品號',[ID] ");
                 sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[NGSCRAPPEDMD]");
                 sbSql.AppendFormat(@"  WHERE CONVERT(varchar(100),[MAINDATE],112)='{0}'  ", dateTimePicker1.Value.ToString("yyyyMMdd"));
                 sbSql.AppendFormat(@"  AND [MAIN]='{0}'", comboBox1.Text.ToString());
-                sbSql.AppendFormat(@"  ORDER BY  [MAINDATE],[MAIN]");
+                sbSql.AppendFormat(@"  ORDER BY  [MAINDATE]");
                 sbSql.AppendFormat(@"  ");
 
                 adapter = new SqlDataAdapter(@"" + sbSql, sqlConn);
@@ -249,8 +250,8 @@ namespace TKCIM
 
                 sbSql.Clear();
                 sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[NGSCRAPPEDMD]");
-                sbSql.AppendFormat(" ([ID],[MAIN],[MAINDATE],[MAINTIME],[TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[DAMAGEDCOOKIES],[LANDCOOKIES],[SCRAPCOOKIES] )");
-                sbSql.AppendFormat(" VALUES({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}')", "NEWID()", textBox1.Text.ToString(), textBox2.Text.ToString(), textBox3.Text.ToString(), textBox4.Text.ToString(), textBox5.Text.ToString());
+                sbSql.AppendFormat(" ([ID],[MAIN],[MAINDATE],[TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[DAMAGEDCOOKIES],[LANDCOOKIES],[SCRAPCOOKIES] )");
+                sbSql.AppendFormat(" VALUES({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}')", "NEWID()", textBox1.Text.ToString(), textBox2.Text.ToString(), textBox3.Text.ToString(), textBox4.Text.ToString(), textBox5.Text.ToString(), textBox6.Text.ToString(), textBox7.Text.ToString(), textBox8.Text.ToString(), textBox9.Text.ToString());
                 sbSql.AppendFormat(" ");
 
 
