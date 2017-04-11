@@ -90,12 +90,17 @@ namespace TKCIM
                 sbSqlQuery.Clear();
 
 
-            
-                sbSql.AppendFormat(@"  SELECT [MAIN] AS '線別' ,CONVERT(varchar(100),[MAINDATE], 112) AS '日期' ");
-                sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[NGSCRAPPEDMD]");
-                sbSql.AppendFormat(@"  WHERE [MAIN]='{0}' AND [MAINDATE]='{1}'", comboBox1.Text.ToString(), dateTimePicker1.Value.ToString("yyyy/MM/dd"));
-                sbSql.AppendFormat(@"  GROUP BY [MAIN] ,[MAINDATE]");
-                sbSql.AppendFormat(@"  ORDER BY [MAINDATE],[MAIN]");
+
+                sbSql.AppendFormat(@"  SELECT MB002  AS '品名',TA015  AS '預計產量',TA001 AS '單別',TA002 AS '單號',TA003 AS '日期',TA006 AS '品號'    ");
+                sbSql.AppendFormat(@"  ,MD002 AS '線別'");
+                sbSql.AppendFormat(@"  FROM [TK].dbo.MOCTA WITH (NOLOCK),[TK].dbo.INVMB WITH (NOLOCK),[TK].dbo.CMSMD WITH (NOLOCK)");
+                sbSql.AppendFormat(@"  WHERE TA006=MB001");
+                sbSql.AppendFormat(@"  AND TA021=  MD001 ");
+                //sbSql.AppendFormat(@"  AND MB002 NOT LIKE '%水麵%' ");
+                //sbSql.AppendFormat(@"  AND TA006 LIKE '3%'");
+                sbSql.AppendFormat(@"  AND TA003='{0}'", dateTimePicker1.Value.ToString("yyyyMMdd"));
+                sbSql.AppendFormat(@"  AND MD002='{0}'", comboBox1.Text.ToString());
+                sbSql.AppendFormat(@"  ORDER BY TA003,TA006");
                 sbSql.AppendFormat(@"  ");
 
 
@@ -136,7 +141,7 @@ namespace TKCIM
         }
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-           
+
             if (dataGridView1.CurrentRow != null)
             {
                 int rowindex = dataGridView1.CurrentRow.Index;
@@ -145,16 +150,30 @@ namespace TKCIM
                     DataGridViewRow row = dataGridView1.Rows[rowindex];
                     textBox1.Text = row.Cells["線別"].Value.ToString();
                     textBox2.Text = row.Cells["日期"].Value.ToString();
+                    textBox3.Text = row.Cells["單別"].Value.ToString();
+                    textBox4.Text = row.Cells["單號"].Value.ToString();
+                    textBox5.Text = row.Cells["品號"].Value.ToString();
+                    textBox6.Text = row.Cells["品名"].Value.ToString();
 
                 }
                 else
                 {
-                    SETNULL();
+                    textBox1.Text = null;
+                    textBox2.Text = null;
+                    textBox3.Text = null;
+                    textBox4.Text = null;
+                    textBox5.Text = null;
+                    textBox6.Text = null;
                 }
             }
             else
             {
-                SETNULL();
+                textBox1.Text = null;
+                textBox2.Text = null;
+                textBox3.Text = null;
+                textBox4.Text = null;
+                textBox5.Text = null;
+                textBox6.Text = null;
             }
         }
 
@@ -230,8 +249,8 @@ namespace TKCIM
 
                 sbSql.Clear();
                 sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[NGSCRAPPEDMD]");
-                sbSql.AppendFormat(" ([ID],[MAIN],[MAINDATE],[DAMAGEDCOOKIES],[LANDCOOKIES],[SCRAPCOOKIES])");
-                sbSql.AppendFormat(" VALUES({0},'{1}','{2}','{3}','{4}','{5}')", "NEWID()", textBox1.Text.ToString(), textBox2.Text.ToString(), textBox3.Text.ToString(), textBox4.Text.ToString(), textBox5.Text.ToString());
+                sbSql.AppendFormat(" ([ID],[MAIN],[MAINDATE],[MAINTIME],[TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[DAMAGEDCOOKIES],[LANDCOOKIES],[SCRAPCOOKIES] )");
+                sbSql.AppendFormat(" VALUES({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}')", "NEWID()", textBox1.Text.ToString(), textBox2.Text.ToString(), textBox3.Text.ToString(), textBox4.Text.ToString(), textBox5.Text.ToString());
                 sbSql.AppendFormat(" ");
 
 
