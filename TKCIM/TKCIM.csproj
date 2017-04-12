@@ -81,6 +81,12 @@
     <Compile Include="frmMETERWATER.Designer.cs">
       <DependentUpon>frmMETERWATER.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMOCOVEN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMOCOVEN.Designer.cs">
+      <DependentUpon>frmMOCOVEN.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNGCOOKIES.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMETERWATER.zh-Hant.resx">
       <DependentUpon>frmMETERWATER.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMOCOVEN.resx">
+      <DependentUpon>frmMOCOVEN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNGCOOKIES.resx">
       <DependentUpon>frmNGCOOKIES.cs</DependentUpon>
