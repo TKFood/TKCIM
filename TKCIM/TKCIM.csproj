@@ -69,6 +69,12 @@
     <Compile Include="frmCHECKBAKED.Designer.cs">
       <DependentUpon>frmCHECKBAKED.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCHECKBAKEDTEMPM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCHECKBAKEDTEMPM.Designer.cs">
+      <DependentUpon>frmCHECKBAKEDTEMPM.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCHECKCOOKIES.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmCHECKBAKED.resx">
       <DependentUpon>frmCHECKBAKED.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCHECKBAKEDTEMPM.resx">
+      <DependentUpon>frmCHECKBAKEDTEMPM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCHECKCOOKIES.resx">
       <DependentUpon>frmCHECKCOOKIES.cs</DependentUpon>
