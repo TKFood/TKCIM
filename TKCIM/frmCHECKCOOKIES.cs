@@ -163,9 +163,111 @@ namespace TKCIM
                 textBox3.Text = null;
                 textBox4.Text = null;
             }
+
+            SERACHCHECKCOOKIESM();
         }
 
         public void ADDCHECKCOOKIESM()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sqlConn.Close();
+                sqlConn.Open();
+                tran = sqlConn.BeginTransaction();
+
+                sbSql.Clear();
+                sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[CHECKCOOKIESM]");
+                sbSql.AppendFormat("  ([ID],[MAIN],[MAINDATE],[TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[STIME],[ETIME],[SLOT],[CUTNUMBER],[WEIGHT])");
+                sbSql.AppendFormat("   VALUES({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}')", "NEWID()", comboBox2.Text, dateTimePicker1.Value.ToString("yyyyMMdd"), textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, dateTimePicker2.Value.ToString("yyyyMMdd HH:mm"), dateTimePicker3.Value.ToString("yyyyMMdd HH:mm"), textBox5.Text, textBox6.Text, textBox7.Text);
+                sbSql.AppendFormat(" ");
+
+                cmd.Connection = sqlConn;
+                cmd.CommandTimeout = 60;
+                cmd.CommandText = sbSql.ToString();
+                cmd.Transaction = tran;
+                result = cmd.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    tran.Rollback();    //交易取消
+                }
+                else
+                {
+                    tran.Commit();      //執行交易  
+                }
+
+            }
+            catch
+            {
+
+            }
+
+            finally
+            {
+                sqlConn.Close();
+            }
+
+            SERACHCHECKCOOKIESM();
+        }
+
+        public void  SERACHCHECKCOOKIESM()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sbSql.Clear();
+                sbSqlQuery.Clear();
+
+
+                sbSql.AppendFormat(@"  SELECT [MB002] AS '品名',[STIME] AS '開始時間',[ETIME] AS '結束時間',[SLOT] AS '桶數',[CUTNUMBER] AS '刀數',[WEIGHT] AS '重量',[MAIN] AS '線別',[MAINDATE] AS '日期',[TARGETPROTA001] AS '製令',[TARGETPROTA002] AS '單號',[MB001] AS '品號',[ID]   ");
+                sbSql.AppendFormat(@"  FROM [TKCIM].dbo.[CHECKCOOKIESM] WITH (NOLOCK)");
+                sbSql.AppendFormat(@"  WHERE [MAIN]='{0}' ",comboBox2.Text);
+                sbSql.AppendFormat(@"  AND [MAINDATE]='{0}'", dateTimePicker1.Value.ToString("yyyyMMdd"));
+                sbSql.AppendFormat(@"  AND [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}'",textBox1.Text,textBox2.Text);
+                sbSql.AppendFormat(@"  ");
+
+
+                adapter = new SqlDataAdapter(@"" + sbSql, sqlConn);
+
+                sqlCmdBuilder = new SqlCommandBuilder(adapter);
+                sqlConn.Open();
+                ds2.Clear();
+                adapter.Fill(ds2, "TEMPds2");
+                sqlConn.Close();
+
+
+                if (ds2.Tables["TEMPds2"].Rows.Count == 0)
+                {
+
+                }
+                else
+                {
+                    if (ds2.Tables["TEMPds2"].Rows.Count >= 1)
+                    {
+                        //dataGridView1.Rows.Clear();
+                        dataGridView2.DataSource = ds2.Tables["TEMPds2"];
+                        dataGridView2.AutoResizeColumns();
+                        //dataGridView1.CurrentCell = dataGridView1[0, rownum];
+
+                    }
+                }
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+
+            }
+        }
+        public void DELCHECKCOOKIESM()
         {
 
         }
@@ -177,10 +279,15 @@ namespace TKCIM
         private void button1_Click(object sender, EventArgs e)
         {
             SERACHMOCTARGET();
+            SERACHCHECKCOOKIESM();
         }
         private void button2_Click(object sender, EventArgs e)
         {
             ADDCHECKCOOKIESM();
+        }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DELCHECKCOOKIESM();
         }
 
         #endregion
