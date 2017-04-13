@@ -164,7 +164,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer3);
             this.splitContainer1.Size = new System.Drawing.Size(970, 606);
-            this.splitContainer1.SplitterDistance = 323;
+            this.splitContainer1.SplitterDistance = 327;
             this.splitContainer1.TabIndex = 0;
             // 
             // splitContainer2
@@ -181,7 +181,7 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer5);
-            this.splitContainer2.Size = new System.Drawing.Size(970, 323);
+            this.splitContainer2.Size = new System.Drawing.Size(970, 327);
             this.splitContainer2.SplitterDistance = 429;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -199,7 +199,7 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.dataGridView3);
-            this.splitContainer3.Size = new System.Drawing.Size(970, 279);
+            this.splitContainer3.Size = new System.Drawing.Size(970, 275);
             this.splitContainer3.SplitterDistance = 428;
             this.splitContainer3.TabIndex = 0;
             // 
@@ -218,8 +218,8 @@
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.Controls.Add(this.dataGridView1);
-            this.splitContainer4.Size = new System.Drawing.Size(429, 323);
-            this.splitContainer4.SplitterDistance = 107;
+            this.splitContainer4.Size = new System.Drawing.Size(429, 327);
+            this.splitContainer4.SplitterDistance = 108;
             this.splitContainer4.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -245,7 +245,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(425, 103);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(425, 104);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // label2
@@ -320,7 +320,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(425, 208);
+            this.dataGridView1.Size = new System.Drawing.Size(425, 211);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
@@ -339,8 +339,8 @@
             // splitContainer5.Panel2
             // 
             this.splitContainer5.Panel2.Controls.Add(this.dataGridView2);
-            this.splitContainer5.Size = new System.Drawing.Size(537, 323);
-            this.splitContainer5.SplitterDistance = 243;
+            this.splitContainer5.Size = new System.Drawing.Size(537, 327);
+            this.splitContainer5.SplitterDistance = 246;
             this.splitContainer5.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -385,7 +385,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(533, 239);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(533, 242);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // label3
@@ -506,7 +506,7 @@
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(363, 204);
+            this.button2.Location = new System.Drawing.Point(363, 205);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(114, 32);
             this.button2.TabIndex = 18;
@@ -517,7 +517,7 @@
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(123, 204);
+            this.button3.Location = new System.Drawing.Point(123, 205);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(114, 32);
             this.button3.TabIndex = 19;
@@ -562,8 +562,9 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(533, 72);
+            this.dataGridView2.Size = new System.Drawing.Size(533, 73);
             this.dataGridView2.TabIndex = 3;
+            this.dataGridView2.SelectionChanged += new System.EventHandler(this.dataGridView2_SelectionChanged);
             // 
             // tableLayoutPanel3
             // 
@@ -601,7 +602,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(424, 275);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(424, 271);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // label9
@@ -776,7 +777,7 @@
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
             this.dataGridView3.RowTemplate.Height = 24;
-            this.dataGridView3.Size = new System.Drawing.Size(534, 275);
+            this.dataGridView3.Size = new System.Drawing.Size(534, 271);
             this.dataGridView3.TabIndex = 4;
             // 
             // dateTimePicker4

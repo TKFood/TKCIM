@@ -181,7 +181,7 @@ namespace TKCIM
                 sbSql.Clear();
                 sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[CHECKCOOKIESM]");
                 sbSql.AppendFormat("  ([ID],[MAIN],[MAINDATE],[TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[STIME],[ETIME],[SLOT],[CUTNUMBER],[WEIGHT])");
-                sbSql.AppendFormat("   VALUES({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}')", "NEWID()", comboBox2.Text, dateTimePicker1.Value.ToString("yyyyMMdd"), textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, dateTimePicker2.Value.ToString("yyyyMMdd HH:mm"), dateTimePicker3.Value.ToString("yyyyMMdd HH:mm"), textBox5.Text, textBox6.Text, textBox7.Text);
+                sbSql.AppendFormat("   VALUES({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}')", "NEWID()", comboBox2.Text, dateTimePicker1.Value.ToString("yyyyMMdd"), textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, dateTimePicker2.Value.ToString("yyyyMMdd HH:mm"), dateTimePicker4.Value.ToString("yyyyMMdd HH:mm"), textBox5.Text, textBox6.Text, textBox7.Text);
                 sbSql.AppendFormat(" ");
 
                 cmd.Connection = sqlConn;
@@ -267,9 +267,65 @@ namespace TKCIM
 
             }
         }
+        private void dataGridView2_SelectionChanged(object sender, EventArgs e)
+        {
+            ID = null;
+
+            if (dataGridView2.CurrentRow != null)
+            {
+                int rowindex = dataGridView2.CurrentRow.Index;
+                if (rowindex >= 0)
+                {
+                    DataGridViewRow row = dataGridView2.Rows[rowindex];
+                    ID = row.Cells["ID"].Value.ToString();
+                }
+                else
+                {
+                    ID = null;
+                }
+            }
+        }
         public void DELCHECKCOOKIESM()
         {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
 
+                sqlConn.Close();
+                sqlConn.Open();
+                tran = sqlConn.BeginTransaction();
+
+                sbSql.Clear();
+                sbSql.AppendFormat("  DELETE [TKCIM].[dbo].[CHECKCOOKIESM]");
+                sbSql.AppendFormat("  WHERE ID='{0}'", ID);
+                sbSql.AppendFormat(" ");
+
+                cmd.Connection = sqlConn;
+                cmd.CommandTimeout = 60;
+                cmd.CommandText = sbSql.ToString();
+                cmd.Transaction = tran;
+                result = cmd.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    tran.Rollback();    //交易取消
+                }
+                else
+                {
+                    tran.Commit();      //執行交易  
+                }
+
+            }
+            catch
+            {
+
+            }
+
+            finally
+            {
+                sqlConn.Close();
+            }
         }
 
         #endregion
@@ -287,12 +343,22 @@ namespace TKCIM
         }
         private void button3_Click(object sender, EventArgs e)
         {
-            DELCHECKCOOKIESM();
+            DialogResult dialogResult = MessageBox.Show("要刪除了?", "要刪除了?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                DELCHECKCOOKIESM();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
+            SERACHCHECKCOOKIESM();
         }
+
 
         #endregion
 
-
+        
     }
 
 }
