@@ -287,7 +287,7 @@ namespace TKCIM
                 sbSqlQuery.Clear();
 
 
-                sbSql2.AppendFormat(@"  SELECT [MB002] AS '品名',CONVERT(varchar(100),[STIME],8) AS '開始時間',CONVERT(varchar(100),[ETIME],8) AS '結束時間',[SLOT] AS '桶數',[CUTNUMBER] AS '刀數',[WEIGHT] AS '重量',[MAIN] AS '線別',[MAINDATE] AS '日期',[TARGETPROTA001] AS '製令',[TARGETPROTA002] AS '單號',[MB001] AS '品號',[ID]   ");
+                sbSql2.AppendFormat(@"  SELECT [MB002] AS '品名',CONVERT(varchar(100),[STIME],8) AS '開始時間',CONVERT(varchar(100),[ETIME],8) AS '結束時間',[SLOT] AS '桶數',[CUTNUMBER] AS '刀數',[WEIGHT] AS '重量',[MAIN] AS '線別',[MAINDATE] AS '日期',[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號',[MB001] AS '品號',[ID]   ");
                 sbSql2.AppendFormat(@"  FROM [TKCIM].dbo.[CHECKCOOKIESM] WITH (NOLOCK)");
                 sbSql2.AppendFormat(@"  WHERE [MAIN]='{0}' ",comboBox2.Text);
                 sbSql2.AppendFormat(@"  AND [MAINDATE]='{0}'", dateTimePicker1.Value.ToString("yyyyMMdd"));
@@ -343,7 +343,7 @@ namespace TKCIM
                     ID = row.Cells["ID"].Value.ToString();
                     MDMAIN = row.Cells["線別"].Value.ToString();
                     //MDMAINDATE = row.Cells["日期"].Value.ToString();
-                    MDTARGETPROTA001 = row.Cells["製令"].Value.ToString();
+                    MDTARGETPROTA001 = row.Cells["單別"].Value.ToString();
                     MDTARGETPROTA002 = row.Cells["單號"].Value.ToString();
                     MDMB001 = row.Cells["品號"].Value.ToString();
                     MDMB002 = row.Cells["品名"].Value.ToString();
@@ -463,7 +463,7 @@ namespace TKCIM
                 sbSqlQuery.Clear();
 
 
-                sbSql3.AppendFormat(@"  SELECT  [MB002] AS '品名',CONVERT(varchar(100),[CHECKTIME],8) AS '時間',[WIGHT] AS '重量',[LENGTH] AS '長度',[TEMP] AS '溫度',[HUMIDITY] AS '溼度',[CHECKRESULT] AS '檢查結果',[OWNER] AS '填表人',[MANAGER]  AS '主管',[MAIN] AS '線別',[MAINDATE] AS '日期',[TARGETPROTA001] AS '製令',[TARGETPROTA002] AS '單號',[MB001] AS '品號',[ID]  ");
+                sbSql3.AppendFormat(@"  SELECT  [MB002] AS '品名',CONVERT(varchar(100),[CHECKTIME],8) AS '時間',[WIGHT] AS '重量',[LENGTH] AS '長度',[TEMP] AS '溫度',[HUMIDITY] AS '溼度',[CHECKRESULT] AS '檢查結果',[OWNER] AS '填表人',[MANAGER]  AS '主管',[MAIN] AS '線別',[MAINDATE] AS '日期',[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號',[MB001] AS '品號',[ID]  ");
                 sbSql3.AppendFormat(@"  FROM [TKCIM].dbo.[CHECKCOOKIESMD] WITH (NOLOCK)");
                 sbSql3.AppendFormat(@"  WHERE [MAIN]='{0}' ", comboBox2.Text);
                 sbSql3.AppendFormat(@"  AND [MAINDATE]='{0}'", dateTimePicker1.Value.ToString("yyyyMMdd"));

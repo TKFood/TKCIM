@@ -275,7 +275,7 @@ namespace TKCIM
                 sqlConn.Close();
             }
 
-            SERACHCHECKBAKEDM();
+            //SERACHCHECKBAKEDM();
         }
 
         public void SERACHCHECKBAKEDM()
@@ -332,6 +332,89 @@ namespace TKCIM
                 sqlConn.Close();
             }
         }
+        public void SETNULL()
+        {
+            textBox5.Text = null;
+            textBox6.Text = null;
+            textBox7.Text = null;
+        }
+        private void dataGridView2_SelectionChanged(object sender, EventArgs e)
+        {
+            ID = null;
+
+            if (dataGridView2.CurrentRow != null)
+            {
+                int rowindex = dataGridView2.CurrentRow.Index;
+                if (rowindex >= 0)
+                {
+                    DataGridViewRow row = dataGridView2.Rows[rowindex];
+                    ID = row.Cells["ID"].Value.ToString();
+                    MDMAIN = row.Cells["線別"].Value.ToString();
+                    //MDMAINDATE = row.Cells["日期"].Value.ToString();
+                    MDTARGETPROTA001 = row.Cells["單別"].Value.ToString();
+                    MDTARGETPROTA002 = row.Cells["單號"].Value.ToString();
+                    MDMB001 = row.Cells["品號"].Value.ToString();
+                    MDMB002 = row.Cells["品名"].Value.ToString();
+
+                    textBox21.Text = row.Cells["品名"].Value.ToString();
+                }
+                else
+                {
+                    ID = null;
+                    MDMAIN = null;
+                    //MDMAINDATE = null;
+                    MDTARGETPROTA001 = null;
+                    MDTARGETPROTA002 = null;
+                    MDMB001 = null;
+                    MDMB002 = null;
+                    textBox21.Text = null;
+                }
+            }
+
+            SERACHCHECKBAKEDM();
+        }
+        public void DELCHECKBAKEDM()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sqlConn.Close();
+                sqlConn.Open();
+                tran = sqlConn.BeginTransaction();
+
+                sbSql.Clear();
+                sbSql.AppendFormat("  DELETE [TKCIM].[dbo].[CHECKBAKEDM]");
+                sbSql.AppendFormat("  WHERE ID='{0}'", ID);
+                sbSql.AppendFormat(" ");
+
+                cmd.Connection = sqlConn;
+                cmd.CommandTimeout = 60;
+                cmd.CommandText = sbSql.ToString();
+                cmd.Transaction = tran;
+                result = cmd.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    tran.Rollback();    //交易取消
+                }
+                else
+                {
+                    tran.Commit();      //執行交易  
+                }
+
+            }
+            catch
+            {
+
+            }
+
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
         #endregion
 
         #region BUTTON
@@ -343,10 +426,25 @@ namespace TKCIM
         private void button2_Click(object sender, EventArgs e)
         {
             ADDCHECKBAKEDM();
+            SETNULL();
         }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("要刪除了?", "要刪除了?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                DELCHECKBAKEDM();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
+            SERACHCHECKBAKEDM();
+        }
+
 
         #endregion
 
-
+        
     }
 }
