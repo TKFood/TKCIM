@@ -275,7 +275,7 @@ namespace TKCIM
                 sqlConn.Close();
             }
 
-            //SERACHCHECKBAKEDM();
+            SERACHCHECKBAKEDM();
         }
 
         public void SERACHCHECKBAKEDM()
@@ -289,7 +289,7 @@ namespace TKCIM
                 sbSqlQuery.Clear();
 
 
-                sbSql2.AppendFormat(@"  SELECT [MB002] AS '品名',[NGBAKED] AS '未熟',[NGGOOD] AS '不良',[NGOVER] AS '過熟',[MAIN] AS '線別',[MAINDATE] AS '日期',[TARGETPROTA001] AS '製令',[TARGETPROTA002] AS '單號',[MB001] AS '品號',[ID]  ");
+                sbSql2.AppendFormat(@"  SELECT [MB002] AS '品名',[NGBAKED] AS '未熟',[NGGOOD] AS '不良',[NGOVER] AS '過熟',[MAIN] AS '線別',[MAINDATE] AS '日期',[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號',[MB001] AS '品號',[ID]  ");
                 sbSql2.AppendFormat(@"  FROM [TKCIM].dbo.[CHECKBAKEDM] WITH (NOLOCK)");
                 sbSql2.AppendFormat(@"  WHERE [MAIN]='{0}' ", comboBox2.Text);
                 sbSql2.AppendFormat(@"  AND [MAINDATE]='{0}'", dateTimePicker1.Value.ToString("yyyyMMdd"));
@@ -371,7 +371,7 @@ namespace TKCIM
                 }
             }
 
-            SERACHCHECKBAKEDM();
+            SERACHCHECKBAKEDMD();
         }
         public void DELCHECKBAKEDM()
         {
@@ -387,6 +387,176 @@ namespace TKCIM
                 sbSql.Clear();
                 sbSql.AppendFormat("  DELETE [TKCIM].[dbo].[CHECKBAKEDM]");
                 sbSql.AppendFormat("  WHERE ID='{0}'", ID);
+                sbSql.AppendFormat(" ");
+
+                cmd.Connection = sqlConn;
+                cmd.CommandTimeout = 60;
+                cmd.CommandText = sbSql.ToString();
+                cmd.Transaction = tran;
+                result = cmd.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    tran.Rollback();    //交易取消
+                }
+                else
+                {
+                    tran.Commit();      //執行交易  
+                }
+
+            }
+            catch
+            {
+
+            }
+
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
+        public void ADDCHECKBAKEDMD()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sqlConn.Close();
+                sqlConn.Open();
+                tran = sqlConn.BeginTransaction();
+
+                sbSql.Clear();
+                sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[CHECKBAKEDMD]");
+                sbSql.AppendFormat("  ([ID],[MAIN],[MAINDATE],[TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[CHECKTIME],[WIGHT],[LENGTH],[TEMP],[HUMIDITY],[CHECKRESULT],[OWNER],[MANAGER] )");
+                sbSql.AppendFormat("   VALUES({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}')", "NEWID()", MDMAIN, dateTimePicker1.Value.ToString("yyyy/MM/dd"), MDTARGETPROTA001, MDTARGETPROTA002, MDMB001, MDMB002, dateTimePicker3.Value.ToString("HH:mm"), textBox22.Text, textBox23.Text, textBox24.Text, textBox25.Text, comboBox1.Text, comboBox3.Text, comboBox4.Text);
+                sbSql.AppendFormat(" ");
+
+                cmd.Connection = sqlConn;
+                cmd.CommandTimeout = 60;
+                cmd.CommandText = sbSql.ToString();
+                cmd.Transaction = tran;
+                result = cmd.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    tran.Rollback();    //交易取消
+                }
+                else
+                {
+                    tran.Commit();      //執行交易  
+                }
+
+            }
+            catch
+            {
+
+            }
+
+            finally
+            {
+                sqlConn.Close();
+            }
+
+            SERACHCHECKBAKEDMD();
+        }
+
+        public void SERACHCHECKBAKEDMD()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sbSql3.Clear();
+                sbSqlQuery.Clear();
+
+
+                sbSql3.AppendFormat(@"  SELECT  [MB002] AS '品名',CONVERT(varchar(100),[CHECKTIME],8) AS '時間',[WIGHT] AS '重量',[LENGTH] AS '長度',[TEMP] AS '溫度',[HUMIDITY] AS '溼度',[CHECKRESULT] AS '檢查結果',[OWNER] AS '填表人',[MANAGER]  AS '主管',[MAIN] AS '線別',[MAINDATE] AS '日期',[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號',[MB001] AS '品號',[ID]  ");
+                sbSql3.AppendFormat(@"  FROM [TKCIM].dbo.[CHECKBAKEDMD] WITH (NOLOCK)");
+                sbSql3.AppendFormat(@"  WHERE [MAIN]='{0}' ", comboBox2.Text);
+                sbSql3.AppendFormat(@"  AND [MAINDATE]='{0}'", dateTimePicker1.Value.ToString("yyyyMMdd"));
+                sbSql3.AppendFormat(@"  AND [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}'", textBox1.Text, textBox2.Text);
+                sbSql3.AppendFormat(@"  ");
+
+
+                adapter3 = new SqlDataAdapter(@"" + sbSql3, sqlConn);
+
+                sqlCmdBuilder3 = new SqlCommandBuilder(adapter3);
+                sqlConn.Open();
+                ds3.Clear();
+                adapter3.Fill(ds3, "TEMPds3");
+                sqlConn.Close();
+
+
+                if (ds3.Tables["TEMPds3"].Rows.Count == 0)
+                {
+
+                }
+                else
+                {
+                    if (ds3.Tables["TEMPds3"].Rows.Count >= 1)
+                    {
+                        //dataGridView1.Rows.Clear();
+                        dataGridView3.DataSource = ds3.Tables["TEMPds3"];
+                        dataGridView3.AutoResizeColumns();
+                        //dataGridView1.CurrentCell = dataGridView1[0, rownum];
+
+                    }
+                }
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
+
+        public void SETNULL2()
+        {
+            textBox22.Text = null;
+            textBox23.Text = null;
+            textBox24.Text = null;
+            textBox25.Text = null;
+        }
+        private void dataGridView3_SelectionChanged(object sender, EventArgs e)
+        {
+            MDID = null;
+
+            if (dataGridView3.CurrentRow != null)
+            {
+                int rowindex = dataGridView3.CurrentRow.Index;
+                if (rowindex >= 0)
+                {
+                    DataGridViewRow row = dataGridView3.Rows[rowindex];
+                    MDID = row.Cells["ID"].Value.ToString();
+
+                }
+                else
+                {
+                    MDID = null;
+
+                }
+            }
+        }
+        public void DELCHECKBAKEDMD()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sqlConn.Close();
+                sqlConn.Open();
+                tran = sqlConn.BeginTransaction();
+
+                sbSql.Clear();
+                sbSql.AppendFormat("  DELETE [TKCIM].[dbo].[CHECKBAKEDMD]");
+                sbSql.AppendFormat("  WHERE ID='{0}'", MDID);
                 sbSql.AppendFormat(" ");
 
                 cmd.Connection = sqlConn;
@@ -440,6 +610,25 @@ namespace TKCIM
                 //do something else
             }
             SERACHCHECKBAKEDM();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ADDCHECKBAKEDMD();
+            SETNULL2();
+        }
+        private void button5_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("要刪除了?", "要刪除了?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                DELCHECKBAKEDMD();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
+            SERACHCHECKBAKEDMD();
         }
 
 
