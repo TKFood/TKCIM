@@ -572,7 +572,19 @@ namespace TKCIM
 
             
         }
-
+        public void SETNULL()
+        {
+            textBox5.Text = null;
+            textBox6.Text = null;
+            textBox7.Text = null;
+        }
+        public void SETNULL2()
+        {
+            textBox22.Text = null;
+            textBox23.Text = null;
+            textBox24.Text = null;
+            textBox25.Text = null;
+        }
 
         #endregion
 
@@ -580,12 +592,12 @@ namespace TKCIM
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SERACHMOCTARGET();
-            ;
+            SERACHMOCTARGET();           
         }
         private void button2_Click(object sender, EventArgs e)
         {
             ADDCHECKCOOKIESM();
+            SETNULL();
         }
         private void button3_Click(object sender, EventArgs e)
         {
@@ -605,6 +617,7 @@ namespace TKCIM
         {
             ADDCHECKCOOKIESMD();
             SEARCHCHECKCOOKIESMD();
+            SETNULL2();
         }
 
         private void button5_Click(object sender, EventArgs e)
