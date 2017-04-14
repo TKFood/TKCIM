@@ -29,6 +29,8 @@ namespace TKCIM
         SqlCommandBuilder sqlCmdBuilder = new SqlCommandBuilder();
         SqlDataAdapter adapter2 = new SqlDataAdapter();
         SqlCommandBuilder sqlCmdBuilder2 = new SqlCommandBuilder();
+        SqlDataAdapter adapter3 = new SqlDataAdapter();
+        SqlCommandBuilder sqlCmdBuilder3 = new SqlCommandBuilder();
         SqlTransaction tran;
         SqlCommand cmd = new SqlCommand();
         DataSet ds1 = new DataSet();
@@ -49,6 +51,11 @@ namespace TKCIM
         string MDID;
         string TARGETPROTA001;
         string TARGETPROTA002;
+        string MDTARGETPROTA001;
+        string MDTARGETPROTA002;
+        string MDMB001;
+        string MDMB002;
+
 
         Thread TD;
 
@@ -377,12 +384,28 @@ namespace TKCIM
                 {
                     DataGridViewRow row = dataGridView2.Rows[rowindex];
                     ID = row.Cells["ID"].Value.ToString();
+
+                    TARGETPROTA001=row.Cells["單別"].Value.ToString();
+                    TARGETPROTA002 = row.Cells["單號"].Value.ToString();
+                    MDTARGETPROTA001 = row.Cells["單別"].Value.ToString();
+                    MDTARGETPROTA002 = row.Cells["單號"].Value.ToString();
+                    MDMB001 = row.Cells["品號"].Value.ToString(); 
+                    MDMB002 = row.Cells["品名"].Value.ToString();
                 }
                 else
                 {
                     ID = null;
+
+                    TARGETPROTA001 = null;
+                    TARGETPROTA002 = null;
+                    MDTARGETPROTA001 = null;
+                    MDTARGETPROTA002 = null;
+                    MDMB001 = null;
+                    MDMB002 = null;
                 }
             }
+
+            SEARCHCHECKOVENMD();
         }
 
         public void DELCHECKOVENM()
@@ -399,6 +422,184 @@ namespace TKCIM
                 sbSql.Clear();
                 sbSql.AppendFormat("  DELETE [TKCIM].[dbo].[CHECKOVENM]");
                 sbSql.AppendFormat("  WHERE ID='{0}'", ID);
+                sbSql.AppendFormat(" ");
+
+                cmd.Connection = sqlConn;
+                cmd.CommandTimeout = 60;
+                cmd.CommandText = sbSql.ToString();
+                cmd.Transaction = tran;
+                result = cmd.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    tran.Rollback();    //交易取消
+                }
+                else
+                {
+                    tran.Commit();      //執行交易  
+                }
+
+            }
+            catch
+            {
+
+            }
+
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
+
+        public void ADDCHECKOVENMD()
+        {
+            try
+            {
+                //add ZWAREWHOUSEPURTH
+                connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sqlConn.Close();
+                sqlConn.Open();
+                tran = sqlConn.BeginTransaction();
+
+                sbSql.Clear();
+                sbSql.Append(" INSERT INTO [TKCIM].[dbo].[CHECKOVENMD]  ");
+                sbSql.AppendFormat(" ([ID],[MAIN],[MAINDATE],[TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002]");
+                sbSql.AppendFormat(" ,[TEMPER],[HUMIDITY],[WEATHER],[MANUTIME]");
+                sbSql.AppendFormat(" ,[FURANACEUP1],[FURANACEUP2],[FURANACEUP3],[FURANACEUP4],[FURANACEUP5]");
+                sbSql.AppendFormat(" ,[FURANACEUP1A],[FURANACEUP2A],[FURANACEUP3A],[FURANACEUP4A],[FURANACEUP5A]");
+                sbSql.AppendFormat(" ,[FURANACEUP1B],[FURANACEUP2B],[FURANACEUP3B],[FURANACEUP4B],[FURANACEUP5B]");
+                sbSql.AppendFormat(" ,[FURANACEDOWN1],[FURANACEDOWN2],[FURANACEDOWN3],[FURANACEDOWN4],[FURANACEDOWN5]");
+                sbSql.AppendFormat(" ,[FURANACEDOWN1A],[FURANACEDOWN2A],[FURANACEDOWN3A],[FURANACEDOWN4A],[FURANACEDOWN5A]");
+                sbSql.AppendFormat(" ,[FURANACEDOWN1B],[FURANACEDOWN2B],[FURANACEDOWN3B],[FURANACEDOWN4B],[FURANACEDOWN5B])");
+                sbSql.AppendFormat("  VALUES ({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}','{26}','{27}','{28}','{29}','{30}','{31}','{32}','{33}','{34}','{35}','{36}','{37}','{38}','{39}','{40}') ", "NEWID()", comboBox2.Text, dateTimePicker1.Value.ToString("yyyy/MM/dd"), MDTARGETPROTA001,MDTARGETPROTA002,MDMB001,MDMB002,textBox50.Text,textBox51.Text,comboBox6.Text, dateTimePicker5.Value.ToString("HH:mm"),textBox7.Text, textBox8.Text, textBox9.Text, textBox10.Text, textBox11.Text, textBox17.Text, textBox18.Text, textBox19.Text, textBox20.Text, textBox21.Text, textBox27.Text, textBox28.Text, textBox29.Text, textBox30.Text, textBox31.Text, textBox12.Text, textBox13.Text, textBox14.Text, textBox15.Text, textBox16.Text, textBox22.Text, textBox23.Text, textBox24.Text, textBox25.Text, textBox26.Text, textBox32.Text, textBox33.Text, textBox34.Text, textBox35.Text, textBox36.Text);
+
+                cmd.Connection = sqlConn;
+                cmd.CommandTimeout = 60;
+                cmd.CommandText = sbSql.ToString();
+                cmd.Transaction = tran;
+                result = cmd.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    tran.Rollback();    //交易取消
+                }
+                else
+                {
+                    tran.Commit();      //執行交易  
+
+
+                }
+            }
+            catch
+            {
+
+            }
+
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
+
+        public void SEARCHCHECKOVENMD()
+        {
+            StringBuilder sbSqlM = new StringBuilder();
+
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+
+                sbSqlM.Clear();
+                sbSqlM.AppendFormat(@" SELECT [MB002] AS '品名'");
+                sbSqlM.AppendFormat(@" ,[TEMPER] AS '溫度',[HUMIDITY] AS '溼度',[WEATHER] AS '天氣',CONVERT(varchar(100),[MANUTIME], 8)  AS '時間'");
+                sbSqlM.AppendFormat(@" ,[FURANACEUP1] AS '上爐1-1',[FURANACEUP2] AS '上爐2-1',[FURANACEUP3] AS '上爐3-1',[FURANACEUP4] AS '上爐4-1',[FURANACEUP5] AS '上爐5-1'");
+                sbSqlM.AppendFormat(@" ,[FURANACEUP1A] AS '上爐1-2',[FURANACEUP2A] AS '上爐2-2',[FURANACEUP3A] AS '上爐3-2',[FURANACEUP4A] AS '上爐4-2',[FURANACEUP5A] AS '上爐5-2'");
+                sbSqlM.AppendFormat(@" ,[FURANACEDOWN1] AS '下爐1-1',[FURANACEDOWN2] AS '下爐2-1',[FURANACEDOWN3] AS '下爐3-1',[FURANACEDOWN4] AS '下爐4-1',[FURANACEDOWN5] AS '下爐5-1'");
+                sbSqlM.AppendFormat(@" ,[FURANACEDOWN1A] AS '下爐1-2',[FURANACEDOWN2A] AS '下爐2-2',[FURANACEDOWN3A] AS '下爐3-2',[FURANACEDOWN4A] AS '下爐4-2',[FURANACEDOWN5A] AS '下爐5-2'");
+                sbSqlM.AppendFormat(@" ,[FURANACEDOWN1B] AS '下爐1-3',[FURANACEDOWN2B] AS '下爐2-3',[FURANACEDOWN3B] AS '下爐3-3',[FURANACEDOWN4B] AS '下爐4-3',[FURANACEDOWN5B] AS '下爐5-3'");
+                sbSqlM.AppendFormat(@" ,[MAIN] AS '線別',CONVERT(varchar(100),[MAINDATE], 8)  AS '日期',[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號',[MB001] AS '品號'");
+                sbSqlM.AppendFormat(@" ,[ID]");
+                sbSqlM.AppendFormat(@" FROM [TKCIM].[dbo].[CHECKOVENMD] WITH(NOLOCK)");
+                sbSqlM.AppendFormat(@"  WHERE CONVERT(varchar(100),[MAINDATE],112)='{0}'  ", dateTimePicker1.Value.ToString("yyyyMMdd"));
+                sbSqlM.AppendFormat(@"  AND [MAIN]='{0}'", comboBox2.Text.ToString());
+                sbSqlM.AppendFormat(@" AND [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}'", MDTARGETPROTA001, MDTARGETPROTA002);
+                sbSqlM.AppendFormat(@" ");
+
+                adapter3 = new SqlDataAdapter(@"" + sbSqlM, sqlConn);
+
+                sqlCmdBuilder3 = new SqlCommandBuilder(adapter3);
+
+                ds3.Clear();
+                adapter3.Fill(ds3, "TEMPds3");
+                sqlConn.Close();
+
+
+                if (ds3.Tables["TEMPds3"].Rows.Count == 0)
+                {
+                    //label1.Text = "找不到資料";                    
+                }
+                else
+                {
+                    if (ds3.Tables["TEMPds3"].Rows.Count >= 1)
+                    {
+                        //dataGridView1.Rows.Clear();
+                        dataGridView3.DataSource = ds3.Tables["TEMPds3"];
+                        dataGridView3.AutoResizeColumns();
+
+                    }
+                }
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+
+            }
+        }
+
+        private void dataGridView3_SelectionChanged(object sender, EventArgs e)
+        {
+            MDID = null;
+
+            if (dataGridView3.CurrentRow != null)
+            {
+                int rowindex = dataGridView3.CurrentRow.Index;
+                if (rowindex >= 0)
+                {
+                    DataGridViewRow row = dataGridView3.Rows[rowindex];
+                    MDID = row.Cells["ID"].Value.ToString();
+
+                   
+                }
+                else
+                {
+                    MDID = null;
+                }
+            }
+
+        }
+
+        public void DELCHECKOVENMD()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sqlConn.Close();
+                sqlConn.Open();
+                tran = sqlConn.BeginTransaction();
+
+                sbSql.Clear();
+                sbSql.AppendFormat("  DELETE [TKCIM].[dbo].[CHECKOVENMD]");
+                sbSql.AppendFormat("  WHERE ID='{0}'", MDID);
                 sbSql.AppendFormat(" ");
 
                 cmd.Connection = sqlConn;
@@ -457,8 +658,29 @@ namespace TKCIM
             SEARCHCHECKOVENM();
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ADDCHECKOVENMD();
+            SEARCHCHECKOVENMD();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("要刪除了?", "要刪除了?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                DELCHECKOVENMD();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
+
+            SEARCHCHECKOVENMD();
+        }
+
         #endregion
 
-
+        
     }
 }
