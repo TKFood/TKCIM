@@ -628,6 +628,46 @@ namespace TKCIM
                 sqlConn.Close();
             }
         }
+        public void SETNULL()
+        {
+            textBox5.Text = null;
+        }
+
+        public void SETNULL2()
+        {
+            textBox50.Text = null;
+            textBox51.Text = null;
+            textBox7.Text = null;
+            textBox8.Text = null;
+            textBox9.Text = null;
+            textBox10.Text = null;
+            textBox11.Text = null;
+            textBox12.Text = null;
+            textBox13.Text = null;
+            textBox14.Text = null;
+            textBox15.Text = null;
+            textBox16.Text = null;
+            textBox17.Text = null;
+            textBox18.Text = null;
+            textBox19.Text = null;
+            textBox20.Text = null;
+            textBox21.Text = null;
+            textBox22.Text = null;
+            textBox23.Text = null;
+            textBox24.Text = null;
+            textBox25.Text = null;
+            textBox26.Text = null;
+            textBox27.Text = null;
+            textBox28.Text = null;
+            textBox29.Text = null;
+            textBox30.Text = null;
+            textBox31.Text = null;
+            textBox32.Text = null;
+            textBox33.Text = null;
+            textBox34.Text = null;
+            textBox35.Text = null;
+            textBox36.Text = null;
+        }
 
         #endregion
 
@@ -641,6 +681,7 @@ namespace TKCIM
         {
             ADDCHECKOVENM();
             SEARCHCHECKOVENM();
+            SETNULL();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -662,6 +703,7 @@ namespace TKCIM
         {
             ADDCHECKOVENMD();
             SEARCHCHECKOVENMD();
+            SETNULL2();
         }
 
         private void button5_Click(object sender, EventArgs e)
