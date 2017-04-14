@@ -27,6 +27,8 @@ namespace TKCIM
         StringBuilder sbSqlQuery = new StringBuilder();
         SqlDataAdapter adapter = new SqlDataAdapter();
         SqlCommandBuilder sqlCmdBuilder = new SqlCommandBuilder();
+        SqlDataAdapter adapter2 = new SqlDataAdapter();
+        SqlCommandBuilder sqlCmdBuilder2 = new SqlCommandBuilder();
         SqlTransaction tran;
         SqlCommand cmd = new SqlCommand();
         DataSet ds1 = new DataSet();
@@ -45,6 +47,8 @@ namespace TKCIM
 
         string ID;
         string MDID;
+        string TARGETPROTA001;
+        string TARGETPROTA002;
 
         Thread TD;
 
@@ -53,6 +57,10 @@ namespace TKCIM
             InitializeComponent();
 
             comboBox2load();
+            combobox1load();
+            combobox3load();
+            combobox4load();
+            combobox5load();
         }
 
         #region FUNCTION
@@ -77,7 +85,85 @@ namespace TKCIM
 
 
         }
+        public void combobox1load()
+        {
 
+            connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+            sqlConn = new SqlConnection(connectionString);
+            String Sequel = "SELECT  [ID],[NAME] FROM [TKMOC].[dbo].[MANUEMPLOYEE] WHERE ID IN (SELECT ID FROM  [TKMOC].[dbo].[MANUEMPLOYEELIMIT]) ORDER BY ID";
+            SqlDataAdapter da = new SqlDataAdapter(Sequel, sqlConn);
+            DataTable dt = new DataTable();
+            sqlConn.Open();
+
+            dt.Columns.Add("ID", typeof(string));
+            dt.Columns.Add("NAME", typeof(string));
+            da.Fill(dt);
+            comboBox1.DataSource = dt.DefaultView;
+            comboBox1.ValueMember = "ID";
+            comboBox1.DisplayMember = "NAME";
+            sqlConn.Close();
+
+        }
+
+        public void combobox3load()
+        {
+
+            connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+            sqlConn = new SqlConnection(connectionString);
+            String Sequel = "SELECT  [ID],[NAME] FROM [TKMOC].[dbo].[MANUEMPLOYEE] WHERE ID IN (SELECT ID FROM  [TKMOC].[dbo].[MANUEMPLOYEELIMIT]) ORDER BY ID";
+            SqlDataAdapter da = new SqlDataAdapter(Sequel, sqlConn);
+            DataTable dt = new DataTable();
+            sqlConn.Open();
+
+            dt.Columns.Add("ID", typeof(string));
+            dt.Columns.Add("NAME", typeof(string));
+            da.Fill(dt);
+            comboBox3.DataSource = dt.DefaultView;
+            comboBox3.ValueMember = "ID";
+            comboBox3.DisplayMember = "NAME";
+            sqlConn.Close();
+
+        }
+
+        public void combobox4load()
+        {
+
+            connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+            sqlConn = new SqlConnection(connectionString);
+            String Sequel = "SELECT  [ID],[NAME] FROM [TKMOC].[dbo].[MANUEMPLOYEE] WHERE ID IN (SELECT ID FROM  [TKMOC].[dbo].[MANUEMPLOYEELIMIT]) ORDER BY ID";
+            SqlDataAdapter da = new SqlDataAdapter(Sequel, sqlConn);
+            DataTable dt = new DataTable();
+            sqlConn.Open();
+
+            dt.Columns.Add("ID", typeof(string));
+            dt.Columns.Add("NAME", typeof(string));
+            da.Fill(dt);
+            comboBox4.DataSource = dt.DefaultView;
+            comboBox4.ValueMember = "ID";
+            comboBox4.DisplayMember = "NAME";
+            sqlConn.Close();
+
+        }
+
+        public void combobox5load()
+        {
+
+            connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+            sqlConn = new SqlConnection(connectionString);
+            String Sequel = "SELECT  [ID],[NAME] FROM [TKMOC].[dbo].[MANUEMPLOYEE] WHERE ID IN (SELECT ID FROM  [TKMOC].[dbo].[MANUEMPLOYEELIMIT]) ORDER BY ID";
+            SqlDataAdapter da = new SqlDataAdapter(Sequel, sqlConn);
+            DataTable dt = new DataTable();
+            sqlConn.Open();
+
+            dt.Columns.Add("ID", typeof(string));
+            dt.Columns.Add("NAME", typeof(string));
+            da.Fill(dt);
+            comboBox5.DataSource = dt.DefaultView;
+            comboBox5.ValueMember = "ID";
+            comboBox5.DisplayMember = "NAME";
+            sqlConn.Close();
+
+        }
         public void SERACHMOCTARGET()
         {
             try
@@ -151,6 +237,9 @@ namespace TKCIM
                     textBox3.Text = row.Cells["品號"].Value.ToString();
                     textBox4.Text = row.Cells["品名"].Value.ToString();
 
+                    TARGETPROTA001 = row.Cells["單別"].Value.ToString();
+                    TARGETPROTA002 = row.Cells["單號"].Value.ToString();
+
                 }
                 else
                 {
@@ -158,6 +247,8 @@ namespace TKCIM
                     textBox2.Text = null;
                     textBox3.Text = null;
                     textBox4.Text = null;
+                    TARGETPROTA001 = null;
+                    TARGETPROTA002 = null;
                 }
             }
             else
@@ -166,6 +257,174 @@ namespace TKCIM
                 textBox2.Text = null;
                 textBox3.Text = null;
                 textBox4.Text = null;
+                TARGETPROTA001 = null;
+                TARGETPROTA002 = null;
+            }
+
+            SEARCHCHECKOVENM();
+        }
+
+        public void ADDCHECKOVENM()
+        {
+            try
+            {
+                //add ZWAREWHOUSEPURTH
+                connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sqlConn.Close();
+                sqlConn.Open();
+                tran = sqlConn.BeginTransaction();
+
+                sbSql.Clear();
+                sbSql.Append(" INSERT INTO [TKCIM].[dbo].[CHECKOVENM]  ");
+                sbSql.Append(" ([ID],[MAIN],[MAINDATE],[TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[STIME],[ETIME],[GAS],[FLODPEOPLE1],[FLODPEOPLE2],[MANAGER],[OPERATOR])  ");
+                sbSql.AppendFormat("  VALUES ({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}') ", "NEWID()", comboBox2.Text, dateTimePicker1.Value.ToString("yyyy/MM/dd"),textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, dateTimePicker2.Value.ToString("HH:mm"), dateTimePicker3.Value.ToString("HH:mm"),textBox5.Text, comboBox1.Text, comboBox3.Text, comboBox4.Text, comboBox5.Text);
+
+                cmd.Connection = sqlConn;
+                cmd.CommandTimeout = 60;
+                cmd.CommandText = sbSql.ToString();
+                cmd.Transaction = tran;
+                result = cmd.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    tran.Rollback();    //交易取消
+                }
+                else
+                {
+                    tran.Commit();      //執行交易  
+
+
+                }
+            }
+            catch
+            {
+
+            }
+
+            finally
+            {
+                sqlConn.Close();
+            }
+
+        }
+
+        public void SEARCHCHECKOVENM()
+        {
+            StringBuilder sbSqlM = new StringBuilder();
+
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+
+                sbSqlM.Clear();
+                sbSqlM.AppendFormat(@" SELECT [MB002] AS '品名',CONVERT(varchar(100),[STIME], 8) AS '開始時間',CONVERT(varchar(100),[ETIME], 8)  AS '結束時間'");
+                sbSqlM.AppendFormat(@" ,[GAS] AS '瓦斯磅數',[FLODPEOPLE1]  AS '折疊人員1',[FLODPEOPLE2]   AS '折疊人員2'");
+                sbSqlM.AppendFormat(@" , [MANAGER]  AS '主管',[OPERATOR]  AS '操作人員'");
+                sbSqlM.AppendFormat(@" ,[MAIN] AS '線別', CONVERT(varchar(100),[MAINDATE], 112) AS '日期'");
+                sbSqlM.AppendFormat(@" ,[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號',[MB001] AS '品號',[CHECKOVENM].[ID]");
+                sbSqlM.AppendFormat(@" FROM [TKCIM].[dbo].[CHECKOVENM] WITH(NOLOCK)");
+                sbSqlM.AppendFormat(@"  WHERE CONVERT(varchar(100),[MAINDATE],112)='{0}'  ", dateTimePicker1.Value.ToString("yyyyMMdd"));
+                sbSqlM.AppendFormat(@"  AND [MAIN]='{0}'", comboBox2.Text.ToString());
+                sbSqlM.AppendFormat(@" AND [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}'", TARGETPROTA001, TARGETPROTA002);
+                sbSqlM.AppendFormat(@" ");
+
+                adapter2 = new SqlDataAdapter(@"" + sbSqlM, sqlConn);
+
+                sqlCmdBuilder2 = new SqlCommandBuilder(adapter2);
+
+                ds2.Clear();
+                adapter2.Fill(ds2, "TEMPds2");
+                sqlConn.Close();
+
+
+                if (ds2.Tables["TEMPds2"].Rows.Count == 0)
+                {
+                    //label1.Text = "找不到資料";                    
+                }
+                else
+                {
+                    if (ds2.Tables["TEMPds2"].Rows.Count >= 1)
+                    {
+                        //dataGridView1.Rows.Clear();
+                        dataGridView2.DataSource = ds2.Tables["TEMPds2"];
+                        dataGridView2.AutoResizeColumns(); 
+
+                    }
+                }
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+
+            }
+        }
+        private void dataGridView2_SelectionChanged(object sender, EventArgs e)
+        {
+            ID = null;
+
+            if (dataGridView2.CurrentRow != null)
+            {
+                int rowindex = dataGridView2.CurrentRow.Index;
+                if (rowindex >= 0)
+                {
+                    DataGridViewRow row = dataGridView2.Rows[rowindex];
+                    ID = row.Cells["ID"].Value.ToString();
+                }
+                else
+                {
+                    ID = null;
+                }
+            }
+        }
+
+        public void DELCHECKOVENM()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sqlConn.Close();
+                sqlConn.Open();
+                tran = sqlConn.BeginTransaction();
+
+                sbSql.Clear();
+                sbSql.AppendFormat("  DELETE [TKCIM].[dbo].[CHECKOVENM]");
+                sbSql.AppendFormat("  WHERE ID='{0}'", ID);
+                sbSql.AppendFormat(" ");
+
+                cmd.Connection = sqlConn;
+                cmd.CommandTimeout = 60;
+                cmd.CommandText = sbSql.ToString();
+                cmd.Transaction = tran;
+                result = cmd.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    tran.Rollback();    //交易取消
+                }
+                else
+                {
+                    tran.Commit();      //執行交易  
+                }
+
+            }
+            catch
+            {
+
+            }
+
+            finally
+            {
+                sqlConn.Close();
             }
         }
 
@@ -177,9 +436,29 @@ namespace TKCIM
         {
             SERACHMOCTARGET();
         }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ADDCHECKOVENM();
+            SEARCHCHECKOVENM();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("要刪除了?", "要刪除了?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                DELCHECKOVENM();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
+
+            SEARCHCHECKOVENM();
+        }
 
         #endregion
 
-        
+
     }
 }
