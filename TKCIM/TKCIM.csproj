@@ -81,6 +81,12 @@
     <Compile Include="frmCHECKCOOKIES.Designer.cs">
       <DependentUpon>frmCHECKCOOKIES.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCHECKOVENM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCHECKOVENM.Designer.cs">
+      <DependentUpon>frmCHECKOVENM.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCHECKCOOKIES.resx">
       <DependentUpon>frmCHECKCOOKIES.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCHECKOVENM.resx">
+      <DependentUpon>frmCHECKOVENM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
