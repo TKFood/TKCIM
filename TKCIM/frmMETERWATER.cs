@@ -91,6 +91,9 @@ namespace TKCIM
             comboBox6load();
             comboBox7load();
 
+            comboBox4REload("新廠製二組");
+            comboBox5REload("新廠製二組");
+
             timer1.Enabled = true;
             timer1.Interval = 1000 * 60;
             timer1.Start();
@@ -219,6 +222,46 @@ namespace TKCIM
 
         }
 
+        public void comboBox4REload(string MAIN)
+        {
+            connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+            sqlConn = new SqlConnection(connectionString);
+            StringBuilder Sequel = new StringBuilder();
+            Sequel.AppendFormat(@"SELECT  [ID] ,[NAME] FROM [TKMOC].[dbo].[MANUEMPLOYEE] WHERE   [ID] IN (SELECT [ID] FROM [TKMOC].[dbo].[MANUEMPLOYEELIMIT]) AND ([MAIN]='ALL'OR [MAIN]='{0}')", MAIN);
+            SqlDataAdapter da = new SqlDataAdapter(Sequel.ToString(), sqlConn);
+            DataTable dt = new DataTable();
+            sqlConn.Open();
+
+            dt.Columns.Add("ID", typeof(string));
+            dt.Columns.Add("NAME", typeof(string));
+            da.Fill(dt);
+            comboBox4.DataSource = dt.DefaultView;
+            comboBox4.ValueMember = "NAME";
+            comboBox4.DisplayMember = "NAME";
+            sqlConn.Close();
+
+
+        }
+        public void comboBox5REload(string MAIN)
+        {
+            connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+            sqlConn = new SqlConnection(connectionString);
+            StringBuilder Sequel = new StringBuilder();
+            Sequel.AppendFormat(@"SELECT  [ID] ,[NAME] FROM [TKMOC].[dbo].[MANUEMPLOYEE] WHERE   [ID] IN (SELECT [ID] FROM [TKMOC].[dbo].[MANUEMPLOYEELIMIT]) AND ([MAIN]='ALL'OR [MAIN]='{0}')", MAIN);
+            SqlDataAdapter da = new SqlDataAdapter(Sequel.ToString(), sqlConn);
+            DataTable dt = new DataTable();
+            sqlConn.Open();
+
+            dt.Columns.Add("ID", typeof(string));
+            dt.Columns.Add("NAME", typeof(string));
+            da.Fill(dt);
+            comboBox5.DataSource = dt.DefaultView;
+            comboBox5.ValueMember = "NAME";
+            comboBox5.DisplayMember = "NAME";
+            sqlConn.Close();
+
+
+        }
         public void SERACHMOCTARGET()
         {
             try
@@ -2574,6 +2617,20 @@ namespace TKCIM
                 }
             }
         }
+
+        private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox6.Text.Equals("新廠製一組") || comboBox6.Text.Equals("新廠製二組"))
+            {
+                comboBox4REload(comboBox6.Text);
+                comboBox5REload(comboBox6.Text);
+            }
+            else
+            {
+                comboBox4load();
+                comboBox5load();
+            }
+        }
         #endregion
 
         #region BUTTON
@@ -2698,8 +2755,9 @@ namespace TKCIM
         {
             CreateResourceManager(this, "en-US");
         }
+
         #endregion
 
-
+    
     }
 }
