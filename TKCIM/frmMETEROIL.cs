@@ -2165,6 +2165,21 @@ namespace TKCIM
             }
         }
 
+        public void COMBOXCHANGE()
+        {
+            if (comboBox2.Text.Equals("新廠製一組") || comboBox2.Text.Equals("新廠製二組"))
+            {
+                comboBox4REload(comboBox2.Text);
+                comboBox5REload(comboBox2.Text);
+            }
+            else
+            {
+                comboBox4load();
+                comboBox5load();
+            }
+        }
+
+
         #endregion
 
         #region BUTTON
@@ -2213,6 +2228,8 @@ namespace TKCIM
             SERACHMETEROILPROIDMD();
             numericUpDown1.Value = numericUpDown1.Value + 1;
             MessageBox.Show("本桶結束了喔!");
+
+            COMBOXCHANGE();
         }
         private void button9_Click(object sender, EventArgs e)
         {            

@@ -2631,6 +2631,21 @@ namespace TKCIM
                 comboBox5load();
             }
         }
+        public void COMBOXCHANGE()
+        {
+            if (comboBox2.Text.Equals("新廠製一組") || comboBox2.Text.Equals("新廠製二組"))
+            {
+                comboBox4REload(comboBox2.Text);
+                comboBox5REload(comboBox2.Text);
+            }
+            else
+            {
+                comboBox4load();
+                comboBox5load();
+            }
+        }
+
+
         #endregion
 
         #region BUTTON
@@ -2706,6 +2721,8 @@ namespace TKCIM
             SEARCHMATERWATERPROIDMD();
             numericUpDown1.Value = numericUpDown1.Value + 1;
             MessageBox.Show("本桶結束了喔!");
+
+            COMBOXCHANGE();
         }
 
 
