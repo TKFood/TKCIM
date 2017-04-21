@@ -2093,7 +2093,7 @@ namespace TKCIM
                 sbSql.AppendFormat(" ORDER BY TE.TE002)");
                 sbSql.AppendFormat(" AND [MOCTE].[TE011]=[MATERWATERPRODIFF].[TB001] AND [MOCTE].[TE012]=[MATERWATERPRODIFF].[TB002] AND [MOCTE].[TE004]=[MATERWATERPRODIFF].[TB003]");
                 sbSql.AppendFormat(" AND [DIFF]<0");
-                sbSql.AppendFormat(" ");
+                sbSql.AppendFormat(" AND [MOCTE].[TE001]='A541'");
                 sbSql.AppendFormat(" ");
                 sbSql.AppendFormat(" ");
 
@@ -2154,7 +2154,7 @@ namespace TKCIM
                 sbSql.AppendFormat(" ([COMPANY],[CREATOR],[USR_GROUP],[CREATE_DATE],[MODIFIER],[MODI_DATE],[FLAG],[CREATE_TIME],[MODI_TIME],[TRANS_TYPE],[TRANS_NAME],[sync_date],[sync_time],[sync_mark],[sync_count],[DataUser],[DataGroup],[TC001],[TC002],[TC003],[TC004],[TC005],[TC006],[TC007],[TC008],[TC009],[TC010],[TC011],[TC012],[TC013],[TC014],[TC015],[TC016],[TC017],[TC018],[TC019],[TC020],[TC021],[TC022],[TC023],[TC024],[TC025],[TC026],[TC027],[TC028],[TC029],[TC030],[TC031],[TC032])");
                 sbSql.AppendFormat(" SELECT TOP 1 [COMPANY],[CREATOR],[USR_GROUP],[CREATE_DATE],[MODIFIER],[MODI_DATE],[FLAG],[CREATE_TIME],[MODI_TIME],[TRANS_TYPE],[TRANS_NAME],[sync_date],[sync_time],[sync_mark],[sync_count],'jj' AS [DataUser],[DataGroup]");
                 sbSql.AppendFormat(" ,'{0}' AS [TC001],'{1}' AS [TC002],'{2}' AS [TC003]", TC001, TC002, date);
-                sbSql.AppendFormat(" ,[TC004],[TC005],[TC006],[TC007],[TC008]");
+                sbSql.AppendFormat(" ,[TC004],[TC005],[TC006],[TC007],'56'");
                 sbSql.AppendFormat(" ,'N' AS [TC009]");
                 sbSql.AppendFormat(" ,[TC010],[TC011],[TC012],[TC013]");
                 sbSql.AppendFormat(" ,'{0}' AS [TC014],'{1}' AS [TC015]", date, date);
@@ -2199,7 +2199,7 @@ namespace TKCIM
                 sbSql.AppendFormat(" ORDER BY TE.TE002)");
                 sbSql.AppendFormat(" AND [MOCTE].[TE011]=[MATERWATERPRODIFF].[TB001] AND [MOCTE].[TE012]=[MATERWATERPRODIFF].[TB002] AND [MOCTE].[TE004]=[MATERWATERPRODIFF].[TB003]");
                 sbSql.AppendFormat(" AND [DIFF]>0");
-                sbSql.AppendFormat(" ");
+                sbSql.AppendFormat(" AND [MOCTE].[TE001]='A541'");
                 sbSql.AppendFormat(" ");
                 sbSql.AppendFormat(" ");
 
