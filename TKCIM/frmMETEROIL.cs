@@ -415,7 +415,7 @@ namespace TKCIM
                 SETLOTNULL();
                 if (ds2.Tables["TEMPds2"].Rows.Count == 0)
                 {
-                    for (int j = 1; j <= 12; j++)
+                    for (int j = 1; j <= 16; j++)
                     {
                         TextBox iTextBox = (TextBox)FindControl(this, "textBox" + j);
                         iTextBox.Text = null;
@@ -434,7 +434,7 @@ namespace TKCIM
 
                         foreach (DataGridViewRow dr in this.dataGridView2.Rows)
                         {
-                            if (i <= 12)
+                            if (i <= 16)
                             {
                                 TextBox iTextBox = (TextBox)FindControl(this, "textBox" + i);
                                 iTextBox.Text = dr.Cells["MB002"].Value.ToString();
@@ -493,6 +493,10 @@ namespace TKCIM
             textBox10.Text = null;
             textBox11.Text = null;
             textBox12.Text = null;
+            textBox13.Text = null;
+            textBox14.Text = null;
+            textBox15.Text = null;
+            textBox16.Text = null;
 
         }
         public void SETLOTNULL2()
@@ -509,6 +513,10 @@ namespace TKCIM
             textBox30.Text = null;
             textBox31.Text = null;
             textBox32.Text = null;
+            textBox33.Text = null;
+            textBox34.Text = null;
+            textBox35.Text = null;
+            textBox36.Text = null;
         }
         public void ADDMETEROILPROIDM()
         {
@@ -604,6 +612,34 @@ namespace TKCIM
                     sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[METEROILPROIDM]");
                     sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MAIN],[MAINDATE],[MB001],[MB002],[LOTID])");
                     sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), DateTime.Now.ToString("yyyyMMdd"), null, textBox12.Text, comboBox22.Text.ToString() + textBox32.Text);
+                    sbSql.AppendFormat(" ");
+                }
+                if (!string.IsNullOrEmpty(textBox33.Text))
+                {
+                    sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[METEROILPROIDM]");
+                    sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MAIN],[MAINDATE],[MB001],[MB002],[LOTID])");
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), DateTime.Now.ToString("yyyyMMdd"), null, textBox13.Text, comboBox23.Text.ToString() + textBox33.Text);
+                    sbSql.AppendFormat(" ");
+                }
+                if (!string.IsNullOrEmpty(textBox34.Text))
+                {
+                    sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[METEROILPROIDM]");
+                    sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MAIN],[MAINDATE],[MB001],[MB002],[LOTID])");
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), DateTime.Now.ToString("yyyyMMdd"), null, textBox14.Text, comboBox24.Text.ToString() + textBox34.Text);
+                    sbSql.AppendFormat(" ");
+                }
+                if (!string.IsNullOrEmpty(textBox35.Text))
+                {
+                    sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[METEROILPROIDM]");
+                    sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MAIN],[MAINDATE],[MB001],[MB002],[LOTID])");
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), DateTime.Now.ToString("yyyyMMdd"), null, textBox15.Text, comboBox25.Text.ToString() + textBox35.Text);
+                    sbSql.AppendFormat(" ");
+                }
+                if (!string.IsNullOrEmpty(textBox36.Text))
+                {
+                    sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[METEROILPROIDM]");
+                    sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MAIN],[MAINDATE],[MB001],[MB002],[LOTID])");
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), DateTime.Now.ToString("yyyyMMdd"), null, textBox16.Text, comboBox26.Text.ToString() + textBox36.Text);
                     sbSql.AppendFormat(" ");
                 }
 
@@ -771,7 +807,7 @@ namespace TKCIM
                     DataGridViewRow row = dataGridView4.Rows[rowindex];
                     MATEROILRPROIDMTA001B = row.Cells["單別"].Value.ToString();
                     MATEROILRPROIDMTA002B = row.Cells["單號"].Value.ToString();
-
+                    MANULABEL.Text = row.Cells["線別"].Value.ToString();
 
                 }
                 else
@@ -998,6 +1034,38 @@ namespace TKCIM
                     sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[METEROILPROIDMD]");
                     sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[LOTID],[CANNO],[NUM])");
                     sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}') ", MATEROILPROIDMDTARGETPROTA001, MATEROILPROIDMDTARGETPROTA002, null, textBox82.Text, textBox62.Text, numericUpDown1.Value.ToString(), textBox102.Text);
+                    sbSql.AppendFormat(" ");
+
+                }
+                if (!string.IsNullOrEmpty(textBox103.Text))
+                {
+                    sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[METEROILPROIDMD]");
+                    sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[LOTID],[CANNO],[NUM])");
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}') ", MATEROILPROIDMDTARGETPROTA001, MATEROILPROIDMDTARGETPROTA002, null, textBox83.Text, textBox63.Text, numericUpDown1.Value.ToString(), textBox103.Text);
+                    sbSql.AppendFormat(" ");
+
+                }
+                if (!string.IsNullOrEmpty(textBox104.Text))
+                {
+                    sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[METEROILPROIDMD]");
+                    sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[LOTID],[CANNO],[NUM])");
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}') ", MATEROILPROIDMDTARGETPROTA001, MATEROILPROIDMDTARGETPROTA002, null, textBox84.Text, textBox64.Text, numericUpDown1.Value.ToString(), textBox104.Text);
+                    sbSql.AppendFormat(" ");
+
+                }
+                if (!string.IsNullOrEmpty(textBox105.Text))
+                {
+                    sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[METEROILPROIDMD]");
+                    sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[LOTID],[CANNO],[NUM])");
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}') ", MATEROILPROIDMDTARGETPROTA001, MATEROILPROIDMDTARGETPROTA002, null, textBox85.Text, textBox65.Text, numericUpDown1.Value.ToString(), textBox105.Text);
+                    sbSql.AppendFormat(" ");
+
+                }
+                if (!string.IsNullOrEmpty(textBox106.Text))
+                {
+                    sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[METEROILPROIDMD]");
+                    sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[LOTID],[CANNO],[NUM])");
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}') ", MATEROILPROIDMDTARGETPROTA001, MATEROILPROIDMDTARGETPROTA002, null, textBox86.Text, textBox66.Text, numericUpDown1.Value.ToString(), textBox106.Text);
                     sbSql.AppendFormat(" ");
 
                 }
@@ -2205,6 +2273,7 @@ namespace TKCIM
             ADDMETEROILPROIDMD();
             SETNEWLOTNULL();
             SERACHMETEROILPROIDMD();
+           
             
         }
 
@@ -2224,10 +2293,18 @@ namespace TKCIM
         }
         private void button10_Click(object sender, EventArgs e)
         {
-            UPDATEMATEROILPROIDMD();
-            SERACHMETEROILPROIDMD();
-            numericUpDown1.Value = numericUpDown1.Value + 1;
-            MessageBox.Show("本桶結束了喔!");
+            if (comboBox2.Text.Equals(MANULABEL.Text))
+            {
+                UPDATEMATEROILPROIDMD();
+                SERACHMETEROILPROIDMD();
+                numericUpDown1.Value = numericUpDown1.Value + 1;
+                MessageBox.Show("本桶結束了喔!");
+            }
+            else
+            {
+                MessageBox.Show("此線人員錯誤，請指定正確人員");
+            }
+            
 
             COMBOXCHANGE();
         }
