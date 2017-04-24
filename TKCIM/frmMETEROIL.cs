@@ -814,6 +814,7 @@ namespace TKCIM
                 {
                     MATEROILRPROIDMTA001B = null;
                     MATEROILRPROIDMTA002B = null;
+                    MANULABEL.Text = null;
                 }
             }
             SEARCHMETEROILPROIDM2();

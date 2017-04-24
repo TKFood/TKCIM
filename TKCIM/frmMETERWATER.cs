@@ -666,6 +666,7 @@ namespace TKCIM
                     DataGridViewRow row = dataGridView4.Rows[rowindex];
                     MATERWATERPROIDMTA001 = row.Cells["單別"].Value.ToString();
                     MATERWATERPROIDMTA002 = row.Cells["單號"].Value.ToString();
+                   
                     SERACHMOCTARGETLOTUSED();
                     SEARCHMATERWATERPROIDM();
                     //SEARCHMATERWATERPROIDMD();
@@ -676,6 +677,7 @@ namespace TKCIM
                 {
                     MATERWATERPROIDMTA001 = null;
                     MATERWATERPROIDMTA002 = null;
+                   
                 }
             }
         }
@@ -1201,13 +1203,14 @@ namespace TKCIM
                     DataGridViewRow row = dataGridView7.Rows[rowindex];
                     MATERWATERPROIDMTA001B = row.Cells["單別"].Value.ToString();
                     MATERWATERPROIDMTA002B = row.Cells["單號"].Value.ToString();
+                    MANULABEL.Text = row.Cells["線別"].Value.ToString();
 
                 }
                 else
                 {
                     DELTARGETPROTA001 = null;
                     DELTARGETPROTA002 = null;
-
+                    MANULABEL.Text = null;
                 }
             }
             SEARCHMATERWATERPROIDM2();
@@ -2717,10 +2720,17 @@ namespace TKCIM
         }
         private void button10_Click(object sender, EventArgs e)
         {
-            UPDATEMATERWATERPROIDMD();
-            SEARCHMATERWATERPROIDMD();
-            numericUpDown1.Value = numericUpDown1.Value + 1;
-            MessageBox.Show("本桶結束了喔!");
+            if (comboBox6.Text.Equals(MANULABEL.Text))
+            {
+                UPDATEMATERWATERPROIDMD();
+                SEARCHMATERWATERPROIDMD();
+                numericUpDown1.Value = numericUpDown1.Value + 1;
+                MessageBox.Show("本桶結束了喔!");
+            }
+            else
+            {
+                MessageBox.Show("此線人員錯誤，請指定正確人員");
+            }
 
             COMBOXCHANGE();
         }
