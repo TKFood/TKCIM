@@ -2334,9 +2334,17 @@ namespace TKCIM
         }
         private void button4_Click(object sender, EventArgs e)
         {
-
-            ADDMOCTE();
-            SEARCHMETEROILDIFFRESULT();
+            if(ds10.Tables["TEMPds10"].Rows.Count==0)
+            {
+                ADDMOCTE();
+                
+                SEARCHMETEROILDIFFRESULT();
+            }
+            else
+            {
+                MessageBox.Show("只限產生一次領退料單");
+            }
+           
             //SEACRHMOCTE();
         }
 

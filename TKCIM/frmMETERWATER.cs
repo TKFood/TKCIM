@@ -2758,8 +2758,16 @@ namespace TKCIM
 
         private void button14_Click(object sender, EventArgs e)
         {
-            ADDMOCTE();
-            SEARCHMATERWATERPRODIFFRESULT();
+            if (ds15.Tables["TEMPds15"].Rows.Count == 0)
+            {
+                ADDMOCTE();
+                SEARCHMATERWATERPRODIFFRESULT();
+            }
+            else
+            {
+                MessageBox.Show("只限產生一次領退料單");
+            }
+               
         }
         private void button15_Click(object sender, EventArgs e)
         {
