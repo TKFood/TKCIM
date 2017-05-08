@@ -104,7 +104,7 @@ namespace TKCIM
             }
             finally
             {
-
+                sqlConn.Close();
             }
         }
 
@@ -147,11 +147,13 @@ namespace TKCIM
 
             }
             SETNULL2();
+
+            SEARCHNGSCRAPPEDSTATUS();
         }
 
         public void SETNULL()
         {
-            textBox1.Text = null;
+            
             textBox2.Text = null;
             textBox3.Text = null;
             textBox4.Text = null;
@@ -175,6 +177,69 @@ namespace TKCIM
             textBox16.Text = "0";
             textBox17.Text = "0";
         }
+
+        public void SEARCHNGSCRAPPEDSTATUS()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sbSql.Clear();
+                sbSqlQuery.Clear();
+
+
+                sbSql.AppendFormat(@"  SELECT  [MAINDATE] AS '生產日',[SCOOKIES] AS '不良餅麩總數' ,[SSIDE] AS '不良邊料總數',[SDAMAGE] AS '破損總數',[SFALL]  AS '落地總數',[SSCRAP]  AS '報廢總數'");
+                sbSql.AppendFormat(@"  ,[COOKIESID]  AS '不良餅麩報廢編號' ,[COOKIESBAG] AS '不良餅麩報廢袋數' ");
+                sbSql.AppendFormat(@"  ,[SIDEID] AS '不良邊料報廢編號' ,[SIDEBAG] AS '不良邊料報廢袋數'");
+                sbSql.AppendFormat(@"  ,[DAMAGEID] AS '破損報廢編號' ,[DAMAGEBAG] AS '破損報廢袋數' ");
+                sbSql.AppendFormat(@"  ,[FALLID] AS '落地報廢編號' ,[FALLBAG] AS '落地報廢袋數'");
+                sbSql.AppendFormat(@"  ,[SCRAPID] AS '報廢編號' ,[SCRAPBAG] AS '報廢袋數' ");
+                sbSql.AppendFormat(@"  , [ID]");
+                sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[NGSCRAPPEDSTATUS]");
+                sbSql.AppendFormat(@"  WHERE CONVERT(NVARCHAR(10),MAINDATE,112)='{0}'",textBox2.Text);
+                sbSql.AppendFormat(@"  ");
+
+
+
+                adapter2 = new SqlDataAdapter(@"" + sbSql, sqlConn);
+
+                sqlCmdBuilder2 = new SqlCommandBuilder(adapter2);
+                sqlConn.Open();
+                ds2.Clear();
+                adapter2.Fill(ds2, "TEMPds2");
+                sqlConn.Close();
+
+
+                if (ds2.Tables["TEMPds2"].Rows.Count == 0)
+                {
+                    dataGridView2.DataSource = null;
+                   
+                }
+                else
+                {
+                    if (ds2.Tables["TEMPds2"].Rows.Count >= 1)
+                    {
+                        //dataGridView1.Rows.Clear();
+                        dataGridView2.DataSource = ds2.Tables["TEMPds2"];
+                        dataGridView2.AutoResizeColumns();
+                        //dataGridView1.CurrentCell = dataGridView1[0, rownum];
+
+                    }
+                }
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
+
+
         #endregion
 
         #region BUTTON
@@ -182,9 +247,18 @@ namespace TKCIM
         {
             SERACHNGSCRAPPED();
         }
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
 
         #endregion
 
-        
+
     }
 }
