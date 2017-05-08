@@ -110,6 +110,8 @@ namespace TKCIM
                 if (ds1.Tables["TEMPds1"].Rows.Count == 0)
                 {
                     dataGridView1.DataSource = null;
+                    textBox2.Text = dateTimePicker1.Value.ToString("yyyy/MM/dd");
+                    textBox1.Text = comboBox1.Text.ToString();
                 }
                 else
                 {
@@ -182,7 +184,7 @@ namespace TKCIM
                 sbSql.Clear();
                 sbSqlQuery.Clear();
 
-                sbSql.AppendFormat(@"  SELECT [DAMAGEDCOOKIES] AS '破損餅乾(kg)',[LANDCOOKIES] AS '落地餅乾(kg)',[SCRAPCOOKIES]  AS '餅乾屑(kg)',[MAIN] AS '線別',[MAINDATE] AS '日期',[ID] ");
+                sbSql.AppendFormat(@"  SELECT [DAMAGEDCOOKIES] AS '破損餅乾(kg)',[LANDCOOKIES] AS '落地餅乾(kg)',[SCRAPCOOKIES]  AS '餅乾屑(kg)',[BAGS] AS '報廢袋數',[MAIN] AS '線別',[MAINDATE] AS '日期',[ID] ");
                 sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[NGSCRAPPEDMD]");
                 sbSql.AppendFormat(@"  WHERE CONVERT(varchar(100),[MAINDATE],112)='{0}'  ", dateTimePicker1.Value.ToString("yyyyMMdd"));
                 sbSql.AppendFormat(@"  AND [MAIN]='{0}'", comboBox1.Text.ToString());
@@ -238,8 +240,8 @@ namespace TKCIM
 
                 sbSql.Clear();
                 sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[NGSCRAPPEDMD]");
-                sbSql.AppendFormat(" ([ID],[MAIN],[MAINDATE],[DAMAGEDCOOKIES],[LANDCOOKIES],[SCRAPCOOKIES] )");
-                sbSql.AppendFormat(" VALUES({0},'{1}','{2}','{3}','{4}','{5}')", "NEWID()", textBox1.Text.ToString(), textBox2.Text.ToString(), textBox3.Text.ToString(), textBox4.Text.ToString(), textBox5.Text.ToString());
+                sbSql.AppendFormat(" ([ID],[MAIN],[MAINDATE],[DAMAGEDCOOKIES],[LANDCOOKIES],[SCRAPCOOKIES],[BAGS] )");
+                sbSql.AppendFormat(" VALUES({0},'{1}','{2}','{3}','{4}','{5}','{6}')", "NEWID()", textBox1.Text.ToString(), textBox2.Text.ToString(), textBox3.Text.ToString(), textBox4.Text.ToString(), textBox5.Text.ToString(), textBox6.Text.ToString());
                 sbSql.AppendFormat(" ");
 
 
