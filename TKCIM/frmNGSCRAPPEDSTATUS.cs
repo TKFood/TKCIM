@@ -189,15 +189,16 @@ namespace TKCIM
                 sbSqlQuery.Clear();
 
 
-                sbSql.AppendFormat(@"  SELECT  [MAINDATE] AS '生產日',[SCOOKIES] AS '不良餅麩總數' ,[SSIDE] AS '不良邊料總數',[SDAMAGE] AS '破損總數',[SFALL]  AS '落地總數',[SSCRAP]  AS '報廢總數'");
-                sbSql.AppendFormat(@"  ,[COOKIESID]  AS '不良餅麩報廢編號' ,[COOKIESBAG] AS '不良餅麩報廢袋數' ");
+                sbSql.AppendFormat(@"  SELECT  ");
+                sbSql.AppendFormat(@"  [COOKIESID]  AS '不良餅麩報廢編號' ,[COOKIESBAG] AS '不良餅麩報廢袋數' ");
                 sbSql.AppendFormat(@"  ,[SIDEID] AS '不良邊料報廢編號' ,[SIDEBAG] AS '不良邊料報廢袋數'");
                 sbSql.AppendFormat(@"  ,[DAMAGEID] AS '破損報廢編號' ,[DAMAGEBAG] AS '破損報廢袋數' ");
                 sbSql.AppendFormat(@"  ,[FALLID] AS '落地報廢編號' ,[FALLBAG] AS '落地報廢袋數'");
                 sbSql.AppendFormat(@"  ,[SCRAPID] AS '報廢編號' ,[SCRAPBAG] AS '報廢袋數' ");
+                sbSql.AppendFormat(@"  ,[MAINDATE] AS '生產日',[SCOOKIES] AS '不良餅麩總數' ,[SSIDE] AS '不良邊料總數',[SDAMAGE] AS '破損總數',[SFALL]  AS '落地總數',[SSCRAP]  AS '報廢總數'");
                 sbSql.AppendFormat(@"  , [ID]");
                 sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[NGSCRAPPEDSTATUS]");
-                sbSql.AppendFormat(@"  WHERE CONVERT(NVARCHAR(10),MAINDATE,112)='{0}'",textBox2.Text);
+                sbSql.AppendFormat(@"  WHERE CONVERT(NVARCHAR(10),MAINDATE,112)='{0}'",dateTimePicker1.Value.ToString("yyyyMMdd"));
                 sbSql.AppendFormat(@"  ");
 
 
@@ -239,6 +240,115 @@ namespace TKCIM
             }
         }
 
+        public void ADDNGSCRAPPEDSTATUS()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sqlConn.Close();
+                sqlConn.Open();
+                tran = sqlConn.BeginTransaction();
+
+                sbSql.Clear();
+
+                sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[NGSCRAPPEDSTATUS]");
+                sbSql.AppendFormat(" ([ID],[MAINDATE],[SCOOKIES],[SSIDE],[SDAMAGE],[SFALL],[SSCRAP],[COOKIESID],[COOKIESBAG],[SIDEID],[SIDEBAG],[DAMAGEID],[DAMAGEBAG],[FALLID],[FALLBAG],[SCRAPID],[SCRAPBAG])");
+                sbSql.AppendFormat(" VALUES ({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}')", "NEWID()",textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text, textBox8.Text, textBox13.Text, textBox9.Text, textBox14.Text, textBox10.Text, textBox15.Text, textBox11.Text, textBox16.Text, textBox12.Text, textBox17.Text);
+                sbSql.AppendFormat(" ");
+                sbSql.AppendFormat(" ");
+
+
+                cmd.Connection = sqlConn;
+                cmd.CommandTimeout = 60;
+                cmd.CommandText = sbSql.ToString();
+                cmd.Transaction = tran;
+                result = cmd.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    tran.Rollback();    //交易取消
+                }
+                else
+                {
+                    tran.Commit();      //執行交易  
+                }
+
+            }
+            catch
+            {
+
+            }
+
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
+
+        private void dataGridView2_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView2.CurrentRow != null)
+            {
+                int rowindex = dataGridView2.CurrentRow.Index;
+                if (rowindex >= 0)
+                {
+                    DataGridViewRow row = dataGridView2.Rows[rowindex];
+                    ID = row.Cells["ID"].Value.ToString();
+                }
+                else
+                {
+                    ID = null;
+                }
+            }
+            else
+            {
+                ID = null;
+            }
+        }
+        public void DELNGSCRAPPEDSTATUS()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sqlConn.Close();
+                sqlConn.Open();
+                tran = sqlConn.BeginTransaction();
+
+                sbSql.Clear();
+                sbSql.AppendFormat(" DELETE [TKCIM].[dbo].[NGSCRAPPEDSTATUS] ");
+                sbSql.AppendFormat(" WHERE ID='{0}'", ID);
+                sbSql.AppendFormat(" ");
+
+                cmd.Connection = sqlConn;
+                cmd.CommandTimeout = 60;
+                cmd.CommandText = sbSql.ToString();
+                cmd.Transaction = tran;
+                result = cmd.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    tran.Rollback();    //交易取消
+                }
+                else
+                {
+                    tran.Commit();      //執行交易  
+                }
+
+            }
+            catch
+            {
+
+            }
+
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
 
         #endregion
 
@@ -249,16 +359,30 @@ namespace TKCIM
         }
         private void button2_Click(object sender, EventArgs e)
         {
+            ADDNGSCRAPPEDSTATUS();
+            SEARCHNGSCRAPPEDSTATUS();
 
+            SETNULL2();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+           
+            DialogResult dialogResult = MessageBox.Show("要刪除了?", "要刪除了?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                DELNGSCRAPPEDSTATUS();
+                SEARCHNGSCRAPPEDSTATUS();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
         }
+
 
         #endregion
 
-
+        
     }
 }
