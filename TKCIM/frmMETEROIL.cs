@@ -1294,8 +1294,10 @@ namespace TKCIM
                 sbSql.AppendFormat("   ,[METEROILPROIDMD].[ETIME]='{0}'", dateTimePicker7.Value.ToString("HH:mm"));
                 sbSql.AppendFormat("   ,[METEROILPROIDMD].[TEMP]='{0}'", textBox201.Text);
                 sbSql.AppendFormat("   ,[METEROILPROIDMD].[HUDI]='{0}'", textBox202.Text);
-                sbSql.AppendFormat("   ,[METEROILPROIDMD].[MOVEIN]='{0}'", comboBox4.Text.ToString());
-                sbSql.AppendFormat("   ,[METEROILPROIDMD].[CHECKEMP]='{0}'", comboBox5.Text.ToString());
+                sbSql.AppendFormat("   ,[METEROILPROIDMD].[MOVEIN]='{0}'", label2.Text.ToString());
+                sbSql.AppendFormat("   ,[METEROILPROIDMD].[CHECKEMP]='{0}'", label3.Text.ToString());
+                //sbSql.AppendFormat("   ,[METEROILPROIDMD].[MOVEIN]='{0}'", comboBox4.Text.ToString());
+                //sbSql.AppendFormat("   ,[METEROILPROIDMD].[CHECKEMP]='{0}'", comboBox5.Text.ToString());
                 sbSql.AppendFormat("   WHERE [METEROILPROIDMD].[CANNO]='{0}'", numericUpDown1.Value.ToString());
                 sbSql.AppendFormat(" ");
 
@@ -2263,6 +2265,15 @@ namespace TKCIM
             }
         }
 
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            label2.Text = comboBox4.Text.ToString();
+        }
+
+        private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            label3.Text = comboBox5.Text.ToString();
+        }
 
         #endregion
 
@@ -2369,9 +2380,10 @@ namespace TKCIM
 
 
 
+
         #endregion
 
-        
+       
     }
 
 

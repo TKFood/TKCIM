@@ -2769,27 +2769,6 @@
   <data name="tableLayoutPanel9.ColumnCount" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="MANULABEL.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
-  </data>
-  <data name="MANULABEL.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="MANULABEL.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="MANULABEL.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 79</value>
-  </data>
-  <data name="MANULABEL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 16</value>
-  </data>
-  <data name="MANULABEL.TabIndex" type="System.Int32, mscorlib">
-    <value>44</value>
-  </data>
-  <data name="MANULABEL.Text" xml:space="preserve">
-    <value>NOW</value>
-  </data>
   <data name="&gt;&gt;MANULABEL.Name" xml:space="preserve">
     <value>MANULABEL</value>
   </data>
@@ -2801,24 +2780,6 @@
   </data>
   <data name="&gt;&gt;MANULABEL.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="label9.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
-  </data>
-  <data name="label9.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 9</value>
-  </data>
-  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 16</value>
-  </data>
-  <data name="label9.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="label9.Text" xml:space="preserve">
-    <value>製令日期</value>
   </data>
   <data name="&gt;&gt;label9.Name" xml:space="preserve">
     <value>label9</value>
@@ -2832,21 +2793,6 @@
   <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="dateTimePicker5.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
-  </data>
-  <data name="dateTimePicker5.CustomFormat" xml:space="preserve">
-    <value>yyyy/MM/dd</value>
-  </data>
-  <data name="dateTimePicker5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>163, 4</value>
-  </data>
-  <data name="dateTimePicker5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 27</value>
-  </data>
-  <data name="dateTimePicker5.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
   <data name="&gt;&gt;dateTimePicker5.Name" xml:space="preserve">
     <value>dateTimePicker5</value>
   </data>
@@ -2859,21 +2805,6 @@
   <data name="&gt;&gt;dateTimePicker5.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="button11.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
-  </data>
-  <data name="button11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>163, 39</value>
-  </data>
-  <data name="button11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 27</value>
-  </data>
-  <data name="button11.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="button11.Text" xml:space="preserve">
-    <value>查詢</value>
-  </data>
   <data name="&gt;&gt;button11.Name" xml:space="preserve">
     <value>button11</value>
   </data>
@@ -2885,24 +2816,6 @@
   </data>
   <data name="&gt;&gt;button11.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="comboBox6.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
-  </data>
-  <data name="comboBox6.Items" xml:space="preserve">
-    <value>製一組</value>
-  </data>
-  <data name="comboBox6.Items1" xml:space="preserve">
-    <value>製二組</value>
-  </data>
-  <data name="comboBox6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 42</value>
-  </data>
-  <data name="comboBox6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 24</value>
-  </data>
-  <data name="comboBox6.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
   </data>
   <data name="&gt;&gt;comboBox6.Name" xml:space="preserve">
     <value>comboBox6</value>
@@ -4026,6 +3939,72 @@
   <data name="&gt;&gt;button10.ZOrder" xml:space="preserve">
     <value>15</value>
   </data>
+  <data name="label12.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="label12.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label12.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>163, 132</value>
+  </data>
+  <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 16</value>
+  </data>
+  <data name="label12.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="label12.Text" xml:space="preserve">
+    <value>A</value>
+  </data>
+  <data name="&gt;&gt;label12.Name" xml:space="preserve">
+    <value>label12</value>
+  </data>
+  <data name="&gt;&gt;label12.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label12.Parent" xml:space="preserve">
+    <value>tableLayoutPanel8</value>
+  </data>
+  <data name="&gt;&gt;label12.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="label15.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="label15.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label15.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label15.Location" type="System.Drawing.Point, System.Drawing">
+    <value>237, 132</value>
+  </data>
+  <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 16</value>
+  </data>
+  <data name="label15.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="label15.Text" xml:space="preserve">
+    <value>B</value>
+  </data>
+  <data name="&gt;&gt;label15.Name" xml:space="preserve">
+    <value>label15</value>
+  </data>
+  <data name="&gt;&gt;label15.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label15.Parent" xml:space="preserve">
+    <value>tableLayoutPanel8</value>
+  </data>
+  <data name="&gt;&gt;label15.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
   <data name="tableLayoutPanel8.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -4057,7 +4036,7 @@
     <value>0</value>
   </data>
   <data name="tableLayoutPanel8.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label21" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="label20" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="comboBox4" Row="1" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="comboBox5" Row="2" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="comboBox3" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label17" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label18" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="dateTimePicker6" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label19" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="dateTimePicker7" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label23" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBox91" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label22" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBox92" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="button9" Row="4" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="button10" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,80,Absolute,80,Absolute,74,Absolute,114" /&gt;&lt;Rows Styles="Absolute,40,Absolute,40,Absolute,40,Absolute,40,Absolute,40,Absolute,40" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label21" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="label20" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="comboBox4" Row="1" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="comboBox5" Row="2" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="comboBox3" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label17" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label18" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="dateTimePicker6" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label19" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="dateTimePicker7" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label23" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBox91" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label22" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBox92" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="button9" Row="4" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="button10" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="label12" Row="3" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="label15" Row="3" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,80,Absolute,80,Absolute,74,Absolute,114" /&gt;&lt;Rows Styles="Absolute,40,Absolute,40,Absolute,40,Absolute,40,Absolute,40,Absolute,40" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="&gt;&gt;splitContainer17.Panel1.Name" xml:space="preserve">
     <value>splitContainer17.Panel1</value>
@@ -4193,6 +4172,153 @@
   </data>
   <data name="&gt;&gt;splitContainer14.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="MANULABEL.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="MANULABEL.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="MANULABEL.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="MANULABEL.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 79</value>
+  </data>
+  <data name="MANULABEL.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 16</value>
+  </data>
+  <data name="MANULABEL.TabIndex" type="System.Int32, mscorlib">
+    <value>44</value>
+  </data>
+  <data name="MANULABEL.Text" xml:space="preserve">
+    <value>NOW</value>
+  </data>
+  <data name="&gt;&gt;MANULABEL.Name" xml:space="preserve">
+    <value>MANULABEL</value>
+  </data>
+  <data name="&gt;&gt;MANULABEL.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MANULABEL.Parent" xml:space="preserve">
+    <value>tableLayoutPanel9</value>
+  </data>
+  <data name="&gt;&gt;MANULABEL.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label9.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="label9.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 9</value>
+  </data>
+  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 16</value>
+  </data>
+  <data name="label9.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>製令日期</value>
+  </data>
+  <data name="&gt;&gt;label9.Name" xml:space="preserve">
+    <value>label9</value>
+  </data>
+  <data name="&gt;&gt;label9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label9.Parent" xml:space="preserve">
+    <value>tableLayoutPanel9</value>
+  </data>
+  <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="dateTimePicker5.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="dateTimePicker5.CustomFormat" xml:space="preserve">
+    <value>yyyy/MM/dd</value>
+  </data>
+  <data name="dateTimePicker5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>163, 4</value>
+  </data>
+  <data name="dateTimePicker5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 27</value>
+  </data>
+  <data name="dateTimePicker5.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;dateTimePicker5.Name" xml:space="preserve">
+    <value>dateTimePicker5</value>
+  </data>
+  <data name="&gt;&gt;dateTimePicker5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dateTimePicker5.Parent" xml:space="preserve">
+    <value>tableLayoutPanel9</value>
+  </data>
+  <data name="&gt;&gt;dateTimePicker5.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="button11.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="button11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>163, 39</value>
+  </data>
+  <data name="button11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 27</value>
+  </data>
+  <data name="button11.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="button11.Text" xml:space="preserve">
+    <value>查詢</value>
+  </data>
+  <data name="&gt;&gt;button11.Name" xml:space="preserve">
+    <value>button11</value>
+  </data>
+  <data name="&gt;&gt;button11.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button11.Parent" xml:space="preserve">
+    <value>tableLayoutPanel9</value>
+  </data>
+  <data name="&gt;&gt;button11.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="comboBox6.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="comboBox6.Items" xml:space="preserve">
+    <value>製一組</value>
+  </data>
+  <data name="comboBox6.Items1" xml:space="preserve">
+    <value>製二組</value>
+  </data>
+  <data name="comboBox6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 42</value>
+  </data>
+  <data name="comboBox6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 24</value>
+  </data>
+  <data name="comboBox6.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;comboBox6.Name" xml:space="preserve">
+    <value>comboBox6</value>
+  </data>
+  <data name="&gt;&gt;comboBox6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboBox6.Parent" xml:space="preserve">
+    <value>tableLayoutPanel9</value>
+  </data>
+  <data name="&gt;&gt;comboBox6.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="textBox37.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left, Right</value>

@@ -1319,8 +1319,10 @@ namespace TKCIM
                 sbSql.AppendFormat("   ,[MATERWATERPROIDMD].[ETIME]='{0}'", dateTimePicker7.Value.ToString("HH:mm"));
                 sbSql.AppendFormat("   ,[MATERWATERPROIDMD].[TEMP]='{0}'", textBox91.Text);
                 sbSql.AppendFormat("   ,[MATERWATERPROIDMD].[HUDI]='{0}'", textBox92.Text);
-                sbSql.AppendFormat("   ,[MATERWATERPROIDMD].[MOVEIN]='{0}'", comboBox4.Text.ToString());
-                sbSql.AppendFormat("   ,[MATERWATERPROIDMD].[CHECKEMP]='{0}'", comboBox5.Text.ToString());
+                sbSql.AppendFormat("   ,[MATERWATERPROIDMD].[MOVEIN]='{0}'", label12.Text.ToString());
+                sbSql.AppendFormat("   ,[MATERWATERPROIDMD].[CHECKEMP]='{0}'", label15.Text.ToString());
+                //sbSql.AppendFormat("   ,[MATERWATERPROIDMD].[MOVEIN]='{0}'", comboBox4.Text.ToString());
+                //sbSql.AppendFormat("   ,[MATERWATERPROIDMD].[CHECKEMP]='{0}'", comboBox5.Text.ToString());
                 sbSql.AppendFormat("   WHERE [MATERWATERPROIDMD].[CANNO]='{0}'", numericUpDown1.Value.ToString());
                 sbSql.AppendFormat(" ");
 
@@ -2664,7 +2666,15 @@ namespace TKCIM
                 comboBox5load();
             }
         }
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            label12.Text = comboBox4.Text.ToString();
+        }
 
+        private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            label15.Text = comboBox5.Text.ToString();
+        }
 
         #endregion
 
@@ -2808,8 +2818,9 @@ namespace TKCIM
             CreateResourceManager(this, "en-US");
         }
 
+
         #endregion
 
-    
+      
     }
 }

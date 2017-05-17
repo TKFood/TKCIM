@@ -206,6 +206,8 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label12 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -1335,6 +1337,8 @@
             this.tableLayoutPanel8.Controls.Add(this.textBox92, 1, 4);
             this.tableLayoutPanel8.Controls.Add(this.button9, 3, 4);
             this.tableLayoutPanel8.Controls.Add(this.button10, 3, 0);
+            this.tableLayoutPanel8.Controls.Add(this.label12, 2, 3);
+            this.tableLayoutPanel8.Controls.Add(this.label15, 3, 3);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             // 
             // label21
@@ -1354,6 +1358,7 @@
             this.comboBox4.Items.AddRange(new object[] {
             resources.GetString("comboBox4.Items")});
             this.comboBox4.Name = "comboBox4";
+            this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
             // 
             // comboBox5
             // 
@@ -1362,6 +1367,7 @@
             this.comboBox5.Items.AddRange(new object[] {
             resources.GetString("comboBox5.Items")});
             this.comboBox5.Name = "comboBox5";
+            this.comboBox5.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
             // 
             // comboBox3
             // 
@@ -1805,6 +1811,16 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // label12
+            // 
+            resources.ApplyResources(this.label12, "label12");
+            this.label12.Name = "label12";
+            // 
+            // label15
+            // 
+            resources.ApplyResources(this.label15, "label15");
+            this.label15.Name = "label15";
+            // 
             // frmMETERWATER
             // 
             resources.ApplyResources(this, "$this");
@@ -2119,5 +2135,7 @@
         private System.Windows.Forms.Button button17;
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.Label MANULABEL;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label15;
     }
 }
