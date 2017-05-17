@@ -708,6 +708,15 @@ namespace TKCIM
                 sqlConn.Close();
 
                 int i = 1;
+                for (int j = 1; j <= 7; j++)
+                {
+                    TextBox iTextBox = (TextBox)FindControl(this, "textBox" + j);
+                    iTextBox.Text = null;
+                    i++;
+                }
+
+                i = 1;
+
                 if (ds5.Tables["TEMPds5"].Rows.Count == 0)
                 {
                     for (int j = 1; j <= 7; j++)
@@ -1434,10 +1443,18 @@ namespace TKCIM
                 adapter.Fill(ds8, "TEMPds8");
                 sqlConn.Close();
 
+                for (int j = 1; j <= 9; j++)
+                {
+                    TextBox iTextBox = (TextBox)FindControl(this, "textBox3" + j);
+                    iTextBox.Text = null;
+                    TextBox iTextBox2 = (TextBox)FindControl(this, "textBox4" + j);
+                    iTextBox2.Text = null;
+
+                }
 
                 if (ds8.Tables["TEMPds8"].Rows.Count == 0)
                 {
-                    for (int j = 1; j <= 10; j++)
+                    for (int j = 1; j <= 9; j++)
                     {
                         TextBox iTextBox = (TextBox)FindControl(this, "textBox3" + j);
                         iTextBox.Text = null;
@@ -1459,7 +1476,7 @@ namespace TKCIM
                         int i = 1;
                         foreach (DataGridViewRow dr in this.dataGridView8.Rows)
                         {
-                            if (i <= 10)
+                            if (i <= 9)
                             {
                                 TextBox iTextBox = (TextBox)FindControl(this, "textBox3" + i);
                                 iTextBox.Text = dr.Cells["批號"].Value.ToString();

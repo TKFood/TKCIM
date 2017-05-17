@@ -411,7 +411,14 @@ namespace TKCIM
                 adapter.Fill(ds2, "TEMPds2");
                 sqlConn.Close();
 
-                int i = 1;
+
+                for (int j = 1; j <= 16; j++)
+                {
+                    TextBox iTextBox = (TextBox)FindControl(this, "textBox" + j);
+                    iTextBox.Text = null;
+
+                }
+
                 SETLOTNULL();
                 if (ds2.Tables["TEMPds2"].Rows.Count == 0)
                 {
@@ -419,7 +426,7 @@ namespace TKCIM
                     {
                         TextBox iTextBox = (TextBox)FindControl(this, "textBox" + j);
                         iTextBox.Text = null;
-                        i++;
+                       
                     }
 
                 }
@@ -430,8 +437,8 @@ namespace TKCIM
                         
                         dataGridView2.DataSource = ds2.Tables["TEMPds2"];
                         dataGridView2.AutoResizeColumns();
-                       
 
+                        int i = 1;
                         foreach (DataGridViewRow dr in this.dataGridView2.Rows)
                         {
                             if (i <= 16)
@@ -846,11 +853,19 @@ namespace TKCIM
                 adapter.Fill(ds5, "TEMPds5");
                 sqlConn.Close();
 
+                for (int j = 1; j <= 15; j++)
+                {
+                    TextBox iTextBox = (TextBox)FindControl(this, "textBox" + Convert.ToInt32(Convert.ToInt32(j) + Convert.ToInt32(50)));
+                    iTextBox.Text = null;
+                    TextBox iTextBox2 = (TextBox)FindControl(this, "textBox" + Convert.ToInt32(Convert.ToInt32(j) + Convert.ToInt32(70)));
+                    iTextBox2.Text = null;
+
+                }
 
                 if (ds5.Tables["TEMPds5"].Rows.Count == 0)
                 {
                     dataGridView5.DataSource = null;
-                    for (int j =1; j <= 12; j++)
+                    for (int j =1; j <= 15; j++)
                     {
                         TextBox iTextBox = (TextBox)FindControl(this, "textBox" + Convert.ToInt32(Convert.ToInt32(j)+ Convert.ToInt32(50)));
                         iTextBox.Text = null;
@@ -871,7 +886,7 @@ namespace TKCIM
                         int i = 1;
                         foreach (DataGridViewRow dr in this.dataGridView5.Rows)
                         {
-                            if (i <= 12)
+                            if (i <= 15)
                             {
                                 TextBox iTextBox = (TextBox)FindControl(this, "textBox" + Convert.ToInt32(Convert.ToInt32(i) + Convert.ToInt32(50)));
                                 iTextBox.Text = dr.Cells["批號"].Value.ToString();
