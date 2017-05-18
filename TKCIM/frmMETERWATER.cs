@@ -51,6 +51,11 @@ namespace TKCIM
         DataSet ds18 = new DataSet();
         DataSet ds19 = new DataSet();
         DataTable dt = new DataTable();
+
+        DataTable dtMOVEIN = new DataTable();
+        DataTable dtCHECKEMP = new DataTable();
+
+
         string tablename = null;
         int result;
         string CHECKYN = "N";
@@ -86,13 +91,16 @@ namespace TKCIM
             InitializeComponent();
             comboBox1load();
             comboBox2load();
-            comboBox4load();
-            comboBox5load();
+            //comboBox4load();
+            //comboBox5load();
             comboBox6load();
             comboBox7load();
 
-            comboBox4REload("新廠製二組");
-            comboBox5REload("新廠製二組");
+            //comboBox4REload("新廠製二組");
+            //comboBox5REload("新廠製二組");
+
+            InitailcomboBox4("新廠製二組");
+            InitailcomboBox5("新廠製二組");
 
             timer1.Enabled = true;
             timer1.Interval = 1000 * 60;
@@ -2642,16 +2650,19 @@ namespace TKCIM
 
         private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox6.Text.Equals("新廠製一組") || comboBox6.Text.Equals("新廠製二組"))
-            {
-                comboBox4REload(comboBox6.Text);
-                comboBox5REload(comboBox6.Text);
-            }
-            else
-            {
-                comboBox4load();
-                comboBox5load();
-            }
+            InitailcomboBox4(comboBox6.Text);
+            InitailcomboBox5(comboBox6.Text);
+
+            //if (comboBox6.Text.Equals("新廠製一組") || comboBox6.Text.Equals("新廠製二組"))
+            //{
+            //    comboBox4REload(comboBox6.Text);
+            //    comboBox5REload(comboBox6.Text);
+            //}
+            //else
+            //{
+            //    comboBox4load();
+            //    comboBox5load();
+            //}
         }
         public void COMBOXCHANGE()
         {
@@ -2674,6 +2685,219 @@ namespace TKCIM
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
         {
             label15.Text = comboBox5.Text.ToString();
+        }
+
+        public void InitailcomboBox4(string MAIN)
+        {
+            dtMOVEIN.Clear();
+            dtMOVEIN.Columns.Clear();
+
+            dtMOVEIN.Columns.Add("NAME", typeof(string));
+
+            if(MAIN.Equals("新廠製二組"))
+            {
+                string path = @"新廠製二組dtMOVEIN.txt";
+                DataRow workRow;
+
+                try
+                {
+                    if (File.Exists(path))
+                    {
+                        using (StreamReader sr = new StreamReader(path, Encoding.Unicode))
+                        {
+                            while (sr.Peek() >= 0)
+                            {
+                                // MessageBox.Show(sr.ReadLine().ToString());
+                                workRow = dtMOVEIN.NewRow();
+                                workRow[0] = sr.ReadLine().ToString();
+                                dtMOVEIN.Rows.Add(workRow);
+                            }
+                        }
+                    }
+
+                    //dtMOVEIN.Select();
+                    comboBox4.DataSource = dtMOVEIN.DefaultView;
+                    comboBox4.ValueMember = "NAME";
+                    comboBox4.DisplayMember = "NAME";
+
+                }
+                catch
+                {
+                    MessageBox.Show("人員錯誤");
+                }
+            }
+            else if (MAIN.Equals("新廠製一組"))
+            {
+                string path = @"新廠製一組dtMOVEIN.txt";
+                DataRow workRow;
+
+                try
+                {
+                    if (File.Exists(path))
+                    {
+                        using (StreamReader sr = new StreamReader(path, Encoding.Unicode))
+                        {
+                            while (sr.Peek() >= 0)
+                            {
+                                // MessageBox.Show(sr.ReadLine().ToString());
+                                workRow = dtMOVEIN.NewRow();
+                                workRow[0] = sr.ReadLine().ToString();
+                                dtMOVEIN.Rows.Add(workRow);
+                            }
+                        }
+                    }
+
+                    //dtMOVEIN.Select();
+                    comboBox4.DataSource = dtMOVEIN.DefaultView;
+                    comboBox4.ValueMember = "NAME";
+                    comboBox4.DisplayMember = "NAME";
+
+                }
+                catch
+                {
+                    MessageBox.Show("人員錯誤");
+                }
+            }
+
+            else                
+            {
+                string path = @"其他dtMOVEIN.txt";
+                DataRow workRow;
+
+                try
+                {
+                    if (File.Exists(path))
+                    {
+                        using (StreamReader sr = new StreamReader(path, Encoding.Unicode))
+                        {
+                            while (sr.Peek() >= 0)
+                            {
+                                // MessageBox.Show(sr.ReadLine().ToString());
+                                workRow = dtMOVEIN.NewRow();
+                                workRow[0] = sr.ReadLine().ToString();
+                                dtMOVEIN.Rows.Add(workRow);
+                            }
+                        }
+                    }
+
+                    //dtMOVEIN.Select();
+                    comboBox4.DataSource = dtMOVEIN.DefaultView;
+                    comboBox4.ValueMember = "NAME";
+                    comboBox4.DisplayMember = "NAME";
+
+                }
+                catch
+                {
+                    MessageBox.Show("人員錯誤");
+                }
+            }
+
+        }
+        public void InitailcomboBox5(string MAIN)
+        {
+            dtCHECKEMP.Clear();
+            dtCHECKEMP.Columns.Clear();
+
+            dtCHECKEMP.Columns.Add("NAME", typeof(string));
+
+            if (MAIN.Equals("新廠製二組"))
+            {
+                string path = @"新廠製二組dtMOVEIN.txt";
+                DataRow workRow;
+
+                try
+                {
+                    if (File.Exists(path))
+                    {
+                        using (StreamReader sr = new StreamReader(path, Encoding.Unicode))
+                        {
+                            while (sr.Peek() >= 0)
+                            {
+                                // MessageBox.Show(sr.ReadLine().ToString());
+                                workRow = dtCHECKEMP.NewRow();
+                                workRow[0] = sr.ReadLine().ToString();
+                                dtCHECKEMP.Rows.Add(workRow);
+                            }
+                        }
+                    }
+
+                    //dtMOVEIN.Select();
+                    comboBox5.DataSource = dtCHECKEMP.DefaultView;
+                    comboBox5.ValueMember = "NAME";
+                    comboBox5.DisplayMember = "NAME";
+
+                }
+                catch
+                {
+                    MessageBox.Show("人員錯誤");
+                }
+            }
+            else if (MAIN.Equals("新廠製一組"))
+            {
+                string path = @"新廠製一組dtMOVEIN.txt";
+                DataRow workRow;
+
+                try
+                {
+                    if (File.Exists(path))
+                    {
+                        using (StreamReader sr = new StreamReader(path, Encoding.Unicode))
+                        {
+                            while (sr.Peek() >= 0)
+                            {
+                                // MessageBox.Show(sr.ReadLine().ToString());
+                                workRow = dtCHECKEMP.NewRow();
+                                workRow[0] = sr.ReadLine().ToString();
+                                dtCHECKEMP.Rows.Add(workRow);
+                            }
+                        }
+                    }
+
+                    //dtMOVEIN.Select();
+                    comboBox5.DataSource = dtCHECKEMP.DefaultView;
+                    comboBox5.ValueMember = "NAME";
+                    comboBox5.DisplayMember = "NAME";
+
+                }
+                catch
+                {
+                    MessageBox.Show("人員錯誤");
+                }
+            }
+
+            else
+            {
+                string path = @"其他dtMOVEIN.txt";
+                DataRow workRow;
+
+                try
+                {
+                    if (File.Exists(path))
+                    {
+                        using (StreamReader sr = new StreamReader(path, Encoding.Unicode))
+                        {
+                            while (sr.Peek() >= 0)
+                            {
+                                // MessageBox.Show(sr.ReadLine().ToString());
+                                workRow = dtCHECKEMP.NewRow();
+                                workRow[0] = sr.ReadLine().ToString();
+                                dtCHECKEMP.Rows.Add(workRow);
+                            }
+                        }
+                    }
+
+                    //dtMOVEIN.Select();
+                    comboBox5.DataSource = dtCHECKEMP.DefaultView;
+                    comboBox5.ValueMember = "NAME";
+                    comboBox5.DisplayMember = "NAME";
+
+                }
+                catch
+                {
+                    MessageBox.Show("人員錯誤");
+                }
+            }
+
         }
 
         #endregion
@@ -2819,8 +3043,9 @@ namespace TKCIM
         }
 
 
+
         #endregion
 
-      
+       
     }
 }
