@@ -50,6 +50,9 @@ namespace TKCIM
         DataSet ds17 = new DataSet();
         DataSet ds18 = new DataSet();
         DataSet ds19 = new DataSet();
+
+        DataSet dsCHECKUPDATE = new DataSet();
+
         DataTable dt = new DataTable();
 
         DataTable dtMOVEIN = new DataTable();
@@ -1332,6 +1335,8 @@ namespace TKCIM
                 //sbSql.AppendFormat("   ,[MATERWATERPROIDMD].[MOVEIN]='{0}'", comboBox4.Text.ToString());
                 //sbSql.AppendFormat("   ,[MATERWATERPROIDMD].[CHECKEMP]='{0}'", comboBox5.Text.ToString());
                 sbSql.AppendFormat("   WHERE [MATERWATERPROIDMD].[CANNO]='{0}'", numericUpDown1.Value.ToString());
+                sbSql.AppendFormat(@"  AND [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}' ", MATERWATERPROIDMTA001B, MATERWATERPROIDMTA002B);
+                sbSql.AppendFormat(" ");
                 sbSql.AppendFormat(" ");
 
                 cmd.Connection = sqlConn;
@@ -2890,6 +2895,82 @@ namespace TKCIM
 
         }
 
+        public void CKECKUPDATE()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                StringBuilder sbSql = new StringBuilder();
+                sbSql.Clear();
+                sbSqlQuery.Clear();
+                dsCHECKUPDATE.Clear();
+
+                sbSql.AppendFormat(@"  SELECT * ");
+                sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[MATERWATERPROIDMD]");
+                sbSql.AppendFormat(@"  WHERE  ISNULL([MOVEIN],'')<>''");
+                sbSql.AppendFormat(@"  AND [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}' ", MATERWATERPROIDMTA001B, MATERWATERPROIDMTA002B);
+                sbSql.AppendFormat(@"  AND [CANNO]='{0}'",numericUpDown1.Value.ToString());
+                sbSql.AppendFormat(@"  ");
+
+
+                adapter = new SqlDataAdapter(@"" + sbSql, sqlConn);
+
+                sqlCmdBuilder = new SqlCommandBuilder(adapter);
+                sqlConn.Open();
+                dsCHECKUPDATE.Clear();
+                adapter.Fill(dsCHECKUPDATE, "TEMPdsCHECKUPDATE");
+                sqlConn.Close();
+
+
+                if (dsCHECKUPDATE.Tables["TEMPdsCHECKUPDATE"].Rows.Count == 0)
+                {
+                    DialogResult dialogResult = MessageBox.Show("投料人是: " + label12.Text + "   抽檢人是: " + label15.Text + "  正確嗎?", "存檔?", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        if (comboBox6.Text.Equals(MANULABEL.Text))
+                        {
+                            UPDATEMATERWATERPROIDMD();
+                            SEARCHMATERWATERPROIDMD();
+                            numericUpDown1.Value = numericUpDown1.Value + 1;
+                            //MessageBox.Show("本桶結束了喔!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("此線人員錯誤，請指定正確人員");
+                        }
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        //do something else
+                    }
+
+                }
+                else
+                {
+                  
+                     MessageBox.Show("第"+numericUpDown1.Value.ToString()+"桶 已填入人員");
+                   
+                }
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                sqlConn.Close();
+            }
+
+
+            
+
+
+            COMBOXCHANGE();
+        }
+
         #endregion
 
         #region BUTTON
@@ -2961,29 +3042,7 @@ namespace TKCIM
         }
         private void button10_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("投料人是: " + label12.Text + "   抽檢人是: " + label15.Text+"  正確嗎?", "存檔?", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                if (comboBox6.Text.Equals(MANULABEL.Text))
-                {
-                    UPDATEMATERWATERPROIDMD();
-                    SEARCHMATERWATERPROIDMD();
-                    numericUpDown1.Value = numericUpDown1.Value + 1;
-                    //MessageBox.Show("本桶結束了喔!");
-                }
-                else
-                {
-                    MessageBox.Show("此線人員錯誤，請指定正確人員");
-                }
-            }
-            else if (dialogResult == DialogResult.No)
-            {
-                //do something else
-            }
-
-            
-
-            COMBOXCHANGE();
+            CKECKUPDATE();
         }
 
 

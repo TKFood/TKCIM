@@ -43,6 +43,8 @@ namespace TKCIM
         DataSet ds12 = new DataSet();
         DataSet ds13 = new DataSet();
         DataSet dsMOCTE = new DataSet();
+        DataSet dsCHECKUPDATE = new DataSet();
+
         DataTable dt = new DataTable();
         string tablename = null;
         int result;
@@ -1299,6 +1301,7 @@ namespace TKCIM
                 //sbSql.AppendFormat("   ,[METEROILPROIDMD].[MOVEIN]='{0}'", comboBox4.Text.ToString());
                 //sbSql.AppendFormat("   ,[METEROILPROIDMD].[CHECKEMP]='{0}'", comboBox5.Text.ToString());
                 sbSql.AppendFormat("   WHERE [METEROILPROIDMD].[CANNO]='{0}'", numericUpDown1.Value.ToString());
+                sbSql.AppendFormat(@"  AND [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}' ", MATEROILRPROIDMTA001B, MATEROILRPROIDMTA002B);
                 sbSql.AppendFormat(" ");
 
                 cmd.Connection = sqlConn;
@@ -2265,6 +2268,72 @@ namespace TKCIM
             }
         }
 
+        public void CKECKUPDATE()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                StringBuilder sbSql = new StringBuilder();
+                sbSql.Clear();
+                sbSqlQuery.Clear();
+                dsCHECKUPDATE.Clear();
+
+                sbSql.AppendFormat(@"  SELECT * ");
+                sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[METEROILPROIDMD]");
+                sbSql.AppendFormat(@"  WHERE  ISNULL([MOVEIN],'')<>''");
+                sbSql.AppendFormat(@"  AND [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}' ", MATEROILRPROIDMTA001B, MATEROILRPROIDMTA002B);
+                sbSql.AppendFormat(@"  AND [CANNO]='{0}'", numericUpDown1.Value.ToString());
+                sbSql.AppendFormat(@"  ");
+
+
+                adapter = new SqlDataAdapter(@"" + sbSql, sqlConn);
+
+                sqlCmdBuilder = new SqlCommandBuilder(adapter);
+                sqlConn.Open();
+                dsCHECKUPDATE.Clear();
+                adapter.Fill(dsCHECKUPDATE, "TEMPdsCHECKUPDATE");
+                sqlConn.Close();
+
+
+                if (dsCHECKUPDATE.Tables["TEMPdsCHECKUPDATE"].Rows.Count == 0)
+                {
+                    if (comboBox2.Text.Equals(MANULABEL.Text))
+                    {
+                        UPDATEMATEROILPROIDMD();
+                        SERACHMETEROILPROIDMD();
+                        numericUpDown1.Value = numericUpDown1.Value + 1;
+                        MessageBox.Show("本桶結束了喔!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("此線人員錯誤，請指定正確人員");
+                    }
+                    
+                }
+                else
+                {
+
+                    MessageBox.Show("第" + numericUpDown1.Value.ToString() + "桶 已填入人員");
+
+                }
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                sqlConn.Close();
+            }
+
+            COMBOXCHANGE();
+
+        }
+
+
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
             label2.Text = comboBox4.Text.ToString();
@@ -2320,20 +2389,7 @@ namespace TKCIM
         }
         private void button10_Click(object sender, EventArgs e)
         {
-            if (comboBox2.Text.Equals(MANULABEL.Text))
-            {
-                UPDATEMATEROILPROIDMD();
-                SERACHMETEROILPROIDMD();
-                numericUpDown1.Value = numericUpDown1.Value + 1;
-                MessageBox.Show("本桶結束了喔!");
-            }
-            else
-            {
-                MessageBox.Show("此線人員錯誤，請指定正確人員");
-            }
-            
-
-            COMBOXCHANGE();
+            CKECKUPDATE();           
         }
         private void button9_Click(object sender, EventArgs e)
         {            
