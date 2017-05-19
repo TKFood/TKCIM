@@ -2961,7 +2961,7 @@ namespace TKCIM
         }
         private void button10_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("投料人是: " + label12.Text + "抽檢人是: " + label15.Text, "存檔?", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("投料人是: " + label12.Text + "   抽檢人是: " + label15.Text+"  正確嗎?", "存檔?", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 if (comboBox6.Text.Equals(MANULABEL.Text))
