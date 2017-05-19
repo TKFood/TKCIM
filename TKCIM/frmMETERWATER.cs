@@ -2961,17 +2961,27 @@ namespace TKCIM
         }
         private void button10_Click(object sender, EventArgs e)
         {
-            if (comboBox6.Text.Equals(MANULABEL.Text))
+            DialogResult dialogResult = MessageBox.Show("投料人是: " + label12.Text + "抽檢人是: " + label15.Text, "存檔?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-                UPDATEMATERWATERPROIDMD();
-                SEARCHMATERWATERPROIDMD();
-                numericUpDown1.Value = numericUpDown1.Value + 1;
-                MessageBox.Show("本桶結束了喔!");
+                if (comboBox6.Text.Equals(MANULABEL.Text))
+                {
+                    UPDATEMATERWATERPROIDMD();
+                    SEARCHMATERWATERPROIDMD();
+                    numericUpDown1.Value = numericUpDown1.Value + 1;
+                    //MessageBox.Show("本桶結束了喔!");
+                }
+                else
+                {
+                    MessageBox.Show("此線人員錯誤，請指定正確人員");
+                }
             }
-            else
+            else if (dialogResult == DialogResult.No)
             {
-                MessageBox.Show("此線人員錯誤，請指定正確人員");
+                //do something else
             }
+
+            
 
             COMBOXCHANGE();
         }
