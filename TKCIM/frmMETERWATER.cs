@@ -2715,10 +2715,7 @@ namespace TKCIM
                         }
                     }
 
-                    //dtMOVEIN.Select();
-                    comboBox4.DataSource = dtMOVEIN.DefaultView;
-                    comboBox4.ValueMember = "NAME";
-                    comboBox4.DisplayMember = "NAME";
+                  
 
                 }
                 catch
@@ -2747,10 +2744,7 @@ namespace TKCIM
                         }
                     }
 
-                    //dtMOVEIN.Select();
-                    comboBox4.DataSource = dtMOVEIN.DefaultView;
-                    comboBox4.ValueMember = "NAME";
-                    comboBox4.DisplayMember = "NAME";
+                   
 
                 }
                 catch
@@ -2780,10 +2774,7 @@ namespace TKCIM
                         }
                     }
 
-                    //dtMOVEIN.Select();
-                    comboBox4.DataSource = dtMOVEIN.DefaultView;
-                    comboBox4.ValueMember = "NAME";
-                    comboBox4.DisplayMember = "NAME";
+                   
 
                 }
                 catch
@@ -2791,6 +2782,10 @@ namespace TKCIM
                     MessageBox.Show("人員錯誤");
                 }
             }
+            //dtMOVEIN.Select();
+            comboBox4.DataSource = dtMOVEIN.DefaultView;
+            comboBox4.ValueMember = "NAME";
+            comboBox4.DisplayMember = "NAME";
 
         }
         public void InitailcomboBox5(string MAIN)
@@ -2802,7 +2797,7 @@ namespace TKCIM
 
             if (MAIN.Equals("新廠製二組"))
             {
-                string path = @"新廠製二組dtMOVEIN.txt";
+                string path = @"新廠製二組dtCHECKEMP.txt";
                 DataRow workRow;
 
                 try
@@ -2821,10 +2816,7 @@ namespace TKCIM
                         }
                     }
 
-                    //dtMOVEIN.Select();
-                    comboBox5.DataSource = dtCHECKEMP.DefaultView;
-                    comboBox5.ValueMember = "NAME";
-                    comboBox5.DisplayMember = "NAME";
+                   
 
                 }
                 catch
@@ -2834,7 +2826,7 @@ namespace TKCIM
             }
             else if (MAIN.Equals("新廠製一組"))
             {
-                string path = @"新廠製一組dtMOVEIN.txt";
+                string path = @"新廠製一組dtCHECKEMP.txt";
                 DataRow workRow;
 
                 try
@@ -2853,10 +2845,7 @@ namespace TKCIM
                         }
                     }
 
-                    //dtMOVEIN.Select();
-                    comboBox5.DataSource = dtCHECKEMP.DefaultView;
-                    comboBox5.ValueMember = "NAME";
-                    comboBox5.DisplayMember = "NAME";
+                  
 
                 }
                 catch
@@ -2867,7 +2856,7 @@ namespace TKCIM
 
             else
             {
-                string path = @"其他dtMOVEIN.txt";
+                string path = @"其他dtCHECKEMP.txt";
                 DataRow workRow;
 
                 try
@@ -2886,10 +2875,7 @@ namespace TKCIM
                         }
                     }
 
-                    //dtMOVEIN.Select();
-                    comboBox5.DataSource = dtCHECKEMP.DefaultView;
-                    comboBox5.ValueMember = "NAME";
-                    comboBox5.DisplayMember = "NAME";
+                  
 
                 }
                 catch
@@ -2897,6 +2883,10 @@ namespace TKCIM
                     MessageBox.Show("人員錯誤");
                 }
             }
+            //dtMOVEIN.Select();
+            comboBox5.DataSource = dtCHECKEMP.DefaultView;
+            comboBox5.ValueMember = "NAME";
+            comboBox5.DisplayMember = "NAME";
 
         }
 
