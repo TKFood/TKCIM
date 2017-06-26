@@ -113,15 +113,18 @@ namespace TKCIM
             if (comboBox1.Text.ToString().Equals("水麵添加表"))
             {
                 STR.AppendFormat(@"  SELECT [MAIN] AS '組別',[MAINDATE]  AS '生產日'");
-                STR.AppendFormat(@"  ,[MATERWATERPROIDMD].[MB002] AS '品名'  ,[MATERWATERPROIDMD].[LOTID] AS '批號',[CANNO] AS '桶數',[NUM] AS '重量'");
-                STR.AppendFormat(@"  ,[MATERWATERPROIDMD].[TARGETPROTA001] AS '單別',[MATERWATERPROIDMD].[TARGETPROTA002] AS '單號',[MATERWATERPROIDMD].[MB001] AS '品號',[OUTLOOK] AS '外觀',CONVERT(varchar(100),[STIME],8) AS '起時間',CONVERT(varchar(100),[ETIME],8) AS '迄時間'");
+                STR.AppendFormat(@"  ,[MATERWATERPROIDM].[TARGETPROTA001] AS '單別',[MATERWATERPROIDM].[TARGETPROTA002] AS '單號'");
+                STR.AppendFormat(@"  ,[MATERWATERPROIDM].[MB001] AS '品號',[MATERWATERPROIDM].[MB002] AS '品名',[MATERWATERPROIDM].[LOTID] AS '批號'");
+                STR.AppendFormat(@"  ,[CANNO] AS '桶數',[NUM] AS '重量'");
+                STR.AppendFormat(@"  ,[OUTLOOK] AS '外觀',CONVERT(varchar(100),[STIME],8) AS '起時間',CONVERT(varchar(100),[ETIME],8) AS '迄時間'");
                 STR.AppendFormat(@"  ,[TEMP] AS '溫度' ,[HUDI] AS '溼度',[MOVEIN] AS '投料人',[CHECKEMP] AS '抽檢人'");
-                STR.AppendFormat(@"  FROM [TKCIM].[dbo].[MATERWATERPROIDMD],[TKCIM].[dbo].[METEROILPROIDM]");
-                STR.AppendFormat(@"  WHERE [MATERWATERPROIDMD].[TARGETPROTA001]=[METEROILPROIDM].[TARGETPROTA001]");
-                STR.AppendFormat(@"  AND  [MATERWATERPROIDMD].[TARGETPROTA002]=[METEROILPROIDM].[TARGETPROTA002]");
-                STR.AppendFormat(@"  AND  [MATERWATERPROIDMD].[MB001]=[METEROILPROIDM].[MB001]");
-                STR.AppendFormat(@"  AND [METEROILPROIDM].[MAINDATE]>='{0}' AND [METEROILPROIDM].[MAINDATE]<='{1}'",dateTimePicker1.Value.ToString("yyyyMMdd"), dateTimePicker2.Value.ToString("yyyyMMdd"));
-                STR.AppendFormat(@"  ORDER BY  [MATERWATERPROIDMD].[TARGETPROTA001],[MATERWATERPROIDMD].[TARGETPROTA002],CONVERT(INT,[CANNO]),[MATERWATERPROIDMD].[MB001]");
+                STR.AppendFormat(@"  FROM [TKCIM].[dbo].[MATERWATERPROIDM],[TKCIM].[dbo].[MATERWATERPROIDMD]");
+                STR.AppendFormat(@"  WHERE [MATERWATERPROIDM].[TARGETPROTA001]=[MATERWATERPROIDMD].[TARGETPROTA001]");
+                STR.AppendFormat(@"  AND [MATERWATERPROIDM].[TARGETPROTA002]=[MATERWATERPROIDMD].[TARGETPROTA002]");
+                STR.AppendFormat(@"  AND [MATERWATERPROIDM].[MB001]=[MATERWATERPROIDMD].[MB001]");
+                STR.AppendFormat(@"  AND [MATERWATERPROIDM].[LOTID]=[MATERWATERPROIDMD].[LOTID]");
+                STR.AppendFormat(@"  AND [MAINDATE]>= '{0}' AND [MAINDATE]<= '{1}'",dateTimePicker1.Value.ToString("yyyy/MM/dd"), dateTimePicker2.Value.ToString("yyyy/MM/dd"));
+                STR.AppendFormat(@"  ORDER BY [MAIN],[MATERWATERPROIDM].[TARGETPROTA001] ,[MATERWATERPROIDM].[TARGETPROTA002],CONVERT(INT,[CANNO]),[MATERWATERPROIDM].[MB001],[MATERWATERPROIDM].[LOTID]");
                 STR.AppendFormat(@"  ");
 
 
