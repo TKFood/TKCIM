@@ -133,9 +133,32 @@ namespace TKCIM
 
             else if (comboBox1.Text.ToString().Equals("油酥添加表"))
             {
+                STR.AppendFormat(@"  SELECT [MAIN] AS '組別',[MAINDATE]  AS '生產日'");
+                STR.AppendFormat(@"  ,[METEROILPROIDM].[TARGETPROTA001] AS '單別',[METEROILPROIDM].[TARGETPROTA002] AS '單號'");
+                STR.AppendFormat(@"  ,[METEROILPROIDM].[MB001] AS '品號',[METEROILPROIDM].[MB002] AS '品名',[METEROILPROIDM].[LOTID] AS '批號'");
+                STR.AppendFormat(@"  ,[CANNO] AS '桶數',[NUM] AS '重量'");
+                STR.AppendFormat(@"  ,[OUTLOOK] AS '外觀',CONVERT(varchar(100),[STIME],8) AS '起時間',CONVERT(varchar(100),[ETIME],8) AS '迄時間'");
+                STR.AppendFormat(@"  ,[TEMP] AS '溫度' ,[HUDI] AS '溼度',[MOVEIN] AS '投料人',[CHECKEMP] AS '抽檢人'");
+                STR.AppendFormat(@"  FROM [TKCIM].[dbo].[METEROILPROIDM],[TKCIM].[dbo].[METEROILPROIDMD]");
+                STR.AppendFormat(@"  WHERE [METEROILPROIDM].[TARGETPROTA001]=[METEROILPROIDMD].[TARGETPROTA001]");
+                STR.AppendFormat(@"  AND [METEROILPROIDM].[TARGETPROTA002]=[METEROILPROIDMD].[TARGETPROTA002]");
+                STR.AppendFormat(@"  AND [METEROILPROIDM].[MB001]=[METEROILPROIDMD].[MB001]");
+                STR.AppendFormat(@"  AND [METEROILPROIDM].[LOTID]=[METEROILPROIDMD].[LOTID]");
+                STR.AppendFormat(@"  AND [MAINDATE]>= '{0}' AND [MAINDATE]<= '{1}'", dateTimePicker1.Value.ToString("yyyy/MM/dd"), dateTimePicker2.Value.ToString("yyyy/MM/dd"));
+                STR.AppendFormat(@"  ORDER BY [MAIN],[METEROILPROIDM].[TARGETPROTA001] ,[METEROILPROIDM].[TARGETPROTA002],CONVERT(INT,[CANNO]),[METEROILPROIDM].[MB001],[METEROILPROIDM].[LOTID]");
+                STR.AppendFormat(@"  ");
+                STR.AppendFormat(@"  ");
 
+                tablename = "TEMPds2";
             }
 
+            else if (comboBox1.Text.ToString().Equals(""))
+            {
+     
+                STR.AppendFormat(@"  ");
+
+                tablename = "";
+            }
 
             return STR;
         }
