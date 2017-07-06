@@ -470,7 +470,7 @@ namespace TKCIM
 
                 sbSql.Clear();
                 sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[CHECKBAKEDMD]");
-                sbSql.AppendFormat("  ([ID],[MAIN],[MAINDATE],[TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[CHECKTIME],[WIGHT],[LENGTH],[TEMP],[HUMIDITY],[CHECKRESULT],[OWNER],[MANAGER] )");
+                sbSql.AppendFormat("  ([ID],[MAIN],[MAINDATE],[TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[CHECKTIME],[WIGHT],[LENGTH],[TEMP],[HUMIDITY],[CHECKRESULT],[MANAGER],[OWNER] )");
                 sbSql.AppendFormat("   VALUES({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}')", "NEWID()", MDMAIN, dateTimePicker1.Value.ToString("yyyy/MM/dd"), MDTARGETPROTA001, MDTARGETPROTA002, MDMB001, MDMB002, dateTimePicker3.Value.ToString("HH:mm"), textBox22.Text, textBox23.Text, textBox24.Text, textBox25.Text, comboBox1.Text, comboBox3.Text, comboBox4.Text);
                 sbSql.AppendFormat(" ");
 
