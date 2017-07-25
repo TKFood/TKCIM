@@ -63,11 +63,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CHECKFIRSTTYPE.cs">
+    <Compile Include="frmCHECKFIRSTTYPE.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CHECKFIRSTTYPE.Designer.cs">
-      <DependentUpon>CHECKFIRSTTYPE.cs</DependentUpon>
+    <Compile Include="frmCHECKFIRSTTYPE.Designer.cs">
+      <DependentUpon>frmCHECKFIRSTTYPE.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCHECKBAKED.cs">
       <SubType>Form</SubType>
@@ -161,8 +161,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CHECKFIRSTTYPE.resx">
-      <DependentUpon>CHECKFIRSTTYPE.cs</DependentUpon>
+    <EmbeddedResource Include="frmCHECKFIRSTTYPE.resx">
+      <DependentUpon>frmCHECKFIRSTTYPE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCHECKBAKED.resx">
       <DependentUpon>frmCHECKBAKED.cs</DependentUpon>

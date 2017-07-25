@@ -1,6 +1,6 @@
 ﻿namespace TKCIM
 {
-    partial class CHECKFIRSTTYPE
+    partial class frmCHECKFIRSTTYPE
     {
         /// <summary>
         /// Required designer variable.

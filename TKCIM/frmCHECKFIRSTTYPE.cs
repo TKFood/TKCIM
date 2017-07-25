@@ -18,7 +18,7 @@ using System.Threading;
 
 namespace TKCIM
 {
-    public partial class CHECKFIRSTTYPE : Form
+    public partial class frmCHECKFIRSTTYPE : Form
     {
         SqlConnection sqlConn = new SqlConnection();
         SqlCommand sqlComm = new SqlCommand();
@@ -55,7 +55,7 @@ namespace TKCIM
         string DELCHECKFIRSTTYPEID;
 
 
-        public CHECKFIRSTTYPE()
+        public frmCHECKFIRSTTYPE()
         {
             InitializeComponent();
 
