@@ -257,9 +257,9 @@ namespace TKCIM
 
                 sbSql.AppendFormat(@"  SELECT ");
                 sbSql.AppendFormat(@"  [MAIN] AS '組別',CONVERT(varchar(100),[MAINDATE], 112) AS '日期',CONVERT(varchar(100),[MAINTIME],14)  AS '時間',[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號'");
-                sbSql.AppendFormat(@"  ,[MB001] AS '品號',[MB002] AS '品名',[MB003] AS '規格',[UNIT] AS '入數單位',[UNITWEIGHT] AS '單位重量'");
+                sbSql.AppendFormat(@"  ,[MB001] AS '品號',[MB002] AS '品名',[MB003] AS '規格',[UNIT] AS '入數單位'");
                 sbSql.AppendFormat(@"  ,[PACKAGENUM] AS '入數數量',[CHECKNUM] AS '抽檢數量',[WEIGHT] AS '重量(公斤/箱)',[TYPEDATE] AS '日期別'");
-                sbSql.AppendFormat(@"  ,[PRODATE] AS '生產/製造日期',[OUTDATE] AS '保質/有效日期',[PACKAGELABEL] AS '外包裝標示',[INLABEL] AS '內容物封口',[TEMP] AS '備註'");
+                sbSql.AppendFormat(@"  ,[PRODATE] AS '生產/製造日期',[OUTDATE] AS '保質/有效日期',[PACKAGELABEL] AS '外包裝標示',[INLABEL] AS '內容物封口',[TASTEJUDG] AS '口味判定',[TASTEFELL] AS '口感判定',[TEMP] AS '備註'");
                 sbSql.AppendFormat(@"  ,[FJUDG] AS '判定',[OWNER] AS '填表人',[MANAGER] AS '包裝主管',[QC] AS '稽核人員'");
                 sbSql.AppendFormat(@"  ,[ID] ");
                 sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[CHECKFIRSTTYPEPACKAGE]");
@@ -320,6 +320,14 @@ namespace TKCIM
 
                 sbSql.Clear();
 
+                sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[CHECKFIRSTTYPEPACKAGE]");
+                sbSql.AppendFormat(" ([ID],[MAIN],[MAINDATE],[MAINTIME],[TARGETPROTA001],[TARGETPROTA002]");
+                sbSql.AppendFormat(" ,[MB001],[MB002],[MB003],[UNIT]");
+                sbSql.AppendFormat(" ,[PACKAGENUM],[CHECKNUM],[WEIGHT],[TYPEDATE],[PRODATE]");
+                sbSql.AppendFormat(" ,[OUTDATE],[PACKAGELABEL],[INLABEL],[TASTEJUDG],[TASTEFELL],[TEMP],[FJUDG]");
+                sbSql.AppendFormat(" ,[OWNER],[MANAGER],[QC])");
+                sbSql.AppendFormat(" VALUES ({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}')", "NEWID()", comboBox2.Text, dateTimePicker1.Value.ToString("yyyyMMdd"), dateTimePicker2.Value.ToString("HH:mm"), textBox301.Text, textBox302.Text, textBox303.Text, textBox304.Text, textBox305.Text,comboBox5.Text, textBox306.Text, textBox307.Text, textBox308.Text, comboBox6.Text, dateTimePicker3.Value.ToString("yyyyMMdd"), dateTimePicker4.Value.ToString("yyyyMMdd"),comboBox7.Text, comboBox8.Text, comboBox9.Text, comboBox10.Text,textBox309.Text, textBox310.Text, comboBox1.Text, comboBox3.Text, comboBox4.Text);
+                sbSql.AppendFormat(" ");
                 sbSql.AppendFormat(" ");
                 sbSql.AppendFormat(" ");
 
@@ -363,7 +371,8 @@ namespace TKCIM
 
                 sbSql.Clear();
 
-
+                sbSql.AppendFormat(" DELETE [TKCIM].[dbo].[CHECKFIRSTTYPEPACKAGE]");
+                sbSql.AppendFormat(" WHERE [ID]='{0}'",DELCHECKFIRSTTYPEPACKAGEID);
                 sbSql.AppendFormat(" ");
 
                 cmd.Connection = sqlConn;
@@ -395,6 +404,40 @@ namespace TKCIM
             SERACHCHECKFIRSTTYPEPACKAGE();
         }
 
+        private void dataGridView2_SelectionChanged(object sender, EventArgs e)
+        {
+            DELCHECKFIRSTTYPEPACKAGEID = null;
+
+            if (dataGridView2.CurrentRow != null)
+            {
+                int rowindex = dataGridView2.CurrentRow.Index;
+                if (rowindex >= 0)
+                {
+                    DataGridViewRow row = dataGridView2.Rows[rowindex];
+                    DELCHECKFIRSTTYPEPACKAGEID = row.Cells["ID"].Value.ToString();
+
+                }
+                else
+                {
+                    DELCHECKFIRSTTYPEPACKAGEID = null;
+
+                }
+            }
+            else
+            {
+                DELCHECKFIRSTTYPEPACKAGEID = null;
+            }
+
+        }
+
+        public void SETNULL()
+        {
+            textBox306.Text = null;
+            textBox307.Text = null;
+            textBox308.Text = null;
+            textBox309.Text = null;
+            textBox310.Text = null;
+        }
 
         #endregion
 
@@ -407,12 +450,26 @@ namespace TKCIM
         private void button3_Click(object sender, EventArgs e)
         {
             ADDCHECKFIRSTTYPEPACKAGE();
+            SETNULL();
+
+            SERACHCHECKFIRSTTYPEPACKAGE();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            DELCHECKFIRSTTYPEPACKAGE();
+            
+            DialogResult dialogResult = MessageBox.Show("要刪除了?", "要刪除了?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                DELCHECKFIRSTTYPEPACKAGE();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
+            SERACHCHECKFIRSTTYPEPACKAGE();
         }
+
 
         #endregion
 
