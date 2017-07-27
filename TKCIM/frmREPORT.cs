@@ -112,41 +112,41 @@ namespace TKCIM
 
             if (comboBox1.Text.ToString().Equals("水麵添加表"))
             {
-                STR.AppendFormat(@"  SELECT [MAIN] AS '組別',[MAINDATE]  AS '生產日'");
-                STR.AppendFormat(@"  ,[MATERWATERPROIDM].[TARGETPROTA001] AS '單別',[MATERWATERPROIDM].[TARGETPROTA002] AS '單號'");
-                STR.AppendFormat(@"  ,[MATERWATERPROIDM].[MB001] AS '品號',[MATERWATERPROIDM].[MB002] AS '品名',[MATERWATERPROIDM].[LOTID] AS '批號'");
-                STR.AppendFormat(@"  ,[CANNO] AS '桶數',[NUM] AS '重量'");
-                STR.AppendFormat(@"  ,[OUTLOOK] AS '外觀',CONVERT(varchar(100),[STIME],8) AS '起時間',CONVERT(varchar(100),[ETIME],8) AS '迄時間'");
-                STR.AppendFormat(@"  ,[TEMP] AS '溫度' ,[HUDI] AS '溼度',[MOVEIN] AS '投料人',[CHECKEMP] AS '抽檢人'");
-                STR.AppendFormat(@"  FROM [TKCIM].[dbo].[MATERWATERPROIDM],[TKCIM].[dbo].[MATERWATERPROIDMD]");
-                STR.AppendFormat(@"  WHERE [MATERWATERPROIDM].[TARGETPROTA001]=[MATERWATERPROIDMD].[TARGETPROTA001]");
-                STR.AppendFormat(@"  AND [MATERWATERPROIDM].[TARGETPROTA002]=[MATERWATERPROIDMD].[TARGETPROTA002]");
-                STR.AppendFormat(@"  AND [MATERWATERPROIDM].[MB001]=[MATERWATERPROIDMD].[MB001]");
-                STR.AppendFormat(@"  AND [MATERWATERPROIDM].[LOTID]=[MATERWATERPROIDMD].[LOTID]");
-                STR.AppendFormat(@"  AND [MAINDATE]>= '{0}' AND [MAINDATE]<= '{1}'",dateTimePicker1.Value.ToString("yyyy/MM/dd"), dateTimePicker2.Value.ToString("yyyy/MM/dd"));
-                STR.AppendFormat(@"  ORDER BY [MAIN],[MATERWATERPROIDM].[TARGETPROTA001] ,[MATERWATERPROIDM].[TARGETPROTA002],CONVERT(INT,[CANNO]),[MATERWATERPROIDM].[MB001],[MATERWATERPROIDM].[LOTID]");
+                STR.AppendFormat(@"  SELECT [MAIN] AS '組別',[MAINDATE]  AS '生產日'  ,[MATERWATERPROIDM].[TARGETPROTA001] AS '單別'");
+                STR.AppendFormat(@"  ,[MATERWATERPROIDM].[TARGETPROTA002] AS '單號'  ,[MATERWATERPROIDM].[MB001] AS '品號'");
+                STR.AppendFormat(@"  ,[MATERWATERPROIDM].[MB002] AS '品名',[MATERWATERPROIDM].[LOTID] AS '批號'  ,[CANNO] AS '桶數'");
+                STR.AppendFormat(@"  ,[NUM] AS '重量'  ,[OUTLOOK] AS '外觀',CONVERT(varchar(100),[STIME],8) AS '起時間'");
+                STR.AppendFormat(@"  ,CONVERT(varchar(100),[ETIME],8) AS '迄時間'  ,[TEMP] AS '溫度' ,[HUDI] AS '溼度',[MOVEIN] AS '投料人'");
+                STR.AppendFormat(@"  ,[CHECKEMP] AS '抽檢人'  ");
+                STR.AppendFormat(@"  FROM [TKCIM].[dbo].[MATERWATERPROIDM]");
+                STR.AppendFormat(@"  LEFT JOIN [TKCIM].[dbo].[MATERWATERPROIDMD]  ON [MATERWATERPROIDM].[TARGETPROTA001]=[MATERWATERPROIDMD].[TARGETPROTA001]   AND [MATERWATERPROIDM].[TARGETPROTA002]=[MATERWATERPROIDMD].[TARGETPROTA002]  AND [MATERWATERPROIDM].[MB001]=[MATERWATERPROIDMD].[MB001]   AND [MATERWATERPROIDM].[LOTID]=[MATERWATERPROIDMD].[LOTID]  ");
+                STR.AppendFormat(@"  WHERE [MAINDATE]>= '{0}' AND [MAINDATE]<= '{1}'", dateTimePicker1.Value.ToString("yyyy/MM/dd"), dateTimePicker2.Value.ToString("yyyy/MM/dd"));
+                STR.AppendFormat(@"  ORDER BY LEN([MATERWATERPROIDM].[MAIN]),[MATERWATERPROIDM].[MAIN],[MATERWATERPROIDM].[TARGETPROTA001] ,[MATERWATERPROIDM].[TARGETPROTA002],CONVERT(INT,[CANNO]),[MATERWATERPROIDM].[MB001],[MATERWATERPROIDM].[LOTID]  ");
                 STR.AppendFormat(@"  ");
-
+                STR.AppendFormat(@"  ");
+                
 
                 tablename = "TEMPds1";
             }
 
             else if (comboBox1.Text.ToString().Equals("油酥添加表"))
             {
-                STR.AppendFormat(@"  SELECT [MAIN] AS '組別',[MAINDATE]  AS '生產日'");
-                STR.AppendFormat(@"  ,[METEROILPROIDM].[TARGETPROTA001] AS '單別',[METEROILPROIDM].[TARGETPROTA002] AS '單號'");
-                STR.AppendFormat(@"  ,[METEROILPROIDM].[MB001] AS '品號',[METEROILPROIDM].[MB002] AS '品名',[METEROILPROIDM].[LOTID] AS '批號'");
-                STR.AppendFormat(@"  ,[CANNO] AS '桶數',[NUM] AS '重量'");
-                STR.AppendFormat(@"  ,[OUTLOOK] AS '外觀',CONVERT(varchar(100),[STIME],8) AS '起時間',CONVERT(varchar(100),[ETIME],8) AS '迄時間'");
-                STR.AppendFormat(@"  ,[TEMP] AS '溫度' ,[HUDI] AS '溼度',[MOVEIN] AS '投料人',[CHECKEMP] AS '抽檢人'");
-                STR.AppendFormat(@"  FROM [TKCIM].[dbo].[METEROILPROIDM],[TKCIM].[dbo].[METEROILPROIDMD]");
-                STR.AppendFormat(@"  WHERE [METEROILPROIDM].[TARGETPROTA001]=[METEROILPROIDMD].[TARGETPROTA001]");
-                STR.AppendFormat(@"  AND [METEROILPROIDM].[TARGETPROTA002]=[METEROILPROIDMD].[TARGETPROTA002]");
-                STR.AppendFormat(@"  AND [METEROILPROIDM].[MB001]=[METEROILPROIDMD].[MB001]");
-                STR.AppendFormat(@"  AND [METEROILPROIDM].[LOTID]=[METEROILPROIDMD].[LOTID]");
-                STR.AppendFormat(@"  AND [MAINDATE]>= '{0}' AND [MAINDATE]<= '{1}'", dateTimePicker1.Value.ToString("yyyy/MM/dd"), dateTimePicker2.Value.ToString("yyyy/MM/dd"));
-                STR.AppendFormat(@"  ORDER BY [MAIN],[METEROILPROIDM].[TARGETPROTA001] ,[METEROILPROIDM].[TARGETPROTA002],CONVERT(INT,[CANNO]),[METEROILPROIDM].[MB001],[METEROILPROIDM].[LOTID]");
+                STR.AppendFormat(@"  SELECT [MAIN] AS '組別',[MAINDATE]  AS '生產日'  ,[METEROILPROIDM].[TARGETPROTA001] AS '單別'");
+                STR.AppendFormat(@"  ,[METEROILPROIDM].[TARGETPROTA002] AS '單號'  ,[METEROILPROIDM].[MB001] AS '品號'");
+                STR.AppendFormat(@"  ,[METEROILPROIDM].[MB002] AS '品名',[METEROILPROIDM].[LOTID] AS '批號'  ,[CANNO] AS '桶數'");
+                STR.AppendFormat(@"  ,[NUM] AS '重量'  ,[OUTLOOK] AS '外觀',CONVERT(varchar(100),[STIME],8) AS '起時間'");
+                STR.AppendFormat(@"  ,CONVERT(varchar(100),[ETIME],8) AS '迄時間'  ,[TEMP] AS '溫度' ,[HUDI] AS '溼度'");
+                STR.AppendFormat(@"  ,[MOVEIN] AS '投料人',[CHECKEMP] AS '抽檢人' ");
+                STR.AppendFormat(@"  FROM [TKCIM].[dbo].[METEROILPROIDM]");
+                STR.AppendFormat(@"  LEFT JOIN [TKCIM].[dbo].[METEROILPROIDMD]  ON [METEROILPROIDM].[TARGETPROTA001]=[METEROILPROIDMD].[TARGETPROTA001]    AND [METEROILPROIDM].[TARGETPROTA002]=[METEROILPROIDMD].[TARGETPROTA002]    AND [METEROILPROIDM].[MB001]=[METEROILPROIDMD].[MB001]    AND [METEROILPROIDM].[LOTID]=[METEROILPROIDMD].[LOTID]  ");
+                STR.AppendFormat(@"  WHERE [MAINDATE]>= '{0}' AND [MAINDATE]<= '{1}'", dateTimePicker1.Value.ToString("yyyy/MM/dd"), dateTimePicker2.Value.ToString("yyyy/MM/dd"));
+                STR.AppendFormat(@"  ORDER BY LEN([METEROILPROIDM].[MAIN]),[METEROILPROIDM].[MAIN],[METEROILPROIDM].[MAINDATE],[METEROILPROIDM].[TARGETPROTA001],[METEROILPROIDM].[TARGETPROTA002], CONVERT(INT,[CANNO])");
                 STR.AppendFormat(@"  ");
+                STR.AppendFormat(@"  ");
+                STR.AppendFormat(@"  ");
+                STR.AppendFormat(@"  ");
+
+              
                 STR.AppendFormat(@"  ");
 
                 tablename = "TEMPds2";
