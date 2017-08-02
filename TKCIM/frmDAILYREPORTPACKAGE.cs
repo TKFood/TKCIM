@@ -236,11 +236,32 @@ namespace TKCIM
                         {
                             if (i <= 5)
                             {
-                                TextBox iTextBox = (TextBox)FindControl(this, "textBox2" + i + "1");
-                                iTextBox.Text = dr.Cells["品號"].Value.ToString();
+                                TextBox iTextBox1 = (TextBox)FindControl(this, "textBox2" + i + "1");
+                                iTextBox1.Text = dr.Cells["品號"].Value.ToString();
 
                                 TextBox iTextBox2 = (TextBox)FindControl(this, "textBox2" + i+"2");
                                 iTextBox2.Text = dr.Cells["品名"].Value.ToString();
+
+                                TextBox iTextBox3 = (TextBox)FindControl(this, "textBox2" + i + "3");
+                                iTextBox3.Text = "0";
+
+                                TextBox iTextBox4 = (TextBox)FindControl(this, "textBox2" + i + "4");
+                                iTextBox4.Text = dr.Cells["數量"].Value.ToString();
+
+                                TextBox iTextBox5 = (TextBox)FindControl(this, "textBox2" + i + "5");
+                                iTextBox5.Text = "0";
+
+                                TextBox iTextBox6 = (TextBox)FindControl(this, "textBox2" + i + "6");
+                                iTextBox6.Text = "0";
+
+                                TextBox iTextBox7 = (TextBox)FindControl(this, "textBox2" + i + "7");
+                                iTextBox7.Text = "0";
+
+                                TextBox iTextBox8 = (TextBox)FindControl(this, "textBox2" + i + "8");
+                                iTextBox8.Text = "0";
+
+                                TextBox iTextBox9 = (TextBox)FindControl(this, "textBox2" + i + "9");
+                                iTextBox9.Text = "0";
                                 i++;
                             }
 
@@ -290,11 +311,32 @@ namespace TKCIM
             {
                 if (i <= 5)
                 {
-                    TextBox iTextBox = (TextBox)FindControl(this, "textBox2" + i + "1");
-                    iTextBox.Text =null;
+                    TextBox iTextBox1 = (TextBox)FindControl(this, "textBox2" + i + "1");
+                    iTextBox1.Text =null;
 
                     TextBox iTextBox2 = (TextBox)FindControl(this, "textBox2" + i + "2");
                     iTextBox2.Text = null;
+
+                    TextBox iTextBox3 = (TextBox)FindControl(this, "textBox2" + i + "3");
+                    iTextBox3.Text = null;
+
+                    TextBox iTextBox4 = (TextBox)FindControl(this, "textBox2" + i + "4");
+                    iTextBox4.Text = null;
+
+                    TextBox iTextBox5 = (TextBox)FindControl(this, "textBox2" + i + "5");
+                    iTextBox5.Text = null;
+
+                    TextBox iTextBox6 = (TextBox)FindControl(this, "textBox2" + i + "6");
+                    iTextBox6.Text = null;
+
+                    TextBox iTextBox7 = (TextBox)FindControl(this, "textBox2" + i + "7");
+                    iTextBox7.Text = null;
+
+                    TextBox iTextBox8 = (TextBox)FindControl(this, "textBox2" + i + "8");
+                    iTextBox8.Text = null;
+
+                    TextBox iTextBox9 = (TextBox)FindControl(this, "textBox2" + i + "9");
+                    iTextBox9.Text = null;
                     i++;
                 }
 
