@@ -2096,6 +2096,7 @@
             this.button8.TabIndex = 28;
             this.button8.Text = "新增";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button13
             // 
@@ -2107,6 +2108,7 @@
             this.button13.TabIndex = 97;
             this.button13.Text = "刪除";
             this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // dataGridView8
             // 
@@ -2122,6 +2124,7 @@
             this.dataGridView8.RowTemplate.Height = 24;
             this.dataGridView8.Size = new System.Drawing.Size(219, 90);
             this.dataGridView8.TabIndex = 11;
+            this.dataGridView8.SelectionChanged += new System.EventHandler(this.dataGridView8_SelectionChanged);
             // 
             // tabPage2
             // 
