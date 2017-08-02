@@ -1957,6 +1957,7 @@
             this.button7.TabIndex = 27;
             this.button7.Text = "新增";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button12
             // 
@@ -1968,6 +1969,7 @@
             this.button12.TabIndex = 95;
             this.button12.Text = "刪除";
             this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // dataGridView7
             // 
@@ -1983,6 +1985,7 @@
             this.dataGridView7.RowTemplate.Height = 24;
             this.dataGridView7.Size = new System.Drawing.Size(223, 89);
             this.dataGridView7.TabIndex = 11;
+            this.dataGridView7.SelectionChanged += new System.EventHandler(this.dataGridView7_SelectionChanged);
             // 
             // splitContainer26
             // 
