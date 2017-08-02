@@ -835,49 +835,49 @@ namespace TKCIM
                 {
                     sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERPROIDM]");
                     sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MAIN],[MAINDATE],[MB001],[MB002],[LOTID])");
-                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATERWATERPROIDMTA001, MATERWATERPROIDMTA002, comboBox1.Text.ToString(), dateTimePicker4.Value.ToString("yyyyMMdd"), null, textBox1.Text, comboBox11.Text.ToString() + textBox21.Text);
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATERWATERPROIDMTA001, MATERWATERPROIDMTA002, comboBox1.Text.ToString(), MATERWATERPROIDMTA002.Substring(0,8), null, textBox1.Text, comboBox11.Text.ToString() + textBox21.Text);
                     sbSql.AppendFormat(" ");
                 }
                 if (!string.IsNullOrEmpty(textBox22.Text))
                 {
                     sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERPROIDM]");
                     sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MAIN],[MAINDATE],[MB001],[MB002],[LOTID])");
-                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATERWATERPROIDMTA001, MATERWATERPROIDMTA002, comboBox1.Text.ToString(), dateTimePicker4.Value.ToString("yyyyMMdd"), null, textBox2.Text, comboBox12.Text.ToString() + textBox22.Text);
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATERWATERPROIDMTA001, MATERWATERPROIDMTA002, comboBox1.Text.ToString(), MATERWATERPROIDMTA002.Substring(0, 8), null, textBox2.Text, comboBox12.Text.ToString() + textBox22.Text);
                     sbSql.AppendFormat(" ");
                 }
                 if (!string.IsNullOrEmpty(textBox23.Text))
                 {
                     sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERPROIDM]");
                     sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MAIN],[MAINDATE],[MB001],[MB002],[LOTID])");
-                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATERWATERPROIDMTA001, MATERWATERPROIDMTA002, comboBox1.Text.ToString(), dateTimePicker4.Value.ToString("yyyyMMdd"), null, textBox3.Text, comboBox13.Text.ToString() + textBox23.Text);
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATERWATERPROIDMTA001, MATERWATERPROIDMTA002, comboBox1.Text.ToString(), MATERWATERPROIDMTA002.Substring(0, 8), null, textBox3.Text, comboBox13.Text.ToString() + textBox23.Text);
                     sbSql.AppendFormat(" ");
                 }
                 if (!string.IsNullOrEmpty(textBox24.Text))
                 {
                     sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERPROIDM]");
                     sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MAIN],[MAINDATE],[MB001],[MB002],[LOTID])");
-                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATERWATERPROIDMTA001, MATERWATERPROIDMTA002, comboBox1.Text.ToString(), dateTimePicker4.Value.ToString("yyyyMMdd"), null, textBox4.Text, comboBox14.Text.ToString() + textBox24.Text);
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATERWATERPROIDMTA001, MATERWATERPROIDMTA002, comboBox1.Text.ToString(), MATERWATERPROIDMTA002.Substring(0, 8), null, textBox4.Text, comboBox14.Text.ToString() + textBox24.Text);
                     sbSql.AppendFormat(" ");
                 }
                 if (!string.IsNullOrEmpty(textBox25.Text))
                 {
                     sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERPROIDM]");
                     sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MAIN],[MAINDATE],[MB001],[MB002],[LOTID])");
-                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATERWATERPROIDMTA001, MATERWATERPROIDMTA002, comboBox1.Text.ToString(), dateTimePicker4.Value.ToString("yyyyMMdd"), null, textBox5.Text, comboBox15.Text.ToString() + textBox25.Text);
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATERWATERPROIDMTA001, MATERWATERPROIDMTA002, comboBox1.Text.ToString(), MATERWATERPROIDMTA002.Substring(0, 8), null, textBox5.Text, comboBox15.Text.ToString() + textBox25.Text);
                     sbSql.AppendFormat(" ");
                 }
                 if (!string.IsNullOrEmpty(textBox26.Text))
                 {
                     sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERPROIDM]");
                     sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MAIN],[MAINDATE],[MB001],[MB002],[LOTID])");
-                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATERWATERPROIDMTA001, MATERWATERPROIDMTA002, comboBox1.Text.ToString(), dateTimePicker4.Value.ToString("yyyyMMdd"), null, textBox6.Text, comboBox16.Text.ToString() + textBox26.Text);
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATERWATERPROIDMTA001, MATERWATERPROIDMTA002, comboBox1.Text.ToString(), MATERWATERPROIDMTA002.Substring(0, 8), null, textBox6.Text, comboBox16.Text.ToString() + textBox26.Text);
                     sbSql.AppendFormat(" ");
                 }
                 if (!string.IsNullOrEmpty(textBox27.Text))
                 {
                     sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[MATERWATERPROIDM]");
                     sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MAIN],[MAINDATE],[MB001],[MB002],[LOTID])");
-                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATERWATERPROIDMTA001, MATERWATERPROIDMTA002, comboBox1.Text.ToString(), dateTimePicker4.Value.ToString("yyyyMMdd"), null, textBox7.Text, comboBox17.Text.ToString() + textBox27.Text);
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATERWATERPROIDMTA001, MATERWATERPROIDMTA002, comboBox1.Text.ToString(), MATERWATERPROIDMTA002.Substring(0, 8), null, textBox7.Text, comboBox17.Text.ToString() + textBox27.Text);
                     sbSql.AppendFormat(" ");
                 }
 

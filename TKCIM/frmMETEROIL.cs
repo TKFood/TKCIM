@@ -547,112 +547,112 @@ namespace TKCIM
                 {
                     sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[METEROILPROIDM]");
                     sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MAIN],[MAINDATE],[MB001],[MB002],[LOTID])");
-                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), dateTimePicker5.Value.ToString("yyyyMMdd"), null, textBox1.Text, comboBox11.Text.ToString() + textBox21.Text);
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), MATEROILRPROIDMTA002.Substring(0,8), null, textBox1.Text, comboBox11.Text.ToString() + textBox21.Text);
                     sbSql.AppendFormat(" ");
                 }
                 if (!string.IsNullOrEmpty(textBox22.Text))
                 {
                     sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[METEROILPROIDM]");
                     sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MAIN],[MAINDATE],[MB001],[MB002],[LOTID])");
-                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), dateTimePicker5.Value.ToString("yyyyMMdd"), null, textBox2.Text, comboBox12.Text.ToString() + textBox22.Text);
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), MATEROILRPROIDMTA002.Substring(0, 8), null, textBox2.Text, comboBox12.Text.ToString() + textBox22.Text);
                     sbSql.AppendFormat(" ");
                 }
                 if (!string.IsNullOrEmpty(textBox23.Text))
                 {
                     sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[METEROILPROIDM]");
                     sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MAIN],[MAINDATE],[MB001],[MB002],[LOTID])");
-                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), dateTimePicker5.Value.ToString("yyyyMMdd"), null, textBox3.Text, comboBox13.Text.ToString() + textBox23.Text);
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), MATEROILRPROIDMTA002.Substring(0, 8), null, textBox3.Text, comboBox13.Text.ToString() + textBox23.Text);
                     sbSql.AppendFormat(" ");
                 }
                 if (!string.IsNullOrEmpty(textBox24.Text))
                 {
                     sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[METEROILPROIDM]");
                     sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MAIN],[MAINDATE],[MB001],[MB002],[LOTID])");
-                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), dateTimePicker5.Value.ToString("yyyyMMdd"), null, textBox4.Text, comboBox14.Text.ToString() + textBox24.Text);
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), MATEROILRPROIDMTA002.Substring(0, 8), null, textBox4.Text, comboBox14.Text.ToString() + textBox24.Text);
                     sbSql.AppendFormat(" ");
                 }
                 if (!string.IsNullOrEmpty(textBox25.Text))
                 {
                     sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[METEROILPROIDM]");
                     sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MAIN],[MAINDATE],[MB001],[MB002],[LOTID])");
-                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), dateTimePicker5.Value.ToString("yyyyMMdd"), null, textBox5.Text, comboBox15.Text.ToString() + textBox25.Text);
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), MATEROILRPROIDMTA002.Substring(0, 8), null, textBox5.Text, comboBox15.Text.ToString() + textBox25.Text);
                     sbSql.AppendFormat(" ");
                 }
                 if (!string.IsNullOrEmpty(textBox26.Text))
                 {
                     sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[METEROILPROIDM]");
                     sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MAIN],[MAINDATE],[MB001],[MB002],[LOTID])");
-                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), dateTimePicker5.Value.ToString("yyyyMMdd"), null, textBox6.Text, comboBox16.Text.ToString() + textBox26.Text);
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), MATEROILRPROIDMTA002.Substring(0, 8), null, textBox6.Text, comboBox16.Text.ToString() + textBox26.Text);
                     sbSql.AppendFormat(" ");
                 }
                 if (!string.IsNullOrEmpty(textBox27.Text))
                 {
                     sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[METEROILPROIDM]");
                     sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MAIN],[MAINDATE],[MB001],[MB002],[LOTID])");
-                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), dateTimePicker5.Value.ToString("yyyyMMdd"), null, textBox7.Text, comboBox17.Text.ToString() + textBox27.Text);
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), MATEROILRPROIDMTA002.Substring(0, 8), null, textBox7.Text, comboBox17.Text.ToString() + textBox27.Text);
                     sbSql.AppendFormat(" ");
                 }
                 if (!string.IsNullOrEmpty(textBox28.Text))
                 {
                     sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[METEROILPROIDM]");
                     sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MAIN],[MAINDATE],[MB001],[MB002],[LOTID])");
-                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), dateTimePicker5.Value.ToString("yyyyMMdd"), null, textBox8.Text, comboBox18.Text.ToString() + textBox28.Text);
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), MATEROILRPROIDMTA002.Substring(0, 8), null, textBox8.Text, comboBox18.Text.ToString() + textBox28.Text);
                     sbSql.AppendFormat(" ");
                 }
                 if (!string.IsNullOrEmpty(textBox29.Text))
                 {
                     sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[METEROILPROIDM]");
                     sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MAIN],[MAINDATE],[MB001],[MB002],[LOTID])");
-                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), dateTimePicker5.Value.ToString("yyyyMMdd"), null, textBox9.Text, comboBox19.Text.ToString() + textBox29.Text);
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), MATEROILRPROIDMTA002.Substring(0, 8), null, textBox9.Text, comboBox19.Text.ToString() + textBox29.Text);
                     sbSql.AppendFormat(" ");
                 }
                 if (!string.IsNullOrEmpty(textBox30.Text))
                 {
                     sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[METEROILPROIDM]");
                     sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MAIN],[MAINDATE],[MB001],[MB002],[LOTID])");
-                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), dateTimePicker5.Value.ToString("yyyyMMdd"), null, textBox10.Text, comboBox20.Text.ToString() + textBox30.Text);
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), MATEROILRPROIDMTA002.Substring(0, 8), null, textBox10.Text, comboBox20.Text.ToString() + textBox30.Text);
                     sbSql.AppendFormat(" ");
                 }
                 if (!string.IsNullOrEmpty(textBox31.Text))
                 {
                     sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[METEROILPROIDM]");
                     sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MAIN],[MAINDATE],[MB001],[MB002],[LOTID])");
-                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), dateTimePicker5.Value.ToString("yyyyMMdd"), null, textBox11.Text, comboBox21.Text.ToString() + textBox31.Text);
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), MATEROILRPROIDMTA002.Substring(0, 8), null, textBox11.Text, comboBox21.Text.ToString() + textBox31.Text);
                     sbSql.AppendFormat(" ");
                 }
                 if (!string.IsNullOrEmpty(textBox32.Text))
                 {
                     sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[METEROILPROIDM]");
                     sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MAIN],[MAINDATE],[MB001],[MB002],[LOTID])");
-                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), dateTimePicker5.Value.ToString("yyyyMMdd"), null, textBox12.Text, comboBox22.Text.ToString() + textBox32.Text);
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), MATEROILRPROIDMTA002.Substring(0, 8), null, textBox12.Text, comboBox22.Text.ToString() + textBox32.Text);
                     sbSql.AppendFormat(" ");
                 }
                 if (!string.IsNullOrEmpty(textBox33.Text))
                 {
                     sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[METEROILPROIDM]");
                     sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MAIN],[MAINDATE],[MB001],[MB002],[LOTID])");
-                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), dateTimePicker5.Value.ToString("yyyyMMdd"), null, textBox13.Text, comboBox23.Text.ToString() + textBox33.Text);
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), MATEROILRPROIDMTA002.Substring(0, 8), null, textBox13.Text, comboBox23.Text.ToString() + textBox33.Text);
                     sbSql.AppendFormat(" ");
                 }
                 if (!string.IsNullOrEmpty(textBox34.Text))
                 {
                     sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[METEROILPROIDM]");
                     sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MAIN],[MAINDATE],[MB001],[MB002],[LOTID])");
-                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), dateTimePicker5.Value.ToString("yyyyMMdd"), null, textBox14.Text, comboBox24.Text.ToString() + textBox34.Text);
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), MATEROILRPROIDMTA002.Substring(0, 8), null, textBox14.Text, comboBox24.Text.ToString() + textBox34.Text);
                     sbSql.AppendFormat(" ");
                 }
                 if (!string.IsNullOrEmpty(textBox35.Text))
                 {
                     sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[METEROILPROIDM]");
                     sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MAIN],[MAINDATE],[MB001],[MB002],[LOTID])");
-                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), dateTimePicker5.Value.ToString("yyyyMMdd"), null, textBox15.Text, comboBox25.Text.ToString() + textBox35.Text);
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), MATEROILRPROIDMTA002.Substring(0, 8), null, textBox15.Text, comboBox25.Text.ToString() + textBox35.Text);
                     sbSql.AppendFormat(" ");
                 }
                 if (!string.IsNullOrEmpty(textBox36.Text))
                 {
                     sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[METEROILPROIDM]");
                     sbSql.AppendFormat(" ([TARGETPROTA001],[TARGETPROTA002],[MAIN],[MAINDATE],[MB001],[MB002],[LOTID])");
-                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), dateTimePicker5.Value.ToString("yyyyMMdd"), null, textBox16.Text, comboBox26.Text.ToString() + textBox36.Text);
+                    sbSql.AppendFormat(" VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", MATEROILRPROIDMTA001, MATEROILRPROIDMTA002, comboBox1.Text.ToString(), MATEROILRPROIDMTA002.Substring(0, 8), null, textBox16.Text, comboBox26.Text.ToString() + textBox36.Text);
                     sbSql.AppendFormat(" ");
                 }
 
