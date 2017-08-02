@@ -2982,6 +2982,12 @@ namespace TKCIM
             COMBOXCHANGE();
         }
 
+        public void SETNULL()
+        {
+            textBox91.Text = null;
+            textBox92.Text = null;
+
+        }
         #endregion
 
         #region BUTTON
@@ -3054,6 +3060,7 @@ namespace TKCIM
         private void button10_Click(object sender, EventArgs e)
         {
             CKECKUPDATE();
+            SETNULL();
         }
 
 

@@ -2351,6 +2351,13 @@ namespace TKCIM
             label3.Text = comboBox5.Text.ToString();
         }
 
+        public void SETNULL()
+        {
+            textBox201.Text = null;
+            textBox202.Text = null;
+
+        }
+
         #endregion
 
         #region BUTTON
@@ -2396,7 +2403,8 @@ namespace TKCIM
         }
         private void button10_Click(object sender, EventArgs e)
         {
-            CKECKUPDATE();           
+            CKECKUPDATE();
+            SETNULL();
         }
         private void button9_Click(object sender, EventArgs e)
         {            
