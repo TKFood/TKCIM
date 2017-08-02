@@ -35,7 +35,7 @@ namespace TKCIM
         SqlCommandBuilder sqlCmdBuilder2 = new SqlCommandBuilder();
         SqlDataAdapter adapter3 = new SqlDataAdapter();
         SqlCommandBuilder sqlCmdBuilder3 = new SqlCommandBuilder();
-        SqlDataAdapter adapter43 = new SqlDataAdapter();
+        SqlDataAdapter adapter4 = new SqlDataAdapter();
         SqlCommandBuilder sqlCmdBuilder4 = new SqlCommandBuilder();
         SqlDataAdapter adapter5= new SqlDataAdapter();
         SqlCommandBuilder sqlCmdBuilder5 = new SqlCommandBuilder();
@@ -67,6 +67,11 @@ namespace TKCIM
         string TARGETPROTA001;
         string TARGETPROTA002;
         string DAILYREPORTPACKAGEPICKMATERID;
+        string DAILYREPORTPACKAGEID;
+        string MB001;
+        string MB002;
+        string MB003;
+        string DAILYREPORTPACKAGEPICKBACKID;
 
         public frmDAILYREPORTPACKAGE()
         {
@@ -108,7 +113,7 @@ namespace TKCIM
                 sbSqlQuery.Clear();
 
 
-                sbSql.AppendFormat(@"  SELECT MB002  AS '品名',TA015  AS '預計產量',TA001 AS '單別',TA002 AS '單號',TA003 AS '日期',TA006 AS '品號'  ,MB003 AS '規格'  ");
+                sbSql.AppendFormat(@"  SELECT TA002 AS '單號',MB002  AS '品名',TA015  AS '預計產量',TA001 AS '單別',TA003 AS '日期',TA006 AS '品號'  ,MB003 AS '規格',MB004 AS '單位'  ");
                 sbSql.AppendFormat(@"  ,MD002 AS '線別'");
                 sbSql.AppendFormat(@"  FROM [TK].dbo.MOCTA WITH (NOLOCK),[TK].dbo.INVMB WITH (NOLOCK),[TK].dbo.CMSMD WITH (NOLOCK)");
                 sbSql.AppendFormat(@"  WHERE TA006=MB001");
@@ -170,12 +175,22 @@ namespace TKCIM
                     TARGETPROTA001 = row.Cells["單別"].Value.ToString();
                     TARGETPROTA002 = row.Cells["單號"].Value.ToString();
 
+                    textBox401.Text =  row.Cells["單位"].Value.ToString();
+                    textBox402.Text = row.Cells["預計產量"].Value.ToString();
+                    MB001 = row.Cells["品號"].Value.ToString();
+                    MB002 = row.Cells["品名"].Value.ToString();
+                    MB003 = row.Cells["規格"].Value.ToString();
 
                 }
                 else
                 {
                     TARGETPROTA001 = null;
                     TARGETPROTA002 = null;
+                    textBox401.Text = null;
+                    textBox402.Text = null;
+                    MB001 = null;
+                    MB002 = null;
+                    MB003 = null;
 
                 }
             }
@@ -183,10 +198,19 @@ namespace TKCIM
             {
                 TARGETPROTA001 = null;
                 TARGETPROTA002 = null;
+                textBox401.Text = null;
+                textBox402.Text = null;
+                MB001 = null;
+                MB002 = null;
+                MB003 = null;
             }
 
             SEARCHMOCTE();
             SEARCHDAILYREPORTPACKAGEPICKMATER();
+            SEACRHDAILYREPORTPACKAGE();
+            SEARCHDAILYREPORTPACKAGEPICKBACK();
+
+
         }
 
         public void SEARCHMOCTE()
@@ -262,7 +286,10 @@ namespace TKCIM
                                 TextBox iTextBox8 = (TextBox)FindControl(this, "textBox2" + i + "8");
                                 iTextBox8.Text = "0";
 
-                              
+                                TextBox iTextBox9 = (TextBox)FindControl(this, "textBox2" + i + "9");
+                                iTextBox9.Text = "0";
+
+
                                 i++;
                             }
 
@@ -335,6 +362,9 @@ namespace TKCIM
 
                     TextBox iTextBox8 = (TextBox)FindControl(this, "textBox2" + i + "8");
                     iTextBox8.Text = null;
+
+                    TextBox iTextBox9 = (TextBox)FindControl(this, "textBox2" + i + "9");
+                    iTextBox9.Text = null;
 
                     i++;
                 }
@@ -557,7 +587,363 @@ namespace TKCIM
             SEARCHDAILYREPORTPACKAGEPICKMATER();
         }
 
+        public void ADDDAILYREPORTPACKAGE()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
 
+                sqlConn.Close();
+                sqlConn.Open();
+                tran = sqlConn.BeginTransaction();
+
+                sbSql.Clear();
+               
+                sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[DAILYREPORTPACKAGE]");
+                sbSql.AppendFormat(" ([ID],[MAIN],[MAINDATE],[TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[MB003],[UINTS],[PRENUM],[PRODATE],[PRONUM],[PROPEOPLE],[PACKAGETIME],[TODATTIME],[TOTALTIME])");
+                sbSql.AppendFormat(" VALUES ({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}')", "NEWID()",comboBox2.Text,dateTimePicker1.Value.ToString("yyyyMMdd"), TARGETPROTA001, TARGETPROTA002,MB001,MB002,MB003,textBox401.Text, textBox402.Text, dateTimePicker2.Value.ToString("yyyyMMdd"), textBox403.Text, textBox404.Text, textBox405.Text, textBox406.Text, textBox407.Text);
+                sbSql.AppendFormat(" ");
+
+                cmd.Connection = sqlConn;
+                cmd.CommandTimeout = 60;
+                cmd.CommandText = sbSql.ToString();
+                cmd.Transaction = tran;
+                result = cmd.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    tran.Rollback();    //交易取消
+                }
+                else
+                {
+                    tran.Commit();      //執行交易  
+                }
+
+            }
+            catch
+            {
+
+            }
+
+            finally
+            {
+                sqlConn.Close();
+            }
+
+            SEACRHDAILYREPORTPACKAGE();
+        }
+
+        public void SEACRHDAILYREPORTPACKAGE()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sbSql.Clear();
+                sbSqlQuery.Clear();
+
+                sbSql.AppendFormat(@"  SELECT [MAIN] AS '組別',[MAINDATE] AS '日期',[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號'");
+                sbSql.AppendFormat(@"  ,[MB001] AS '品號',[MB002] AS '品名',[MB003] AS '規格',[UINTS] AS '單位',[PRENUM] AS '預計成品數量'");
+                sbSql.AppendFormat(@"  ,[PRODATE] AS '入庫日期',[PRONUM] AS '數量',[PROPEOPLE] AS '生產人數',[PACKAGETIME] AS '包時時間'");
+                sbSql.AppendFormat(@"  ,[TODATTIME] AS '今日工時',[TOTALTIME] AS '累計工時'");
+                sbSql.AppendFormat(@"  ,[ID]");
+                sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[DAILYREPORTPACKAGE]");
+                sbSql.AppendFormat(@"  WHERE [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}' ",TARGETPROTA001,TARGETPROTA002);
+                sbSql.AppendFormat(@"  ");
+                sbSql.AppendFormat(@"  ");
+                sbSql.AppendFormat(@"  ");
+
+                adapter4 = new SqlDataAdapter(@"" + sbSql, sqlConn);
+
+                sqlCmdBuilder4 = new SqlCommandBuilder(adapter4);
+                sqlConn.Open();
+                ds4.Clear();
+                adapter4.Fill(ds4, "TEMPds4");
+                sqlConn.Close();
+
+
+                if (ds4.Tables["TEMPds4"].Rows.Count == 0)
+                {
+                    dataGridView4.DataSource = null;
+
+                }
+                else
+                {
+                    if (ds4.Tables["TEMPds4"].Rows.Count >= 1)
+                    {
+                        //dataGridView1.Rows.Clear();
+                        dataGridView4.DataSource = ds4.Tables["TEMPds4"];
+                        dataGridView4.AutoResizeColumns();
+                        //dataGridView1.CurrentCell = dataGridView1[0, rownum];
+
+                    }
+                }
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                sqlConn.Close();
+            }
+
+          
+        }
+
+
+        private void dataGridView4_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView4.CurrentRow != null)
+            {
+                int rowindex = dataGridView4.CurrentRow.Index;
+                if (rowindex >= 0)
+                {
+                    DataGridViewRow row = dataGridView4.Rows[rowindex];
+                    DAILYREPORTPACKAGEID = row.Cells["ID"].Value.ToString();
+
+                }
+                else
+                {
+                    DAILYREPORTPACKAGEID = null;
+
+                }
+            }
+            else
+            {
+                DAILYREPORTPACKAGEID = null;
+            }
+
+           
+
+        }
+        public void DELDAILYREPORTPACKAGE()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sqlConn.Close();
+                sqlConn.Open();
+                tran = sqlConn.BeginTransaction();
+
+                sbSql.Clear();
+
+                sbSql.AppendFormat(" DELETE [TKCIM].[dbo].[DAILYREPORTPACKAGE]");
+                sbSql.AppendFormat(" WHERE ID='{0}'", DAILYREPORTPACKAGEID);
+                sbSql.AppendFormat(" ");
+
+                cmd.Connection = sqlConn;
+                cmd.CommandTimeout = 60;
+                cmd.CommandText = sbSql.ToString();
+                cmd.Transaction = tran;
+                result = cmd.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    tran.Rollback();    //交易取消
+                }
+                else
+                {
+                    tran.Commit();      //執行交易  
+                }
+
+            }
+            catch
+            {
+
+            }
+
+            finally
+            {
+                sqlConn.Close();
+            }
+
+
+            SEACRHDAILYREPORTPACKAGE();
+        }
+
+        public void SETNULL2()
+        {
+            textBox403.Text = null;
+            textBox404.Text = null;
+            textBox405.Text = null;
+            textBox406.Text = null;
+            textBox407.Text = null;
+        }
+
+        public void SEARCHDAILYREPORTPACKAGEPICKBACK()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sbSql.Clear();
+                sbSqlQuery.Clear();
+
+                sbSql.AppendFormat(@"  SELECT  [MB002] AS '品名',[NUM] AS '數量',[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號',[ID] ");
+                sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[DAILYREPORTPACKAGEPICKBACK]");
+                sbSql.AppendFormat(@"  WHERE [TARGETPROTA001] ='{0}' AND [TARGETPROTA002]='{1}'",TARGETPROTA001,TARGETPROTA002);
+                sbSql.AppendFormat(@"  ");
+
+                adapter5 = new SqlDataAdapter(@"" + sbSql, sqlConn);
+
+                sqlCmdBuilder5 = new SqlCommandBuilder(adapter5);
+                sqlConn.Open();
+                ds5.Clear();
+                adapter5.Fill(ds5, "TEMPds5");
+                sqlConn.Close();
+
+
+                if (ds5.Tables["TEMPds5"].Rows.Count == 0)
+                {
+                    dataGridView5.DataSource = null;
+
+                }
+                else
+                {
+                    if (ds5.Tables["TEMPds5"].Rows.Count >= 1)
+                    {
+                        //dataGridView1.Rows.Clear();
+                        dataGridView5.DataSource = ds5.Tables["TEMPds5"];
+                        dataGridView5.AutoResizeColumns();
+                        //dataGridView1.CurrentCell = dataGridView1[0, rownum];
+
+                    }
+                }
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
+        public void ADDDAILYREPORTPACKAGEPICKBACK()
+        {
+
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sqlConn.Close();
+                sqlConn.Open();
+                tran = sqlConn.BeginTransaction();
+
+                sbSql.Clear();
+
+                sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[DAILYREPORTPACKAGEPICKBACK]");
+                sbSql.AppendFormat(" ([ID],[TARGETPROTA001],[TARGETPROTA002],[MB002],[NUM])");
+                sbSql.AppendFormat(" VALUES ({0},'{1}','{2}','{3}','{4}')", "NEWID()",TARGETPROTA001,TARGETPROTA002,textBox501.Text,textBox502.Text);
+                sbSql.AppendFormat(" ");
+
+
+                cmd.Connection = sqlConn;
+                cmd.CommandTimeout = 60;
+                cmd.CommandText = sbSql.ToString();
+                cmd.Transaction = tran;
+                result = cmd.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    tran.Rollback();    //交易取消
+                }
+                else
+                {
+                    tran.Commit();      //執行交易  
+                }
+
+            }
+            catch
+            {
+
+            }
+
+            finally
+            {
+                sqlConn.Close();
+            }
+
+        }
+
+        public void DELDAILYREPORTPACKAGEPICKBACK()
+        {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
+
+                sqlConn.Close();
+                sqlConn.Open();
+                tran = sqlConn.BeginTransaction();
+
+                sbSql.Clear();
+
+                sbSql.AppendFormat(" DELETE [TKCIM].[dbo].[DAILYREPORTPACKAGEPICKBACK]");
+                sbSql.AppendFormat(" WHERE ID='{0}'", DAILYREPORTPACKAGEPICKBACKID);
+                sbSql.AppendFormat(" ");
+
+                cmd.Connection = sqlConn;
+                cmd.CommandTimeout = 60;
+                cmd.CommandText = sbSql.ToString();
+                cmd.Transaction = tran;
+                result = cmd.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    tran.Rollback();    //交易取消
+                }
+                else
+                {
+                    tran.Commit();      //執行交易  
+                }
+
+            }
+            catch
+            {
+
+            }
+
+            finally
+            {
+                sqlConn.Close();
+            }
+
+
+        }
+
+        private void dataGridView5_SelectionChanged(object sender, EventArgs e)
+        {
+            
+            if (dataGridView5.CurrentRow != null)
+            {
+                int rowindex = dataGridView5.CurrentRow.Index;
+                if (rowindex >= 0)
+                {
+                    DataGridViewRow row = dataGridView5.Rows[rowindex];
+                    DAILYREPORTPACKAGEPICKBACKID = row.Cells["ID"].Value.ToString();
+
+                }
+                else
+                {
+                    DAILYREPORTPACKAGEPICKBACKID = null;
+
+                }
+            }
+            else
+            {
+                DAILYREPORTPACKAGEPICKBACKID = null;
+            }
+        }
         #endregion
 
         #region BUTTON
@@ -585,6 +971,48 @@ namespace TKCIM
             SEARCHDAILYREPORTPACKAGEPICKMATER();
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ADDDAILYREPORTPACKAGE();
+            SETNULL2();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("要刪除了?", "要刪除了?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                DELDAILYREPORTPACKAGE();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
+
+            SEACRHDAILYREPORTPACKAGE();
+        }
+
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            ADDDAILYREPORTPACKAGEPICKBACK();
+            SEARCHDAILYREPORTPACKAGEPICKBACK();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+           
+            DialogResult dialogResult = MessageBox.Show("要刪除了?", "要刪除了?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                DELDAILYREPORTPACKAGEPICKBACK();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
+            SEARCHDAILYREPORTPACKAGEPICKBACK();
+        }
 
         #endregion
 
