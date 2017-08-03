@@ -608,7 +608,7 @@ namespace TKCIM
                
                 sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[DAILYREPORTPACKAGE]");
                 sbSql.AppendFormat(" ([ID],[MAIN],[MAINDATE],[TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[MB003],[UINTS],[PRENUM],[PRODATE],[PRONUM],[PROPEOPLE],[PACKAGETIME],[TODATTIME],[TOTALTIME])");
-                sbSql.AppendFormat(" VALUES ({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}')", "NEWID()",comboBox2.Text,dateTimePicker1.Value.ToString("yyyyMMdd"), TARGETPROTA001, TARGETPROTA002,MB001,MB002,MB003,textBox401.Text, textBox402.Text, dateTimePicker2.Value.ToString("yyyyMMdd"), textBox403.Text, textBox404.Text, textBox405.Text, textBox406.Text, textBox407.Text);
+                sbSql.AppendFormat(" VALUES ({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}')", "NEWID()",comboBox2.Text, TARGETPROTA002.Substring(0, 8), TARGETPROTA001, TARGETPROTA002,MB001,MB002,MB003,textBox401.Text, textBox402.Text, dateTimePicker2.Value.ToString("yyyyMMdd"), textBox403.Text, textBox404.Text, textBox405.Text, textBox406.Text, textBox407.Text);
                 sbSql.AppendFormat(" ");
 
                 cmd.Connection = sqlConn;
