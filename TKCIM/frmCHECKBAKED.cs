@@ -288,7 +288,7 @@ namespace TKCIM
                 sbSql.Clear();
                 sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[CHECKBAKEDM]");
                 sbSql.AppendFormat("  ([ID],[MAIN],[MAINDATE],[TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[NGBAKED],[NGGOOD],[NGOVER])");
-                sbSql.AppendFormat("   VALUES({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}')", "NEWID()", comboBox2.Text, dateTimePicker1.Value.ToString("yyyyMMdd"), textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text);
+                sbSql.AppendFormat("   VALUES({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}')", "NEWID()", comboBox2.Text, TARGETPROTA002.Substring(0, 8), textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text);
                 sbSql.AppendFormat(" ");
 
                 cmd.Connection = sqlConn;

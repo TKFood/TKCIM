@@ -372,7 +372,7 @@ namespace TKCIM
                 sbSql.Clear();
                 sbSql.Append(" INSERT INTO [TKCIM].[dbo].[CHECKOVENM]  ");
                 sbSql.Append(" ([ID],[MAIN],[MAINDATE],[TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[STIME],[ETIME],[GAS],[FLODPEOPLE1],[FLODPEOPLE2],[MANAGER],[OPERATOR])  ");
-                sbSql.AppendFormat("  VALUES ({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}') ", "NEWID()", comboBox2.Text, dateTimePicker1.Value.ToString("yyyy/MM/dd"),textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, dateTimePicker2.Value.ToString("HH:mm"), dateTimePicker3.Value.ToString("HH:mm"),textBox5.Text, comboBox1.Text, comboBox3.Text, comboBox4.Text, comboBox5.Text);
+                sbSql.AppendFormat("  VALUES ({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}') ", "NEWID()", comboBox2.Text, TARGETPROTA002.Substring(0, 8), textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, dateTimePicker2.Value.ToString("HH:mm"), dateTimePicker3.Value.ToString("HH:mm"),textBox5.Text, comboBox1.Text, comboBox3.Text, comboBox4.Text, comboBox5.Text);
 
                 cmd.Connection = sqlConn;
                 cmd.CommandTimeout = 60;

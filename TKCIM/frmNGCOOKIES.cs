@@ -210,7 +210,7 @@ namespace TKCIM
                 sbSql.Clear();               
                 sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[NGCOOKIESMD]");
                 sbSql.AppendFormat("  ([ID],[MAIN],[MAINDATE],[MAINTIME],[TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[NUM],[NGNUM])");
-                sbSql.AppendFormat("   VALUES({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}')", "NEWID()", comboBox2.Text,dateTimePicker1.Value.ToString("yyyyMMdd"), dateTimePicker2.Value.ToString("yyyyMMdd HH:mm"),textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text);
+                sbSql.AppendFormat("   VALUES({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}')", "NEWID()", comboBox2.Text, textBox2.Text.Substring(0, 8), dateTimePicker2.Value.ToString("yyyyMMdd HH:mm"),textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text);
                 sbSql.AppendFormat(" ");
 
                 cmd.Connection = sqlConn;

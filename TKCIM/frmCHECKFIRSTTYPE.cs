@@ -709,7 +709,7 @@ namespace TKCIM
                 sbSql.AppendFormat(" ,[LENGTH],[TEMPER],[HUMI],[TIME],[SPEED]");
                 sbSql.AppendFormat(" ,[OVENTEMP],[JUDG],[METRAILCHECK],[TEMP],[FJUDG]");
                 sbSql.AppendFormat(" ,[OWNER],[MANAGER],[QC])");
-                sbSql.AppendFormat(" VALUES ({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}')", "NEWID()", comboBox2.Text, dateTimePicker1.Value.ToString("yyyyMMdd"), dateTimePicker2.Value.ToString("HH:mm"), textBox301.Text, textBox302.Text, textBox303.Text, textBox304.Text, textBox305.Text, textBox306.Text, textBox307.Text, textBox308.Text, textBox309.Text, textBox310.Text, textBox311.Text,textBox312.Text, textBox313.Text, textBox314.Text, textBox315.Text, textBox316.Text, textBox317.Text,comboBox1.Text,comboBox3.Text,comboBox4.Text);
+                sbSql.AppendFormat(" VALUES ({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}')", "NEWID()", comboBox2.Text, TARGETPROTA002.Substring(0, 8), dateTimePicker2.Value.ToString("HH:mm"), textBox301.Text, textBox302.Text, textBox303.Text, textBox304.Text, textBox305.Text, textBox306.Text, textBox307.Text, textBox308.Text, textBox309.Text, textBox310.Text, textBox311.Text,textBox312.Text, textBox313.Text, textBox314.Text, textBox315.Text, textBox316.Text, textBox317.Text,comboBox1.Text,comboBox3.Text,comboBox4.Text);
                 sbSql.AppendFormat(" ");
                 sbSql.AppendFormat(" ");
 
