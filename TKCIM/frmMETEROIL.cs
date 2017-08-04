@@ -822,8 +822,7 @@ namespace TKCIM
                     MATEROILRPROIDMTA002B = row.Cells["單號"].Value.ToString();
                     MANULABEL.Text = row.Cells["線別"].Value.ToString();
 
-                    string dd = MATEROILRPROIDMTA002B.Substring(0, 4) + "/" + MATEROILRPROIDMTA002B.Substring(4, 2) + "/" + MATEROILRPROIDMTA002B.Substring(6, 2);
-                    dateTimePicker5.Value = Convert.ToDateTime(dd);
+                    
 
                 }
                 else
@@ -1162,7 +1161,7 @@ namespace TKCIM
 
                 if (ds6.Tables["TEMPds6"].Rows.Count == 0)
                 {
-
+                    dataGridView6.DataSource = null;
                 }
                 else
                 {

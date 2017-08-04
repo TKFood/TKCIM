@@ -29,6 +29,8 @@ namespace TKCIM
         StringBuilder sbSqlQuery = new StringBuilder();
         SqlDataAdapter adapter = new SqlDataAdapter();
         SqlCommandBuilder sqlCmdBuilder = new SqlCommandBuilder();
+        SqlDataAdapter adapter1 = new SqlDataAdapter();
+        SqlCommandBuilder sqlCmdBuilder1 = new SqlCommandBuilder();
         SqlTransaction tran;
         SqlCommand cmd = new SqlCommand();
         DataSet ds1 = new DataSet();
@@ -307,7 +309,7 @@ namespace TKCIM
 
                 if (ds1.Tables["TEMPds1"].Rows.Count == 0)
                 {
-
+                    dataGridView1.DataSource = null;
                 }
                 else
                 {
@@ -384,7 +386,7 @@ namespace TKCIM
 
                 if (ds2.Tables["TEMPds2"].Rows.Count == 0)
                 {
-
+                    dataGridView2.DataSource = null;
                 }
                 else
                 {
@@ -490,7 +492,7 @@ namespace TKCIM
 
                 if (ds3.Tables["TEMPds3"].Rows.Count == 0)
                 {
-
+                    dataGridView3.DataSource = null;
                 }
                 else
                 {
@@ -947,7 +949,7 @@ namespace TKCIM
                 if (ds6.Tables["TEMPds6"].Rows.Count == 0)
                 {
 
-
+                    dataGridView6.DataSource = null;
                 }
                 else
                 {
@@ -1073,7 +1075,7 @@ namespace TKCIM
 
                 if (ds9.Tables["TEMPds9"].Rows.Count == 0)
                 {
-
+                    dataGridView9.DataSource = null;
                 }
                 else
                 {
@@ -1231,8 +1233,7 @@ namespace TKCIM
                     MATERWATERPROIDMTA001B = row.Cells["單別"].Value.ToString();
                     MATERWATERPROIDMTA002B = row.Cells["單號"].Value.ToString();
 
-                    string dd = MATERWATERPROIDMTA002B.Substring(0, 4) + "/" + MATERWATERPROIDMTA002B.Substring(4, 2) + "/" + MATERWATERPROIDMTA002B.Substring(6, 2);
-                    dateTimePicker5.Value = Convert.ToDateTime(dd);
+
 
                     MANULABEL.Text = row.Cells["線別"].Value.ToString();
 
@@ -1403,12 +1404,12 @@ namespace TKCIM
                 sbSql.AppendFormat(@"  ");
 
 
-                adapter = new SqlDataAdapter(@"" + sbSql, sqlConn);
+                adapter1 = new SqlDataAdapter(@"" + sbSql, sqlConn);
 
-                sqlCmdBuilder = new SqlCommandBuilder(adapter);
+                sqlCmdBuilder1 = new SqlCommandBuilder(adapter1);
                 sqlConn.Open();
                 ds7.Clear();
-                adapter.Fill(ds7, "TEMPds7");
+                adapter1.Fill(ds7, "TEMPds7");
                 sqlConn.Close();
 
 
