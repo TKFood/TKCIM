@@ -243,6 +243,7 @@ namespace TKCIM
                     textBox2.Text = row.Cells["單號"].Value.ToString();
                     textBox3.Text = row.Cells["品號"].Value.ToString();
                     textBox4.Text = row.Cells["品名"].Value.ToString();
+                    textBox21.Text = row.Cells["品名"].Value.ToString();
                     TARGETPROTA001 = row.Cells["單別"].Value.ToString();
                     TARGETPROTA002 = row.Cells["單號"].Value.ToString();
 
@@ -254,6 +255,7 @@ namespace TKCIM
                     textBox2.Text = null;
                     textBox3.Text = null;
                     textBox4.Text = null;
+                    textBox21.Text = null;
                     TARGETPROTA001 = null;
                     TARGETPROTA002 = null;
 
@@ -265,6 +267,7 @@ namespace TKCIM
                 textBox2.Text = null;
                 textBox3.Text = null;
                 textBox4.Text = null;
+                textBox21.Text = null;
                 TARGETPROTA001 = null;
                 TARGETPROTA002 = null;
             }
@@ -464,7 +467,7 @@ namespace TKCIM
                 sbSql.Clear();
                 sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[CHECKCOOKIESMD]");
                 sbSql.AppendFormat("  ([ID],[MAIN],[MAINDATE],[TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[CHECKTIME],[WIGHT],[LENGTH],[TEMP],[HUMIDITY],[CHECKRESULT],[OWNER],[MANAGER] )");
-                sbSql.AppendFormat("   VALUES({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}')", "NEWID()",MDMAIN,dateTimePicker1.Value.ToString("yyyy/MM/dd"),MDTARGETPROTA001,MDTARGETPROTA002, MDMB001, MDMB002, dateTimePicker3.Value.ToString("HH:mm"),textBox22.Text, textBox23.Text, textBox24.Text, textBox25.Text,comboBox1.Text,comboBox3.Text,comboBox4.Text);
+                sbSql.AppendFormat("   VALUES({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}')", "NEWID()",comboBox2.Text,dateTimePicker1.Value.ToString("yyyy/MM/dd"), textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, dateTimePicker3.Value.ToString("HH:mm"),textBox22.Text, textBox23.Text, textBox24.Text, textBox25.Text,comboBox1.Text,comboBox3.Text,comboBox4.Text);
                 sbSql.AppendFormat(" ");
 
                 cmd.Connection = sqlConn;
