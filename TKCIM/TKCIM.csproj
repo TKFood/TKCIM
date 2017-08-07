@@ -105,6 +105,12 @@
     <Compile Include="frmCHECKOVENM.Designer.cs">
       <DependentUpon>frmCHECKOVENM.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCHECKPACKAGE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCHECKPACKAGE.Designer.cs">
+      <DependentUpon>frmCHECKPACKAGE.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDAILYREPORTHAND.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCHECKOVENM.resx">
       <DependentUpon>frmCHECKOVENM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCHECKPACKAGE.resx">
+      <DependentUpon>frmCHECKPACKAGE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDAILYREPORTHAND.resx">
       <DependentUpon>frmDAILYREPORTHAND.cs</DependentUpon>
