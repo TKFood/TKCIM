@@ -604,6 +604,7 @@ namespace TKCIM
                 sbSqlM.AppendFormat(@" ,[TEMPER] AS '溫度',[HUMIDITY] AS '溼度',[WEATHER] AS '天氣',CONVERT(varchar(100),[MANUTIME], 8)  AS '時間'");
                 sbSqlM.AppendFormat(@" ,[FURANACEUP1] AS '上爐1-1',[FURANACEUP2] AS '上爐2-1',[FURANACEUP3] AS '上爐3-1',[FURANACEUP4] AS '上爐4-1',[FURANACEUP5] AS '上爐5-1'");
                 sbSqlM.AppendFormat(@" ,[FURANACEUP1A] AS '上爐1-2',[FURANACEUP2A] AS '上爐2-2',[FURANACEUP3A] AS '上爐3-2',[FURANACEUP4A] AS '上爐4-2',[FURANACEUP5A] AS '上爐5-2'");
+                sbSqlM.AppendFormat(@" ,[FURANACEUP1B] AS '上爐1-3',[FURANACEUP2B] AS '上爐2-3',[FURANACEUP3B] AS '上爐3-3',[FURANACEUP4B] AS '上爐4-3',[FURANACEUP5B] AS '上爐5-3' ");
                 sbSqlM.AppendFormat(@" ,[FURANACEDOWN1] AS '下爐1-1',[FURANACEDOWN2] AS '下爐2-1',[FURANACEDOWN3] AS '下爐3-1',[FURANACEDOWN4] AS '下爐4-1',[FURANACEDOWN5] AS '下爐5-1'");
                 sbSqlM.AppendFormat(@" ,[FURANACEDOWN1A] AS '下爐1-2',[FURANACEDOWN2A] AS '下爐2-2',[FURANACEDOWN3A] AS '下爐3-2',[FURANACEDOWN4A] AS '下爐4-2',[FURANACEDOWN5A] AS '下爐5-2'");
                 sbSqlM.AppendFormat(@" ,[FURANACEDOWN1B] AS '下爐1-3',[FURANACEDOWN2B] AS '下爐2-3',[FURANACEDOWN3B] AS '下爐3-3',[FURANACEDOWN4B] AS '下爐4-3',[FURANACEDOWN5B] AS '下爐5-3'");
@@ -825,9 +826,19 @@ namespace TKCIM
             SEARCHCHECKOVENMD();
         }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if(!string.IsNullOrEmpty(MDID))
+            {
+                frmCHECKOVENMEDIT SUBfrmCHECKOVENMEDIT = new frmCHECKOVENMEDIT(MDID);
+                SUBfrmCHECKOVENMEDIT.ShowDialog();
+            }
+            
+            SEARCHCHECKOVENMD();
+        }
 
         #endregion
 
-        
+
     }
 }
