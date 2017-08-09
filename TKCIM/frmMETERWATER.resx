@@ -871,7 +871,7 @@
     <value>製二組</value>
   </data>
   <data name="comboBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>198, 50</value>
+    <value>198, 48</value>
   </data>
   <data name="comboBox2.Size" type="System.Drawing.Size, System.Drawing">
     <value>101, 24</value>
@@ -2050,7 +2050,7 @@
     <value>製二組</value>
   </data>
   <data name="comboBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 42</value>
+    <value>3, 40</value>
   </data>
   <data name="comboBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>124, 24</value>
@@ -2164,7 +2164,7 @@
     <value>B</value>
   </data>
   <data name="comboBox11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 50</value>
+    <value>110, 48</value>
   </data>
   <data name="comboBox11.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 24</value>
@@ -2341,7 +2341,7 @@
     <value>B</value>
   </data>
   <data name="comboBox12.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 90</value>
+    <value>110, 88</value>
   </data>
   <data name="comboBox12.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 24</value>
@@ -2374,7 +2374,7 @@
     <value>B</value>
   </data>
   <data name="comboBox13.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 130</value>
+    <value>110, 128</value>
   </data>
   <data name="comboBox13.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 24</value>
@@ -2407,7 +2407,7 @@
     <value>B</value>
   </data>
   <data name="comboBox14.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 170</value>
+    <value>110, 168</value>
   </data>
   <data name="comboBox14.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 24</value>
@@ -2440,7 +2440,7 @@
     <value>B</value>
   </data>
   <data name="comboBox15.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 210</value>
+    <value>110, 208</value>
   </data>
   <data name="comboBox15.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 24</value>
@@ -2473,7 +2473,7 @@
     <value>B</value>
   </data>
   <data name="comboBox16.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 250</value>
+    <value>110, 248</value>
   </data>
   <data name="comboBox16.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 24</value>
@@ -2506,7 +2506,7 @@
     <value>B</value>
   </data>
   <data name="comboBox17.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 290</value>
+    <value>110, 288</value>
   </data>
   <data name="comboBox17.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 24</value>
@@ -3547,7 +3547,7 @@
     <value>A</value>
   </data>
   <data name="comboBox4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>237, 50</value>
+    <value>237, 48</value>
   </data>
   <data name="comboBox4.Size" type="System.Drawing.Size, System.Drawing">
     <value>108, 24</value>
@@ -3577,7 +3577,7 @@
     <value>B</value>
   </data>
   <data name="comboBox5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>237, 90</value>
+    <value>237, 88</value>
   </data>
   <data name="comboBox5.Size" type="System.Drawing.Size, System.Drawing">
     <value>108, 24</value>
@@ -3610,7 +3610,7 @@
     <value>不可</value>
   </data>
   <data name="comboBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>83, 10</value>
+    <value>83, 8</value>
   </data>
   <data name="comboBox3.Size" type="System.Drawing.Size, System.Drawing">
     <value>74, 24</value>
@@ -3993,6 +3993,33 @@
   <data name="tableLayoutPanel15.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label12" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label15" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50" /&gt;&lt;Rows Styles="Percent,50,Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
+  <data name="button19.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="button19.Location" type="System.Drawing.Point, System.Drawing">
+    <value>163, 205</value>
+  </data>
+  <data name="button19.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 30</value>
+  </data>
+  <data name="button19.TabIndex" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="button19.Text" xml:space="preserve">
+    <value>單筆修改</value>
+  </data>
+  <data name="&gt;&gt;button19.Name" xml:space="preserve">
+    <value>button19</value>
+  </data>
+  <data name="&gt;&gt;button19.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button19.Parent" xml:space="preserve">
+    <value>tableLayoutPanel8</value>
+  </data>
+  <data name="&gt;&gt;button19.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
   <data name="tableLayoutPanel8.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -4006,7 +4033,7 @@
     <value>7</value>
   </data>
   <data name="tableLayoutPanel8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>348, 215</value>
+    <value>348, 255</value>
   </data>
   <data name="tableLayoutPanel8.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -4024,7 +4051,7 @@
     <value>0</value>
   </data>
   <data name="tableLayoutPanel8.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label21" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="label20" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="comboBox4" Row="1" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="comboBox5" Row="2" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="comboBox3" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label17" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label18" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="dateTimePicker6" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label19" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="dateTimePicker7" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label23" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBox91" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label22" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBox92" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="button9" Row="4" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="button10" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="tableLayoutPanel15" Row="3" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,80,Absolute,80,Absolute,74,Absolute,114" /&gt;&lt;Rows Styles="Absolute,40,Absolute,40,Absolute,40,Absolute,40,Absolute,40,Absolute,40,Absolute,40" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label21" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="label20" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="comboBox4" Row="1" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="comboBox5" Row="2" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="comboBox3" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label17" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label18" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="dateTimePicker6" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label19" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="dateTimePicker7" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label23" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBox91" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label22" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBox92" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="button9" Row="4" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="button10" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="tableLayoutPanel15" Row="3" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="button19" Row="5" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,80,Absolute,80,Absolute,74,Absolute,114" /&gt;&lt;Rows Styles="Absolute,40,Absolute,40,Absolute,40,Absolute,40,Absolute,40,Absolute,40,Absolute,40" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="&gt;&gt;splitContainer17.Panel1.Name" xml:space="preserve">
     <value>splitContainer17.Panel1</value>
@@ -4045,7 +4072,7 @@
     <value>0, 0</value>
   </data>
   <data name="dataGridView9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>348, 385</value>
+    <value>348, 345</value>
   </data>
   <data name="dataGridView9.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -4078,7 +4105,7 @@
     <value>352, 612</value>
   </data>
   <data name="splitContainer17.SplitterDistance" type="System.Int32, mscorlib">
-    <value>219</value>
+    <value>259</value>
   </data>
   <data name="splitContainer17.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -4288,7 +4315,7 @@
     <value>製二組</value>
   </data>
   <data name="comboBox6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 42</value>
+    <value>3, 40</value>
   </data>
   <data name="comboBox6.Size" type="System.Drawing.Size, System.Drawing">
     <value>154, 24</value>
@@ -6163,7 +6190,7 @@
     <value>製二組</value>
   </data>
   <data name="comboBox7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 41</value>
+    <value>3, 39</value>
   </data>
   <data name="comboBox7.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 24</value>

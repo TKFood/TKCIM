@@ -3120,10 +3120,20 @@ namespace TKCIM
             CreateResourceManager(this, "en-US");
         }
 
+        private void button19_Click(object sender, EventArgs e)
+        {
+            frmMETERWATEREDIT SUBfrmMETERWATEREDIT = new frmMETERWATEREDIT(DELTARGETPROTA001, DELTARGETPROTA002, DELCANNO);
+            if (!string.IsNullOrEmpty(DELCANNO))
+            {
+                SUBfrmMETERWATEREDIT.ShowDialog();
+            }
+
+            SEARCHMATERWATERPROIDMD();
+        }
 
 
         #endregion
 
-       
+
     }
 }

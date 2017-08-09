@@ -129,6 +129,12 @@
     <Compile Include="FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMETERWATEREDIT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMETERWATEREDIT.Designer.cs">
+      <DependentUpon>frmMETERWATEREDIT.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMETEROIL.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMETERWATEREDIT.resx">
+      <DependentUpon>frmMETERWATEREDIT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMETEROIL.resx">
       <DependentUpon>frmMETEROIL.cs</DependentUpon>
