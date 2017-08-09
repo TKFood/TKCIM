@@ -318,6 +318,96 @@ namespace TKCIM
                     sbSql.AppendFormat(" SET [NUM]='{0}',[OUTLOOK]='{1}',[STIME]='{2}',[ETIME]='{3}',[TEMP]='{4}',[HUDI]='{5}',[MOVEIN]='{6}',[CHECKEMP]='{7}'", textBox103.Text,comboBox3.Text, dateTimePicker6.Value.ToString("HH:mm"), dateTimePicker7.Value.ToString("HH:mm"),textBox107.Text,textBox108.Text,comboBox4.Text,comboBox5.Text);
                     sbSql.AppendFormat(" WHERE TARGETPROTA001='{0}' AND TARGETPROTA002='{1}' AND MB002='{2}' AND LOTID='{3}' AND CANNO='{4}' ",TARGETPROTA001,TARGETPROTA002,textBox101.Text,textBox102.Text,CANNO);
                 }
+                if (!string.IsNullOrEmpty(textBox203.Text))
+                {
+                    sbSql.AppendFormat(" UPDATE [TKCIM].[dbo].[METEROILPROIDMD]");
+                    sbSql.AppendFormat(" SET [NUM]='{0}',[OUTLOOK]='{1}',[STIME]='{2}',[ETIME]='{3}',[TEMP]='{4}',[HUDI]='{5}',[MOVEIN]='{6}',[CHECKEMP]='{7}'", textBox203.Text, comboBox3.Text, dateTimePicker6.Value.ToString("HH:mm"), dateTimePicker7.Value.ToString("HH:mm"), textBox107.Text, textBox108.Text, comboBox4.Text, comboBox5.Text);
+                    sbSql.AppendFormat(" WHERE TARGETPROTA001='{0}' AND TARGETPROTA002='{1}' AND MB002='{2}' AND LOTID='{3}' AND CANNO='{4}' ", TARGETPROTA001, TARGETPROTA002, textBox201.Text, textBox202.Text, CANNO);
+                }
+                if (!string.IsNullOrEmpty(textBox303.Text))
+                {
+                    sbSql.AppendFormat(" UPDATE [TKCIM].[dbo].[METEROILPROIDMD]");
+                    sbSql.AppendFormat(" SET [NUM]='{0}',[OUTLOOK]='{1}',[STIME]='{2}',[ETIME]='{3}',[TEMP]='{4}',[HUDI]='{5}',[MOVEIN]='{6}',[CHECKEMP]='{7}'", textBox303.Text, comboBox3.Text, dateTimePicker6.Value.ToString("HH:mm"), dateTimePicker7.Value.ToString("HH:mm"), textBox107.Text, textBox108.Text, comboBox4.Text, comboBox5.Text);
+                    sbSql.AppendFormat(" WHERE TARGETPROTA001='{0}' AND TARGETPROTA002='{1}' AND MB002='{2}' AND LOTID='{3}' AND CANNO='{4}' ", TARGETPROTA001, TARGETPROTA002, textBox301.Text, textBox302.Text, CANNO);
+                }
+                if (!string.IsNullOrEmpty(textBox403.Text))
+                {
+                    sbSql.AppendFormat(" UPDATE [TKCIM].[dbo].[METEROILPROIDMD]");
+                    sbSql.AppendFormat(" SET [NUM]='{0}',[OUTLOOK]='{1}',[STIME]='{2}',[ETIME]='{3}',[TEMP]='{4}',[HUDI]='{5}',[MOVEIN]='{6}',[CHECKEMP]='{7}'", textBox403.Text, comboBox3.Text, dateTimePicker6.Value.ToString("HH:mm"), dateTimePicker7.Value.ToString("HH:mm"), textBox107.Text, textBox108.Text, comboBox4.Text, comboBox5.Text);
+                    sbSql.AppendFormat(" WHERE TARGETPROTA001='{0}' AND TARGETPROTA002='{1}' AND MB002='{2}' AND LOTID='{3}' AND CANNO='{4}' ", TARGETPROTA001, TARGETPROTA002, textBox401.Text, textBox402.Text, CANNO);
+                }
+                if (!string.IsNullOrEmpty(textBox503.Text))
+                {
+                    sbSql.AppendFormat(" UPDATE [TKCIM].[dbo].[METEROILPROIDMD]");
+                    sbSql.AppendFormat(" SET [NUM]='{0}',[OUTLOOK]='{1}',[STIME]='{2}',[ETIME]='{3}',[TEMP]='{4}',[HUDI]='{5}',[MOVEIN]='{6}',[CHECKEMP]='{7}'", textBox503.Text, comboBox3.Text, dateTimePicker6.Value.ToString("HH:mm"), dateTimePicker7.Value.ToString("HH:mm"), textBox107.Text, textBox108.Text, comboBox4.Text, comboBox5.Text);
+                    sbSql.AppendFormat(" WHERE TARGETPROTA001='{0}' AND TARGETPROTA002='{1}' AND MB002='{2}' AND LOTID='{3}' AND CANNO='{4}' ", TARGETPROTA001, TARGETPROTA002, textBox501.Text, textBox502.Text, CANNO);
+                }
+                if (!string.IsNullOrEmpty(textBox603.Text))
+                {
+                    sbSql.AppendFormat(" UPDATE [TKCIM].[dbo].[METEROILPROIDMD]");
+                    sbSql.AppendFormat(" SET [NUM]='{0}',[OUTLOOK]='{1}',[STIME]='{2}',[ETIME]='{3}',[TEMP]='{4}',[HUDI]='{5}',[MOVEIN]='{6}',[CHECKEMP]='{7}'", textBox603.Text, comboBox3.Text, dateTimePicker6.Value.ToString("HH:mm"), dateTimePicker7.Value.ToString("HH:mm"), textBox107.Text, textBox108.Text, comboBox4.Text, comboBox5.Text);
+                    sbSql.AppendFormat(" WHERE TARGETPROTA001='{0}' AND TARGETPROTA002='{1}' AND MB002='{2}' AND LOTID='{3}' AND CANNO='{4}' ", TARGETPROTA001, TARGETPROTA002, textBox601.Text, textBox602.Text, CANNO);
+                }
+                if (!string.IsNullOrEmpty(textBox703.Text))
+                {
+                    sbSql.AppendFormat(" UPDATE [TKCIM].[dbo].[METEROILPROIDMD]");
+                    sbSql.AppendFormat(" SET [NUM]='{0}',[OUTLOOK]='{1}',[STIME]='{2}',[ETIME]='{3}',[TEMP]='{4}',[HUDI]='{5}',[MOVEIN]='{6}',[CHECKEMP]='{7}'", textBox703.Text, comboBox3.Text, dateTimePicker6.Value.ToString("HH:mm"), dateTimePicker7.Value.ToString("HH:mm"), textBox107.Text, textBox108.Text, comboBox4.Text, comboBox5.Text);
+                    sbSql.AppendFormat(" WHERE TARGETPROTA001='{0}' AND TARGETPROTA002='{1}' AND MB002='{2}' AND LOTID='{3}' AND CANNO='{4}' ", TARGETPROTA001, TARGETPROTA002, textBox701.Text, textBox702.Text, CANNO);
+                }
+                if (!string.IsNullOrEmpty(textBox803.Text))
+                {
+                    sbSql.AppendFormat(" UPDATE [TKCIM].[dbo].[METEROILPROIDMD]");
+                    sbSql.AppendFormat(" SET [NUM]='{0}',[OUTLOOK]='{1}',[STIME]='{2}',[ETIME]='{3}',[TEMP]='{4}',[HUDI]='{5}',[MOVEIN]='{6}',[CHECKEMP]='{7}'", textBox803.Text, comboBox3.Text, dateTimePicker6.Value.ToString("HH:mm"), dateTimePicker7.Value.ToString("HH:mm"), textBox107.Text, textBox108.Text, comboBox4.Text, comboBox5.Text);
+                    sbSql.AppendFormat(" WHERE TARGETPROTA001='{0}' AND TARGETPROTA002='{1}' AND MB002='{2}' AND LOTID='{3}' AND CANNO='{4}' ", TARGETPROTA001, TARGETPROTA002, textBox801.Text, textBox802.Text, CANNO);
+                }
+                if (!string.IsNullOrEmpty(textBox903.Text))
+                {
+                    sbSql.AppendFormat(" UPDATE [TKCIM].[dbo].[METEROILPROIDMD]");
+                    sbSql.AppendFormat(" SET [NUM]='{0}',[OUTLOOK]='{1}',[STIME]='{2}',[ETIME]='{3}',[TEMP]='{4}',[HUDI]='{5}',[MOVEIN]='{6}',[CHECKEMP]='{7}'", textBox903.Text, comboBox3.Text, dateTimePicker6.Value.ToString("HH:mm"), dateTimePicker7.Value.ToString("HH:mm"), textBox107.Text, textBox108.Text, comboBox4.Text, comboBox5.Text);
+                    sbSql.AppendFormat(" WHERE TARGETPROTA001='{0}' AND TARGETPROTA002='{1}' AND MB002='{2}' AND LOTID='{3}' AND CANNO='{4}' ", TARGETPROTA001, TARGETPROTA002, textBox901.Text, textBox902.Text, CANNO);
+                }
+                if (!string.IsNullOrEmpty(textBox1003.Text))
+                {
+                    sbSql.AppendFormat(" UPDATE [TKCIM].[dbo].[METEROILPROIDMD]");
+                    sbSql.AppendFormat(" SET [NUM]='{0}',[OUTLOOK]='{1}',[STIME]='{2}',[ETIME]='{3}',[TEMP]='{4}',[HUDI]='{5}',[MOVEIN]='{6}',[CHECKEMP]='{7}'", textBox1003.Text, comboBox3.Text, dateTimePicker6.Value.ToString("HH:mm"), dateTimePicker7.Value.ToString("HH:mm"), textBox107.Text, textBox108.Text, comboBox4.Text, comboBox5.Text);
+                    sbSql.AppendFormat(" WHERE TARGETPROTA001='{0}' AND TARGETPROTA002='{1}' AND MB002='{2}' AND LOTID='{3}' AND CANNO='{4}' ", TARGETPROTA001, TARGETPROTA002, textBox1001.Text, textBox1002.Text, CANNO);
+                }
+                if (!string.IsNullOrEmpty(textBox1103.Text))
+                {
+                    sbSql.AppendFormat(" UPDATE [TKCIM].[dbo].[METEROILPROIDMD]");
+                    sbSql.AppendFormat(" SET [NUM]='{0}',[OUTLOOK]='{1}',[STIME]='{2}',[ETIME]='{3}',[TEMP]='{4}',[HUDI]='{5}',[MOVEIN]='{6}',[CHECKEMP]='{7}'", textBox1103.Text, comboBox3.Text, dateTimePicker6.Value.ToString("HH:mm"), dateTimePicker7.Value.ToString("HH:mm"), textBox107.Text, textBox108.Text, comboBox4.Text, comboBox5.Text);
+                    sbSql.AppendFormat(" WHERE TARGETPROTA001='{0}' AND TARGETPROTA002='{1}' AND MB002='{2}' AND LOTID='{3}' AND CANNO='{4}' ", TARGETPROTA001, TARGETPROTA002, textBox1101.Text, textBox1102.Text, CANNO);
+                }
+                if (!string.IsNullOrEmpty(textBox1203.Text))
+                {
+                    sbSql.AppendFormat(" UPDATE [TKCIM].[dbo].[METEROILPROIDMD]");
+                    sbSql.AppendFormat(" SET [NUM]='{0}',[OUTLOOK]='{1}',[STIME]='{2}',[ETIME]='{3}',[TEMP]='{4}',[HUDI]='{5}',[MOVEIN]='{6}',[CHECKEMP]='{7}'", textBox1203.Text, comboBox3.Text, dateTimePicker6.Value.ToString("HH:mm"), dateTimePicker7.Value.ToString("HH:mm"), textBox107.Text, textBox108.Text, comboBox4.Text, comboBox5.Text);
+                    sbSql.AppendFormat(" WHERE TARGETPROTA001='{0}' AND TARGETPROTA002='{1}' AND MB002='{2}' AND LOTID='{3}' AND CANNO='{4}' ", TARGETPROTA001, TARGETPROTA002, textBox1201.Text, textBox1202.Text, CANNO);
+                }
+                if (!string.IsNullOrEmpty(textBox1303.Text))
+                {
+                    sbSql.AppendFormat(" UPDATE [TKCIM].[dbo].[METEROILPROIDMD]");
+                    sbSql.AppendFormat(" SET [NUM]='{0}',[OUTLOOK]='{1}',[STIME]='{2}',[ETIME]='{3}',[TEMP]='{4}',[HUDI]='{5}',[MOVEIN]='{6}',[CHECKEMP]='{7}'", textBox1303.Text, comboBox3.Text, dateTimePicker6.Value.ToString("HH:mm"), dateTimePicker7.Value.ToString("HH:mm"), textBox107.Text, textBox108.Text, comboBox4.Text, comboBox5.Text);
+                    sbSql.AppendFormat(" WHERE TARGETPROTA001='{0}' AND TARGETPROTA002='{1}' AND MB002='{2}' AND LOTID='{3}' AND CANNO='{4}' ", TARGETPROTA001, TARGETPROTA002, textBox1301.Text, textBox1302.Text, CANNO);
+                }
+                if (!string.IsNullOrEmpty(textBox1403.Text))
+                {
+                    sbSql.AppendFormat(" UPDATE [TKCIM].[dbo].[METEROILPROIDMD]");
+                    sbSql.AppendFormat(" SET [NUM]='{0}',[OUTLOOK]='{1}',[STIME]='{2}',[ETIME]='{3}',[TEMP]='{4}',[HUDI]='{5}',[MOVEIN]='{6}',[CHECKEMP]='{7}'", textBox1403.Text, comboBox3.Text, dateTimePicker6.Value.ToString("HH:mm"), dateTimePicker7.Value.ToString("HH:mm"), textBox107.Text, textBox108.Text, comboBox4.Text, comboBox5.Text);
+                    sbSql.AppendFormat(" WHERE TARGETPROTA001='{0}' AND TARGETPROTA002='{1}' AND MB002='{2}' AND LOTID='{3}' AND CANNO='{4}' ", TARGETPROTA001, TARGETPROTA002, textBox1401.Text, textBox1402.Text, CANNO);
+                }
+                if (!string.IsNullOrEmpty(textBox1503.Text))
+                {
+                    sbSql.AppendFormat(" UPDATE [TKCIM].[dbo].[METEROILPROIDMD]");
+                    sbSql.AppendFormat(" SET [NUM]='{0}',[OUTLOOK]='{1}',[STIME]='{2}',[ETIME]='{3}',[TEMP]='{4}',[HUDI]='{5}',[MOVEIN]='{6}',[CHECKEMP]='{7}'", textBox1503.Text, comboBox3.Text, dateTimePicker6.Value.ToString("HH:mm"), dateTimePicker7.Value.ToString("HH:mm"), textBox107.Text, textBox108.Text, comboBox4.Text, comboBox5.Text);
+                    sbSql.AppendFormat(" WHERE TARGETPROTA001='{0}' AND TARGETPROTA002='{1}' AND MB002='{2}' AND LOTID='{3}' AND CANNO='{4}' ", TARGETPROTA001, TARGETPROTA002, textBox1501.Text, textBox1502.Text, CANNO);
+                }
+                if (!string.IsNullOrEmpty(textBox1603.Text))
+                {
+                    sbSql.AppendFormat(" UPDATE [TKCIM].[dbo].[METEROILPROIDMD]");
+                    sbSql.AppendFormat(" SET [NUM]='{0}',[OUTLOOK]='{1}',[STIME]='{2}',[ETIME]='{3}',[TEMP]='{4}',[HUDI]='{5}',[MOVEIN]='{6}',[CHECKEMP]='{7}'", textBox1603.Text, comboBox3.Text, dateTimePicker6.Value.ToString("HH:mm"), dateTimePicker7.Value.ToString("HH:mm"), textBox107.Text, textBox108.Text, comboBox4.Text, comboBox5.Text);
+                    sbSql.AppendFormat(" WHERE TARGETPROTA001='{0}' AND TARGETPROTA002='{1}' AND MB002='{2}' AND LOTID='{3}' AND CANNO='{4}' ", TARGETPROTA001, TARGETPROTA002, textBox1601.Text, textBox1602.Text, CANNO);
+                }
 
 
 
