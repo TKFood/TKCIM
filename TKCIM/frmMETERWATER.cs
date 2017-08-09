@@ -89,6 +89,15 @@ namespace TKCIM
         string DELCANNO;
         string METERWATERDIFFTB001;
         string METERWATERDIFFTB002;
+
+        string OUTLOOK;
+        string STIME;
+        string ETIME;
+        string TEMP;
+        string HUDI;
+        string MOVEIN;
+        string CHECKEMP;
+
         Thread TD;
 
         public frmMETERWATER()
@@ -1579,6 +1588,14 @@ namespace TKCIM
                     DELMB001 = row.Cells["品號"].Value.ToString();
                     DELLOTID = row.Cells["批號"].Value.ToString();
                     DELCANNO = row.Cells["桶數"].Value.ToString();
+
+                    OUTLOOK = row.Cells["外觀"].Value.ToString();
+                    STIME = row.Cells["起時間"].Value.ToString();
+                    ETIME = row.Cells["迄時間"].Value.ToString();
+                    TEMP = row.Cells["溫度"].Value.ToString();
+                    HUDI = row.Cells["溼度"].Value.ToString();
+                    MOVEIN = row.Cells["投料人"].Value.ToString();
+                    CHECKEMP = row.Cells["抽檢人"].Value.ToString();
                 }
                 else
                 {
@@ -1587,7 +1604,29 @@ namespace TKCIM
                     DELMB001 = null;
                     DELLOTID = null;
                     DELCANNO = null;
+                    OUTLOOK = null;
+                    STIME = null;
+                    ETIME = null;
+                    TEMP = null;
+                    HUDI = null;
+                    MOVEIN = null;
+                    CHECKEMP = null;
                 }
+            }
+            else
+            {
+                DELTARGETPROTA001 = null;
+                DELTARGETPROTA002 = null;
+                DELMB001 = null;
+                DELLOTID = null;
+                DELCANNO = null;
+                OUTLOOK = null;
+                STIME = null;
+                ETIME = null;
+                TEMP = null;
+                HUDI = null;
+                MOVEIN = null;
+                CHECKEMP = null;
             }
         }
 
@@ -3122,7 +3161,7 @@ namespace TKCIM
 
         private void button19_Click(object sender, EventArgs e)
         {
-            frmMETERWATEREDIT SUBfrmMETERWATEREDIT = new frmMETERWATEREDIT(DELTARGETPROTA001, DELTARGETPROTA002, DELCANNO);
+            frmMETERWATEREDIT SUBfrmMETERWATEREDIT = new frmMETERWATEREDIT(DELTARGETPROTA001, DELTARGETPROTA002, DELCANNO, OUTLOOK, STIME, ETIME, TEMP, HUDI, MOVEIN, CHECKEMP);
             if (!string.IsNullOrEmpty(DELCANNO))
             {
                 SUBfrmMETERWATEREDIT.ShowDialog();
