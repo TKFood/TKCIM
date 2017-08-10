@@ -56,6 +56,7 @@ namespace TKCIM
 
             comboBox2load();
             comboBox3load();
+            comboBox4load();
 
         }
 
@@ -102,7 +103,26 @@ namespace TKCIM
 
         }
 
-       
+        public void comboBox4load()
+        {
+
+            connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+            sqlConn = new SqlConnection(connectionString);
+            String Sequel = "SELECT  [ID],[NAME] FROM [TKMOC].[dbo].[MANUEMPLOYEE] WHERE ID IN (SELECT ID FROM  [TKMOC].[dbo].[MANUEMPLOYEELIMIT]) ORDER BY ID";
+            SqlDataAdapter da = new SqlDataAdapter(Sequel, sqlConn);
+            DataTable dt = new DataTable();
+            sqlConn.Open();
+
+            dt.Columns.Add("ID", typeof(string));
+            dt.Columns.Add("NAME", typeof(string));
+            da.Fill(dt);
+            comboBox4.DataSource = dt.DefaultView;
+            comboBox4.ValueMember = "ID";
+            comboBox4.DisplayMember = "NAME";
+            sqlConn.Close();
+
+        }
+
 
         #endregion
 
