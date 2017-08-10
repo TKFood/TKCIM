@@ -200,7 +200,7 @@ namespace TKCIM
             }
             finally
             {
-
+                sqlConn.Close();
             }
         }
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
