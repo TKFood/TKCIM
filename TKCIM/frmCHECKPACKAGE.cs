@@ -49,6 +49,9 @@ namespace TKCIM
             InitializeComponent();
 
             comboBox2load();
+            combobox3load();
+            combobox10load();
+            combobox11load();
 
         }
 
@@ -72,6 +75,65 @@ namespace TKCIM
             comboBox2.DisplayMember = "MD002";
             sqlConn.Close();
 
+
+        }
+
+        public void combobox3load()
+        {
+
+            connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+            sqlConn = new SqlConnection(connectionString);
+            String Sequel = "SELECT  [ID],[NAME] FROM [TKMOC].[dbo].[MANUEMPLOYEEQC]  ORDER BY ID";
+            SqlDataAdapter da = new SqlDataAdapter(Sequel, sqlConn);
+            DataTable dt = new DataTable();
+            sqlConn.Open();
+
+            dt.Columns.Add("ID", typeof(string));
+            dt.Columns.Add("NAME", typeof(string));
+            da.Fill(dt);
+            comboBox3.DataSource = dt.DefaultView;
+            comboBox3.ValueMember = "ID";
+            comboBox3.DisplayMember = "NAME";
+            sqlConn.Close();
+
+        }
+
+        public void combobox10load()
+        {
+
+            connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+            sqlConn = new SqlConnection(connectionString);
+            String Sequel = "SELECT  [ID],[NAME] FROM [TKMOC].[dbo].[MANUEMPLOYEE] WHERE ID IN (SELECT ID FROM  [TKMOC].[dbo].[MANUEMPLOYEELIMIT]) ORDER BY ID";
+            SqlDataAdapter da = new SqlDataAdapter(Sequel, sqlConn);
+            DataTable dt = new DataTable();
+            sqlConn.Open();
+
+            dt.Columns.Add("ID", typeof(string));
+            dt.Columns.Add("NAME", typeof(string));
+            da.Fill(dt);
+            comboBox10.DataSource = dt.DefaultView;
+            comboBox10.ValueMember = "ID";
+            comboBox10.DisplayMember = "NAME";
+            sqlConn.Close();
+
+        }
+        public void combobox11load()
+        {
+
+            connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+            sqlConn = new SqlConnection(connectionString);
+            String Sequel = "SELECT  [ID],[NAME] FROM [TKMOC].[dbo].[MANUEMPLOYEEQC]  ORDER BY ID";
+            SqlDataAdapter da = new SqlDataAdapter(Sequel, sqlConn);
+            DataTable dt = new DataTable();
+            sqlConn.Open();
+
+            dt.Columns.Add("ID", typeof(string));
+            dt.Columns.Add("NAME", typeof(string));
+            da.Fill(dt);
+            comboBox11.DataSource = dt.DefaultView;
+            comboBox11.ValueMember = "ID";
+            comboBox11.DisplayMember = "NAME";
+            sqlConn.Close();
 
         }
 
@@ -147,6 +209,12 @@ namespace TKCIM
             SERACHMOCTARGET();
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
         #endregion
+
+
     }
 }
