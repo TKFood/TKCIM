@@ -326,11 +326,12 @@ namespace TKCIM
                 sbSqlQuery.Clear();
 
 
-                sbSql2.AppendFormat(@"  SELECT [MB002] AS '品名',[CHECKTIME] AS '時間',[TEMP] AS '溫度',[OWNER] AS '檢測員',[MANAGER] AS '主管',[MAIN] AS '線別',[MAINDATE] AS '日期',[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號',[MB001] AS '品號',[ID]  ");
+                sbSql2.AppendFormat(@"  SELECT [MB002] AS '品名',CONVERT(NVARCHAR,[CHECKTIME],8) AS '時間',[TEMP] AS '溫度',[OWNER] AS '檢測員',[MANAGER] AS '主管',[MAIN] AS '線別',CONVERT(NVARCHAR,[MAINDATE],112) AS '日期',[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號',[MB001] AS '品號',[ID]  ");
                 sbSql2.AppendFormat(@"  FROM [TKCIM].dbo.[CHECKBAKEDTEMPM] WITH (NOLOCK)");
                 sbSql2.AppendFormat(@"  WHERE [MAIN]='{0}' ", comboBox2.Text);
                 sbSql2.AppendFormat(@"  AND [MAINDATE]='{0}'", dateTimePicker1.Value.ToString("yyyyMMdd"));
                 sbSql2.AppendFormat(@"  AND [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}'", TARGETPROTA001, TARGETPROTA002);
+                sbSql2.AppendFormat(@"  ORDER BY [MAIN],CONVERT(NVARCHAR,[MAINDATE],112),CONVERT(NVARCHAR,[CHECKTIME],8)");
                 sbSql2.AppendFormat(@"  ");
 
 
