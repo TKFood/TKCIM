@@ -240,7 +240,7 @@ namespace TKCIM
                 sbSqlQuery.Clear();
 
                 sbSql.AppendFormat(@" SELECT  ");
-                sbSql.AppendFormat(@" [MAINDATE] AS '日期',[CHECKSTATUS] AS '空機測試',CONVERT(NVARCHAR,[CHECKTIME],8) AS '測試時間',[QCEMP] AS '稽核人員' ");
+                sbSql.AppendFormat(@"  CONVERT(NVARCHAR,[MAINDATE],112)  AS '日期',[CHECKSTATUS] AS '空機測試',CONVERT(NVARCHAR,[CHECKTIME],8) AS '測試時間',[QCEMP] AS '稽核人員' ");
                 sbSql.AppendFormat(@" ,[ID]");
                 sbSql.AppendFormat(@" FROM [TKCIM].[dbo].[CHECKPACKAGEEMPTY] ");
                 sbSql.AppendFormat(@" WHERE CONVERT(datetime,[MAINDATE],112)='{0}' ",TARGETPROTA002.Substring(0,8).ToString());
@@ -299,7 +299,7 @@ namespace TKCIM
                 sbSql.AppendFormat(@"  ,[CLOSES] AS '包裝密合',[PACKAGE] AS '包裝版面',[DRY] AS '乾燥劑',[COLORS] AS '餅乾色澤',[WEIGHTS] AS '重量'");
                 sbSql.AppendFormat(@"  ,[LABELS] AS '標籤版面',[MATERCHECK] AS '金屬檢測',[BATCHA] AS '日期批號A',[BATCHB] AS '日期批號B',[BATCHC] AS '日期批號C'");
                 sbSql.AppendFormat(@"  ,[BATCHD] AS '日期批號D',[CHECKEMP] AS '檢查人員',CONVERT(NVARCHAR,[CHECKTIME] ,8) AS '檢查時間',[QCEMP] AS '稽核確認'");
-                sbSql.AppendFormat(@"  ,[MAIN] AS '組別',[MAINDATE] AS '日期',[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號',[MB001] AS '品號'");
+                sbSql.AppendFormat(@"  ,[MAIN] AS '組別', CONVERT(NVARCHAR,[MAINDATE],112)  AS '日期',[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號',[MB001] AS '品號'");
                 sbSql.AppendFormat(@"  ,[ID] ");
                 sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[CHECKPACKAGE]");
                 sbSql.AppendFormat(@"  WHERE [TARGETPROTA001] ='{0}' AND [TARGETPROTA002]='{1}'",TARGETPROTA001,TARGETPROTA002);
