@@ -142,7 +142,7 @@ namespace TKCIM
 
                 sbSql.AppendFormat(@"  SELECT ");
                 sbSql.AppendFormat(@"  [MAIN] AS '組別',CONVERT(DATETIME,[MAINDATE],112) AS '日期',[MB002] AS '品名',[PALTNO] AS '盤數',[BURNNO] AS '爐號'");
-                sbSql.AppendFormat(@"  ,[SETTEMP] AS '設定溫度',[OUTTEMP] AS '出爐溫度',[STIME] AS '烘培起始',[ETIME] AS '烘培終止',[REMARK] AS '備註'");
+                sbSql.AppendFormat(@"  ,[SETTEMP] AS '設定溫度',[OUTTEMP] AS '出爐溫度',CONVERT(nvarchar,[STIME],8)  AS '烘培起始',CONVERT(nvarchar,[ETIME],8)  AS '烘培終止',[REMARK] AS '備註'");
                 sbSql.AppendFormat(@"  ,[OWNER] AS '填表人',[MANAGE] AS '主管',[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號',[MB001] AS '品號'");
                 sbSql.AppendFormat(@"  ,[ID]");
                 sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[CHECKHANDCOOK]");
@@ -262,7 +262,45 @@ namespace TKCIM
 
         public void DELCHECKHANDCOOK()
         {
+            try
+            {
+                connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
+                sqlConn = new SqlConnection(connectionString);
 
+                sqlConn.Close();
+                sqlConn.Open();
+                tran = sqlConn.BeginTransaction();
+
+                sbSql.Clear();
+                sbSql.AppendFormat("  DELETE [TKCIM].[dbo].[CHECKHANDCOOK]");
+                sbSql.AppendFormat("  WHERE ID='{0}'", CHECKHANDCOOKID);
+                sbSql.AppendFormat(" ");
+
+                cmd.Connection = sqlConn;
+                cmd.CommandTimeout = 60;
+                cmd.CommandText = sbSql.ToString();
+                cmd.Transaction = tran;
+                result = cmd.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    tran.Rollback();    //交易取消
+                }
+                else
+                {
+                    tran.Commit();      //執行交易  
+                }
+
+            }
+            catch
+            {
+
+            }
+
+            finally
+            {
+                sqlConn.Close();
+            }
         }
 
         public void SETNULL()
@@ -312,8 +350,7 @@ namespace TKCIM
 
 
 
-        #endregion
 
-       
+        #endregion
     }
 }
