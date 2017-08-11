@@ -467,7 +467,7 @@ namespace TKCIM
                 sbSql.Clear();
                 sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[CHECKCOOKIESMD]");
                 sbSql.AppendFormat("  ([ID],[MAIN],[MAINDATE],[TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[CHECKTIME],[WIGHT],[LENGTH],[TEMP],[HUMIDITY],[CHECKRESULT],[OWNER],[MANAGER] )");
-                sbSql.AppendFormat("   VALUES({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}')", "NEWID()",comboBox2.Text,dateTimePicker1.Value.ToString("yyyy/MM/dd"), textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, dateTimePicker3.Value.ToString("HH:mm"),textBox22.Text, textBox23.Text, textBox24.Text, textBox25.Text,comboBox1.Text,comboBox3.Text,comboBox4.Text);
+                sbSql.AppendFormat("   VALUES({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}')", "NEWID()",comboBox2.Text,TARGETPROTA002.Substring(0,8).ToString(), textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, dateTimePicker3.Value.ToString("HH:mm"),textBox22.Text, textBox23.Text, textBox24.Text, textBox25.Text,comboBox1.Text,comboBox3.Text,comboBox4.Text);
                 sbSql.AppendFormat(" ");
 
                 cmd.Connection = sqlConn;
