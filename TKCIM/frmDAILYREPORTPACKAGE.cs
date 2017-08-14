@@ -81,6 +81,9 @@ namespace TKCIM
             InitializeComponent();
 
             comboBox2load();
+            combobox3load();
+            combobox4load();
+            combobox5load();
 
         }
 
@@ -103,6 +106,63 @@ namespace TKCIM
             comboBox2.DisplayMember = "MD002";
             sqlConn.Close();
 
+
+        }
+        public void combobox3load()
+        {
+
+            connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+            sqlConn = new SqlConnection(connectionString);
+            String Sequel = "SELECT  [ID],[NAME] FROM [TKMOC].[dbo].[MANUEMPLOYEE] WHERE ID IN (SELECT ID FROM  [TKMOC].[dbo].[MANUEMPLOYEELIMIT]) ORDER BY ID";
+            SqlDataAdapter da = new SqlDataAdapter(Sequel, sqlConn);
+            DataTable dt = new DataTable();
+            sqlConn.Open();
+
+            dt.Columns.Add("ID", typeof(string));
+            dt.Columns.Add("NAME", typeof(string));
+            da.Fill(dt);
+            comboBox3.DataSource = dt.DefaultView;
+            comboBox3.ValueMember = "ID";
+            comboBox3.DisplayMember = "NAME";
+            sqlConn.Close();
+
+        }
+        public void combobox4load()
+        {
+
+            connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+            sqlConn = new SqlConnection(connectionString);
+            String Sequel = "SELECT  [ID],[NAME] FROM [TKMOC].[dbo].[MANUEMPLOYEE] WHERE ID IN (SELECT ID FROM  [TKMOC].[dbo].[MANUEMPLOYEELIMIT]) ORDER BY ID";
+            SqlDataAdapter da = new SqlDataAdapter(Sequel, sqlConn);
+            DataTable dt = new DataTable();
+            sqlConn.Open();
+
+            dt.Columns.Add("ID", typeof(string));
+            dt.Columns.Add("NAME", typeof(string));
+            da.Fill(dt);
+            comboBox4.DataSource = dt.DefaultView;
+            comboBox4.ValueMember = "ID";
+            comboBox4.DisplayMember = "NAME";
+            sqlConn.Close();
+
+        }
+        public void combobox5load()
+        {
+
+            connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+            sqlConn = new SqlConnection(connectionString);
+            String Sequel = "SELECT  [ID],[NAME] FROM [TKMOC].[dbo].[MANUEMPLOYEE] WHERE ID IN (SELECT ID FROM  [TKMOC].[dbo].[MANUEMPLOYEELIMIT]) ORDER BY ID";
+            SqlDataAdapter da = new SqlDataAdapter(Sequel, sqlConn);
+            DataTable dt = new DataTable();
+            sqlConn.Open();
+
+            dt.Columns.Add("ID", typeof(string));
+            dt.Columns.Add("NAME", typeof(string));
+            da.Fill(dt);
+            comboBox5.DataSource = dt.DefaultView;
+            comboBox5.ValueMember = "ID";
+            comboBox5.DisplayMember = "NAME";
+            sqlConn.Close();
 
         }
         public void SERACHMOCTARGET()
@@ -607,8 +667,8 @@ namespace TKCIM
                 sbSql.Clear();
                
                 sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[DAILYREPORTPACKAGE]");
-                sbSql.AppendFormat(" ([ID],[MAIN],[MAINDATE],[TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[MB003],[UINTS],[PRENUM],[PRODATE],[PRONUM],[PROPEOPLE],[PACKAGETIME],[TODATTIME],[TOTALTIME])");
-                sbSql.AppendFormat(" VALUES ({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}')", "NEWID()",comboBox2.Text, TARGETPROTA002.Substring(0, 8), TARGETPROTA001, TARGETPROTA002,MB001,MB002,MB003,textBox401.Text, textBox402.Text, dateTimePicker2.Value.ToString("yyyyMMdd"), textBox403.Text, textBox404.Text, textBox405.Text, textBox406.Text, textBox407.Text);
+                sbSql.AppendFormat(" ([ID],[MAIN],[MAINDATE],[TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[MB003],[UINTS],[PRENUM],[PRODATE],[PRONUM],[PROPEOPLE],[PACKAGETIME],[TODATTIME],[TOTALTIME],[KEYINEMP],[REVIEWEMP],[APPROVEDEMP])");
+                sbSql.AppendFormat(" VALUES ({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}')", "NEWID()",comboBox2.Text, TARGETPROTA002.Substring(0, 8), TARGETPROTA001, TARGETPROTA002,MB001,MB002,MB003,textBox401.Text, textBox402.Text, dateTimePicker2.Value.ToString("yyyyMMdd"), textBox403.Text, textBox404.Text, textBox405.Text, textBox406.Text, textBox407.Text,comboBox3.Text,comboBox4.Text,comboBox5.Text);
                 sbSql.AppendFormat(" ");
 
                 cmd.Connection = sqlConn;
