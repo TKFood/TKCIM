@@ -295,7 +295,7 @@ namespace TKCIM
                 sbSqlQuery.Clear();
 
                 sbSql.AppendFormat(@"  SELECT ");
-                sbSql.AppendFormat(@"  [MB002] AS '品名',[MB003] AS '規格',[SIDES] AS '側封口溫度',[SIDEA] AS '側封口溫度1',[SIDEB] AS '側封口溫度2',[BUTTONS] AS '底封口溫度',[BUTTON] AS '底封口溫度'");
+                sbSql.AppendFormat(@"  [MB002] AS '品名',[MB003] AS '規格',[SIDEA] AS '側封口溫度1',[SIDEB] AS '側封口溫度2',[BUTTON] AS '底封口溫度'");
                 sbSql.AppendFormat(@"  ,[CLOSES] AS '包裝密合',[PACKAGE] AS '包裝版面',[DRY] AS '乾燥劑',[COLORS] AS '餅乾色澤',[WEIGHTS] AS '重量'");
                 sbSql.AppendFormat(@"  ,[LABELS] AS '標籤版面',[MATERCHECK] AS '金屬檢測',[BATCHA] AS '日期批號A',[BATCHB] AS '日期批號B',[BATCHC] AS '日期批號C'");
                 sbSql.AppendFormat(@"  ,[BATCHD] AS '日期批號D',[CHECKEMP] AS '檢查人員',CONVERT(NVARCHAR,[CHECKTIME] ,8) AS '檢查時間',[QCEMP] AS '稽核確認'");
@@ -469,10 +469,9 @@ namespace TKCIM
                 sbSql.AppendFormat(" ,[MB001],[MB002],[MB003],[SIDEA],[SIDEB]");
                 sbSql.AppendFormat(" ,[BUTTON],[CLOSES],[PACKAGE],[DRY],[COLORS]");
                 sbSql.AppendFormat(" ,[WEIGHTS],[LABELS],[MATERCHECK],[BATCHA],[BATCHB]");
-                sbSql.AppendFormat(" ,[BATCHC],[BATCHD],[CHECKEMP],[CHECKTIME],[QCEMP]");
-                sbSql.AppendFormat(" ,[SIDES],[BUTTONS]");
+                sbSql.AppendFormat(" ,[BATCHC],[BATCHD],[CHECKEMP],[CHECKTIME],[QCEMP]");              
                 sbSql.AppendFormat(" )");
-                sbSql.AppendFormat(" VALUES ({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}','{26}')", "NEWID()", comboBox2.Text,TARGETPROTA002.Substring(0,8).ToString(),TARGETPROTA001,TARGETPROTA002,MB001,MB002,MB003, textBox201.Text, textBox202.Text, textBox203.Text, comboBox4.Text, comboBox5.Text, comboBox6.Text, comboBox7.Text, textBox401.Text, comboBox8.Text, comboBox9.Text, textBox501.Text, textBox502.Text, textBox503.Text, textBox504.Text, comboBox10.Text, dateTimePicker3.Value.ToString("HH:mm"), comboBox11.Text, comboBox12.Text, comboBox13.Text);
+                sbSql.AppendFormat(" VALUES ({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}')", "NEWID()", comboBox2.Text,TARGETPROTA002.Substring(0,8).ToString(),TARGETPROTA001,TARGETPROTA002,MB001,MB002,MB003, textBox201.Text, textBox202.Text, textBox203.Text, comboBox4.Text, comboBox5.Text, comboBox6.Text, comboBox7.Text, textBox401.Text, comboBox8.Text, comboBox9.Text, textBox501.Text, textBox502.Text, textBox503.Text, textBox504.Text, comboBox10.Text, dateTimePicker3.Value.ToString("HH:mm"), comboBox11.Text);
                 
            
                 sbSql.AppendFormat(" ");
