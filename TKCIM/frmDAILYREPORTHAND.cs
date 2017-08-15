@@ -56,6 +56,8 @@ namespace TKCIM
 
             comboBox2load();
             combobox1load();
+            combobox3load();
+            combobox4load();
         }
 
         #region FUNCTION
@@ -99,6 +101,45 @@ namespace TKCIM
             sqlConn.Close();
 
         }
+        public void combobox3load()
+        {
+
+            connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+            sqlConn = new SqlConnection(connectionString);
+            String Sequel = "SELECT  [ID],[NAME] FROM [TKMOC].[dbo].[MANUEMPLOYEE] WHERE ID IN (SELECT ID FROM  [TKMOC].[dbo].[MANUEMPLOYEELIMIT]) ORDER BY ID";
+            SqlDataAdapter da = new SqlDataAdapter(Sequel, sqlConn);
+            DataTable dt = new DataTable();
+            sqlConn.Open();
+
+            dt.Columns.Add("ID", typeof(string));
+            dt.Columns.Add("NAME", typeof(string));
+            da.Fill(dt);
+            comboBox3.DataSource = dt.DefaultView;
+            comboBox3.ValueMember = "ID";
+            comboBox3.DisplayMember = "NAME";
+            sqlConn.Close();
+
+        }
+        public void combobox4load()
+        {
+
+            connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
+            sqlConn = new SqlConnection(connectionString);
+            String Sequel = "SELECT  [ID],[NAME] FROM [TKMOC].[dbo].[MANUEMPLOYEE] WHERE ID IN (SELECT ID FROM  [TKMOC].[dbo].[MANUEMPLOYEELIMIT]) ORDER BY ID";
+            SqlDataAdapter da = new SqlDataAdapter(Sequel, sqlConn);
+            DataTable dt = new DataTable();
+            sqlConn.Open();
+
+            dt.Columns.Add("ID", typeof(string));
+            dt.Columns.Add("NAME", typeof(string));
+            da.Fill(dt);
+            comboBox4.DataSource = dt.DefaultView;
+            comboBox4.ValueMember = "ID";
+            comboBox4.DisplayMember = "NAME";
+            sqlConn.Close();
+
+        }
+        
         public void SERACHMOCTARGET()
         {
             try
@@ -231,8 +272,10 @@ namespace TKCIM
                 sbSql.AppendFormat(" ([ID],[MAIN],[MAINDATE],[TARGETPROTA001],[TARGETPROTA002],[MB001],[MB002],[MB003],[OILPREIN],[OILACTIN]");
                 sbSql.AppendFormat(" ,[WATERPREIN],[WATERACTIN],[TOTALIN],[CYCLESIDE],[NG],[COOKNG],[OILWORKTIME],[OILWORKHR],[WATERWORKTIME],[WATERWORKHR]");
                 sbSql.AppendFormat(" ,[WORKTIME],[WORKHR],[CHOREWORK],[CHONG],[CHOTIME],[CHOHR],[PACKTIME],[PACKHR],[PACKNG],[NGMB002]");
-                sbSql.AppendFormat(" ,[NGMB003],[NGNUM],[HALFNUM],[FINALNUM],[REMARK],[OWNER])");
-                sbSql.AppendFormat(" VALUES ({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}','{26}','{27}','{28}','{29}','{30}','{31}','{32}','{33}','{34}','{35}')", "NEWID()",comboBox2.Text,dateTimePicker1.Value.ToString("yyyyMMdd"), TARGETPROTA001, TARGETPROTA002, textBox201.Text, textBox202.Text, textBox203.Text, textBox301.Text, textBox302.Text, textBox303.Text, textBox304.Text, textBox305.Text, textBox306.Text, textBox307.Text, textBox308.Text, textBox401.Text, textBox402.Text, textBox403.Text, textBox404.Text, textBox405.Text, textBox406.Text, textBox501.Text, textBox502.Text, textBox503.Text, textBox504.Text,textBox601.Text,textBox602.Text,textBox603.Text, textBox604.Text, textBox605.Text, textBox606.Text, textBox607.Text, textBox608.Text, textBox701.Text,comboBox1.Text);
+                sbSql.AppendFormat(" ,[NGMB003],[NGNUM],[HALFNUM],[FINALNUM],[REMARK],[OWNER]");
+                sbSql.AppendFormat(" ,[REVIEWER],[APPROVEDEMP]");
+                sbSql.AppendFormat(" )");
+                sbSql.AppendFormat(" VALUES ({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}','{26}','{27}','{28}','{29}','{30}','{31}','{32}','{33}','{34}','{35}','{36}','{37}')", "NEWID()",comboBox2.Text,dateTimePicker1.Value.ToString("yyyyMMdd"), TARGETPROTA001, TARGETPROTA002, textBox201.Text, textBox202.Text, textBox203.Text, textBox301.Text, textBox302.Text, textBox303.Text, textBox304.Text, textBox305.Text, textBox306.Text, textBox307.Text, textBox308.Text, textBox401.Text, textBox402.Text, textBox403.Text, textBox404.Text, textBox405.Text, textBox406.Text, textBox501.Text, textBox502.Text, textBox503.Text, textBox504.Text,textBox601.Text,textBox602.Text,textBox603.Text, textBox604.Text, textBox605.Text, textBox606.Text, textBox607.Text, textBox608.Text, textBox701.Text,comboBox1.Text, comboBox3.Text, comboBox4.Text);
                 sbSql.AppendFormat(" ");
                 sbSql.AppendFormat(" ");
 
@@ -283,7 +326,7 @@ namespace TKCIM
                 sbSql.AppendFormat(@"  ,[CHONG] AS '巧克力-不良',[CHOTIME] AS '巧克力-工時',[CHOHR] AS '巧克力-人數',[PACKTIME] AS '後段包裝-工時'");
                 sbSql.AppendFormat(@"  ,[PACKHR] AS '後段包裝-人數',[PACKNG] AS '包裝時餅乾不良',[NGMB002] AS '包裝不良品名',[NGMB003] AS '包裝不良規格'");
                 sbSql.AppendFormat(@"  ,[NGNUM] AS '包裝不良數量',[HALFNUM] AS '半成品數量',[FINALNUM] AS '成品數量',[REMARK] AS '備註'");
-                sbSql.AppendFormat(@"  ,[OWNER] AS '填表人',[ID]");
+                sbSql.AppendFormat(@"  ,[OWNER] AS '填表人',[REVIEWER] AS '審核',[APPROVEDEMP] AS '核準' ,[ID]");
                 sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[DAILYREPORTHAND]");
                 sbSql.AppendFormat(@"  WHERE [TARGETPROTA001]='{0}' AND [TARGETPROTA002]='{1}'", TARGETPROTA001, TARGETPROTA002);
                 sbSql.AppendFormat(@"  ");
