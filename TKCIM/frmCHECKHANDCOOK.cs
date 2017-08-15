@@ -141,7 +141,7 @@ namespace TKCIM
                 sbSqlQuery.Clear();
 
                 sbSql.AppendFormat(@"  SELECT ");
-                sbSql.AppendFormat(@"  [MAIN] AS '組別',CONVERT(DATETIME,[MAINDATE],112) AS '日期',[MB002] AS '品名',[PALTNO] AS '盤數',[BURNNO] AS '爐號'");
+                sbSql.AppendFormat(@"  [MAIN] AS '組別',CONVERT(DATETIME,[MAINDATE],112) AS '日期',[CARNO] AS '車號',[MB002] AS '品名',[PALTNO] AS '盤數',[BURNNO] AS '爐號'");
                 sbSql.AppendFormat(@"  ,[SETTEMP] AS '設定溫度',[OUTTEMP] AS '出爐溫度',CONVERT(nvarchar,[STIME],8)  AS '烘培起始',CONVERT(nvarchar,[ETIME],8)  AS '烘培終止',[REMARK] AS '備註'");
                 sbSql.AppendFormat(@"  ,[OWNER] AS '填表人',[MANAGE] AS '主管',[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號',[MB001] AS '品號'");
                 sbSql.AppendFormat(@"  ,[ID]");
@@ -205,10 +205,10 @@ namespace TKCIM
 
                 sbSql.AppendFormat(" INSERT INTO [TKCIM].[dbo].[CHECKHANDCOOK]");
                 sbSql.AppendFormat(" ([ID],[MAIN],[MAINDATE],[TARGETPROTA001],[TARGETPROTA002]");
-                sbSql.AppendFormat(" ,[MB001],[MB002],[PALTNO],[BURNNO],[SETTEMP]");
+                sbSql.AppendFormat(" ,[CARNO],[MB001],[MB002],[PALTNO],[BURNNO],[SETTEMP]");
                 sbSql.AppendFormat(" ,[OUTTEMP],[STIME],[ETIME],[REMARK],[OWNER]");
                 sbSql.AppendFormat(" ,[MANAGE])");
-                sbSql.AppendFormat(" VALUES ({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}')", "NEWID()", comboBox2.Text, dateTimePicker1.Value.ToString("yyyyMMdd"),"","","", textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, dateTimePicker2.Value.ToString("HH:mm"), dateTimePicker3.Value.ToString("HH:mm"), textBox7.Text, comboBox3.Text, comboBox4.Text);
+                sbSql.AppendFormat(" VALUES ({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}')", "NEWID()", comboBox2.Text, dateTimePicker1.Value.ToString("yyyyMMdd"), "", "", textBox8.Text,"", textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, dateTimePicker2.Value.ToString("HH:mm"), dateTimePicker3.Value.ToString("HH:mm"), textBox7.Text, comboBox3.Text, comboBox4.Text);
                 sbSql.AppendFormat(" ");
                 sbSql.AppendFormat(" ");
 
@@ -311,6 +311,7 @@ namespace TKCIM
             textBox5.Text = null;
             textBox6.Text = null;
             textBox7.Text = null;
+            textBox8.Text = null;
 
         }
 
