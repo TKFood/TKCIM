@@ -250,7 +250,7 @@ namespace TKCIM
                 sbSql.Clear();
                 sbSqlQuery.Clear();
 
-                sbSql.AppendFormat(@" SELECT CONVERT(varchar(100),[MAINTIME],8)  AS '時間',[MB002] AS '品名',[NUM] AS '回收量',[NGNUM] AS '不良品報廢' ,[MAIN] AS '線別',[MAINDATE] AS '日期',[MB001] AS '品號',[ID],[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號' ");
+                sbSql.AppendFormat(@" SELECT CONVERT(varchar(100),[MAINTIME],8)  AS '時間',[MB002] AS '品名',[NUM] AS '回收量',[NGNUM] AS '不良品報廢' ,[MAIN] AS '線別',CONVERT(NVARCHAR,[MAINDATE],112 ) AS '日期',[MB001] AS '品號',[ID],[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號' ");
                 sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[NGCOOKIESMD]");
                 sbSql.AppendFormat(@"  WHERE CONVERT(varchar(100),[MAINDATE],112)='{0}'  ",dateTimePicker1.Value.ToString("yyyyMMdd"));
                 sbSql.AppendFormat(@"  AND [MAIN]='{0}'", comboBox2.Text.ToString());
@@ -746,10 +746,20 @@ namespace TKCIM
         {
             SETINVLA();
         }
+        private void button8_Click(object sender, EventArgs e)
+        {
+            frmNGCOOKIESEDIT SUBfrmNGCOOKIESEDIT = new frmNGCOOKIESEDIT(ID);
+            if (!string.IsNullOrEmpty(ID))
+            {
+                SUBfrmNGCOOKIESEDIT.ShowDialog();
+            }
+
+            SEARCHNGCOOKIESMD();
+        }
 
 
         #endregion
 
-       
+
     }
 }
