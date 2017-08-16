@@ -207,6 +207,12 @@
     <Compile Include="frmNGSIDE.Designer.cs">
       <DependentUpon>frmNGSIDE.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmNGSIDEEDIT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNGSIDEEDIT.Designer.cs">
+      <DependentUpon>frmNGSIDEEDIT.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmParent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -298,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmNGSIDE.resx">
       <DependentUpon>frmNGSIDE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNGSIDEEDIT.resx">
+      <DependentUpon>frmNGSIDEEDIT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmParent.resx">
       <DependentUpon>FrmParent.cs</DependentUpon>

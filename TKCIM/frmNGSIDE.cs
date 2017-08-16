@@ -745,11 +745,22 @@ namespace TKCIM
         {
             SETINVLA();
         }
+        private void button8_Click(object sender, EventArgs e)
+        {
+
+            frmNGSIDEEDIT SUBfrmNGSIDEEDIT = new frmNGSIDEEDIT(ID);
+            if (!string.IsNullOrEmpty(ID))
+            {
+                SUBfrmNGSIDEEDIT.ShowDialog();
+            }
+
+            SEARCHNGSIDEMD();
+        }
+
 
 
         #endregion
 
-      
-        
+
     }
 }
