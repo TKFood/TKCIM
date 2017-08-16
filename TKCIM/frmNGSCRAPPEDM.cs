@@ -348,9 +348,6 @@ namespace TKCIM
             SERACHMOCTARGET();
             SEARCHNGSCRAPPEDMD();
         }
-
-        #endregion
-
         private void button2_Click(object sender, EventArgs e)
         {
             ADDNGSCRAPPEDMD();
@@ -373,6 +370,18 @@ namespace TKCIM
             SEARCHNGSCRAPPEDMD();
             SERACHMOCTARGET();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            frmNGSCRAPPEDMEDIT SUBfrmNGSCRAPPEDMEDIT = new frmNGSCRAPPEDMEDIT(NGSCRAPPEDMID);
+            if (!string.IsNullOrEmpty(NGSCRAPPEDMID))
+            {
+                SUBfrmNGSCRAPPEDMEDIT.ShowDialog();
+            }
+
+            SEARCHNGSCRAPPEDMD();
+        }
+        #endregion
 
 
     }
