@@ -469,6 +469,17 @@ namespace TKCIM
             }
             SERACHCHECKFIRSTTYPEPACKAGE();
         }
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            frmCHECKFIRSTTYPEPACKAGEEDIT SUBfrmCHECKFIRSTTYPEPACKAGEEDIT = new frmCHECKFIRSTTYPEPACKAGEEDIT(DELCHECKFIRSTTYPEPACKAGEID);
+            if (!string.IsNullOrEmpty(DELCHECKFIRSTTYPEPACKAGEID))
+            {
+                SUBfrmCHECKFIRSTTYPEPACKAGEEDIT.ShowDialog();
+            }
+
+            SERACHCHECKFIRSTTYPEPACKAGE();
+        }
 
 
         #endregion

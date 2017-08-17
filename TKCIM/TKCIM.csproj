@@ -135,6 +135,12 @@
     <Compile Include="frmCHECKFIRSTTYPEPACKAGE.Designer.cs">
       <DependentUpon>frmCHECKFIRSTTYPEPACKAGE.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCHECKFIRSTTYPEPACKAGEEDIT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCHECKFIRSTTYPEPACKAGEEDIT.Designer.cs">
+      <DependentUpon>frmCHECKFIRSTTYPEPACKAGEEDIT.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCHECKHANDCOOK.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -310,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCHECKFIRSTTYPEPACKAGE.resx">
       <DependentUpon>frmCHECKFIRSTTYPEPACKAGE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCHECKFIRSTTYPEPACKAGEEDIT.resx">
+      <DependentUpon>frmCHECKFIRSTTYPEPACKAGEEDIT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCHECKHANDCOOK.resx">
       <DependentUpon>frmCHECKHANDCOOK.cs</DependentUpon>
