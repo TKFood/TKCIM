@@ -686,10 +686,32 @@ namespace TKCIM
             SERACHCHECKBAKEDMD();
         }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+            frmCHECKBAKEDEDITM SUBfrmCHECKBAKEDEDITM = new frmCHECKBAKEDEDITM(ID);
+            if (!string.IsNullOrEmpty(ID))
+            {
+                SUBfrmCHECKBAKEDEDITM.ShowDialog();
+            }
+
+            SERACHCHECKBAKEDM();
+        }
+        private void button7_Click(object sender, EventArgs e)
+        {
+            frmCHECKBAKEDEDITD SUBfrmCHECKBAKEDEDITD = new frmCHECKBAKEDEDITD(MDID);
+            if (!string.IsNullOrEmpty(MDID))
+            {
+                SUBfrmCHECKBAKEDEDITD.ShowDialog();
+            }
+
+            SERACHCHECKBAKEDMD();
+        }
+
 
 
         #endregion
 
-       
+      
     }
 }
