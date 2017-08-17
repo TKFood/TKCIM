@@ -44,11 +44,11 @@ namespace TKCIM
             InitializeComponent();
 
             ID = SUBID;
-            SEARCHCHECKFIRSTTYPE();
-
+           
             combobox2load();
             combobox3load();
             combobox4load();
+            SEARCHCHECKFIRSTTYPE();
         }
 
         #region FUNCTION

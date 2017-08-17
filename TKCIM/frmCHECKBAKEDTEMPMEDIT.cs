@@ -45,10 +45,10 @@ namespace TKCIM
             InitializeComponent();
 
             ID = SUBID;
-            SERACHCHECKBAKEDTEMPM();
-
+            
             combobox3load();
             combobox4load();
+            SERACHCHECKBAKEDTEMPM();
         }
 
         #region FUNCTION

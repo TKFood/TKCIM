@@ -45,11 +45,10 @@ namespace TKCIM
 
             ID = SUBID;
 
-            SERACHCHECKFIRSTTYPEPACKAGE();
-
             combobox2load();
             combobox3load();
             combobox4load();
+            SERACHCHECKFIRSTTYPEPACKAGE();
         }
         #region FUNCTION
 
