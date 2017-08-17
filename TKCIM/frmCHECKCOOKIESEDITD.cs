@@ -102,7 +102,7 @@ namespace TKCIM
 
 
                 sbSql.AppendFormat(@"  SELECT  [MB002] AS '品名',CONVERT(varchar(100),[CHECKTIME],8) AS '時間',[WIGHT] AS '重量',[LENGTH] AS '長度',[TEMP] AS '溫度',[HUMIDITY] AS '溼度',[CHECKRESULT] AS '檢查結果',[OWNER] AS '填表人',[MANAGER]  AS '主管',[MAIN] AS '線別',[MAINDATE] AS '日期',[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號',[MB001] AS '品號',[ID]  ");
-                sbSql.AppendFormat(@"  FROM [TKCIM].dbo.[CHECKCOOKIESMD] WITH (NOLOCK)");
+                sbSql.AppendFormat(@"  FROM [TKCIM].dbo.[CHECKBAKEDMD] WITH (NOLOCK)");
                 sbSql.AppendFormat(@" WHERE ID='{0}'", ID);
                 sbSql.AppendFormat(@"  ");
 

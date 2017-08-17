@@ -401,7 +401,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "OK",
             "NG"});
-            this.comboBox1.Location = new System.Drawing.Point(103, 408);
+            this.comboBox1.Location = new System.Drawing.Point(103, 410);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(147, 24);
             this.comboBox1.TabIndex = 132;
@@ -411,7 +411,7 @@
             // 
             this.comboBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(103, 448);
+            this.comboBox3.Location = new System.Drawing.Point(103, 450);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(147, 24);
             this.comboBox3.TabIndex = 133;
@@ -420,7 +420,7 @@
             // 
             this.comboBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(103, 488);
+            this.comboBox4.Location = new System.Drawing.Point(103, 490);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(147, 24);
             this.comboBox4.TabIndex = 134;
@@ -442,7 +442,7 @@
             this.ClientSize = new System.Drawing.Size(984, 739);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmCHECKBAKEDEDITD";
             this.Text = "frmCHECKBAKEDD";
             this.tabControl1.ResumeLayout(false);
