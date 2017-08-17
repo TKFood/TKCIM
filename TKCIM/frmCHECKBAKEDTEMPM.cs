@@ -478,10 +478,20 @@ namespace TKCIM
             SERACHCHECKBAKEDTEMPM();
           
         }
+        private void button4_Click(object sender, EventArgs e)
+        {
+            frmCHECKBAKEDTEMPMEDIT SUBfrmCHECKBAKEDTEMPMEDIT = new frmCHECKBAKEDTEMPMEDIT(ID);
+            if (!string.IsNullOrEmpty(ID))
+            {
+                SUBfrmCHECKBAKEDTEMPMEDIT.ShowDialog();
+            }
+
+            SERACHCHECKBAKEDTEMPM();
+        }
 
 
         #endregion
 
-      
+
     }
 }
