@@ -173,7 +173,7 @@ namespace TKCIM
 
                 sqlCmdBuilder = new SqlCommandBuilder(adapter);
                 sqlConn.Open();
-                ds1.Clear();
+               
                 adapter.Fill(ds1, "TEMPds1");
                 sqlConn.Close();
 
@@ -906,9 +906,19 @@ namespace TKCIM
             }
         }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+            frmCHECKFIRSTTYPEEDIT SUBfrmCHECKFIRSTTYPEEDIT = new frmCHECKFIRSTTYPEEDIT(DELCHECKFIRSTTYPEID);
+            if (!string.IsNullOrEmpty(DELCHECKFIRSTTYPEID))
+            {
+                SUBfrmCHECKFIRSTTYPEEDIT.ShowDialog();
+            }
+
+            SEARCHCHECKFIRSTTYPE();
+        }
 
         #endregion
 
-        
+
     }
 }
