@@ -1522,11 +1522,13 @@ namespace TKCIM
             }
 
         }
+     
         public void SETNULL6()
         {
             textBox801.Text = null;
             textBox802.Text = null;
         }
+
 
         #endregion
 
@@ -1624,7 +1626,7 @@ namespace TKCIM
         private void button7_Click(object sender, EventArgs e)
         {
             ADDDAILYREPORTPACKAGENEED();
-            SETNULL6();
+            SETNULL5();
             SEARCHDAILYREPORTPACKAGENEED();
         }
         private void button12_Click(object sender, EventArgs e)

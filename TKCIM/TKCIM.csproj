@@ -63,6 +63,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmCHECKCOOKIESEDITD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCHECKCOOKIESEDITD.Designer.cs">
+      <DependentUpon>frmCHECKCOOKIESEDITD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCHECKCOOKIESEDITM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCHECKCOOKIESEDITM.Designer.cs">
+      <DependentUpon>frmCHECKCOOKIESEDITM.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCHECKFIRSTTYPE.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -239,6 +251,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmCHECKCOOKIESEDITD.resx">
+      <DependentUpon>frmCHECKCOOKIESEDITD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCHECKCOOKIESEDITM.resx">
+      <DependentUpon>frmCHECKCOOKIESEDITM.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCHECKFIRSTTYPE.resx">
       <DependentUpon>frmCHECKFIRSTTYPE.cs</DependentUpon>
     </EmbeddedResource>

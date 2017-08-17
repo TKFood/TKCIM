@@ -692,11 +692,33 @@ namespace TKCIM
             }
             SEARCHCHECKCOOKIESMD();
         }
+        private void button6_Click(object sender, EventArgs e)
+        {
+            frmCHECKCOOKIESEDITM SUBfrmCHECKCOOKIESEDITM = new frmCHECKCOOKIESEDITM(ID);
+            if (!string.IsNullOrEmpty(ID))
+            {
+                SUBfrmCHECKCOOKIESEDITM.ShowDialog();
+            }
+
+            SERACHCHECKCOOKIESM();
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            frmCHECKCOOKIESEDITD SUBfrmCHECKCOOKIESEDITD = new frmCHECKCOOKIESEDITD(MDID);
+            if (!string.IsNullOrEmpty(MDID))
+            {
+                SUBfrmCHECKCOOKIESEDITD.ShowDialog();
+            }
+
+            SEARCHCHECKCOOKIESMD();
+        }
 
 
         #endregion
 
-        
+
     }
 
 }
