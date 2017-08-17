@@ -467,7 +467,7 @@
             // 
             this.splitContainer23.Panel2.Controls.Add(this.dataGridView4);
             this.splitContainer23.Size = new System.Drawing.Size(322, 490);
-            this.splitContainer23.SplitterDistance = 327;
+            this.splitContainer23.SplitterDistance = 333;
             this.splitContainer23.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -516,7 +516,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(318, 323);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(318, 329);
             this.tableLayoutPanel3.TabIndex = 6;
             // 
             // textBox405
@@ -549,7 +549,7 @@
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(92, 286);
+            this.button3.Location = new System.Drawing.Point(92, 289);
             this.button3.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(92, 30);
@@ -696,7 +696,7 @@
             // button9
             // 
             this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button9.Location = new System.Drawing.Point(6, 286);
+            this.button9.Location = new System.Drawing.Point(6, 289);
             this.button9.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(74, 30);
@@ -789,7 +789,7 @@
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.ReadOnly = true;
             this.dataGridView4.RowTemplate.Height = 24;
-            this.dataGridView4.Size = new System.Drawing.Size(318, 155);
+            this.dataGridView4.Size = new System.Drawing.Size(318, 149);
             this.dataGridView4.TabIndex = 10;
             this.dataGridView4.SelectionChanged += new System.EventHandler(this.dataGridView4_SelectionChanged);
             // 
