@@ -113,6 +113,7 @@
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
             this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.button6 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -741,13 +742,14 @@
             this.tableLayoutPanel3.Controls.Add(this.comboBox4, 5, 7);
             this.tableLayoutPanel3.Controls.Add(this.label22, 6, 5);
             this.tableLayoutPanel3.Controls.Add(this.comboBox7, 7, 5);
+            this.tableLayoutPanel3.Controls.Add(this.button6, 7, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 9;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
@@ -806,7 +808,7 @@
             // 
             this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(4, 47);
+            this.label14.Location = new System.Drawing.Point(4, 49);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(112, 16);
@@ -816,7 +818,7 @@
             // textBox301
             // 
             this.textBox301.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox301.Location = new System.Drawing.Point(123, 43);
+            this.textBox301.Location = new System.Drawing.Point(123, 44);
             this.textBox301.Name = "textBox301";
             this.textBox301.ReadOnly = true;
             this.textBox301.Size = new System.Drawing.Size(114, 27);
@@ -825,7 +827,7 @@
             // textBox302
             // 
             this.textBox302.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox302.Location = new System.Drawing.Point(243, 43);
+            this.textBox302.Location = new System.Drawing.Point(243, 44);
             this.textBox302.Name = "textBox302";
             this.textBox302.ReadOnly = true;
             this.textBox302.Size = new System.Drawing.Size(114, 27);
@@ -835,7 +837,7 @@
             // 
             this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(364, 47);
+            this.label29.Location = new System.Drawing.Point(364, 49);
             this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(112, 16);
@@ -846,7 +848,7 @@
             // 
             this.textBox303.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel3.SetColumnSpan(this.textBox303, 2);
-            this.textBox303.Location = new System.Drawing.Point(483, 43);
+            this.textBox303.Location = new System.Drawing.Point(483, 44);
             this.textBox303.Name = "textBox303";
             this.textBox303.ReadOnly = true;
             this.textBox303.Size = new System.Drawing.Size(234, 27);
@@ -855,7 +857,7 @@
             // textBox305
             // 
             this.textBox305.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox305.Location = new System.Drawing.Point(483, 73);
+            this.textBox305.Location = new System.Drawing.Point(483, 78);
             this.textBox305.Name = "textBox305";
             this.textBox305.ReadOnly = true;
             this.textBox305.Size = new System.Drawing.Size(114, 27);
@@ -865,7 +867,7 @@
             // 
             this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(364, 77);
+            this.label18.Location = new System.Drawing.Point(364, 79);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(112, 16);
@@ -876,7 +878,7 @@
             // 
             this.textBox304.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel3.SetColumnSpan(this.textBox304, 2);
-            this.textBox304.Location = new System.Drawing.Point(123, 73);
+            this.textBox304.Location = new System.Drawing.Point(123, 78);
             this.textBox304.Name = "textBox304";
             this.textBox304.ReadOnly = true;
             this.textBox304.Size = new System.Drawing.Size(234, 27);
@@ -886,7 +888,7 @@
             // 
             this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(4, 77);
+            this.label13.Location = new System.Drawing.Point(4, 79);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(112, 16);
@@ -1186,6 +1188,18 @@
             this.comboBox7.TabIndex = 72;
             this.comboBox7.Text = "正常";
             // 
+            // button6
+            // 
+            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.button6.Location = new System.Drawing.Point(844, 44);
+            this.button6.Margin = new System.Windows.Forms.Padding(4);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(118, 27);
+            this.button6.TabIndex = 74;
+            this.button6.Text = "單筆修改";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 26);
@@ -1329,5 +1343,6 @@
         private System.Windows.Forms.ComboBox comboBox6;
         private System.Windows.Forms.ComboBox comboBox7;
         private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.Button button6;
     }
 }

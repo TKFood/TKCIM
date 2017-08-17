@@ -966,12 +966,22 @@ namespace TKCIM
             SERACHCHECKFIRSTTYPECOLD();
             SERACHCHECKFIRSTTYPECOLDD();
         }
+        private void button6_Click(object sender, EventArgs e)
+        {
+            frmCHECKFIRSTTYPECOLDEDIT SUBfrmCHECKFIRSTTYPECOLDEDIT = new frmCHECKFIRSTTYPECOLDEDIT(DELCHECKFIRSTTYPECOLDID);
+            if (!string.IsNullOrEmpty(DELCHECKFIRSTTYPECOLDID))
+            {
+                SUBfrmCHECKFIRSTTYPECOLDEDIT.ShowDialog();
+            }
+
+            SERACHCHECKFIRSTTYPECOLD();
+        }
 
 
 
         #endregion
 
-        
+
     }
 
 }
