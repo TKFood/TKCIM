@@ -710,9 +710,9 @@ namespace TKCIM
                 sbSql.Clear();
                 sbSqlQuery.Clear();
 
-                sbSql.AppendFormat(@"  SELECT [MAIN] AS '組別',[MAINDATE] AS '日期',[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號'");
+                sbSql.AppendFormat(@"  SELECT [MAIN] AS '組別',CONVERT(NVARCHAR,[MAINDATE],112)  AS '日期',[TARGETPROTA001] AS '單別',[TARGETPROTA002] AS '單號'");
                 sbSql.AppendFormat(@"  ,[MB001] AS '品號',[MB002] AS '品名',[MB003] AS '規格',[UINTS] AS '單位',[PRENUM] AS '預計成品數量'");
-                sbSql.AppendFormat(@"  ,[PRODATE] AS '入庫日期',[PRONUM] AS '數量',[PROPEOPLE] AS '生產人數',[PACKAGETIME] AS '包時時間'");
+                sbSql.AppendFormat(@"  ,CONVERT(NVARCHAR,[PRODATE],112)  AS '入庫日期',[PRONUM] AS '數量',[PROPEOPLE] AS '生產人數',[PACKAGETIME] AS '包裝時間'");
                 sbSql.AppendFormat(@"  ,[TODATTIME] AS '今日工時',[TOTALTIME] AS '累計工時'");
                 sbSql.AppendFormat(@"  ,[ID]");
                 sbSql.AppendFormat(@"  FROM [TKCIM].[dbo].[DAILYREPORTPACKAGE]");
