@@ -380,9 +380,20 @@ namespace TKCIM
             }
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(ID))
+            {
+                frmNGSCRAPPEDSTATUSEDIT SUBfrmNGSCRAPPEDSTATUSEDIT = new frmNGSCRAPPEDSTATUSEDIT(ID);
+                SUBfrmNGSCRAPPEDSTATUSEDIT.ShowDialog();
+            }
+
+           
+            SEARCHNGSCRAPPEDSTATUS();
+        }
 
         #endregion
 
-        
+
     }
 }
