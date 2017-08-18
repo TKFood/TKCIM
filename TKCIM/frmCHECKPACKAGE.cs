@@ -630,8 +630,18 @@ namespace TKCIM
             SEARCHCHECKPACKAGE();
         }
 
+        private void button6_Click(object sender, EventArgs e)
+        {            
+            if (!string.IsNullOrEmpty(CHECKPACKAGEID))
+            {
+                frmCHECKPACKAGEEDIT SUBfrmCHECKPACKAGEEDIT = new frmCHECKPACKAGEEDIT(CHECKPACKAGEID);
+                SUBfrmCHECKPACKAGEEDIT.ShowDialog();
+            }
+
+            SEARCHCHECKPACKAGE();
+        }
         #endregion
 
-       
+
     }
 }
