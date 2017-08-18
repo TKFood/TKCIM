@@ -1,6 +1,6 @@
 ﻿namespace TKCIM
 {
-    partial class frmCHECKFIRSTTYPECOLDEDIT
+    partial class frmDAILYREPORTPACKAGEM
     {
         /// <summary>
         /// Required designer variable.
@@ -89,7 +89,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(984, 739);
-            this.tabControl1.TabIndex = 6;
+            this.tabControl1.TabIndex = 7;
             // 
             // tabPage1
             // 
@@ -499,7 +499,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "OK",
             "NG"});
-            this.comboBox1.Location = new System.Drawing.Point(418, 130);
+            this.comboBox1.Location = new System.Drawing.Point(418, 128);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(117, 24);
             this.comboBox1.TabIndex = 132;
@@ -534,7 +534,7 @@
             this.comboBox5.Items.AddRange(new object[] {
             "OK",
             "NG"});
-            this.comboBox5.Location = new System.Drawing.Point(418, 208);
+            this.comboBox5.Location = new System.Drawing.Point(418, 210);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(117, 24);
             this.comboBox5.TabIndex = 158;
@@ -555,7 +555,7 @@
             // 
             this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(418, 250);
+            this.comboBox2.Location = new System.Drawing.Point(418, 248);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(117, 24);
             this.comboBox2.TabIndex = 154;
@@ -586,7 +586,7 @@
             // 
             this.comboBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(418, 290);
+            this.comboBox3.Location = new System.Drawing.Point(418, 288);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(117, 24);
             this.comboBox3.TabIndex = 155;
@@ -595,7 +595,7 @@
             // 
             this.comboBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(418, 330);
+            this.comboBox4.Location = new System.Drawing.Point(418, 328);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(117, 24);
             this.comboBox4.TabIndex = 156;
@@ -626,16 +626,16 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // frmCHECKFIRSTTYPECOLDEDIT
+            // frmDAILYREPORTPACKAGEM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 739);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "frmCHECKFIRSTTYPECOLDEDIT";
-            this.Text = "frmCHECKFIRSTTYPECOLDEDIT";
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "frmDAILYREPORTPACKAGEM";
+            this.Text = "frmDAILYREPORTPACKAGEM";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -667,31 +667,31 @@
         private System.Windows.Forms.TextBox textBox701;
         private System.Windows.Forms.TextBox textBox801;
         private System.Windows.Forms.TextBox textBox901;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox textBox601;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox textBox1001;
         private System.Windows.Forms.TextBox textBox1101;
         private System.Windows.Forms.TextBox textBox1201;
         private System.Windows.Forms.TextBox textBox1301;
-        private System.Windows.Forms.TextBox textBox1401;
-        private System.Windows.Forms.TextBox textBox1501;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.TextBox textBox1401;
+        private System.Windows.Forms.TextBox textBox1501;
         private System.Windows.Forms.TabPage tabPage2;
     }
 }

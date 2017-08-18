@@ -67,6 +67,7 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.button15 = new System.Windows.Forms.Button();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.splitContainer15 = new System.Windows.Forms.SplitContainer();
             this.splitContainer16 = new System.Windows.Forms.SplitContainer();
@@ -137,6 +138,7 @@
             this.textBox249 = new System.Windows.Forms.TextBox();
             this.textBox259 = new System.Windows.Forms.TextBox();
             this.textBox201 = new System.Windows.Forms.TextBox();
+            this.button14 = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.splitContainer18 = new System.Windows.Forms.SplitContainer();
             this.splitContainer27 = new System.Windows.Forms.SplitContainer();
@@ -501,6 +503,7 @@
             this.tableLayoutPanel3.Controls.Add(this.comboBox3, 2, 2);
             this.tableLayoutPanel3.Controls.Add(this.comboBox4, 2, 4);
             this.tableLayoutPanel3.Controls.Add(this.comboBox5, 2, 6);
+            this.tableLayoutPanel3.Controls.Add(this.button15, 2, 8);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
@@ -777,6 +780,18 @@
             this.comboBox5.Size = new System.Drawing.Size(116, 24);
             this.comboBox5.TabIndex = 101;
             // 
+            // button15
+            // 
+            this.button15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.button15.Location = new System.Drawing.Point(196, 289);
+            this.button15.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(116, 30);
+            this.button15.TabIndex = 102;
+            this.button15.Text = "單筆修改 ";
+            this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
+            // 
             // dataGridView4
             // 
             this.dataGridView4.AllowUserToAddRows = false;
@@ -943,6 +958,7 @@
             this.tableLayoutPanel1.Controls.Add(this.textBox249, 8, 5);
             this.tableLayoutPanel1.Controls.Add(this.textBox259, 8, 6);
             this.tableLayoutPanel1.Controls.Add(this.textBox201, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.button14, 9, 5);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
@@ -1557,6 +1573,18 @@
             this.textBox201.Name = "textBox201";
             this.textBox201.Size = new System.Drawing.Size(12, 27);
             this.textBox201.TabIndex = 99;
+            // 
+            // button14
+            // 
+            this.button14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.button14.Location = new System.Drawing.Point(566, 205);
+            this.button14.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(108, 30);
+            this.button14.TabIndex = 100;
+            this.button14.Text = "單筆修改 ";
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // dataGridView3
             // 
@@ -2471,5 +2499,7 @@
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button button14;
     }
 }

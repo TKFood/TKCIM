@@ -1669,10 +1669,32 @@ namespace TKCIM
             SEARCHDAILYREPORTPACKAGEBACKHALF();
         }
 
+        private void button14_Click(object sender, EventArgs e)
+        {            
+            if (!string.IsNullOrEmpty(DAILYREPORTPACKAGEPICKMATERID))
+            {
+                frmDAILYREPORTPACKAGEEDITD SUBfrmDAILYREPORTPACKAGEEDITD = new frmDAILYREPORTPACKAGEEDITD(DAILYREPORTPACKAGEPICKMATERID);
+                SUBfrmDAILYREPORTPACKAGEEDITD.ShowDialog();
+            }
+
+            SEARCHDAILYREPORTPACKAGEPICKMATER(); 
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            
+            if (!string.IsNullOrEmpty(DAILYREPORTPACKAGEID))
+            {
+                frmDAILYREPORTPACKAGEM SUBfrmDAILYREPORTPACKAGEM = new frmDAILYREPORTPACKAGEM(DAILYREPORTPACKAGEID);
+                SUBfrmDAILYREPORTPACKAGEM.ShowDialog();
+            }
+
+            SEACRHDAILYREPORTPACKAGE(); 
+        }
 
 
         #endregion
 
-       
+
     }
 }
