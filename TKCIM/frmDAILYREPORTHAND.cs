@@ -469,8 +469,18 @@ namespace TKCIM
 
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(DAILYREPORTHANDID))
+            {
+                frmDAILYREPORTHANDEDIT SUBfrmDAILYREPORTHANDEDIT = new frmDAILYREPORTHANDEDIT(DAILYREPORTHANDID);
+                SUBfrmDAILYREPORTHANDEDIT.ShowDialog();
+            }
+
+            SEARCHDAILYREPORTHAND();
+        }
         #endregion
 
-     
+
     }
 }

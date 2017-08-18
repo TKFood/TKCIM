@@ -171,6 +171,12 @@
     <Compile Include="frmDAILYREPORTHAND.Designer.cs">
       <DependentUpon>frmDAILYREPORTHAND.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDAILYREPORTHANDEDIT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDAILYREPORTHANDEDIT.Designer.cs">
+      <DependentUpon>frmDAILYREPORTHANDEDIT.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDAILYREPORTPACKAGE.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -352,6 +358,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDAILYREPORTHAND.resx">
       <DependentUpon>frmDAILYREPORTHAND.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDAILYREPORTHANDEDIT.resx">
+      <DependentUpon>frmDAILYREPORTHANDEDIT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDAILYREPORTPACKAGE.resx">
       <DependentUpon>frmDAILYREPORTPACKAGE.cs</DependentUpon>
