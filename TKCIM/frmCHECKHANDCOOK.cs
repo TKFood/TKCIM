@@ -348,10 +348,22 @@ namespace TKCIM
 
             SEARCHCHECKHANDCOOK();
         }
-
+        private void button4_Click(object sender, EventArgs e)
+        {
+            
+            if (!string.IsNullOrEmpty(CHECKHANDCOOKID))
+            {
+                frmCHECKHANDCOOKEDIT SUBfrmCHECKHANDCOOKEDIT = new frmCHECKHANDCOOKEDIT(CHECKHANDCOOKID);
+                SUBfrmCHECKHANDCOOKEDIT.ShowDialog();
+            }
+                       
+            SEARCHCHECKHANDCOOK();
+        }
 
 
 
         #endregion
+
+
     }
 }
