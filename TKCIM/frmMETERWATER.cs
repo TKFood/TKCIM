@@ -301,7 +301,8 @@ namespace TKCIM
                 sbSql.AppendFormat(@"  FROM MOCTA WITH (NOLOCK),INVMB WITH (NOLOCK),CMSMD WITH (NOLOCK)");
                 sbSql.AppendFormat(@"  WHERE TA006=MB001");
                 sbSql.AppendFormat(@"  AND TA021=  MD001 ");
-                sbSql.AppendFormat(@"  AND MB002 LIKE '%水麵%' AND TA006 LIKE '3%'");
+                //sbSql.AppendFormat(@"  AND MB002 LIKE '%水麵%'");
+                //sbSql.AppendFormat(@"   AND TA006 LIKE '3%'");
                 sbSql.AppendFormat(@"  AND TA003='{0}'", dateTimePicker1.Value.ToString("yyyyMMdd"));
                 sbSql.AppendFormat(@"  AND MD002='{0}'", comboBox2.Text.ToString());
                 sbSql.AppendFormat(@"  ORDER BY TA003,TA006");
@@ -640,7 +641,7 @@ namespace TKCIM
                 sbSql.AppendFormat(@"  FROM MOCTA WITH (NOLOCK),INVMB WITH (NOLOCK),CMSMD WITH (NOLOCK)");
                 sbSql.AppendFormat(@"  WHERE TA006=MB001");
                 sbSql.AppendFormat(@"  AND TA021=  MD001 ");
-                sbSql.AppendFormat(@"  AND MB002 LIKE '%水麵%' AND TA006 LIKE '3%'");
+                //sbSql.AppendFormat(@"  AND MB002 LIKE '%水麵%' AND TA006 LIKE '3%'");
                 sbSql.AppendFormat(@"  AND TA003='{0}'", dateTimePicker4.Value.ToString("yyyyMMdd"));
                 sbSql.AppendFormat(@"  AND MD002='{0}'", comboBox1.Text.ToString());
                 sbSql.AppendFormat(@"  ORDER BY TA003,TA006");
@@ -1408,7 +1409,7 @@ namespace TKCIM
                 sbSql.AppendFormat(@"  FROM MOCTA WITH (NOLOCK),INVMB WITH (NOLOCK),CMSMD WITH (NOLOCK)");
                 sbSql.AppendFormat(@"  WHERE TA006=MB001");
                 sbSql.AppendFormat(@"  AND TA021=  MD001 ");
-                sbSql.AppendFormat(@"  AND MB002 LIKE '%水麵%' AND TA006 LIKE '3%'");
+                //sbSql.AppendFormat(@"  AND MB002 LIKE '%水麵%' AND TA006 LIKE '3%'");
                 sbSql.AppendFormat(@"  AND TA003='{0}'", dateTimePicker5.Value.ToString("yyyyMMdd"));
                 sbSql.AppendFormat(@"  AND MD002='{0}'", comboBox6.Text.ToString());
                 sbSql.AppendFormat(@"  ORDER BY TA003,TA006");
@@ -1648,7 +1649,7 @@ namespace TKCIM
                 sbSql.AppendFormat(@"  FROM MOCTA WITH (NOLOCK),INVMB WITH (NOLOCK),CMSMD WITH (NOLOCK)");
                 sbSql.AppendFormat(@"  WHERE TA006=MB001");
                 sbSql.AppendFormat(@"  AND TA021=  MD001 ");
-                sbSql.AppendFormat(@"  AND MB002 LIKE '%水麵%' AND TA006 LIKE '3%'");
+                //sbSql.AppendFormat(@"  AND MB002 LIKE '%水麵%' AND TA006 LIKE '3%'");
                 sbSql.AppendFormat(@"  AND TA003='{0}'", dateTimePicker8.Value.ToString("yyyyMMdd"));
                 sbSql.AppendFormat(@"  AND MD002='{0}'", comboBox7.Text.ToString());
                 sbSql.AppendFormat(@"  ORDER BY TA003,TA006");
