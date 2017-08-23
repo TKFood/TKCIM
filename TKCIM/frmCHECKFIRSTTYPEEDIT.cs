@@ -184,11 +184,11 @@ namespace TKCIM
             textBox901.Text = ds1.Tables["TEMPds1"].Rows[0]["平均長度"].ToString();
             textBox1001.Text = ds1.Tables["TEMPds1"].Rows[0]["環境溫度"].ToString();
             textBox1101.Text = ds1.Tables["TEMPds1"].Rows[0]["環境溼度"].ToString();
-            textBox1201.Text = ds1.Tables["TEMPds1"].Rows[0]["烤爐時間"].ToString();
+           
             textBox1301.Text = ds1.Tables["TEMPds1"].Rows[0]["烤爐速度"].ToString();
             textBox1401.Text = ds1.Tables["TEMPds1"].Rows[0]["烤爐溫度"].ToString();
-            textBox1501.Text = ds1.Tables["TEMPds1"].Rows[0]["口味判定"].ToString();
-            textBox1601.Text = ds1.Tables["TEMPds1"].Rows[0]["原料投入確認"].ToString();
+            comboBox5.Text = ds1.Tables["TEMPds1"].Rows[0]["口味判定"].ToString();
+            comboBox6.Text = ds1.Tables["TEMPds1"].Rows[0]["原料投入確認"].ToString();
             textBox1701.Text = ds1.Tables["TEMPds1"].Rows[0]["備註"].ToString();
 
             comboBox1.Text= ds1.Tables["TEMPds1"].Rows[0]["判定"].ToString();
@@ -197,6 +197,7 @@ namespace TKCIM
             comboBox4.Text = ds1.Tables["TEMPds1"].Rows[0]["稽核人員"].ToString();
 
             dateTimePicker3.Value = Convert.ToDateTime(ds1.Tables["TEMPds1"].Rows[0]["時間"].ToString());
+            dateTimePicker1.Text = ds1.Tables["TEMPds1"].Rows[0]["烤爐時間"].ToString();
         }
 
         public void UPDATECHECKFIRSTTYPE()
@@ -214,7 +215,7 @@ namespace TKCIM
                 if (!string.IsNullOrEmpty(textBox701.Text) && !string.IsNullOrEmpty(textBox801.Text))
                 {
                     sbSql.AppendFormat(" UPDATE [TKCIM].[dbo].[CHECKFIRSTTYPE]");
-                    sbSql.AppendFormat(" SET  [CHECKNUM]='{0}',[WEIGHT]='{1}',[LENGTH]='{2}',[TEMPER]='{3}',[HUMI]='{4}',[TIME]='{5}',[SPEED]='{6}',[OVENTEMP]='{7}'", textBox701.Text, textBox801.Text, textBox901.Text, textBox1001.Text, textBox1101.Text, textBox1201.Text, textBox1301.Text, textBox1401.Text);
+                    sbSql.AppendFormat(" SET  [CHECKNUM]='{0}',[WEIGHT]='{1}',[LENGTH]='{2}',[TEMPER]='{3}',[HUMI]='{4}',[TIME]='{5}',[SPEED]='{6}',[OVENTEMP]='{7}'", textBox701.Text, textBox801.Text, textBox901.Text, textBox1001.Text, textBox1101.Text, dateTimePicker1.Value.ToString("HH:mm"), textBox1301.Text, textBox1401.Text);
                     sbSql.AppendFormat(" WHERE ID='{0}'", ID);
                     sbSql.AppendFormat(" ");
                     sbSql.AppendFormat(" ");
