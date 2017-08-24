@@ -106,16 +106,16 @@ namespace TKCIM
             InitializeComponent();
             comboBox1load();
             comboBox2load();
-            //comboBox4load();
-            //comboBox5load();
+            comboBox4load();
+            comboBox5load();
             comboBox6load();
             comboBox7load();
 
             //comboBox4REload("新廠製二組");
             //comboBox5REload("新廠製二組");
 
-            InitailcomboBox4("新廠製二組");
-            InitailcomboBox5("新廠製二組");
+            //InitailcomboBox4("新廠製二組");
+            //InitailcomboBox5("新廠製二組");
 
             timer1.Enabled = true;
             timer1.Interval = 1000 * 60;
@@ -168,7 +168,7 @@ namespace TKCIM
             connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
             sqlConn = new SqlConnection(connectionString);
             StringBuilder Sequel = new StringBuilder();
-            Sequel.AppendFormat(@"SELECT  [ID] ,[NAME] FROM [TKMOC].[dbo].[MANUEMPLOYEE] WHERE   [ID] IN (SELECT [ID] FROM [TKMOC].[dbo].[MANUEMPLOYEELIMIT])");
+            Sequel.AppendFormat(@"SELECT  [ID],[NAME] FROM [TKCIM].[dbo].[EMPMANUFORNT] UNION ALL  SELECT  [ID],[NAME] FROM [TKCIM].[dbo].[EMPHAND]");
             SqlDataAdapter da = new SqlDataAdapter(Sequel.ToString(), sqlConn);
             DataTable dt = new DataTable();
             sqlConn.Open();
@@ -188,7 +188,7 @@ namespace TKCIM
             connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
             sqlConn = new SqlConnection(connectionString);
             StringBuilder Sequel = new StringBuilder();
-            Sequel.AppendFormat(@"SELECT  [ID] ,[NAME] FROM [TKMOC].[dbo].[MANUEMPLOYEE] WHERE   [ID] IN (SELECT [ID] FROM [TKMOC].[dbo].[MANUEMPLOYEELIMIT])");
+            Sequel.AppendFormat(@"SELECT  [ID],[NAME] FROM [TKCIM].[dbo].[EMPMANUFORNT] UNION ALL  SELECT  [ID],[NAME] FROM [TKCIM].[dbo].[EMPHAND]");
             SqlDataAdapter da = new SqlDataAdapter(Sequel.ToString(), sqlConn);
             DataTable dt = new DataTable();
             sqlConn.Open();
@@ -250,7 +250,7 @@ namespace TKCIM
             connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
             sqlConn = new SqlConnection(connectionString);
             StringBuilder Sequel = new StringBuilder();
-            Sequel.AppendFormat(@"SELECT  [ID] ,[NAME] FROM [TKMOC].[dbo].[MANUEMPLOYEE] WHERE   [ID] IN (SELECT [ID] FROM [TKMOC].[dbo].[MANUEMPLOYEELIMIT]) AND ([MAIN]='ALL'OR [MAIN]='{0}')", MAIN);
+            Sequel.AppendFormat(@"SELECT  [ID],[NAME] FROM [TKCIM].[dbo].[EMPMANUFORNT] UNION ALL  SELECT  [ID],[NAME] FROM [TKCIM].[dbo].[EMPHAND]");
             SqlDataAdapter da = new SqlDataAdapter(Sequel.ToString(), sqlConn);
             DataTable dt = new DataTable();
             sqlConn.Open();
@@ -270,7 +270,7 @@ namespace TKCIM
             connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
             sqlConn = new SqlConnection(connectionString);
             StringBuilder Sequel = new StringBuilder();
-            Sequel.AppendFormat(@"SELECT  [ID] ,[NAME] FROM [TKMOC].[dbo].[MANUEMPLOYEE] WHERE   [ID] IN (SELECT [ID] FROM [TKMOC].[dbo].[MANUEMPLOYEELIMIT]) AND ([MAIN]='ALL'OR [MAIN]='{0}')", MAIN);
+            Sequel.AppendFormat(@"SELECT  [ID],[NAME] FROM [TKCIM].[dbo].[EMPMANUFORNT] UNION ALL  SELECT  [ID],[NAME] FROM [TKCIM].[dbo].[EMPHAND]");
             SqlDataAdapter da = new SqlDataAdapter(Sequel.ToString(), sqlConn);
             DataTable dt = new DataTable();
             sqlConn.Open();
