@@ -1691,6 +1691,33 @@ namespace TKCIM
 
             SEACRHDAILYREPORTPACKAGE(); 
         }
+        private void button16_Click(object sender, EventArgs e)
+        {
+            frmDAILYREPORTPACKAGESUB SUBfrmDAILYREPORTPACKAGESUB = new frmDAILYREPORTPACKAGESUB(TARGETPROTA001,TARGETPROTA002);
+            SUBfrmDAILYREPORTPACKAGESUB.ShowDialog();
+            textBox501.Text = SUBfrmDAILYREPORTPACKAGESUB.TextBoxMsg;
+            
+        }
+        private void button17_Click(object sender, EventArgs e)
+        {
+            frmDAILYREPORTPACKAGESUB SUBfrmDAILYREPORTPACKAGESUB = new frmDAILYREPORTPACKAGESUB(TARGETPROTA001, TARGETPROTA002);
+            SUBfrmDAILYREPORTPACKAGESUB.ShowDialog();
+            textBox601.Text = SUBfrmDAILYREPORTPACKAGESUB.TextBoxMsg;
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            frmDAILYREPORTPACKAGESUB SUBfrmDAILYREPORTPACKAGESUB = new frmDAILYREPORTPACKAGESUB(TARGETPROTA001, TARGETPROTA002);
+            SUBfrmDAILYREPORTPACKAGESUB.ShowDialog();
+            textBox701.Text = SUBfrmDAILYREPORTPACKAGESUB.TextBoxMsg;
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            frmDAILYREPORTPACKAGESUB SUBfrmDAILYREPORTPACKAGESUB = new frmDAILYREPORTPACKAGESUB(TARGETPROTA001, TARGETPROTA002);
+            SUBfrmDAILYREPORTPACKAGESUB.ShowDialog();
+            textBox801.Text = SUBfrmDAILYREPORTPACKAGESUB.TextBoxMsg;
+        }
 
 
         #endregion
