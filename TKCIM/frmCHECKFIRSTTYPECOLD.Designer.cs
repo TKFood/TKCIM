@@ -302,7 +302,7 @@
             this.comboBox2.Items.AddRange(new object[] {
             "製一組",
             "製二組"});
-            this.comboBox2.Location = new System.Drawing.Point(83, 80);
+            this.comboBox2.Location = new System.Drawing.Point(83, 78);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(122, 24);
@@ -988,7 +988,7 @@
             // 
             this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(123, 223);
+            this.comboBox1.Location = new System.Drawing.Point(123, 225);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(114, 24);
             this.comboBox1.TabIndex = 56;
@@ -1055,7 +1055,7 @@
             this.comboBox5.Items.AddRange(new object[] {
             "正常",
             "不良"});
-            this.comboBox5.Location = new System.Drawing.Point(363, 103);
+            this.comboBox5.Location = new System.Drawing.Point(363, 105);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(114, 24);
             this.comboBox5.TabIndex = 70;
@@ -1085,7 +1085,7 @@
             this.comboBox8.Items.AddRange(new object[] {
             "正常",
             "不良"});
-            this.comboBox8.Location = new System.Drawing.Point(363, 193);
+            this.comboBox8.Location = new System.Drawing.Point(363, 195);
             this.comboBox8.Name = "comboBox8";
             this.comboBox8.Size = new System.Drawing.Size(114, 24);
             this.comboBox8.TabIndex = 73;
@@ -1095,7 +1095,7 @@
             // 
             this.comboBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(363, 225);
+            this.comboBox3.Location = new System.Drawing.Point(363, 223);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(114, 24);
             this.comboBox3.TabIndex = 57;
@@ -1138,7 +1138,7 @@
             this.comboBox6.Items.AddRange(new object[] {
             "正常",
             "不良"});
-            this.comboBox6.Location = new System.Drawing.Point(603, 163);
+            this.comboBox6.Location = new System.Drawing.Point(603, 165);
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(114, 24);
             this.comboBox6.TabIndex = 71;
@@ -1159,7 +1159,7 @@
             // 
             this.comboBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(603, 225);
+            this.comboBox4.Location = new System.Drawing.Point(603, 223);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(114, 24);
             this.comboBox4.TabIndex = 58;
@@ -1182,7 +1182,7 @@
             this.comboBox7.Items.AddRange(new object[] {
             "正常",
             "不良"});
-            this.comboBox7.Location = new System.Drawing.Point(843, 163);
+            this.comboBox7.Location = new System.Drawing.Point(843, 165);
             this.comboBox7.Name = "comboBox7";
             this.comboBox7.Size = new System.Drawing.Size(120, 24);
             this.comboBox7.TabIndex = 72;
