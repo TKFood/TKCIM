@@ -95,7 +95,7 @@ namespace TKCIM
             connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
             sqlConn = new SqlConnection(connectionString);
             StringBuilder Sequel = new StringBuilder();
-            Sequel.AppendFormat(@"SELECT  [ID],[NAME] FROM [TKCIM].[dbo].[EMPHAND]");
+            Sequel.AppendFormat(@"SELECT  [ID],[NAME] FROM [TKCIM].[dbo].[EMPHAND] UNION ALL SELECT  [ID],[NAME] FROM [TKCIM].[dbo].[EMPMANUBACK]");
             SqlDataAdapter da = new SqlDataAdapter(Sequel.ToString(), sqlConn);
             DataTable dt = new DataTable();
             sqlConn.Open();
@@ -116,7 +116,7 @@ namespace TKCIM
             connectionString = ConfigurationManager.ConnectionStrings["dberp"].ConnectionString;
             sqlConn = new SqlConnection(connectionString);
             StringBuilder Sequel = new StringBuilder();
-            Sequel.AppendFormat(@"SELECT  [ID],[NAME] FROM [TKCIM].[dbo].[EMPHANDMANAGE]");
+            Sequel.AppendFormat(@"SELECT  [ID],[NAME] FROM [TKCIM].[dbo].[EMPHANDMANAGE] UNION ALL  SELECT  [ID],[NAME] FROM [TKCIM].[dbo].[EMPMANUBACKMANAGE]" );
             SqlDataAdapter da = new SqlDataAdapter(Sequel.ToString(), sqlConn);
             DataTable dt = new DataTable();
             sqlConn.Open();

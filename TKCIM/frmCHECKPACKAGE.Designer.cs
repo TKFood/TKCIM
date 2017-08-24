@@ -98,8 +98,8 @@
             this.textBox202 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.textBox203 = new System.Windows.Forms.TextBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button6 = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -250,7 +250,7 @@
             this.comboBox2.Items.AddRange(new object[] {
             "製一組",
             "製二組"});
-            this.comboBox2.Location = new System.Drawing.Point(85, 92);
+            this.comboBox2.Location = new System.Drawing.Point(85, 94);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(109, 24);
             this.comboBox2.TabIndex = 17;
@@ -418,7 +418,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "OK",
             "NG"});
-            this.comboBox1.Location = new System.Drawing.Point(103, 42);
+            this.comboBox1.Location = new System.Drawing.Point(103, 40);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(94, 24);
             this.comboBox1.TabIndex = 7;
@@ -441,7 +441,7 @@
             this.comboBox3.Items.AddRange(new object[] {
             "OK",
             "NG"});
-            this.comboBox3.Location = new System.Drawing.Point(103, 110);
+            this.comboBox3.Location = new System.Drawing.Point(103, 112);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(94, 24);
             this.comboBox3.TabIndex = 9;
@@ -654,7 +654,7 @@
             // 
             this.comboBox11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox11.FormattingEnabled = true;
-            this.comboBox11.Location = new System.Drawing.Point(543, 288);
+            this.comboBox11.Location = new System.Drawing.Point(543, 290);
             this.comboBox11.Name = "comboBox11";
             this.comboBox11.Size = new System.Drawing.Size(94, 24);
             this.comboBox11.TabIndex = 40;
@@ -693,7 +693,7 @@
             // 
             this.comboBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox10.FormattingEnabled = true;
-            this.comboBox10.Location = new System.Drawing.Point(103, 288);
+            this.comboBox10.Location = new System.Drawing.Point(103, 290);
             this.comboBox10.Name = "comboBox10";
             this.comboBox10.Size = new System.Drawing.Size(94, 24);
             this.comboBox10.TabIndex = 38;
@@ -787,7 +787,7 @@
             this.comboBox9.Items.AddRange(new object[] {
             "未檢出",
             "檢出"});
-            this.comboBox9.Location = new System.Drawing.Point(103, 208);
+            this.comboBox9.Location = new System.Drawing.Point(103, 210);
             this.comboBox9.Name = "comboBox9";
             this.comboBox9.Size = new System.Drawing.Size(94, 24);
             this.comboBox9.TabIndex = 33;
@@ -820,7 +820,7 @@
             this.comboBox7.Items.AddRange(new object[] {
             "是",
             "否"});
-            this.comboBox7.Location = new System.Drawing.Point(103, 168);
+            this.comboBox7.Location = new System.Drawing.Point(103, 170);
             this.comboBox7.Name = "comboBox7";
             this.comboBox7.Size = new System.Drawing.Size(94, 24);
             this.comboBox7.TabIndex = 30;
@@ -861,7 +861,7 @@
             this.comboBox8.Items.AddRange(new object[] {
             "是",
             "否"});
-            this.comboBox8.Location = new System.Drawing.Point(543, 168);
+            this.comboBox8.Location = new System.Drawing.Point(543, 170);
             this.comboBox8.Name = "comboBox8";
             this.comboBox8.Size = new System.Drawing.Size(94, 24);
             this.comboBox8.TabIndex = 32;
@@ -874,7 +874,7 @@
             this.comboBox6.Items.AddRange(new object[] {
             "是",
             "否"});
-            this.comboBox6.Location = new System.Drawing.Point(543, 128);
+            this.comboBox6.Location = new System.Drawing.Point(543, 130);
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(94, 24);
             this.comboBox6.TabIndex = 29;
@@ -897,7 +897,7 @@
             this.comboBox5.Items.AddRange(new object[] {
             "是",
             "否"});
-            this.comboBox5.Location = new System.Drawing.Point(303, 128);
+            this.comboBox5.Location = new System.Drawing.Point(303, 130);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(134, 24);
             this.comboBox5.TabIndex = 28;
@@ -920,7 +920,7 @@
             this.comboBox4.Items.AddRange(new object[] {
             "是",
             "否"});
-            this.comboBox4.Location = new System.Drawing.Point(103, 128);
+            this.comboBox4.Location = new System.Drawing.Point(103, 130);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(94, 24);
             this.comboBox4.TabIndex = 27;
@@ -990,16 +990,6 @@
             this.textBox203.Size = new System.Drawing.Size(94, 27);
             this.textBox203.TabIndex = 26;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 26);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(976, 709);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // button6
             // 
             this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -1010,6 +1000,16 @@
             this.button6.Text = "單筆修改";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 26);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(976, 709);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // frmCHECKPACKAGE
             // 
