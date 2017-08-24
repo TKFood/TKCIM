@@ -150,6 +150,7 @@
             this.textBox501 = new System.Windows.Forms.TextBox();
             this.textBox502 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
+            this.button16 = new System.Windows.Forms.Button();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
             this.splitContainer19 = new System.Windows.Forms.SplitContainer();
             this.splitContainer24 = new System.Windows.Forms.SplitContainer();
@@ -163,10 +164,12 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button6 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
+            this.button17 = new System.Windows.Forms.Button();
             this.dataGridView6 = new System.Windows.Forms.DataGridView();
             this.splitContainer20 = new System.Windows.Forms.SplitContainer();
             this.splitContainer25 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.button18 = new System.Windows.Forms.Button();
             this.label24 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
@@ -184,12 +187,9 @@
             this.textBox802 = new System.Windows.Forms.TextBox();
             this.button8 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
+            this.button19 = new System.Windows.Forms.Button();
             this.dataGridView8 = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
-            this.button19 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer14)).BeginInit();
@@ -404,7 +404,7 @@
             this.comboBox2.Items.AddRange(new object[] {
             "製一組",
             "製二組"});
-            this.comboBox2.Location = new System.Drawing.Point(66, 67);
+            this.comboBox2.Location = new System.Drawing.Point(66, 65);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(144, 24);
@@ -479,10 +479,11 @@
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.BackColor = System.Drawing.Color.LightGreen;
-            this.tableLayoutPanel3.ColumnCount = 3;
+            this.tableLayoutPanel3.ColumnCount = 4;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 86F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 104F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 128F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 108F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.Controls.Add(this.textBox405, 1, 5);
             this.tableLayoutPanel3.Controls.Add(this.textBox404, 1, 4);
             this.tableLayoutPanel3.Controls.Add(this.textBox403, 1, 3);
@@ -719,7 +720,7 @@
             this.label33.Location = new System.Drawing.Point(196, 44);
             this.label33.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(116, 16);
+            this.label33.Size = new System.Drawing.Size(96, 16);
             this.label33.TabIndex = 96;
             this.label33.Text = "填表人 ";
             // 
@@ -730,7 +731,7 @@
             this.label34.Location = new System.Drawing.Point(196, 114);
             this.label34.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(116, 16);
+            this.label34.Size = new System.Drawing.Size(96, 16);
             this.label34.TabIndex = 97;
             this.label34.Text = "審核";
             // 
@@ -741,7 +742,7 @@
             this.label35.Location = new System.Drawing.Point(196, 184);
             this.label35.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(116, 16);
+            this.label35.Size = new System.Drawing.Size(96, 16);
             this.label35.TabIndex = 98;
             this.label35.Text = "核準";
             // 
@@ -752,10 +753,10 @@
             this.comboBox3.Items.AddRange(new object[] {
             "製一組",
             "製二組"});
-            this.comboBox3.Location = new System.Drawing.Point(196, 75);
+            this.comboBox3.Location = new System.Drawing.Point(196, 77);
             this.comboBox3.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(116, 24);
+            this.comboBox3.Size = new System.Drawing.Size(96, 24);
             this.comboBox3.TabIndex = 99;
             // 
             // comboBox4
@@ -765,10 +766,10 @@
             this.comboBox4.Items.AddRange(new object[] {
             "製一組",
             "製二組"});
-            this.comboBox4.Location = new System.Drawing.Point(196, 145);
+            this.comboBox4.Location = new System.Drawing.Point(196, 147);
             this.comboBox4.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(116, 24);
+            this.comboBox4.Size = new System.Drawing.Size(96, 24);
             this.comboBox4.TabIndex = 100;
             // 
             // comboBox5
@@ -778,10 +779,10 @@
             this.comboBox5.Items.AddRange(new object[] {
             "製一組",
             "製二組"});
-            this.comboBox5.Location = new System.Drawing.Point(196, 215);
+            this.comboBox5.Location = new System.Drawing.Point(196, 217);
             this.comboBox5.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(116, 24);
+            this.comboBox5.Size = new System.Drawing.Size(96, 24);
             this.comboBox5.TabIndex = 101;
             // 
             // button15
@@ -790,7 +791,7 @@
             this.button15.Location = new System.Drawing.Point(196, 289);
             this.button15.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(116, 30);
+            this.button15.Size = new System.Drawing.Size(96, 30);
             this.button15.TabIndex = 102;
             this.button15.Text = "單筆修改 ";
             this.button15.UseVisualStyleBackColor = true;
@@ -1749,6 +1750,18 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // button16
+            // 
+            this.button16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.button16.Location = new System.Drawing.Point(87, 5);
+            this.button16.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(65, 30);
+            this.button16.TabIndex = 94;
+            this.button16.Text = "品名";
+            this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
+            // 
             // dataGridView5
             // 
             this.dataGridView5.AllowUserToAddRows = false;
@@ -1902,7 +1915,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "內部",
             "外部"});
-            this.comboBox1.Location = new System.Drawing.Point(95, 128);
+            this.comboBox1.Location = new System.Drawing.Point(95, 130);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(70, 24);
@@ -1932,6 +1945,18 @@
             this.button11.Text = "刪除";
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
+            // button17
+            // 
+            this.button17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.button17.Location = new System.Drawing.Point(95, 5);
+            this.button17.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(70, 30);
+            this.button17.TabIndex = 96;
+            this.button17.Text = "品名";
+            this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
             // dataGridView6
             // 
@@ -2014,6 +2039,18 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(200, 202);
             this.tableLayoutPanel6.TabIndex = 8;
+            // 
+            // button18
+            // 
+            this.button18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.button18.Location = new System.Drawing.Point(99, 5);
+            this.button18.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(65, 30);
+            this.button18.TabIndex = 97;
+            this.button18.Text = "品名";
+            this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
             // label24
             // 
@@ -2229,6 +2266,18 @@
             this.button13.UseVisualStyleBackColor = true;
             this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
+            // button19
+            // 
+            this.button19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.button19.Location = new System.Drawing.Point(86, 10);
+            this.button19.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(70, 30);
+            this.button19.TabIndex = 98;
+            this.button19.Text = "品名";
+            this.button19.UseVisualStyleBackColor = true;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
+            // 
             // dataGridView8
             // 
             this.dataGridView8.AllowUserToAddRows = false;
@@ -2253,54 +2302,6 @@
             this.tabPage2.TabIndex = 2;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // button16
-            // 
-            this.button16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button16.Location = new System.Drawing.Point(87, 5);
-            this.button16.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(65, 30);
-            this.button16.TabIndex = 94;
-            this.button16.Text = "品名";
-            this.button16.UseVisualStyleBackColor = true;
-            this.button16.Click += new System.EventHandler(this.button16_Click);
-            // 
-            // button17
-            // 
-            this.button17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button17.Location = new System.Drawing.Point(95, 5);
-            this.button17.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(70, 30);
-            this.button17.TabIndex = 96;
-            this.button17.Text = "品名";
-            this.button17.UseVisualStyleBackColor = true;
-            this.button17.Click += new System.EventHandler(this.button17_Click);
-            // 
-            // button18
-            // 
-            this.button18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button18.Location = new System.Drawing.Point(99, 5);
-            this.button18.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(65, 30);
-            this.button18.TabIndex = 97;
-            this.button18.Text = "品名";
-            this.button18.UseVisualStyleBackColor = true;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
-            // 
-            // button19
-            // 
-            this.button19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button19.Location = new System.Drawing.Point(86, 10);
-            this.button19.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(70, 30);
-            this.button19.TabIndex = 98;
-            this.button19.Text = "品名";
-            this.button19.UseVisualStyleBackColor = true;
-            this.button19.Click += new System.EventHandler(this.button19_Click);
             // 
             // frmDAILYREPORTPACKAGE
             // 
