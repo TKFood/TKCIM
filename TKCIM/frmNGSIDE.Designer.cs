@@ -66,6 +66,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
+            this.button8 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
@@ -96,7 +97,6 @@
             this.button7 = new System.Windows.Forms.Button();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.button8 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -267,7 +267,7 @@
             this.comboBox2.Items.AddRange(new object[] {
             "製一組",
             "製二組"});
-            this.comboBox2.Location = new System.Drawing.Point(175, 48);
+            this.comboBox2.Location = new System.Drawing.Point(175, 50);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(123, 24);
             this.comboBox2.TabIndex = 17;
@@ -480,7 +480,7 @@
             this.textBox5.Location = new System.Drawing.Point(123, 126);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(114, 27);
-            this.textBox5.TabIndex = 31;
+            this.textBox5.TabIndex = 111;
             // 
             // label17
             // 
@@ -498,7 +498,7 @@
             this.textBox6.Location = new System.Drawing.Point(363, 126);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(114, 27);
-            this.textBox6.TabIndex = 33;
+            this.textBox6.TabIndex = 112;
             // 
             // button3
             // 
@@ -538,7 +538,18 @@
             this.textBox7.Location = new System.Drawing.Point(123, 166);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(114, 27);
-            this.textBox7.TabIndex = 35;
+            this.textBox7.TabIndex = 113;
+            // 
+            // button8
+            // 
+            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.button8.Location = new System.Drawing.Point(123, 216);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(114, 32);
+            this.button8.TabIndex = 36;
+            this.button8.Text = "單筆修改";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // dataGridView2
             // 
@@ -685,7 +696,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "製一組",
             "製二組"});
-            this.comboBox1.Location = new System.Drawing.Point(204, 48);
+            this.comboBox1.Location = new System.Drawing.Point(204, 50);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(91, 24);
             this.comboBox1.TabIndex = 17;
@@ -826,7 +837,7 @@
             this.textBox22.Location = new System.Drawing.Point(146, 46);
             this.textBox22.Name = "textBox22";
             this.textBox22.Size = new System.Drawing.Size(115, 27);
-            this.textBox22.TabIndex = 31;
+            this.textBox22.TabIndex = 211;
             this.textBox22.Text = "0";
             this.textBox22.TextChanged += new System.EventHandler(this.textBox22_TextChanged);
             // 
@@ -866,7 +877,7 @@
             this.textBox23.Location = new System.Drawing.Point(396, 46);
             this.textBox23.Name = "textBox23";
             this.textBox23.Size = new System.Drawing.Size(123, 27);
-            this.textBox23.TabIndex = 35;
+            this.textBox23.TabIndex = 212;
             this.textBox23.Text = "0";
             this.textBox23.TextChanged += new System.EventHandler(this.textBox23_TextChanged);
             // 
@@ -876,7 +887,7 @@
             this.textBox24.Location = new System.Drawing.Point(146, 86);
             this.textBox24.Name = "textBox24";
             this.textBox24.Size = new System.Drawing.Size(115, 27);
-            this.textBox24.TabIndex = 36;
+            this.textBox24.TabIndex = 213;
             this.textBox24.Text = "0";
             this.textBox24.TextChanged += new System.EventHandler(this.textBox24_TextChanged);
             // 
@@ -886,7 +897,7 @@
             this.textBox25.Location = new System.Drawing.Point(396, 86);
             this.textBox25.Name = "textBox25";
             this.textBox25.Size = new System.Drawing.Size(123, 27);
-            this.textBox25.TabIndex = 37;
+            this.textBox25.TabIndex = 214;
             this.textBox25.Text = "0";
             // 
             // button6
@@ -956,17 +967,6 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // button8
-            // 
-            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button8.Location = new System.Drawing.Point(123, 216);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(114, 32);
-            this.button8.TabIndex = 36;
-            this.button8.Text = "單筆修改";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // frmNGSIDE
             // 
