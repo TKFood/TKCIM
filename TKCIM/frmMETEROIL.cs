@@ -167,6 +167,16 @@ namespace TKCIM
             timer1.Start();
         }
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
         #region FUNCTION
         public void comboBox1load()
         {

@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -437,7 +437,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "製一組",
             "製二組"});
-            this.comboBox1.Location = new System.Drawing.Point(3, 43);
+            this.comboBox1.Location = new System.Drawing.Point(3, 41);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(124, 24);
             this.comboBox1.TabIndex = 16;
@@ -465,14 +465,14 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.MultiSelect = false;
@@ -599,7 +599,7 @@
             this.textBox1.Location = new System.Drawing.Point(3, 33);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(95, 27);
-            this.textBox1.TabIndex = 11;
+            this.textBox1.TabIndex = 110;
             // 
             // label13
             // 
@@ -618,7 +618,7 @@
             this.comboBox11.Items.AddRange(new object[] {
             "A",
             "B"});
-            this.comboBox11.Location = new System.Drawing.Point(104, 35);
+            this.comboBox11.Location = new System.Drawing.Point(104, 33);
             this.comboBox11.Name = "comboBox11";
             this.comboBox11.Size = new System.Drawing.Size(53, 24);
             this.comboBox11.TabIndex = 18;
@@ -670,7 +670,7 @@
             this.textBox21.Location = new System.Drawing.Point(163, 33);
             this.textBox21.Name = "textBox21";
             this.textBox21.Size = new System.Drawing.Size(74, 27);
-            this.textBox21.TabIndex = 21;
+            this.textBox21.TabIndex = 110;
             // 
             // comboBox12
             // 
@@ -679,7 +679,7 @@
             this.comboBox12.Items.AddRange(new object[] {
             "A",
             "B"});
-            this.comboBox12.Location = new System.Drawing.Point(104, 65);
+            this.comboBox12.Location = new System.Drawing.Point(104, 63);
             this.comboBox12.Name = "comboBox12";
             this.comboBox12.Size = new System.Drawing.Size(53, 24);
             this.comboBox12.TabIndex = 22;
@@ -692,7 +692,7 @@
             this.comboBox13.Items.AddRange(new object[] {
             "A",
             "B"});
-            this.comboBox13.Location = new System.Drawing.Point(104, 95);
+            this.comboBox13.Location = new System.Drawing.Point(104, 93);
             this.comboBox13.Name = "comboBox13";
             this.comboBox13.Size = new System.Drawing.Size(53, 24);
             this.comboBox13.TabIndex = 23;
@@ -705,7 +705,7 @@
             this.comboBox14.Items.AddRange(new object[] {
             "A",
             "B"});
-            this.comboBox14.Location = new System.Drawing.Point(104, 125);
+            this.comboBox14.Location = new System.Drawing.Point(104, 123);
             this.comboBox14.Name = "comboBox14";
             this.comboBox14.Size = new System.Drawing.Size(53, 24);
             this.comboBox14.TabIndex = 24;
@@ -718,7 +718,7 @@
             this.comboBox15.Items.AddRange(new object[] {
             "A",
             "B"});
-            this.comboBox15.Location = new System.Drawing.Point(104, 155);
+            this.comboBox15.Location = new System.Drawing.Point(104, 153);
             this.comboBox15.Name = "comboBox15";
             this.comboBox15.Size = new System.Drawing.Size(53, 24);
             this.comboBox15.TabIndex = 25;
@@ -731,7 +731,7 @@
             this.comboBox16.Items.AddRange(new object[] {
             "A",
             "B"});
-            this.comboBox16.Location = new System.Drawing.Point(104, 185);
+            this.comboBox16.Location = new System.Drawing.Point(104, 183);
             this.comboBox16.Name = "comboBox16";
             this.comboBox16.Size = new System.Drawing.Size(53, 24);
             this.comboBox16.TabIndex = 26;
@@ -744,7 +744,7 @@
             this.comboBox17.Items.AddRange(new object[] {
             "A",
             "B"});
-            this.comboBox17.Location = new System.Drawing.Point(104, 215);
+            this.comboBox17.Location = new System.Drawing.Point(104, 213);
             this.comboBox17.Name = "comboBox17";
             this.comboBox17.Size = new System.Drawing.Size(53, 24);
             this.comboBox17.TabIndex = 27;
@@ -756,7 +756,7 @@
             this.textBox22.Location = new System.Drawing.Point(163, 63);
             this.textBox22.Name = "textBox22";
             this.textBox22.Size = new System.Drawing.Size(74, 27);
-            this.textBox22.TabIndex = 28;
+            this.textBox22.TabIndex = 111;
             // 
             // textBox23
             // 
@@ -764,7 +764,7 @@
             this.textBox23.Location = new System.Drawing.Point(163, 93);
             this.textBox23.Name = "textBox23";
             this.textBox23.Size = new System.Drawing.Size(74, 27);
-            this.textBox23.TabIndex = 29;
+            this.textBox23.TabIndex = 112;
             // 
             // textBox24
             // 
@@ -772,7 +772,7 @@
             this.textBox24.Location = new System.Drawing.Point(163, 123);
             this.textBox24.Name = "textBox24";
             this.textBox24.Size = new System.Drawing.Size(74, 27);
-            this.textBox24.TabIndex = 30;
+            this.textBox24.TabIndex = 113;
             // 
             // textBox25
             // 
@@ -780,7 +780,7 @@
             this.textBox25.Location = new System.Drawing.Point(163, 153);
             this.textBox25.Name = "textBox25";
             this.textBox25.Size = new System.Drawing.Size(74, 27);
-            this.textBox25.TabIndex = 31;
+            this.textBox25.TabIndex = 114;
             // 
             // textBox26
             // 
@@ -788,7 +788,7 @@
             this.textBox26.Location = new System.Drawing.Point(163, 183);
             this.textBox26.Name = "textBox26";
             this.textBox26.Size = new System.Drawing.Size(74, 27);
-            this.textBox26.TabIndex = 32;
+            this.textBox26.TabIndex = 115;
             // 
             // textBox7
             // 
@@ -804,7 +804,7 @@
             this.textBox27.Location = new System.Drawing.Point(163, 213);
             this.textBox27.Name = "textBox27";
             this.textBox27.Size = new System.Drawing.Size(74, 27);
-            this.textBox27.TabIndex = 33;
+            this.textBox27.TabIndex = 116;
             // 
             // button6
             // 
@@ -848,7 +848,7 @@
             this.comboBox18.Items.AddRange(new object[] {
             "A",
             "B"});
-            this.comboBox18.Location = new System.Drawing.Point(104, 245);
+            this.comboBox18.Location = new System.Drawing.Point(104, 243);
             this.comboBox18.Name = "comboBox18";
             this.comboBox18.Size = new System.Drawing.Size(53, 24);
             this.comboBox18.TabIndex = 40;
@@ -861,7 +861,7 @@
             this.comboBox19.Items.AddRange(new object[] {
             "A",
             "B"});
-            this.comboBox19.Location = new System.Drawing.Point(104, 275);
+            this.comboBox19.Location = new System.Drawing.Point(104, 273);
             this.comboBox19.Name = "comboBox19";
             this.comboBox19.Size = new System.Drawing.Size(53, 24);
             this.comboBox19.TabIndex = 39;
@@ -874,7 +874,7 @@
             this.comboBox20.Items.AddRange(new object[] {
             "A",
             "B"});
-            this.comboBox20.Location = new System.Drawing.Point(104, 305);
+            this.comboBox20.Location = new System.Drawing.Point(104, 303);
             this.comboBox20.Name = "comboBox20";
             this.comboBox20.Size = new System.Drawing.Size(53, 24);
             this.comboBox20.TabIndex = 41;
@@ -887,7 +887,7 @@
             this.comboBox21.Items.AddRange(new object[] {
             "A",
             "B"});
-            this.comboBox21.Location = new System.Drawing.Point(104, 335);
+            this.comboBox21.Location = new System.Drawing.Point(104, 333);
             this.comboBox21.Name = "comboBox21";
             this.comboBox21.Size = new System.Drawing.Size(53, 24);
             this.comboBox21.TabIndex = 42;
@@ -900,7 +900,7 @@
             this.comboBox22.Items.AddRange(new object[] {
             "A",
             "B"});
-            this.comboBox22.Location = new System.Drawing.Point(104, 365);
+            this.comboBox22.Location = new System.Drawing.Point(104, 363);
             this.comboBox22.Name = "comboBox22";
             this.comboBox22.Size = new System.Drawing.Size(53, 24);
             this.comboBox22.TabIndex = 43;
@@ -912,7 +912,7 @@
             this.textBox28.Location = new System.Drawing.Point(163, 243);
             this.textBox28.Name = "textBox28";
             this.textBox28.Size = new System.Drawing.Size(74, 27);
-            this.textBox28.TabIndex = 46;
+            this.textBox28.TabIndex = 117;
             // 
             // textBox29
             // 
@@ -920,7 +920,7 @@
             this.textBox29.Location = new System.Drawing.Point(163, 273);
             this.textBox29.Name = "textBox29";
             this.textBox29.Size = new System.Drawing.Size(74, 27);
-            this.textBox29.TabIndex = 45;
+            this.textBox29.TabIndex = 118;
             // 
             // textBox30
             // 
@@ -928,7 +928,7 @@
             this.textBox30.Location = new System.Drawing.Point(163, 303);
             this.textBox30.Name = "textBox30";
             this.textBox30.Size = new System.Drawing.Size(74, 27);
-            this.textBox30.TabIndex = 44;
+            this.textBox30.TabIndex = 119;
             // 
             // textBox31
             // 
@@ -936,7 +936,7 @@
             this.textBox31.Location = new System.Drawing.Point(163, 333);
             this.textBox31.Name = "textBox31";
             this.textBox31.Size = new System.Drawing.Size(74, 27);
-            this.textBox31.TabIndex = 48;
+            this.textBox31.TabIndex = 120;
             // 
             // textBox32
             // 
@@ -944,7 +944,7 @@
             this.textBox32.Location = new System.Drawing.Point(163, 363);
             this.textBox32.Name = "textBox32";
             this.textBox32.Size = new System.Drawing.Size(74, 27);
-            this.textBox32.TabIndex = 47;
+            this.textBox32.TabIndex = 121;
             // 
             // textBox11
             // 
@@ -1001,7 +1001,7 @@
             this.comboBox23.Items.AddRange(new object[] {
             "A",
             "B"});
-            this.comboBox23.Location = new System.Drawing.Point(104, 393);
+            this.comboBox23.Location = new System.Drawing.Point(104, 395);
             this.comboBox23.Name = "comboBox23";
             this.comboBox23.Size = new System.Drawing.Size(53, 24);
             this.comboBox23.TabIndex = 53;
@@ -1014,7 +1014,7 @@
             this.comboBox24.Items.AddRange(new object[] {
             "A",
             "B"});
-            this.comboBox24.Location = new System.Drawing.Point(104, 423);
+            this.comboBox24.Location = new System.Drawing.Point(104, 425);
             this.comboBox24.Name = "comboBox24";
             this.comboBox24.Size = new System.Drawing.Size(53, 24);
             this.comboBox24.TabIndex = 54;
@@ -1027,7 +1027,7 @@
             this.comboBox25.Items.AddRange(new object[] {
             "A",
             "B"});
-            this.comboBox25.Location = new System.Drawing.Point(104, 453);
+            this.comboBox25.Location = new System.Drawing.Point(104, 455);
             this.comboBox25.Name = "comboBox25";
             this.comboBox25.Size = new System.Drawing.Size(53, 24);
             this.comboBox25.TabIndex = 55;
@@ -1040,7 +1040,7 @@
             this.comboBox26.Items.AddRange(new object[] {
             "A",
             "B"});
-            this.comboBox26.Location = new System.Drawing.Point(104, 483);
+            this.comboBox26.Location = new System.Drawing.Point(104, 485);
             this.comboBox26.Name = "comboBox26";
             this.comboBox26.Size = new System.Drawing.Size(53, 24);
             this.comboBox26.TabIndex = 56;
@@ -1052,7 +1052,7 @@
             this.textBox33.Location = new System.Drawing.Point(163, 393);
             this.textBox33.Name = "textBox33";
             this.textBox33.Size = new System.Drawing.Size(74, 27);
-            this.textBox33.TabIndex = 57;
+            this.textBox33.TabIndex = 122;
             // 
             // textBox34
             // 
@@ -1060,7 +1060,7 @@
             this.textBox34.Location = new System.Drawing.Point(163, 423);
             this.textBox34.Name = "textBox34";
             this.textBox34.Size = new System.Drawing.Size(74, 27);
-            this.textBox34.TabIndex = 58;
+            this.textBox34.TabIndex = 123;
             // 
             // textBox35
             // 
@@ -1068,7 +1068,7 @@
             this.textBox35.Location = new System.Drawing.Point(163, 453);
             this.textBox35.Name = "textBox35";
             this.textBox35.Size = new System.Drawing.Size(74, 27);
-            this.textBox35.TabIndex = 59;
+            this.textBox35.TabIndex = 124;
             // 
             // textBox36
             // 
@@ -1076,7 +1076,7 @@
             this.textBox36.Location = new System.Drawing.Point(163, 483);
             this.textBox36.Name = "textBox36";
             this.textBox36.Size = new System.Drawing.Size(74, 27);
-            this.textBox36.TabIndex = 60;
+            this.textBox36.TabIndex = 125;
             // 
             // splitContainer13
             // 
@@ -1130,14 +1130,14 @@
             this.dataGridView3.AllowUserToAddRows = false;
             this.dataGridView3.AllowUserToDeleteRows = false;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView3.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView3.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView3.Location = new System.Drawing.Point(0, 0);
             this.dataGridView3.MultiSelect = false;
@@ -1266,7 +1266,7 @@
             this.comboBox2.Items.AddRange(new object[] {
             "製一組",
             "製二組"});
-            this.comboBox2.Location = new System.Drawing.Point(3, 42);
+            this.comboBox2.Location = new System.Drawing.Point(3, 40);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(154, 24);
             this.comboBox2.TabIndex = 16;
@@ -1295,14 +1295,14 @@
             this.dataGridView4.AllowUserToAddRows = false;
             this.dataGridView4.AllowUserToDeleteRows = false;
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView4.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView4.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView4.Location = new System.Drawing.Point(0, 0);
             this.dataGridView4.MultiSelect = false;
@@ -1617,7 +1617,7 @@
             this.textBox102.Location = new System.Drawing.Point(219, 393);
             this.textBox102.Name = "textBox102";
             this.textBox102.Size = new System.Drawing.Size(54, 27);
-            this.textBox102.TabIndex = 68;
+            this.textBox102.TabIndex = 221;
             // 
             // textBox71
             // 
@@ -1657,7 +1657,7 @@
             this.textBox91.Location = new System.Drawing.Point(219, 63);
             this.textBox91.Name = "textBox91";
             this.textBox91.Size = new System.Drawing.Size(54, 27);
-            this.textBox91.TabIndex = 71;
+            this.textBox91.TabIndex = 210;
             // 
             // textBox92
             // 
@@ -1665,7 +1665,7 @@
             this.textBox92.Location = new System.Drawing.Point(219, 93);
             this.textBox92.Name = "textBox92";
             this.textBox92.Size = new System.Drawing.Size(54, 27);
-            this.textBox92.TabIndex = 70;
+            this.textBox92.TabIndex = 211;
             // 
             // textBox93
             // 
@@ -1673,7 +1673,7 @@
             this.textBox93.Location = new System.Drawing.Point(219, 123);
             this.textBox93.Name = "textBox93";
             this.textBox93.Size = new System.Drawing.Size(54, 27);
-            this.textBox93.TabIndex = 61;
+            this.textBox93.TabIndex = 212;
             // 
             // textBox94
             // 
@@ -1681,7 +1681,7 @@
             this.textBox94.Location = new System.Drawing.Point(219, 153);
             this.textBox94.Name = "textBox94";
             this.textBox94.Size = new System.Drawing.Size(54, 27);
-            this.textBox94.TabIndex = 69;
+            this.textBox94.TabIndex = 213;
             // 
             // textBox75
             // 
@@ -1697,7 +1697,7 @@
             this.textBox95.Location = new System.Drawing.Point(219, 183);
             this.textBox95.Name = "textBox95";
             this.textBox95.Size = new System.Drawing.Size(54, 27);
-            this.textBox95.TabIndex = 67;
+            this.textBox95.TabIndex = 214;
             // 
             // textBox76
             // 
@@ -1753,7 +1753,7 @@
             this.textBox96.Location = new System.Drawing.Point(219, 213);
             this.textBox96.Name = "textBox96";
             this.textBox96.Size = new System.Drawing.Size(54, 27);
-            this.textBox96.TabIndex = 80;
+            this.textBox96.TabIndex = 215;
             // 
             // textBox97
             // 
@@ -1761,7 +1761,7 @@
             this.textBox97.Location = new System.Drawing.Point(219, 243);
             this.textBox97.Name = "textBox97";
             this.textBox97.Size = new System.Drawing.Size(54, 27);
-            this.textBox97.TabIndex = 78;
+            this.textBox97.TabIndex = 216;
             // 
             // textBox98
             // 
@@ -1769,7 +1769,7 @@
             this.textBox98.Location = new System.Drawing.Point(219, 273);
             this.textBox98.Name = "textBox98";
             this.textBox98.Size = new System.Drawing.Size(54, 27);
-            this.textBox98.TabIndex = 77;
+            this.textBox98.TabIndex = 217;
             // 
             // textBox99
             // 
@@ -1777,7 +1777,7 @@
             this.textBox99.Location = new System.Drawing.Point(219, 303);
             this.textBox99.Name = "textBox99";
             this.textBox99.Size = new System.Drawing.Size(54, 27);
-            this.textBox99.TabIndex = 82;
+            this.textBox99.TabIndex = 218;
             // 
             // textBox100
             // 
@@ -1785,7 +1785,7 @@
             this.textBox100.Location = new System.Drawing.Point(219, 333);
             this.textBox100.Name = "textBox100";
             this.textBox100.Size = new System.Drawing.Size(54, 27);
-            this.textBox100.TabIndex = 83;
+            this.textBox100.TabIndex = 219;
             // 
             // textBox101
             // 
@@ -1793,7 +1793,7 @@
             this.textBox101.Location = new System.Drawing.Point(219, 363);
             this.textBox101.Name = "textBox101";
             this.textBox101.Size = new System.Drawing.Size(54, 27);
-            this.textBox101.TabIndex = 81;
+            this.textBox101.TabIndex = 220;
             // 
             // textBox63
             // 
@@ -1865,7 +1865,7 @@
             this.textBox103.Location = new System.Drawing.Point(219, 423);
             this.textBox103.Name = "textBox103";
             this.textBox103.Size = new System.Drawing.Size(54, 27);
-            this.textBox103.TabIndex = 92;
+            this.textBox103.TabIndex = 222;
             // 
             // textBox104
             // 
@@ -1873,7 +1873,7 @@
             this.textBox104.Location = new System.Drawing.Point(219, 453);
             this.textBox104.Name = "textBox104";
             this.textBox104.Size = new System.Drawing.Size(54, 27);
-            this.textBox104.TabIndex = 93;
+            this.textBox104.TabIndex = 223;
             // 
             // textBox105
             // 
@@ -1881,7 +1881,7 @@
             this.textBox105.Location = new System.Drawing.Point(219, 483);
             this.textBox105.Name = "textBox105";
             this.textBox105.Size = new System.Drawing.Size(54, 27);
-            this.textBox105.TabIndex = 94;
+            this.textBox105.TabIndex = 224;
             // 
             // textBox106
             // 
@@ -1889,7 +1889,7 @@
             this.textBox106.Location = new System.Drawing.Point(219, 513);
             this.textBox106.Name = "textBox106";
             this.textBox106.Size = new System.Drawing.Size(54, 27);
-            this.textBox106.TabIndex = 95;
+            this.textBox106.TabIndex = 225;
             // 
             // splitContainer17
             // 
@@ -1976,10 +1976,10 @@
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Items.AddRange(new object[] {
             "A"});
-            this.comboBox4.Location = new System.Drawing.Point(237, 50);
+            this.comboBox4.Location = new System.Drawing.Point(237, 48);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(108, 24);
-            this.comboBox4.TabIndex = 28;
+            this.comboBox4.TabIndex = 245;
             this.comboBox4.Text = "A";
             this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
             // 
@@ -1989,10 +1989,10 @@
             this.comboBox5.FormattingEnabled = true;
             this.comboBox5.Items.AddRange(new object[] {
             "B"});
-            this.comboBox5.Location = new System.Drawing.Point(237, 90);
+            this.comboBox5.Location = new System.Drawing.Point(237, 88);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(108, 24);
-            this.comboBox5.TabIndex = 29;
+            this.comboBox5.TabIndex = 246;
             this.comboBox5.Text = "B";
             this.comboBox5.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
             // 
@@ -2003,10 +2003,10 @@
             this.comboBox3.Items.AddRange(new object[] {
             "可",
             "不可"});
-            this.comboBox3.Location = new System.Drawing.Point(83, 10);
+            this.comboBox3.Location = new System.Drawing.Point(83, 8);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(74, 24);
-            this.comboBox3.TabIndex = 23;
+            this.comboBox3.TabIndex = 240;
             this.comboBox3.Text = "可";
             // 
             // label17
@@ -2037,7 +2037,7 @@
             this.dateTimePicker6.Location = new System.Drawing.Point(83, 46);
             this.dateTimePicker6.Name = "dateTimePicker6";
             this.dateTimePicker6.Size = new System.Drawing.Size(74, 27);
-            this.dateTimePicker6.TabIndex = 24;
+            this.dateTimePicker6.TabIndex = 241;
             // 
             // label19
             // 
@@ -2057,7 +2057,7 @@
             this.dateTimePicker7.Location = new System.Drawing.Point(83, 86);
             this.dateTimePicker7.Name = "dateTimePicker7";
             this.dateTimePicker7.Size = new System.Drawing.Size(74, 27);
-            this.dateTimePicker7.TabIndex = 25;
+            this.dateTimePicker7.TabIndex = 242;
             // 
             // label23
             // 
@@ -2075,7 +2075,7 @@
             this.textBox201.Location = new System.Drawing.Point(83, 126);
             this.textBox201.Name = "textBox201";
             this.textBox201.Size = new System.Drawing.Size(74, 27);
-            this.textBox201.TabIndex = 34;
+            this.textBox201.TabIndex = 243;
             // 
             // label22
             // 
@@ -2093,7 +2093,7 @@
             this.textBox202.Location = new System.Drawing.Point(83, 166);
             this.textBox202.Name = "textBox202";
             this.textBox202.Size = new System.Drawing.Size(74, 27);
-            this.textBox202.TabIndex = 35;
+            this.textBox202.TabIndex = 244;
             // 
             // button9
             // 
@@ -2167,14 +2167,14 @@
             this.dataGridView6.AllowUserToAddRows = false;
             this.dataGridView6.AllowUserToDeleteRows = false;
             this.dataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView6.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView6.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView6.Location = new System.Drawing.Point(0, 0);
             this.dataGridView6.MultiSelect = false;
@@ -2290,7 +2290,7 @@
             this.comboBox6.Items.AddRange(new object[] {
             "製一組",
             "製二組"});
-            this.comboBox6.Location = new System.Drawing.Point(3, 54);
+            this.comboBox6.Location = new System.Drawing.Point(3, 56);
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(154, 24);
             this.comboBox6.TabIndex = 16;
