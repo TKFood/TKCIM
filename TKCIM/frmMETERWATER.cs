@@ -2709,8 +2709,8 @@ namespace TKCIM
 
         private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
         {
-            InitailcomboBox4(comboBox6.Text);
-            InitailcomboBox5(comboBox6.Text);
+            comboBox4load();
+            comboBox5load();
 
             //if (comboBox6.Text.Equals("新廠製一組") || comboBox6.Text.Equals("新廠製二組"))
             //{
@@ -2727,8 +2727,8 @@ namespace TKCIM
         {
             if (comboBox2.Text.Equals("新廠製一組") || comboBox2.Text.Equals("新廠製二組"))
             {
-                comboBox4REload(comboBox2.Text);
-                comboBox5REload(comboBox2.Text);
+                comboBox4load();
+                comboBox5load();
             }
             else
             {
