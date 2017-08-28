@@ -214,7 +214,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "製一組",
             "製二組"});
-            this.comboBox1.Location = new System.Drawing.Point(125, 50);
+            this.comboBox1.Location = new System.Drawing.Point(125, 48);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(172, 24);
             this.comboBox1.TabIndex = 17;
@@ -326,7 +326,7 @@
             this.textBox3.Location = new System.Drawing.Point(123, 46);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(114, 27);
-            this.textBox3.TabIndex = 29;
+            this.textBox3.TabIndex = 111;
             // 
             // textBox4
             // 
@@ -334,7 +334,7 @@
             this.textBox4.Location = new System.Drawing.Point(363, 46);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(148, 27);
-            this.textBox4.TabIndex = 32;
+            this.textBox4.TabIndex = 112;
             // 
             // textBox5
             // 
@@ -342,7 +342,7 @@
             this.textBox5.Location = new System.Drawing.Point(123, 86);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(114, 27);
-            this.textBox5.TabIndex = 33;
+            this.textBox5.TabIndex = 113;
             // 
             // button3
             // 
@@ -432,7 +432,7 @@
             this.textBox6.Location = new System.Drawing.Point(363, 86);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(148, 27);
-            this.textBox6.TabIndex = 43;
+            this.textBox6.TabIndex = 114;
             // 
             // button4
             // 
