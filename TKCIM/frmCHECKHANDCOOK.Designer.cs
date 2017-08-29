@@ -192,7 +192,7 @@
             this.comboBox2.Items.AddRange(new object[] {
             "製一組",
             "製二組"});
-            this.comboBox2.Location = new System.Drawing.Point(85, 50);
+            this.comboBox2.Location = new System.Drawing.Point(85, 48);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(109, 24);
             this.comboBox2.TabIndex = 17;
@@ -300,7 +300,7 @@
             this.textBox1.Location = new System.Drawing.Point(123, 6);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(114, 27);
-            this.textBox1.TabIndex = 30;
+            this.textBox1.TabIndex = 101;
             // 
             // button3
             // 
@@ -331,10 +331,10 @@
             this.comboBox4.Items.AddRange(new object[] {
             "製一組",
             "製二組"});
-            this.comboBox4.Location = new System.Drawing.Point(363, 288);
+            this.comboBox4.Location = new System.Drawing.Point(363, 290);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(114, 24);
-            this.comboBox4.TabIndex = 29;
+            this.comboBox4.TabIndex = 112;
             // 
             // label12
             // 
@@ -353,10 +353,10 @@
             this.comboBox3.Items.AddRange(new object[] {
             "製一組",
             "製二組"});
-            this.comboBox3.Location = new System.Drawing.Point(123, 288);
+            this.comboBox3.Location = new System.Drawing.Point(123, 290);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(114, 24);
-            this.comboBox3.TabIndex = 17;
+            this.comboBox3.TabIndex = 111;
             // 
             // label11
             // 
@@ -385,7 +385,7 @@
             this.textBox7.Location = new System.Drawing.Point(123, 246);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(234, 27);
-            this.textBox7.TabIndex = 36;
+            this.textBox7.TabIndex = 110;
             // 
             // label1
             // 
@@ -405,7 +405,7 @@
             this.dateTimePicker2.Location = new System.Drawing.Point(123, 206);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(114, 27);
-            this.dateTimePicker2.TabIndex = 2;
+            this.dateTimePicker2.TabIndex = 108;
             // 
             // label9
             // 
@@ -425,7 +425,7 @@
             this.dateTimePicker3.Location = new System.Drawing.Point(363, 206);
             this.dateTimePicker3.Name = "dateTimePicker3";
             this.dateTimePicker3.Size = new System.Drawing.Size(114, 27);
-            this.dateTimePicker3.TabIndex = 18;
+            this.dateTimePicker3.TabIndex = 109;
             // 
             // textBox6
             // 
@@ -433,7 +433,7 @@
             this.textBox6.Location = new System.Drawing.Point(363, 166);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(114, 27);
-            this.textBox6.TabIndex = 35;
+            this.textBox6.TabIndex = 107;
             // 
             // label3
             // 
@@ -451,7 +451,7 @@
             this.textBox5.Location = new System.Drawing.Point(123, 166);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(114, 27);
-            this.textBox5.TabIndex = 34;
+            this.textBox5.TabIndex = 106;
             // 
             // label6
             // 
@@ -479,7 +479,7 @@
             this.textBox3.Location = new System.Drawing.Point(123, 126);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(114, 27);
-            this.textBox3.TabIndex = 32;
+            this.textBox3.TabIndex = 104;
             // 
             // label5
             // 
@@ -497,7 +497,7 @@
             this.textBox4.Location = new System.Drawing.Point(363, 126);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(114, 27);
-            this.textBox4.TabIndex = 33;
+            this.textBox4.TabIndex = 105;
             // 
             // textBox2
             // 
@@ -506,7 +506,7 @@
             this.textBox2.Location = new System.Drawing.Point(123, 86);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(234, 27);
-            this.textBox2.TabIndex = 31;
+            this.textBox2.TabIndex = 103;
             // 
             // label8
             // 
@@ -534,7 +534,7 @@
             this.textBox8.Location = new System.Drawing.Point(123, 46);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(114, 27);
-            this.textBox8.TabIndex = 40;
+            this.textBox8.TabIndex = 102;
             // 
             // button4
             // 

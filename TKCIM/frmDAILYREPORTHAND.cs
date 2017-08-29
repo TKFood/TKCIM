@@ -441,6 +441,18 @@ namespace TKCIM
             SEARCHDAILYREPORTHAND();
 
         }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+
         #endregion
 
         #region BUTTON

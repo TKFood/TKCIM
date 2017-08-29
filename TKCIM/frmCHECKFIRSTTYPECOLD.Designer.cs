@@ -185,7 +185,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer3);
             this.splitContainer1.Size = new System.Drawing.Size(970, 703);
             this.splitContainer1.SplitterDistance = 290;
-            this.splitContainer1.TabIndex = 0;
+            this.splitContainer1.TabIndex = 207;
             // 
             // splitContainer2
             // 
@@ -302,7 +302,7 @@
             this.comboBox2.Items.AddRange(new object[] {
             "製一組",
             "製二組"});
-            this.comboBox2.Location = new System.Drawing.Point(83, 80);
+            this.comboBox2.Location = new System.Drawing.Point(83, 78);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(122, 24);
@@ -410,7 +410,7 @@
             this.textBox202.Location = new System.Drawing.Point(243, 33);
             this.textBox202.Name = "textBox202";
             this.textBox202.Size = new System.Drawing.Size(114, 27);
-            this.textBox202.TabIndex = 22;
+            this.textBox202.TabIndex = 102;
             // 
             // textBox201
             // 
@@ -418,7 +418,7 @@
             this.textBox201.Location = new System.Drawing.Point(123, 33);
             this.textBox201.Name = "textBox201";
             this.textBox201.Size = new System.Drawing.Size(114, 27);
-            this.textBox201.TabIndex = 21;
+            this.textBox201.TabIndex = 101;
             // 
             // label4
             // 
@@ -514,7 +514,7 @@
             this.textBox203.Location = new System.Drawing.Point(363, 33);
             this.textBox203.Name = "textBox203";
             this.textBox203.Size = new System.Drawing.Size(114, 27);
-            this.textBox203.TabIndex = 31;
+            this.textBox203.TabIndex = 103;
             // 
             // textBox204
             // 
@@ -522,7 +522,7 @@
             this.textBox204.Location = new System.Drawing.Point(123, 63);
             this.textBox204.Name = "textBox204";
             this.textBox204.Size = new System.Drawing.Size(114, 27);
-            this.textBox204.TabIndex = 30;
+            this.textBox204.TabIndex = 104;
             // 
             // textBox205
             // 
@@ -530,7 +530,7 @@
             this.textBox205.Location = new System.Drawing.Point(243, 63);
             this.textBox205.Name = "textBox205";
             this.textBox205.Size = new System.Drawing.Size(114, 27);
-            this.textBox205.TabIndex = 29;
+            this.textBox205.TabIndex = 105;
             // 
             // textBox206
             // 
@@ -538,7 +538,7 @@
             this.textBox206.Location = new System.Drawing.Point(363, 63);
             this.textBox206.Name = "textBox206";
             this.textBox206.Size = new System.Drawing.Size(114, 27);
-            this.textBox206.TabIndex = 32;
+            this.textBox206.TabIndex = 106;
             // 
             // textBox207
             // 
@@ -546,7 +546,7 @@
             this.textBox207.Location = new System.Drawing.Point(123, 93);
             this.textBox207.Name = "textBox207";
             this.textBox207.Size = new System.Drawing.Size(114, 27);
-            this.textBox207.TabIndex = 33;
+            this.textBox207.TabIndex = 107;
             // 
             // textBox208
             // 
@@ -554,7 +554,7 @@
             this.textBox208.Location = new System.Drawing.Point(243, 93);
             this.textBox208.Name = "textBox208";
             this.textBox208.Size = new System.Drawing.Size(114, 27);
-            this.textBox208.TabIndex = 34;
+            this.textBox208.TabIndex = 108;
             // 
             // textBox209
             // 
@@ -562,7 +562,7 @@
             this.textBox209.Location = new System.Drawing.Point(363, 93);
             this.textBox209.Name = "textBox209";
             this.textBox209.Size = new System.Drawing.Size(114, 27);
-            this.textBox209.TabIndex = 35;
+            this.textBox209.TabIndex = 109;
             // 
             // textBox210
             // 
@@ -570,7 +570,7 @@
             this.textBox210.Location = new System.Drawing.Point(123, 123);
             this.textBox210.Name = "textBox210";
             this.textBox210.Size = new System.Drawing.Size(114, 27);
-            this.textBox210.TabIndex = 36;
+            this.textBox210.TabIndex = 110;
             // 
             // textBox211
             // 
@@ -578,7 +578,7 @@
             this.textBox211.Location = new System.Drawing.Point(243, 123);
             this.textBox211.Name = "textBox211";
             this.textBox211.Size = new System.Drawing.Size(114, 27);
-            this.textBox211.TabIndex = 38;
+            this.textBox211.TabIndex = 111;
             // 
             // textBox212
             // 
@@ -586,7 +586,7 @@
             this.textBox212.Location = new System.Drawing.Point(363, 123);
             this.textBox212.Name = "textBox212";
             this.textBox212.Size = new System.Drawing.Size(114, 27);
-            this.textBox212.TabIndex = 39;
+            this.textBox212.TabIndex = 112;
             // 
             // textBox213
             // 
@@ -594,7 +594,7 @@
             this.textBox213.Location = new System.Drawing.Point(123, 153);
             this.textBox213.Name = "textBox213";
             this.textBox213.Size = new System.Drawing.Size(114, 27);
-            this.textBox213.TabIndex = 40;
+            this.textBox213.TabIndex = 113;
             // 
             // textBox214
             // 
@@ -602,7 +602,7 @@
             this.textBox214.Location = new System.Drawing.Point(243, 153);
             this.textBox214.Name = "textBox214";
             this.textBox214.Size = new System.Drawing.Size(114, 27);
-            this.textBox214.TabIndex = 41;
+            this.textBox214.TabIndex = 114;
             // 
             // textBox215
             // 
@@ -610,7 +610,7 @@
             this.textBox215.Location = new System.Drawing.Point(363, 153);
             this.textBox215.Name = "textBox215";
             this.textBox215.Size = new System.Drawing.Size(114, 27);
-            this.textBox215.TabIndex = 42;
+            this.textBox215.TabIndex = 115;
             // 
             // button2
             // 
@@ -686,7 +686,7 @@
             this.dataGridView4.ReadOnly = true;
             this.dataGridView4.RowTemplate.Height = 24;
             this.dataGridView4.Size = new System.Drawing.Size(966, 87);
-            this.dataGridView4.TabIndex = 9;
+            this.dataGridView4.TabIndex = 2090;
             this.dataGridView4.SelectionChanged += new System.EventHandler(this.dataGridView4_SelectionChanged);
             // 
             // tableLayoutPanel3
@@ -957,7 +957,7 @@
             this.textBox306.Name = "textBox306";
             this.textBox306.ReadOnly = true;
             this.textBox306.Size = new System.Drawing.Size(114, 27);
-            this.textBox306.TabIndex = 46;
+            this.textBox306.TabIndex = 201;
             // 
             // textBox307
             // 
@@ -966,7 +966,7 @@
             this.textBox307.Name = "textBox307";
             this.textBox307.ReadOnly = true;
             this.textBox307.Size = new System.Drawing.Size(114, 27);
-            this.textBox307.TabIndex = 47;
+            this.textBox307.TabIndex = 203;
             // 
             // textBox310
             // 
@@ -974,7 +974,7 @@
             this.textBox310.Location = new System.Drawing.Point(123, 163);
             this.textBox310.Name = "textBox310";
             this.textBox310.Size = new System.Drawing.Size(114, 27);
-            this.textBox310.TabIndex = 50;
+            this.textBox310.TabIndex = 206;
             // 
             // textBox312
             // 
@@ -982,16 +982,16 @@
             this.textBox312.Location = new System.Drawing.Point(123, 193);
             this.textBox312.Name = "textBox312";
             this.textBox312.Size = new System.Drawing.Size(114, 27);
-            this.textBox312.TabIndex = 52;
+            this.textBox312.TabIndex = 210;
             // 
             // comboBox1
             // 
             this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(123, 223);
+            this.comboBox1.Location = new System.Drawing.Point(123, 225);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(114, 24);
-            this.comboBox1.TabIndex = 56;
+            this.comboBox1.TabIndex = 212;
             // 
             // label32
             // 
@@ -1055,10 +1055,10 @@
             this.comboBox5.Items.AddRange(new object[] {
             "正常",
             "不良"});
-            this.comboBox5.Location = new System.Drawing.Point(363, 103);
+            this.comboBox5.Location = new System.Drawing.Point(363, 105);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(114, 24);
-            this.comboBox5.TabIndex = 70;
+            this.comboBox5.TabIndex = 202;
             this.comboBox5.Text = "正常";
             // 
             // textBox308
@@ -1068,7 +1068,7 @@
             this.textBox308.Name = "textBox308";
             this.textBox308.ReadOnly = true;
             this.textBox308.Size = new System.Drawing.Size(114, 27);
-            this.textBox308.TabIndex = 48;
+            this.textBox308.TabIndex = 204;
             // 
             // textBox311
             // 
@@ -1076,7 +1076,7 @@
             this.textBox311.Location = new System.Drawing.Point(363, 163);
             this.textBox311.Name = "textBox311";
             this.textBox311.Size = new System.Drawing.Size(114, 27);
-            this.textBox311.TabIndex = 51;
+            this.textBox311.TabIndex = 207;
             // 
             // comboBox8
             // 
@@ -1085,20 +1085,20 @@
             this.comboBox8.Items.AddRange(new object[] {
             "正常",
             "不良"});
-            this.comboBox8.Location = new System.Drawing.Point(363, 193);
+            this.comboBox8.Location = new System.Drawing.Point(363, 195);
             this.comboBox8.Name = "comboBox8";
             this.comboBox8.Size = new System.Drawing.Size(114, 24);
-            this.comboBox8.TabIndex = 73;
+            this.comboBox8.TabIndex = 211;
             this.comboBox8.Text = "正常";
             // 
             // comboBox3
             // 
             this.comboBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(363, 225);
+            this.comboBox3.Location = new System.Drawing.Point(363, 223);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(114, 24);
-            this.comboBox3.TabIndex = 57;
+            this.comboBox3.TabIndex = 213;
             // 
             // label33
             // 
@@ -1118,7 +1118,7 @@
             this.textBox309.Name = "textBox309";
             this.textBox309.ReadOnly = true;
             this.textBox309.Size = new System.Drawing.Size(114, 27);
-            this.textBox309.TabIndex = 49;
+            this.textBox309.TabIndex = 205;
             // 
             // label30
             // 
@@ -1138,10 +1138,10 @@
             this.comboBox6.Items.AddRange(new object[] {
             "正常",
             "不良"});
-            this.comboBox6.Location = new System.Drawing.Point(603, 163);
+            this.comboBox6.Location = new System.Drawing.Point(603, 165);
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(114, 24);
-            this.comboBox6.TabIndex = 71;
+            this.comboBox6.TabIndex = 208;
             this.comboBox6.Text = "正常";
             // 
             // label24
@@ -1159,10 +1159,10 @@
             // 
             this.comboBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(603, 225);
+            this.comboBox4.Location = new System.Drawing.Point(603, 223);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(114, 24);
-            this.comboBox4.TabIndex = 58;
+            this.comboBox4.TabIndex = 214;
             // 
             // label22
             // 
@@ -1182,10 +1182,10 @@
             this.comboBox7.Items.AddRange(new object[] {
             "正常",
             "不良"});
-            this.comboBox7.Location = new System.Drawing.Point(843, 163);
+            this.comboBox7.Location = new System.Drawing.Point(843, 165);
             this.comboBox7.Name = "comboBox7";
             this.comboBox7.Size = new System.Drawing.Size(120, 24);
-            this.comboBox7.TabIndex = 72;
+            this.comboBox7.TabIndex = 209;
             this.comboBox7.Text = "正常";
             // 
             // button6

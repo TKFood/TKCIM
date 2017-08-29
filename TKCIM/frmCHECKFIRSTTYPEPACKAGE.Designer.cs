@@ -253,7 +253,7 @@
             this.comboBox2.Items.AddRange(new object[] {
             "製一組",
             "製二組"});
-            this.comboBox2.Location = new System.Drawing.Point(95, 145);
+            this.comboBox2.Location = new System.Drawing.Point(95, 143);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(136, 24);
@@ -494,31 +494,31 @@
             // 
             this.comboBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(565, 490);
+            this.comboBox4.Location = new System.Drawing.Point(565, 488);
             this.comboBox4.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(153, 24);
-            this.comboBox4.TabIndex = 58;
+            this.comboBox4.TabIndex = 116;
             // 
             // comboBox3
             // 
             this.comboBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(565, 450);
+            this.comboBox3.Location = new System.Drawing.Point(565, 448);
             this.comboBox3.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(153, 24);
-            this.comboBox3.TabIndex = 57;
+            this.comboBox3.TabIndex = 115;
             // 
             // comboBox1
             // 
             this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(565, 410);
+            this.comboBox1.Location = new System.Drawing.Point(565, 408);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(153, 24);
-            this.comboBox1.TabIndex = 56;
+            this.comboBox1.TabIndex = 114;
             // 
             // label24
             // 
@@ -615,11 +615,11 @@
             this.comboBox6.Items.AddRange(new object[] {
             "生產日期/保質日期",
             "製造日期/有效日期"});
-            this.comboBox6.Location = new System.Drawing.Point(194, 370);
+            this.comboBox6.Location = new System.Drawing.Point(194, 368);
             this.comboBox6.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(180, 24);
-            this.comboBox6.TabIndex = 67;
+            this.comboBox6.TabIndex = 105;
             this.comboBox6.Text = "製造日期/有效日期";
             // 
             // dateTimePicker3
@@ -631,7 +631,7 @@
             this.dateTimePicker3.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.dateTimePicker3.Name = "dateTimePicker3";
             this.dateTimePicker3.Size = new System.Drawing.Size(176, 27);
-            this.dateTimePicker3.TabIndex = 68;
+            this.dateTimePicker3.TabIndex = 106;
             // 
             // dateTimePicker4
             // 
@@ -642,7 +642,7 @@
             this.dateTimePicker4.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.dateTimePicker4.Name = "dateTimePicker4";
             this.dateTimePicker4.Size = new System.Drawing.Size(176, 27);
-            this.dateTimePicker4.TabIndex = 69;
+            this.dateTimePicker4.TabIndex = 107;
             // 
             // comboBox7
             // 
@@ -651,11 +651,11 @@
             this.comboBox7.Items.AddRange(new object[] {
             "OK",
             "NG"});
-            this.comboBox7.Location = new System.Drawing.Point(194, 490);
+            this.comboBox7.Location = new System.Drawing.Point(194, 488);
             this.comboBox7.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox7.Name = "comboBox7";
             this.comboBox7.Size = new System.Drawing.Size(180, 24);
-            this.comboBox7.TabIndex = 70;
+            this.comboBox7.TabIndex = 108;
             this.comboBox7.Text = "OK";
             // 
             // comboBox8
@@ -665,11 +665,11 @@
             this.comboBox8.Items.AddRange(new object[] {
             "OK",
             "NG"});
-            this.comboBox8.Location = new System.Drawing.Point(565, 210);
+            this.comboBox8.Location = new System.Drawing.Point(565, 208);
             this.comboBox8.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox8.Name = "comboBox8";
             this.comboBox8.Size = new System.Drawing.Size(153, 24);
-            this.comboBox8.TabIndex = 71;
+            this.comboBox8.TabIndex = 109;
             this.comboBox8.Text = "OK";
             // 
             // comboBox9
@@ -679,11 +679,11 @@
             this.comboBox9.Items.AddRange(new object[] {
             "OK",
             "NG"});
-            this.comboBox9.Location = new System.Drawing.Point(565, 250);
+            this.comboBox9.Location = new System.Drawing.Point(565, 248);
             this.comboBox9.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox9.Name = "comboBox9";
             this.comboBox9.Size = new System.Drawing.Size(153, 24);
-            this.comboBox9.TabIndex = 72;
+            this.comboBox9.TabIndex = 110;
             this.comboBox9.Text = "OK";
             // 
             // comboBox10
@@ -693,11 +693,11 @@
             this.comboBox10.Items.AddRange(new object[] {
             "OK",
             "NG"});
-            this.comboBox10.Location = new System.Drawing.Point(565, 290);
+            this.comboBox10.Location = new System.Drawing.Point(565, 288);
             this.comboBox10.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox10.Name = "comboBox10";
             this.comboBox10.Size = new System.Drawing.Size(153, 24);
-            this.comboBox10.TabIndex = 73;
+            this.comboBox10.TabIndex = 111;
             this.comboBox10.Text = "OK";
             // 
             // label17
@@ -782,11 +782,11 @@
             "罐",
             "盒",
             "包"});
-            this.comboBox5.Location = new System.Drawing.Point(194, 210);
+            this.comboBox5.Location = new System.Drawing.Point(194, 208);
             this.comboBox5.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(180, 24);
-            this.comboBox5.TabIndex = 66;
+            this.comboBox5.TabIndex = 101;
             this.comboBox5.Text = "罐";
             // 
             // label14
@@ -862,7 +862,7 @@
             this.textBox306.Margin = new System.Windows.Forms.Padding(4);
             this.textBox306.Name = "textBox306";
             this.textBox306.Size = new System.Drawing.Size(180, 27);
-            this.textBox306.TabIndex = 46;
+            this.textBox306.TabIndex = 102;
             // 
             // textBox307
             // 
@@ -871,7 +871,7 @@
             this.textBox307.Margin = new System.Windows.Forms.Padding(4);
             this.textBox307.Name = "textBox307";
             this.textBox307.Size = new System.Drawing.Size(180, 27);
-            this.textBox307.TabIndex = 47;
+            this.textBox307.TabIndex = 103;
             // 
             // textBox308
             // 
@@ -880,7 +880,7 @@
             this.textBox308.Margin = new System.Windows.Forms.Padding(4);
             this.textBox308.Name = "textBox308";
             this.textBox308.Size = new System.Drawing.Size(180, 27);
-            this.textBox308.TabIndex = 48;
+            this.textBox308.TabIndex = 104;
             // 
             // textBox309
             // 
@@ -889,7 +889,7 @@
             this.textBox309.Margin = new System.Windows.Forms.Padding(4);
             this.textBox309.Name = "textBox309";
             this.textBox309.Size = new System.Drawing.Size(153, 27);
-            this.textBox309.TabIndex = 49;
+            this.textBox309.TabIndex = 112;
             // 
             // button2
             // 
@@ -910,11 +910,11 @@
             this.comboBox11.Items.AddRange(new object[] {
             "OK",
             "NG"});
-            this.comboBox11.Location = new System.Drawing.Point(565, 370);
+            this.comboBox11.Location = new System.Drawing.Point(565, 368);
             this.comboBox11.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox11.Name = "comboBox11";
             this.comboBox11.Size = new System.Drawing.Size(153, 24);
-            this.comboBox11.TabIndex = 77;
+            this.comboBox11.TabIndex = 113;
             this.comboBox11.Text = "OK";
             // 
             // tabPage2
