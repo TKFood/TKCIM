@@ -217,7 +217,7 @@
             this.comboBox2.Items.AddRange(new object[] {
             "製一組",
             "製二組"});
-            this.comboBox2.Location = new System.Drawing.Point(171, 50);
+            this.comboBox2.Location = new System.Drawing.Point(171, 48);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(137, 24);
             this.comboBox2.TabIndex = 17;
@@ -411,7 +411,7 @@
             this.textBox5.Location = new System.Drawing.Point(363, 86);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(114, 27);
-            this.textBox5.TabIndex = 31;
+            this.textBox5.TabIndex = 102;
             // 
             // dateTimePicker2
             // 
@@ -421,7 +421,7 @@
             this.dateTimePicker2.Location = new System.Drawing.Point(123, 86);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(114, 27);
-            this.dateTimePicker2.TabIndex = 37;
+            this.dateTimePicker2.TabIndex = 101;
             // 
             // label19
             // 
@@ -447,19 +447,19 @@
             // 
             this.comboBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(123, 130);
+            this.comboBox3.Location = new System.Drawing.Point(123, 128);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(114, 24);
-            this.comboBox3.TabIndex = 40;
+            this.comboBox3.TabIndex = 103;
             // 
             // comboBox4
             // 
             this.comboBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(363, 130);
+            this.comboBox4.Location = new System.Drawing.Point(363, 128);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(114, 24);
-            this.comboBox4.TabIndex = 41;
+            this.comboBox4.TabIndex = 104;
             // 
             // button3
             // 

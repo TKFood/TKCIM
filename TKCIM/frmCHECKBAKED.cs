@@ -73,6 +73,16 @@ namespace TKCIM
             
         }
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
         #region FUNCTION
         public void comboBox2load()
         {
@@ -246,6 +256,7 @@ namespace TKCIM
                     textBox2.Text = row.Cells["單號"].Value.ToString();
                     textBox3.Text = row.Cells["品號"].Value.ToString();
                     textBox4.Text = row.Cells["品名"].Value.ToString();
+                    textBox21.Text = row.Cells["品名"].Value.ToString();
                     TARGETPROTA001 = row.Cells["單別"].Value.ToString();
                     TARGETPROTA002 = row.Cells["單號"].Value.ToString();
 
