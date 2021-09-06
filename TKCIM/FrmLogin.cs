@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Reflection;
+using TKITDLL;
 
 namespace TKCIM
 {
@@ -45,11 +46,20 @@ namespace TKCIM
             }
             try
             {
+                //20210902密
+                Class1 TKID = new Class1();//用new 建立類別實體
+                SqlConnectionStringBuilder sqlsb = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString);
+
+                //資料庫使用者密碼解密
+                sqlsb.Password = TKID.Decryption(sqlsb.Password);
+                sqlsb.UserID = TKID.Decryption(sqlsb.UserID);
+
+                String connectionString;               
+
                 //Create SqlConnection
-                String connectionString;
                 SqlConnection conn;
-                connectionString = ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString;
-                conn = new SqlConnection(connectionString);
+                conn = new SqlConnection(sqlsb.ConnectionString);
+
                 SqlCommand cmd = new SqlCommand("Select * from MNU_Login where UserName=@username and Password=@password", conn);
                 cmd.Parameters.AddWithValue("@username", txt_UserName.Text);
                 cmd.Parameters.AddWithValue("@password", txt_Password.Text);
