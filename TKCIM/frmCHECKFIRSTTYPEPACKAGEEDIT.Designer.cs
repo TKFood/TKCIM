@@ -497,7 +497,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "OK",
             "NG"});
-            this.comboBox1.Location = new System.Drawing.Point(418, 210);
+            this.comboBox1.Location = new System.Drawing.Point(418, 208);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(117, 24);
             this.comboBox1.TabIndex = 132;
@@ -574,7 +574,7 @@
             this.comboBox5.Items.AddRange(new object[] {
             "OK",
             "NG"});
-            this.comboBox5.Location = new System.Drawing.Point(418, 288);
+            this.comboBox5.Location = new System.Drawing.Point(418, 290);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(117, 24);
             this.comboBox5.TabIndex = 158;
@@ -628,7 +628,7 @@
             // 
             this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(418, 330);
+            this.comboBox2.Location = new System.Drawing.Point(418, 328);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(117, 24);
             this.comboBox2.TabIndex = 154;
@@ -637,7 +637,7 @@
             // 
             this.comboBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(418, 370);
+            this.comboBox3.Location = new System.Drawing.Point(418, 368);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(117, 24);
             this.comboBox3.TabIndex = 155;
@@ -657,7 +657,7 @@
             // 
             this.comboBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(418, 410);
+            this.comboBox4.Location = new System.Drawing.Point(418, 408);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(117, 24);
             this.comboBox4.TabIndex = 156;
@@ -667,7 +667,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 26);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(976, 709);
+            this.tabPage2.Size = new System.Drawing.Size(976, 672);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
