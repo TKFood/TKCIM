@@ -119,7 +119,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1114, 739);
+            this.tabControl1.Size = new System.Drawing.Size(1114, 702);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -129,7 +129,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(1106, 709);
+            this.tabPage1.Size = new System.Drawing.Size(1106, 672);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -149,7 +149,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer3);
-            this.splitContainer1.Size = new System.Drawing.Size(1098, 701);
+            this.splitContainer1.Size = new System.Drawing.Size(1098, 664);
             this.splitContainer1.SplitterDistance = 366;
             this.splitContainer1.SplitterWidth = 6;
             this.splitContainer1.TabIndex = 0;
@@ -170,8 +170,8 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.dataGridView1);
-            this.splitContainer2.Size = new System.Drawing.Size(366, 701);
-            this.splitContainer2.SplitterDistance = 190;
+            this.splitContainer2.Size = new System.Drawing.Size(366, 664);
+            this.splitContainer2.SplitterDistance = 179;
             this.splitContainer2.SplitterWidth = 5;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -198,14 +198,14 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(362, 186);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(362, 175);
             this.tableLayoutPanel2.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 147);
+            this.label3.Location = new System.Drawing.Point(6, 137);
             this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 16);
@@ -217,7 +217,7 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.tableLayoutPanel2.SetColumnSpan(this.label1, 2);
-            this.label1.Location = new System.Drawing.Point(6, 23);
+            this.label1.Location = new System.Drawing.Point(6, 21);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(225, 16);
@@ -228,7 +228,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 85);
+            this.label2.Location = new System.Drawing.Point(6, 79);
             this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 16);
@@ -240,7 +240,7 @@
             this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePicker1.CustomFormat = "yyyy/MM/dd";
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(95, 79);
+            this.dateTimePicker1.Location = new System.Drawing.Point(95, 73);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(136, 27);
@@ -253,7 +253,7 @@
             this.comboBox2.Items.AddRange(new object[] {
             "製一組",
             "製二組"});
-            this.comboBox2.Location = new System.Drawing.Point(95, 143);
+            this.comboBox2.Location = new System.Drawing.Point(95, 135);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(136, 24);
@@ -262,7 +262,7 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(243, 131);
+            this.button1.Location = new System.Drawing.Point(243, 122);
             this.button1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(81, 47);
@@ -283,7 +283,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(362, 502);
+            this.dataGridView1.Size = new System.Drawing.Size(362, 476);
             this.dataGridView1.TabIndex = 6;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
@@ -303,8 +303,8 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.tableLayoutPanel3);
-            this.splitContainer3.Size = new System.Drawing.Size(726, 701);
-            this.splitContainer3.SplitterDistance = 111;
+            this.splitContainer3.Size = new System.Drawing.Size(726, 664);
+            this.splitContainer3.SplitterDistance = 105;
             this.splitContainer3.SplitterWidth = 5;
             this.splitContainer3.TabIndex = 0;
             // 
@@ -320,7 +320,7 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(722, 107);
+            this.dataGridView2.Size = new System.Drawing.Size(722, 101);
             this.dataGridView2.TabIndex = 6;
             this.dataGridView2.SelectionChanged += new System.EventHandler(this.dataGridView2_SelectionChanged);
             // 
@@ -397,7 +397,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(722, 581);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(722, 550);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // button3
@@ -494,7 +494,7 @@
             // 
             this.comboBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(565, 488);
+            this.comboBox4.Location = new System.Drawing.Point(565, 490);
             this.comboBox4.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(153, 24);
@@ -504,7 +504,7 @@
             // 
             this.comboBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(565, 448);
+            this.comboBox3.Location = new System.Drawing.Point(565, 450);
             this.comboBox3.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(153, 24);
@@ -514,7 +514,7 @@
             // 
             this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(565, 408);
+            this.comboBox1.Location = new System.Drawing.Point(565, 410);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(153, 24);
@@ -615,7 +615,7 @@
             this.comboBox6.Items.AddRange(new object[] {
             "生產日期/保質日期",
             "製造日期/有效日期"});
-            this.comboBox6.Location = new System.Drawing.Point(194, 368);
+            this.comboBox6.Location = new System.Drawing.Point(194, 370);
             this.comboBox6.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(180, 24);
@@ -651,7 +651,7 @@
             this.comboBox7.Items.AddRange(new object[] {
             "OK",
             "NG"});
-            this.comboBox7.Location = new System.Drawing.Point(194, 488);
+            this.comboBox7.Location = new System.Drawing.Point(194, 490);
             this.comboBox7.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox7.Name = "comboBox7";
             this.comboBox7.Size = new System.Drawing.Size(180, 24);
@@ -665,7 +665,7 @@
             this.comboBox8.Items.AddRange(new object[] {
             "OK",
             "NG"});
-            this.comboBox8.Location = new System.Drawing.Point(565, 208);
+            this.comboBox8.Location = new System.Drawing.Point(565, 210);
             this.comboBox8.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox8.Name = "comboBox8";
             this.comboBox8.Size = new System.Drawing.Size(153, 24);
@@ -679,7 +679,7 @@
             this.comboBox9.Items.AddRange(new object[] {
             "OK",
             "NG"});
-            this.comboBox9.Location = new System.Drawing.Point(565, 248);
+            this.comboBox9.Location = new System.Drawing.Point(565, 250);
             this.comboBox9.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox9.Name = "comboBox9";
             this.comboBox9.Size = new System.Drawing.Size(153, 24);
@@ -693,7 +693,7 @@
             this.comboBox10.Items.AddRange(new object[] {
             "OK",
             "NG"});
-            this.comboBox10.Location = new System.Drawing.Point(565, 288);
+            this.comboBox10.Location = new System.Drawing.Point(565, 290);
             this.comboBox10.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox10.Name = "comboBox10";
             this.comboBox10.Size = new System.Drawing.Size(153, 24);
@@ -782,7 +782,7 @@
             "罐",
             "盒",
             "包"});
-            this.comboBox5.Location = new System.Drawing.Point(194, 208);
+            this.comboBox5.Location = new System.Drawing.Point(194, 210);
             this.comboBox5.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(180, 24);
@@ -910,7 +910,7 @@
             this.comboBox11.Items.AddRange(new object[] {
             "OK",
             "NG"});
-            this.comboBox11.Location = new System.Drawing.Point(565, 368);
+            this.comboBox11.Location = new System.Drawing.Point(565, 370);
             this.comboBox11.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox11.Name = "comboBox11";
             this.comboBox11.Size = new System.Drawing.Size(153, 24);
@@ -932,7 +932,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1114, 739);
+            this.ClientSize = new System.Drawing.Size(1114, 702);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.Margin = new System.Windows.Forms.Padding(4);

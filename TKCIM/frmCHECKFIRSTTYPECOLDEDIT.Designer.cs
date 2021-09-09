@@ -88,7 +88,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(984, 739);
+            this.tabControl1.Size = new System.Drawing.Size(984, 702);
             this.tabControl1.TabIndex = 6;
             // 
             // tabPage1
@@ -97,7 +97,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 26);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(976, 709);
+            this.tabPage1.Size = new System.Drawing.Size(976, 672);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -181,7 +181,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(970, 703);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(970, 666);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // label4
@@ -499,7 +499,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "OK",
             "NG"});
-            this.comboBox1.Location = new System.Drawing.Point(418, 130);
+            this.comboBox1.Location = new System.Drawing.Point(418, 128);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(117, 24);
             this.comboBox1.TabIndex = 132;
@@ -534,7 +534,7 @@
             this.comboBox5.Items.AddRange(new object[] {
             "OK",
             "NG"});
-            this.comboBox5.Location = new System.Drawing.Point(418, 208);
+            this.comboBox5.Location = new System.Drawing.Point(418, 210);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(117, 24);
             this.comboBox5.TabIndex = 158;
@@ -555,7 +555,7 @@
             // 
             this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(418, 250);
+            this.comboBox2.Location = new System.Drawing.Point(418, 248);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(117, 24);
             this.comboBox2.TabIndex = 154;
@@ -586,7 +586,7 @@
             // 
             this.comboBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(418, 290);
+            this.comboBox3.Location = new System.Drawing.Point(418, 288);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(117, 24);
             this.comboBox3.TabIndex = 155;
@@ -595,7 +595,7 @@
             // 
             this.comboBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(418, 330);
+            this.comboBox4.Location = new System.Drawing.Point(418, 328);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(117, 24);
             this.comboBox4.TabIndex = 156;
@@ -630,7 +630,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 739);
+            this.ClientSize = new System.Drawing.Size(984, 702);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.Margin = new System.Windows.Forms.Padding(4);
